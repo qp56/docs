@@ -47,10 +47,12 @@
       ]
     },
     {
-      "group": "essentials",
+      "group": "Essentials",
       "pages": [
         "essentials/code",
-        "essentials/images"
+        "essentials/images",
+        "essentials/markdown",
+        "essentials/navigation"
       ]
     }
   ],
