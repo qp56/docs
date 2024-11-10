@@ -1,37 +1,32 @@
 ---
-title: 'Code Blocks'
-description: 'Display inline code and code blocks'
-icon: 'code'
+title: "Interactive Playground"
+description: "Enable users to interact with your API."
 ---
 
-## Basic
+# Interactive Playground
 
-### Inline Code 
+Enable users to interact with your API and make test requests.
 
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
+---
 
-```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+## GET /notarization/{id}
 
-### Code Block
+The following endpoint retrieves the details of a specific notarization case.
 
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language. 
+### Authorization
+| Name            | Type    | Required | Description                |
+|------------------|---------|----------|----------------------------|
+| Authorization    | string  | required | Bearer token for access.   |
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
+### Path Parameters
+| Parameter | Type   | Required | Description              |
+|-----------|--------|----------|--------------------------|
+| `id`      | string | required | The unique ID of the notarization. |
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-````
+---
+
+## Example cURL Request
+```bash
+curl --request GET \
+  --url https://api.platus.com/notarization/{id} \
+  --header 'Authorization: Bearer <token>'
