@@ -1,25 +1,64 @@
-"navigation": [
-  {
-    "group": "Get Started",
-    "pages": [
-      "introduction",
-      "quickstart"
-    ]
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Platus API Docs",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
   },
-  {
-    "group": "Webhooks",
-    "pages": [
-      "webhooks/introduction",
-      "webhooks/notarization-completed"
-    ]
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
   },
-  {
-    "group": "Endpoints",
-    "pages": [
-      "endpoints/contacts-create",
-      "endpoints/contacts-retrieve",
-      "endpoints/documents-upload",
-      "endpoints/documents-retrieve"
-    ]
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@platus.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://dashboard.platus.com"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart"
+      ]
+    },
+    {
+      "group": "Webhooks",
+      "pages": [
+        "webhooks/introduction",
+        "webhooks/notarization-completed"
+      ]
+    },
+    {
+      "group": "Endpoints",
+      "pages": [
+        "endpoints/contacts-create",
+        "endpoints/contacts-retrieve",
+        "endpoints/documents-upload",
+        "endpoints/documents-retrieve"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/platus",
+    "github": "https://github.com/platus",
+    "linkedin": "https://linkedin.com/company/platus"
   }
-]
+}
