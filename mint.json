@@ -49,16 +49,16 @@
     {
       "group": "Endpoints",
       "pages": [
-        "endpoints/contacts-create",
-        "endpoints/contacts-retrieve",
-        "endpoints/documents-upload",
-        "endpoints/documents-retrieve"
+        "api-reference/endpoint/contacts-create",
+        "api-reference/endpoint/contacts-retrieve",
+        "api-reference/endpoint/documents-upload",
+        "api-reference/endpoint/documents-retrieve"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/platus",
-    "github": "https://github.com/platus",
-    "linkedin": "https://linkedin.com/company/platus"
+    "x": "https://x.com/platus-inc",
+    "github": "https://github.com/platus-inc",
+    "linkedin": "https://linkedin.com/company/platus-inc"
   }
 }
