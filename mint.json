@@ -49,32 +49,10 @@
     {
       "group": "Endpoints",
       "pages": [
-        {
-          "title": "Contacts",
-          "nested": [
-            {
-              "title": "Create Contact",
-              "path": "endpoints/contacts/create-contact"
-            },
-            {
-              "title": "Retrieve Contact",
-              "path": "endpoints/contacts/retrieve-contact"
-            }
-          ]
-        },
-        {
-          "title": "Documents",
-          "nested": [
-            {
-              "title": "Upload Document",
-              "path": "endpoints/documents/upload-document"
-            },
-            {
-              "title": "Retrieve Document",
-              "path": "endpoints/documents/retrieve-document"
-            }
-          ]
-        }
+        "endpoints/contacts-create",
+        "endpoints/contacts-retrieve",
+        "endpoints/documents-upload",
+        "endpoints/documents-retrieve"
       ]
     }
   ],
