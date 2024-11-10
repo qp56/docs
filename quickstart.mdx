@@ -1,86 +1,48 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: Webhooks
+description: "Learn how to handle Platus webhook events"
 ---
 
-## Setup your development
+## API Reference  
+### Webhooks  
 
-Learn how to update your docs locally and deploy them to the public.
+Webhooks are like having a helpful assistant who proactively notifies your application when important notarization events occur. Instead of repeatedly asking, “Has the notarization been completed?”, webhooks automatically tap your application on the shoulder when it happens.
 
-### Edit and preview
+### Why use webhooks?
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+- **Real-time updates**: Get instant notifications when notarization events are completed.  
+- **Automation friendly**: Perfect for integrating notarization workflows seamlessly.  
+- **Efficient**: No need to constantly poll the API for updates.  
+- **Reliable**: Never miss an important event, even if your system is temporarily down.  
 
-### Deploy your changes
+---
 
-<AccordionGroup>
+### Getting started  
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+To start receiving webhooks from Platus, follow these steps:  
 
-</AccordionGroup>
+1. Set up a publicly accessible HTTPS endpoint on your server.  
+2. Register your webhook URL with Platus (via your dashboard or API).  
+3. Implement a handler to process the `notarization.completed` event.  
 
-## Update your docs
+**Pro tip**: While not required, we highly recommend validating webhook signatures to ensure that the events originate from Platus.
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+---
 
-<CardGroup>
+### Webhook payload example  
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
+Here’s an example of the webhook payload you’ll receive for a completed notarization:  
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
-
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
-
-</CardGroup>
+```json
+{
+  "webhook_id": "webhook_abcdef123456",
+  "event": "notarization.completed",   
+  "timestamp": "2024-10-18T12:00:00Z",
+  "case": "notarization", 
+  "case_id": "evt_123456",
+  "document_id": "doc_123456",
+  "document_url": "https://api.platus.com/documents/document123456.pdf",
+  "document_hash": "sha256:a1b2c3d4e5f6...",
+  "client_reference": "REF-2024-001",
+  "client_postback_url": "https://client-domain.com/webhook-endpoint"
+}
