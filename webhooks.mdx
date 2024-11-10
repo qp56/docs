@@ -1,0 +1,71 @@
+---
+title: Webhooks
+description: "Learn how to handle Platus webhook events"
+---
+
+## API Reference  
+### Webhooks  
+
+Webhooks are like having a helpful assistant who proactively notifies your application when important notarization events occur. Instead of repeatedly asking, “Has the notarization been completed?”, webhooks automatically tap your application on the shoulder when it happens.
+
+### Why use webhooks?
+
+- **Real-time updates**: Get instant notifications when notarization events are completed.  
+- **Automation friendly**: Perfect for integrating notarization workflows seamlessly.  
+- **Efficient**: No need to constantly poll the API for updates.  
+- **Reliable**: Never miss an important event, even if your system is temporarily down.  
+
+---
+
+### Getting started  
+
+To start receiving webhooks from Platus, follow these steps:  
+
+1. Set up a publicly accessible HTTPS endpoint on your server.  
+2. Register your webhook URL with Platus (via your dashboard under `/webhooks`).  
+3. Implement a handler to process the `notarization.completed` event.  
+
+
+<Tip>
+**Tip**: While not required, we highly recommend validating webhook signatures to ensure that the events originate from Platus.
+</Tip>
+
+---
+
+### Webhook payload example  
+
+Here’s an example of the webhook payload you’ll receive for a completed notarization:  
+
+```json
+{
+  "webhook_id": "webhook_abcdef123456",
+  "event": "notarization.completed",   
+  "timestamp": "2024-10-18T12:00:00Z",
+  "case": "notarization", 
+  "case_id": "evt_123456",
+  "document_id": "doc_123456",
+  "document_url": "https://api.platus.com/documents/document123456.pdf",
+  "document_hash": "sha256:a1b2c3d4e5f6...",
+  "client_reference": "REF-2024-001",
+  "client_postback_url": "https://client-domain.com/webhook-endpoint"
+}
+```
+
+## Webhook delivery & retries  
+
+When your server receives a webhook, it’s like getting a handshake from Platus. To confirm you received it:  
+
+- Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.  
+- If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.  
+
+## Best practices  
+
+Handle Platus webhooks like a pro by following these best practices:  
+
+- **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn’t cause unintended effects.  
+- **Validate webhook signatures**: Verify the event’s authenticity to ensure it originates from Platus.  
+- **Respond quickly**: Acknowledge receipt promptly to prevent retries.  
+
+## Need help?  
+
+If you have any questions or need assistance, feel free to contact us at [support@platus.com](mailto:support@platus.com).  
