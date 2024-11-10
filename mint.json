@@ -47,12 +47,10 @@
       ]
     },
     {
-      "group": "Endpoints",
+      "group": "essentials",
       "pages": [
-        "api-reference/endpoint/contacts-create",
-        "api-reference/endpoint/contacts-retrieve",
-        "api-reference/endpoint/documents-upload",
-        "api-reference/endpoint/documents-retrieve"
+        "essentials/code",
+        "essentials/images"
       ]
     }
   ],
