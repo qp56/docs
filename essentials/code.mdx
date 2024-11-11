@@ -91,7 +91,7 @@ description: "This endpoint creates a notarization request for a document"
 </ResponseField>
 
 <ResponseField name="notarization_url" type="string">
-  A unique URL where the signer can complete the notarization process. This URL is valid for 7 days. Example: "https://app.platus.com/notarize/not-2024-abc123"
+  A unique URL where the signer can complete the notarization process. This URL is valid for 7 days. Example: "https://api.platus.com/notarize/not-2024-abc123"
 </ResponseField>
 
 <ResponseField name="expires_at" type="string">
@@ -164,7 +164,7 @@ description: "This endpoint creates a notarization request for a document"
 
 <RequestExample>
 ```bash
-curl --location --request POST 'https://app.platus.com/api/notarization' \
+curl --location --request POST 'https://api.platus.com/v1/notarization' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
 --data-raw '{
