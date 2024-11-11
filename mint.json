@@ -49,10 +49,8 @@
     {
       "group": "API Reference",
       "pages": [
-        "essentials/code",
-        "essentials/images",
-        "essentials/markdown",
-        "essentials/navigation"
+        "api/post",
+        "api/get"
       ]
     }
   ],
