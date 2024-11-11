@@ -1,32 +1,97 @@
 ---
-title: "Interactive Playground"
-description: "Enable users to interact with your API."
+title: "Create Notarization"
+description: "Interactive playground for the POST /notarization API endpoint."
 ---
 
 # Interactive Playground
 
-Enable users to interact with your API and make test requests.
+Enable users to interact with the `POST /notarization` endpoint and preview its functionality.
 
 ---
 
-## GET /notarization/{id}
+## POST /notarization
 
-The following endpoint retrieves the details of a specific notarization case.
+Creates a new notarization case for a document.
 
-### Authorization
-| Name            | Type    | Required | Description                |
-|------------------|---------|----------|----------------------------|
-| Authorization    | string  | required | Bearer token for access.   |
+### Try it out
 
-### Path Parameters
-| Parameter | Type   | Required | Description              |
-|-----------|--------|----------|--------------------------|
-| `id`      | string | required | The unique ID of the notarization. |
+<div className="playground">
+  <div className="request">
+    <div>
+      <strong>Authorization</strong>
+      <input type="text" placeholder="Bearer <token>" className="input"/>
+    </div>
+    <div>
+      <strong>Request Body</strong>
+      <textarea className="textarea" placeholder='{
+        "jurisdiction": "US",
+        "state": "CA",
+        "documents": [
+          {
+            "document_type": "Power of Attorney",
+            "document_file": {
+              "type": "url",
+              "url": "https://example.com/document.pdf"
+            },
+            "is_already_signed": false,
+            "signers": [
+              {
+                "email": "signer@example.com",
+                "first_name": "John",
+                "last_name": "Doe"
+              }
+            ]
+          }
+        ]
+      }'></textarea>
+    </div>
+    <button className="btn">Send</button>
+  </div>
+  <div className="response">
+    <strong>Response</strong>
+    <pre>
+      {
+        `"case_id": "case_123456",
+        "status": "created",
+        "documents": [
+          {
+            "document_id": "doc_123456",
+            "document_type": "Power of Attorney"
+          }
+        ]`
+      }
+    </pre>
+  </div>
+</div>
 
 ---
 
-## Example cURL Request
+## Example Request
+
+### cURL Request
 ```bash
-curl --request GET \
-  --url https://api.platus.com/notarization/{id} \
-  --header 'Authorization: Bearer <token>'
+curl --request POST \
+  --url https://api.platus.com/notarization \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "jurisdiction": "US",
+    "state": "CA",
+    "documents": [
+      {
+        "document_type": "Power of Attorney",
+        "document_file": {
+          "type": "url",
+          "url": "https://example.com/document.pdf"
+        },
+        "is_already_signed": false,
+        "signers": [
+          {
+            "email": "signer@example.com",
+            "first_name": "John",
+            "last_name": "Doe"
+          }
+        ]
+      }
+    ]
+  }'
