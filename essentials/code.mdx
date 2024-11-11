@@ -1,97 +1,84 @@
 ---
-title: "Create Notarization"
-description: "Interactive playground for the POST /notarization API endpoint."
+title: "Create User"
+api: "POST https://api.mintlify.com/api/user"
+description: "This endpoint creates a new user"
 ---
 
-# Interactive Playground
+### Body
 
-Enable users to interact with the `POST /notarization` endpoint and preview its functionality.
+<ParamField body="current_token" type="string">
+  This is the current user group token you have for the user group that you want
+  to rotate.
+</ParamField>
 
----
+### Response
 
-## POST /notarization
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
 
-Creates a new notarization case for a document.
+<ResponseField name="user_group" type="object">
 
-### Try it out
+The contents of the user group
 
-<div className="playground">
-  <div className="request">
-    <div>
-      <strong>Authorization</strong>
-      <input type="text" placeholder="Bearer <token>" className="input"/>
-    </div>
-    <div>
-      <strong>Request Body</strong>
-      <textarea className="textarea" placeholder='{
-        "jurisdiction": "US",
-        "state": "CA",
-        "documents": [
-          {
-            "document_type": "Power of Attorney",
-            "document_file": {
-              "type": "url",
-              "url": "https://example.com/document.pdf"
-            },
-            "is_already_signed": false,
-            "signers": [
-              {
-                "email": "signer@example.com",
-                "first_name": "John",
-                "last_name": "Doe"
-              }
-            ]
-          }
-        ]
-      }'></textarea>
-    </div>
-    <button className="btn">Send</button>
-  </div>
-  <div className="response">
-    <strong>Response</strong>
-    <pre>
-      {
-        `"case_id": "case_123456",
-        "status": "created",
-        "documents": [
-          {
-            "document_id": "doc_123456",
-            "document_type": "Power of Attorney"
-          }
-        ]`
-      }
-    </pre>
-  </div>
-</div>
+<Expandable title="Toggle object">
 
----
+<ResponseField name="team_id" type="number">
+  This is the internal ID for this user group. You don't need to record this
+  information, since you will not need to use it.
+</ResponseField>
 
-## Example Request
+<ResponseField name="token" type="string">
+  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
+  used to identify which user group is viewing the dashboard. You should save
+  this on your end to use when rendering an embedded dashboard.
+</ResponseField>
 
-### cURL Request
-```bash
-curl --request POST \
-  --url https://api.platus.com/notarization \
-  --header 'Authorization: Bearer <token>' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "jurisdiction": "US",
-    "state": "CA",
-    "documents": [
-      {
-        "document_type": "Power of Attorney",
-        "document_file": {
-          "type": "url",
-          "url": "https://example.com/document.pdf"
-        },
-        "is_already_signed": false,
-        "signers": [
-          {
-            "email": "signer@example.com",
-            "first_name": "John",
-            "last_name": "Doe"
-          }
-        ]
-      }
-    ]
-  }'
+<ResponseField name="name" type="string">
+  This is the name of the user group provided in the request body.
+</ResponseField>
+
+<ResponseField name="provided_id" type="string">
+  This is the user_group_id provided in the request body.
+</ResponseField>
+
+<ResponseField name="api_environment_tag" type="JSON or null">
+  This is the environment tag of the user group. Possible values are 'Customer'
+  and 'Testing'. User group id's must be unique to each environment, so you can
+  not create multiple user groups with with same id. If you have a production
+  customer and a test user group with the same id, you will be required to label
+  one as 'Customer' and another as 'Testing'
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api.mintlify.com/api/user' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "current_token": ""
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": 1,
+  "user_group": {
+    "team_id": 3,
+    "token": "<user_group_token_to_auth_dashboard>",
+    "name": "Example 1",
+    "provided_id": "example_1"
+  }
+}
+```
+
+</ResponseExample>
