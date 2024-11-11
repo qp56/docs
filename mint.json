@@ -56,8 +56,8 @@
     {
       "group": "Webhooks",
       "pages": [
-        "essentials/code",
-        "essentials/images"
+        "webhooks/notarization.completed",
+        "webhooks/images"
       ]
     }
   ],
