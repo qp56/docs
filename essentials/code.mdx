@@ -64,20 +64,28 @@ description: "This endpoint creates a notarization request for a document"
 
 <Expandable title="Toggle Signer Details">
 
-<ResponseField name="email" type="string">
+<ResponseField name="email" type="string" required>
   Email address of the signer.
 </ResponseField>
 
-<ResponseField name="first_name" type="string">
+<ResponseField name="first_name" type="string" required>
   First name of the signer.
 </ResponseField>
 
-<ResponseField name="last_name" type="string">
+<ResponseField name="last_name" type="string" required>
   Last name of the signer.
 </ResponseField>
 
 <ResponseField name="date_of_birth" type="string">
   Date of birth of the signer in YYYY-MM-DD format.
+</ResponseField>
+
+<ResponseField name="middle_name" type="string">
+  Middle name of the signer (optional).
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  Phone number of the signer (optional).
 </ResponseField>
 
 <ResponseField name="labels" type="array">
