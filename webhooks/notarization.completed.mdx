@@ -91,24 +91,8 @@ Handle Platus webhooks like a pro by following these best practices:
 - **Validate webhook signatures**: Verify the event's authenticity to ensure it originates from Platus.
 - **Respond quickly**: Acknowledge receipt promptly to prevent retries.
 
-### Security
 
-All webhook requests include a signature in the `X-Platus-Signature` header. This signature is a HMAC SHA-256 hash of the raw request body using your webhook secret. Here's how to verify it:
-
-```python
-import hmac
-import hashlib
-
-def verify_webhook_signature(payload_body, signature_header, webhook_secret):
-    expected_signature = hmac.new(
-        webhook_secret.encode('utf-8'),
-        payload_body.encode('utf-8'),
-        hashlib.sha256
-    ).hexdigest()
-    
-    return hmac.compare_digest(expected_signature, signature_header)
-```
 
 ### Need Help?
 
-If you have any questions or need assistance, feel free to contact us at [support@platus.com](mailto:team@platus.com).
+If you have any questions or need assistance, feel free to contact us at [team@platus.com](mailto:team@platus.com).
