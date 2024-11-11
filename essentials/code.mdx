@@ -90,7 +90,7 @@ description: "This endpoint creates a notarization request for a document"
   The current status of the notarization request. Possible values: "created", "processing", "completed"
 </ResponseField>
 
-<ResponseField name="notarization_url" type="string">
+<ResponseField name="url" type="string">
   A unique URL where the signer can complete the notarization process. This URL is valid for 7 days. Example: "https://api.platus.com/notarize/not-2024-abc123"
 </ResponseField>
 
@@ -163,70 +163,70 @@ description: "This endpoint creates a notarization request for a document"
 ```
 
 <RequestExample>
-```bash
-curl --location --request POST 'https://api.platus.com/v1/notarization' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer <token>' \
---data-raw '{
-    "jurisdiction": "US",
-    "state": "CA",
-    "documents": [
-        {
-            "document_type": "Power of Attorney",
-            "document_file": {
-                "type": "url",
-                "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
-            },
-            "is_already_signed": false,
-            "signers": [
-                {
-                    "email": "signer1@example.com",
-                    "first_name": "John",
-                    "middle_name": "Andreas",
-                    "last_name": "Doe",
-                    "date_of_birth": "1985-07-10",
-                    "phone": "+49123456789",
-                    "signed": false,
-                    "verified": false,
-                    "labels": [
-                        {
-                            "type": "signature",
-                            "autodetection": "enabled"
-                        },
-                        {
-                            "type": "location_and_date",
-                            "autodetection": false,
-                            "page": 3,
-                            "x_position": 396.418,
-                            "y_position": 553.625,
-                            "width": 270,
-                            "height": 54
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "client_reference": "REF-2024-001",
-    "client_postback_url": "https://client-domain.com/webhook-endpoint"
-}'
-```
+  ```bash
+  curl --location --request POST 'https://api.platus.com/v1/notarization' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer <token>' \
+  --data-raw '{
+      "jurisdiction": "US",
+      "state": "CA",
+      "documents": [
+          {
+              "document_type": "Power of Attorney",
+              "document_file": {
+                  "type": "url",
+                  "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
+              },
+              "is_already_signed": false,
+              "signers": [
+                  {
+                      "email": "signer1@example.com",
+                      "first_name": "John",
+                      "middle_name": "Andreas",
+                      "last_name": "Doe",
+                      "date_of_birth": "1985-07-10",
+                      "phone": "+49123456789",
+                      "signed": false,
+                      "verified": false,
+                      "labels": [
+                          {
+                              "type": "signature",
+                              "autodetection": "enabled"
+                          },
+                          {
+                              "type": "location_and_date",
+                              "autodetection": false,
+                              "page": 3,
+                              "x_position": 396.418,
+                              "y_position": 553.625,
+                              "width": 270,
+                              "height": 54
+                          }
+                      ]
+                  }
+              ]
+          }
+      ],
+      "client_reference": "REF-2024-001",
+      "client_postback_url": "https://client-domain.com/webhook-endpoint"
+  }'
+  ```
 </RequestExample>
 
 <ResponseExample>
-```json
-{
-    "case_id": "not-2024-abc123",
-    "status": "created",
-    "notarization_url": "https://app.platus.com/notarize/not-2024-abc123",
-    "expires_at": "2024-11-18T10:30:00Z",
-    "documents": [
-        {
-            "document_id": "doc-2024-xyz789",
-            "status": "processing",
-            "document_type": "Power of Attorney"
-        }
-    ]
-}
-```
+  ```json
+  {
+      "case_id": "not-2024-abc123",
+      "status": "created",
+      "notarization_url": "https://app.platus.com/notarize/not-2024-abc123",
+      "expires_at": "2024-11-18T10:30:00Z",
+      "documents": [
+          {
+              "document_id": "doc-2024-xyz789",
+              "status": "processing",
+              "document_type": "Power of Attorney"
+          }
+      ]
+  }
+  ```
 </ResponseExample>
