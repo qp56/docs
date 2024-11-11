@@ -21,7 +21,47 @@ description: "This endpoint creates a notarization request for a document"
 </ParamField>
 
 <ParamField body="documents" type="array" required>
-  An array of documents to be notarized. Each document contains document_type, document_file, is_already_signed, and signers information.
+  An array of documents to be notarized containing document details and signer information.
+</ParamField>
+
+<ParamField body="document_type" type="string">
+  The type of document. Example: "Power of Attorney"
+</ParamField>
+
+<ParamField body="document_file" type="object">
+  File details for the document, including type and url.
+</ParamField>
+
+<ParamField body="is_already_signed" type="boolean">
+  Whether the document is already signed before notarization.
+</ParamField>
+
+<ParamField body="signers.email" type="string" required>
+  Email address of the signer.
+</ParamField>
+
+<ParamField body="signers.first_name" type="string" required>
+  First name of the signer.
+</ParamField>
+
+<ParamField body="signers.last_name" type="string" required>
+  Last name of the signer.
+</ParamField>
+
+<ParamField body="signers.date_of_birth" type="string">
+  Date of birth of the signer in YYYY-MM-DD format.
+</ParamField>
+
+<ParamField body="signers.middle_name" type="string">
+  Middle name of the signer (optional).
+</ParamField>
+
+<ParamField body="signers.phone" type="string">
+  Phone number of the signer (optional).
+</ParamField>
+
+<ParamField body="signers.labels" type="array">
+  Label information for signature positioning or other metadata.
 </ParamField>
 
 <ParamField body="client_reference" type="string">
@@ -44,60 +84,6 @@ description: "This endpoint creates a notarization request for a document"
 
 <ResponseField name="documents" type="array">
   An array of documents with metadata about their processing state.
-
-<Expandable title="Toggle Document Details">
-
-<ResponseField name="document_type" type="string">
-  The type of document. Example: "Power of Attorney"
-</ResponseField>
-
-<ResponseField name="document_file" type="object">
-  File details for the document, including type and url.
-</ResponseField>
-
-<ResponseField name="is_already_signed" type="boolean">
-  Whether the document is already signed before notarization.
-</ResponseField>
-
-<ResponseField name="signers" type="array">
-  Array of signer objects containing email, first_name, last_name, date_of_birth, and more.
-
-<Expandable title="Toggle Signer Details">
-
-<ResponseField name="email" type="string" required>
-  Email address of the signer.
-</ResponseField>
-
-<ResponseField name="first_name" type="string" required>
-  First name of the signer.
-</ResponseField>
-
-<ResponseField name="last_name" type="string" required>
-  Last name of the signer.
-</ResponseField>
-
-<ResponseField name="date_of_birth" type="string">
-  Date of birth of the signer in YYYY-MM-DD format.
-</ResponseField>
-
-<ResponseField name="middle_name" type="string">
-  Middle name of the signer (optional).
-</ResponseField>
-
-<ResponseField name="phone" type="string">
-  Phone number of the signer (optional).
-</ResponseField>
-
-<ResponseField name="labels" type="array">
-  Label information for signature positioning or other metadata.
-</ResponseField>
-
-</Expandable>
-
-</ResponseField>
-
-</Expandable>
-
 </ResponseField>
 
 <RequestExample>
