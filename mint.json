@@ -52,6 +52,13 @@
         "essentials/code",
         "essentials/images"
       ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "essentials/code",
+        "essentials/images"
+      ]
     }
   ],
   "footerSocials": {
