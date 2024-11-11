@@ -1,0 +1,172 @@
+---
+title: "Get Notarization"
+api: "GET https://app.platus.com/api/notarization/{case_id}"
+description: "This endpoint retrieves the details of a notarization case"
+---
+
+### Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
+### Path Parameters
+
+<ParamField path="case_id" type="string" required>
+  The unique identifier of the notarization case to retrieve. Example: "case_abc123xyz789"
+</ParamField>
+
+### Response
+
+<ResponseField name="case_id" type="string">
+  The unique identifier of the notarization case.
+</ResponseField>
+
+<ResponseField name="case" type="string">
+  The type of case. Value: "notarization"
+</ResponseField>
+
+<ResponseField name="jurisdiction" type="string">
+  The jurisdiction where the notarization was executed.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Current status of the notarization. Possible values: "created", "processing", "completed"
+</ResponseField>
+
+<ResponseField name="completed_at" type="string">
+  ISO 8601 timestamp indicating when the notarization was completed.
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  The client reference string provided during creation.
+</ResponseField>
+
+<ResponseField name="documents" type="array">
+  List of documents included in this notarization.
+</ResponseField>
+
+<ResponseField name="documents.document_id" type="string">
+  Unique identifier for the document.
+</ResponseField>
+
+<ResponseField name="documents.document_type" type="string">
+  The type of document.
+</ResponseField>
+
+<ResponseField name="documents.document_url" type="string">
+  URL to download the notarized document.
+</ResponseField>
+
+<ResponseField name="documents.document_hash" type="string">
+  SHA-256 hash of the notarized document for verification.
+</ResponseField>
+
+<ResponseField name="documents.signers" type="array">
+  List of signers for this document.
+</ResponseField>
+
+<ResponseField name="documents.signers.signer_id" type="string">
+  Unique identifier for the signer.
+</ResponseField>
+
+<ResponseField name="documents.signers.email" type="string">
+  Email address of the signer.
+</ResponseField>
+
+<ResponseField name="documents.signers.first_name" type="string">
+  First name of the signer.
+</ResponseField>
+
+<ResponseField name="documents.signers.middle_name" type="string">
+  Middle name of the signer (if provided).
+</ResponseField>
+
+<ResponseField name="documents.signers.last_name" type="string">
+  Last name of the signer.
+</ResponseField>
+
+<ResponseField name="documents.signers.birthdate" type="string">
+  Date of birth of the signer in YYYY-MM-DD format.
+</ResponseField>
+
+<ResponseField name="documents.signers.phone" type="string">
+  Phone number of the signer.
+</ResponseField>
+
+<ResponseField name="documents.signers.verified" type="boolean">
+  Indicates whether the signer's identity has been verified.
+</ResponseField>
+
+### Raw Response Example
+
+```json
+{
+    "case_id": "case_abc123xyz789",
+    "case": "notarization",
+    "jurisdiction": "US",
+    "status": "completed",
+    "completed_at": "2024-10-18T12:00:00Z",
+    "client_reference": "REF-2024-001",
+    "documents": [
+        {
+            "document_id": "doc_123456",
+            "document_type": "Power of Attorney",
+            "document_url": "https://api.beglaubigt.de/notarized/document.pdf",
+            "document_hash": "sha256:a1b2c3d4e5f6...",
+            "signers": [
+                {
+                    "signer_id": "signer_123456",
+                    "email": "signer1@example.com",
+                    "first_name": "John",
+                    "middle_name": "Andreas",
+                    "last_name": "Doe",
+                    "birthdate": "1985-07-10",
+                    "phone": "+49123456789",
+                    "verified": true
+                }
+            ]
+        }
+    ]
+}
+```
+
+<RequestExample>
+```bash
+curl --location --request GET 'https://app.platus.com/api/notarization/case_abc123xyz789' \
+--header 'Authorization: Bearer <token>'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+    "case_id": "case_abc123xyz789",
+    "case": "notarization",
+    "jurisdiction": "US",
+    "status": "completed",
+    "completed_at": "2024-10-18T12:00:00Z",
+    "client_reference": "REF-2024-001",
+    "documents": [
+        {
+            "document_id": "doc_123456",
+            "document_type": "Power of Attorney",
+            "document_url": "https://api.beglaubigt.de/notarized/document.pdf",
+            "document_hash": "sha256:a1b2c3d4e5f6...",
+            "signers": [
+                {
+                    "signer_id": "signer_123456",
+                    "email": "signer1@example.com",
+                    "first_name": "John",
+                    "middle_name": "Andreas",
+                    "last_name": "Doe",
+                    "birthdate": "1985-07-10",
+                    "phone": "+49123456789",
+                    "verified": true
+                }
+            ]
+        }
+    ]
+}
+```
+</ResponseExample>
