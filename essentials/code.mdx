@@ -1,137 +1,152 @@
 ---
 title: "Create Notarization"
 api: "POST https://app.platus.com/api/notarization"
-description: "This endpoint creates a notarization request for a document."
+description: "This endpoint creates a notarization request for a document"
 ---
 
-# Create Notarization
+### Body
 
-This endpoint allows you to create a notarization request for a document. It includes the jurisdiction, the document to be notarized, and the signer details.
-
----
-
-## Body
-
-<ParamField name="jurisdiction" type="string" required>
-The jurisdiction in which the notarization will be executed. Example: `"US"`.
+<ParamField body="jurisdiction" type="string" required>
+  The jurisdiction in which the notarization will be executed. Example: "US"
 </ParamField>
 
-<ParamField name="state" type="string" required>
-The state or region within the jurisdiction. Example: `"CA"`.
+<ParamField body="state" type="string" required>
+  The state or region within the jurisdiction. Example: "CA"
 </ParamField>
 
-<ParamField name="documents" type="array" required>
-An array of documents to be notarized. Each document should include `document_type`, `document_file`, `is_already_signed`, and `signers`.
+<ParamField body="documents" type="array" required>
+  An array of documents to be notarized. Each document contains document_type, document_file, is_already_signed, and signers information.
 </ParamField>
 
-<Expandable title="Document Object">
-  <ParamField name="document_type" type="string" required>
-  The type of document. Example: `"Power of Attorney"`.
-  </ParamField>
-  <ParamField name="document_file" type="object" required>
-  File details for the document, including `type` and `url`.
-  </ParamField>
-  <ParamField name="is_already_signed" type="boolean">
-  Whether the document is already signed before notarization.
-  </ParamField>
-  <ParamField name="signers" type="array" required>
-  An array of signer objects containing `email`, `first_name`, `last_name`, `date_of_birth`, and more.
-  </ParamField>
-
-  <Expandable title="Signer Object">
-    <ParamField name="email" type="string" required>
-    Email address of the signer.
-    </ParamField>
-    <ParamField name="first_name" type="string" required>
-    First name of the signer.
-    </ParamField>
-    <ParamField name="last_name" type="string" required>
-    Last name of the signer.
-    </ParamField>
-    <ParamField name="date_of_birth" type="string">
-    Date of birth of the signer in `YYYY-MM-DD` format.
-    </ParamField>
-    <ParamField name="labels" type="array">
-    Label information for signature positioning or other metadata.
-    </ParamField>
-  </Expandable>
-</Expandable>
-
-<ParamField name="client_reference" type="string">
-A custom client reference string for tracking purposes. Example: `"REF-2024-001"`.
+<ParamField body="client_reference" type="string">
+  A custom client reference string for tracking purposes. Example: "REF-2024-001"
 </ParamField>
 
-<ParamField name="client_postback_url" type="string">
-A URL where status updates will be sent. Example: `"https://client-domain.com/webhook-endpoint"`.
+<ParamField body="client_postback_url" type="string">
+  A URL where status updates will be sent. Example: "https://client-domain.com/webhook-endpoint"
 </ParamField>
 
----
-
-## Response
+### Response
 
 <ResponseField name="case_id" type="string">
-The unique identifier for the created notarization case.
+  The unique identifier for the created notarization case.
 </ResponseField>
 
 <ResponseField name="status" type="string">
-The status of the notarization request. Example: `"created"`.
+  The status of the notarization request. Example: "created"
 </ResponseField>
 
 <ResponseField name="documents" type="array">
-An array of documents with metadata about their processing state.
+  An array of documents with metadata about their processing state.
+
+<Expandable title="Toggle Document Details">
+
+<ResponseField name="document_type" type="string">
+  The type of document. Example: "Power of Attorney"
 </ResponseField>
 
----
+<ResponseField name="document_file" type="object">
+  File details for the document, including type and url.
+</ResponseField>
 
-## Example Request
+<ResponseField name="is_already_signed" type="boolean">
+  Whether the document is already signed before notarization.
+</ResponseField>
+
+<ResponseField name="signers" type="array">
+  Array of signer objects containing email, first_name, last_name, date_of_birth, and more.
+
+<Expandable title="Toggle Signer Details">
+
+<ResponseField name="email" type="string">
+  Email address of the signer.
+</ResponseField>
+
+<ResponseField name="first_name" type="string">
+  First name of the signer.
+</ResponseField>
+
+<ResponseField name="last_name" type="string">
+  Last name of the signer.
+</ResponseField>
+
+<ResponseField name="date_of_birth" type="string">
+  Date of birth of the signer in YYYY-MM-DD format.
+</ResponseField>
+
+<ResponseField name="labels" type="array">
+  Label information for signature positioning or other metadata.
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
 
 <RequestExample>
-
 ```bash
 curl --location --request POST 'https://app.platus.com/api/notarization' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
 --data-raw '{
-  "jurisdiction": "US",
-  "state": "CA",
-  "documents": [
-    {
-      "document_type": "Power of Attorney",
-      "document_file": {
-        "type": "url",
-        "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
-      },
-      "is_already_signed": false,
-      "signers": [
+    "jurisdiction": "US",
+    "state": "CA",
+    "documents": [
         {
-          "email": "signer1@example.com",
-          "first_name": "John",
-          "middle_name": "Andreas",
-          "last_name": "Doe",
-          "date_of_birth": "1985-07-10",
-          "phone": "+49123456789",
-          "labels": [
-            {
-              "type": "signature",
-              "autodetection": "enabled"
+            "document_type": "Power of Attorney",
+            "document_file": {
+                "type": "url",
+                "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
             },
-            {
-              "type": "location_and_date",
-              "autodetection": false,
-              "page": 3,
-              "x_position": 396.418,
-              "y_position": 553.625,
-              "width": 270,
-              "height": 54
-            }
-          ]
+            "is_already_signed": false,
+            "signers": [
+                {
+                    "email": "signer1@example.com",
+                    "first_name": "John",
+                    "middle_name": "Andreas",
+                    "last_name": "Doe",
+                    "date_of_birth": "1985-07-10",
+                    "phone": "+49123456789",
+                    "labels": [
+                        {
+                            "type": "signature",
+                            "autodetection": "enabled"
+                        },
+                        {
+                            "type": "location_and_date",
+                            "autodetection": false,
+                            "page": 3,
+                            "x_position": 396.418,
+                            "y_position": 553.625,
+                            "width": 270,
+                            "height": 54
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "client_reference": "REF-2024-001",
-  "client_postback_url": "https://client-domain.com/webhook-endpoint"
+    ],
+    "client_reference": "REF-2024-001",
+    "client_postback_url": "https://client-domain.com/webhook-endpoint"
 }'
 ```
+</RequestExample>
 
+<ResponseExample>
+```json
+{
+    "case_id": "not-2024-abc123",
+    "status": "created",
+    "documents": [
+        {
+            "document_id": "doc-2024-xyz789",
+            "status": "processing",
+            "document_type": "Power of Attorney"
+        }
+    ]
+}
+```
 </ResponseExample>
