@@ -1,84 +1,134 @@
 ---
-title: "Create User"
-api: "POST https://api.mintlify.com/api/user"
-description: "This endpoint creates a new user"
+title: "Create Notarization"
+api: "POST https://app.platus.com/api/notarization"
+description: "This endpoint creates a notarization request for a document."
 ---
 
-### Body
+# Create Notarization
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+This endpoint allows you to create a notarization request for a document. It includes the jurisdiction, the document to be notarized, and the signer details.
+
+---
+
+## Body
+
+<ParamField name="jurisdiction" type="string" required>
+The jurisdiction in which the notarization will be executed. Example: `"US"`.
 </ParamField>
 
-### Response
+<ParamField name="state" type="string" required>
+The state or region within the jurisdiction. Example: `"CA"`.
+</ParamField>
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
-</ResponseField>
+<ParamField name="documents" type="array" required>
+An array of documents to be notarized. Each document should include `document_type`, `document_file`, `is_already_signed`, and `signers`.
+</ParamField>
 
-<ResponseField name="user_group" type="object">
+<Expandable title="Document Object">
+  <ParamField name="document_type" type="string" required>
+  The type of document. Example: `"Power of Attorney"`.
+  </ParamField>
+  <ParamField name="document_file" type="object" required>
+  File details for the document, including `type` and `url`.
+  </ParamField>
+  <ParamField name="is_already_signed" type="boolean">
+  Whether the document is already signed before notarization.
+  </ParamField>
+  <ParamField name="signers" type="array" required>
+  An array of signer objects containing `email`, `first_name`, `last_name`, `date_of_birth`, and more.
+  </ParamField>
 
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this
-  information, since you will not need to use it.
-</ResponseField>
-
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
-</ResponseField>
-
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
-</ResponseField>
-
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
-</ResponseField>
-
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'. User group id's must be unique to each environment, so you can
-  not create multiple user groups with with same id. If you have a production
-  customer and a test user group with the same id, you will be required to label
-  one as 'Customer' and another as 'Testing'
-</ResponseField>
-
+  <Expandable title="Signer Object">
+    <ParamField name="email" type="string" required>
+    Email address of the signer.
+    </ParamField>
+    <ParamField name="first_name" type="string" required>
+    First name of the signer.
+    </ParamField>
+    <ParamField name="last_name" type="string" required>
+    Last name of the signer.
+    </ParamField>
+    <ParamField name="date_of_birth" type="string">
+    Date of birth of the signer in `YYYY-MM-DD` format.
+    </ParamField>
+    <ParamField name="labels" type="array">
+    Label information for signature positioning or other metadata.
+    </ParamField>
+  </Expandable>
 </Expandable>
 
+<ParamField name="client_reference" type="string">
+A custom client reference string for tracking purposes. Example: `"REF-2024-001"`.
+</ParamField>
+
+<ParamField name="client_postback_url" type="string">
+A URL where status updates will be sent. Example: `"https://client-domain.com/webhook-endpoint"`.
+</ParamField>
+
+---
+
+## Response
+
+<ResponseField name="case_id" type="string">
+The unique identifier for the created notarization case.
 </ResponseField>
+
+<ResponseField name="status" type="string">
+The status of the notarization request. Example: `"created"`.
+</ResponseField>
+
+<ResponseField name="documents" type="array">
+An array of documents with metadata about their processing state.
+</ResponseField>
+
+---
+
+## Example Request
 
 <RequestExample>
 
-```bash Example Request
-curl --location --request POST 'https://api.mintlify.com/api/user' \
+```bash
+curl --location --request POST 'https://app.platus.com/api/notarization' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
+--header 'Authorization: Bearer <token>' \
 --data-raw '{
-    "current_token": ""
+  "jurisdiction": "US",
+  "state": "CA",
+  "documents": [
+    {
+      "document_type": "Power of Attorney",
+      "document_file": {
+        "type": "url",
+        "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
+      },
+      "is_already_signed": false,
+      "signers": [
+        {
+          "email": "signer1@example.com",
+          "first_name": "John",
+          "middle_name": "Andreas",
+          "last_name": "Doe",
+          "date_of_birth": "1985-07-10",
+          "phone": "+49123456789",
+          "labels": [
+            {
+              "type": "signature",
+              "autodetection": "enabled"
+            },
+            {
+              "type": "location_and_date",
+              "autodetection": false,
+              "page": 3,
+              "x_position": 396.418,
+              "y_position": 553.625,
+              "width": 270,
+              "height": 54
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "client_reference": "REF-2024-001",
+  "client_postback_url": "https://client-domain.com/webhook-endpoint"
 }'
-```
-
-</RequestExample>
-
-<ResponseExample>
-
-```json Response
-{
-  "success": 1,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
-}
-```
-
-</ResponseExample>
