@@ -40,17 +40,27 @@
       ]
     },
     {
-      "group": "Webhooks",
+      "group": "API Reference",
       "pages": [
-        "webhooks/introduction",
-        "webhooks/notarization-completed"
+        {
+          "group": "Notarization",
+          "pages": [
+            "api-reference/notarization/create",
+            "api-reference/notarization/get"
+          ]
+        }
       ]
     },
     {
-      "group": "API Reference",
+      "group": "Webhooks",
       "pages": [
-        "essentials/code",
-        "essentials/images"
+        "webhooks/introduction",
+        {
+          "group": "Events",
+          "pages": [
+            "webhooks/events/notarization-completed"
+          ]
+        }
       ]
     }
   ],
