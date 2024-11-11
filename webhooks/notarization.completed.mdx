@@ -1,9 +1,65 @@
+---
+title: "notarization.completed"
+description: "This webhook is fired when a notarization is completed and the notarized document is ready to be downloaded"
+---
 
-### Webhook payload example  
+### Understanding the Event
 
-This webhook is fired, once the notarization is completed and the notarized document is ready to be downloaded.
+The `notarization.completed` event is triggered automatically when a notarization process has been successfully completed and the notarized document is available for download.
 
-Here’s an example of the webhook payload you’ll receive for a completed notarization:  
+### Payload Fields
+
+<ResponseField name="webhook_id" type="string">
+  A unique identifier for this webhook delivery. Can be used to prevent duplicate processing.
+  Example: "webhook_abcdef123456"
+</ResponseField>
+
+<ResponseField name="event" type="string">
+  The name of the event that triggered this webhook.
+  Value: "notarization.completed"
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  ISO 8601 timestamp indicating when the event occurred.
+  Example: "2024-10-18T12:00:00Z"
+</ResponseField>
+
+<ResponseField name="case" type="string">
+  The type of case this webhook relates to.
+  Value: "notarization"
+</ResponseField>
+
+<ResponseField name="case_id" type="string">
+  The unique identifier for the notarization case.
+  Example: "evt_123456"
+</ResponseField>
+
+<ResponseField name="document_id" type="string">
+  The unique identifier for the notarized document.
+  Example: "doc_123456"
+</ResponseField>
+
+<ResponseField name="document_url" type="string">
+  A secure URL where you can download the notarized document. This URL is valid for 24 hours.
+  Example: "https://api.platus.com/documents/document123456.pdf"
+</ResponseField>
+
+<ResponseField name="document_hash" type="string">
+  SHA-256 hash of the notarized document. Use this to verify document integrity after download.
+  Example: "sha256:a1b2c3d4e5f6..."
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  Your custom reference string provided during notarization creation.
+  Example: "REF-2024-001"
+</ResponseField>
+
+<ResponseField name="client_postback_url" type="string">
+  The URL where this webhook was sent, as configured in your settings.
+  Example: "https://client-domain.com/webhook-endpoint"
+</ResponseField>
+
+### Webhook Payload Example
 
 ```json
 {
@@ -20,21 +76,39 @@ Here’s an example of the webhook payload you’ll receive for a completed nota
 }
 ```
 
-## Webhook delivery & retries  
+### Webhook Delivery & Retries
 
-When your server receives a webhook, it’s like getting a handshake from Platus. To confirm you received it:  
+When your server receives a webhook, it's like getting a handshake from Platus. To confirm you received it:
 
-- Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.  
-- If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.  
+- Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
+- If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.
 
-## Best practices  
+### Best Practices
 
-Handle Platus webhooks like a pro by following these best practices:  
+Handle Platus webhooks like a pro by following these best practices:
 
-- **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn’t cause unintended effects.  
-- **Validate webhook signatures**: Verify the event’s authenticity to ensure it originates from Platus.  
-- **Respond quickly**: Acknowledge receipt promptly to prevent retries.  
+- **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn't cause unintended effects.
+- **Validate webhook signatures**: Verify the event's authenticity to ensure it originates from Platus.
+- **Respond quickly**: Acknowledge receipt promptly to prevent retries.
 
-## Need help?  
+### Security
 
-If you have any questions or need assistance, feel free to contact us at [support@platus.com](mailto:team@platus.com).  
+All webhook requests include a signature in the `X-Platus-Signature` header. This signature is a HMAC SHA-256 hash of the raw request body using your webhook secret. Here's how to verify it:
+
+```python
+import hmac
+import hashlib
+
+def verify_webhook_signature(payload_body, signature_header, webhook_secret):
+    expected_signature = hmac.new(
+        webhook_secret.encode('utf-8'),
+        payload_body.encode('utf-8'),
+        hashlib.sha256
+    ).hexdigest()
+    
+    return hmac.compare_digest(expected_signature, signature_header)
+```
+
+### Need Help?
+
+If you have any questions or need assistance, feel free to contact us at [support@platus.com](mailto:team@platus.com).
