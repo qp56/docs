@@ -56,8 +56,7 @@
     {
       "group": "Webhooks",
       "pages": [
-        "webhooks/notarization.completed",
-        "webhooks/images"
+        "webhooks/notarization.completed"
       ]
     }
   ],
