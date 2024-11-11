@@ -54,7 +54,7 @@
       ]
     },
     {
-      "group": "API Reference",
+      "group": "Webhooks",
       "pages": [
         "essentials/code",
         "essentials/images"
