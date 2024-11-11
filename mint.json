@@ -40,13 +40,6 @@
       ]
     },
     {
-      "group": "Webhooks",
-      "pages": [
-        "webhooks/introduction",
-        "webhooks/notarization-completed"
-      ]
-    },
-    {
       "group": "API Reference",
       "pages": [
         "essentials/code",
