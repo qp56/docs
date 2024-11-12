@@ -22,54 +22,100 @@ description: "This endpoint creates a notarization request for a document"
 
 <ParamField body="documents" type="array" required>
   An array of documents to be notarized containing document details and signer information.
-</ParamField>
 
-<ParamField body="document_type" type="string">
-  The type of document. Example: "Power of Attorney"
-</ParamField>
+  <Expandable title="Document Object">
+    <ParamField body="document_type" type="string" required>
+      The type of document. Example: "Power of Attorney"
+    </ParamField>
 
-<ParamField body="document_file" type="object" required>
-  File details for the document, including type and url.
-</ParamField>
+    <ParamField body="document_file" type="object" required>
+      File details for the document.
+      
+      <ParamField body="type" type="string" required>
+        Type of file reference. Must be "url"
+      </ParamField>
+      
+      <ParamField body="url" type="string" required>
+        URL to the document file
+      </ParamField>
+    </ParamField>
 
-<ParamField body="is_already_signed" type="boolean">
-  Whether the document is already signed before notarization.
-</ParamField>
+    <ParamField body="is_already_signed" type="boolean">
+      Whether the document is already signed before notarization.
+    </ParamField>
 
-<ParamField body="signers.email" type="string" required>
-  Email address of the signer.
-</ParamField>
+    <ParamField body="signers" type="array" required>
+      Array of signers for this document.
+      
+      <Expandable title="Signer Object">
+        <ParamField body="email" type="string" required>
+          Email address of the signer.
+        </ParamField>
 
-<ParamField body="signers.first_name" type="string" required>
-  First name of the signer.
-</ParamField>
+        <ParamField body="first_name" type="string" required>
+          First name of the signer.
+        </ParamField>
 
-<ParamField body="signers.last_name" type="string" required>
-  Last name of the signer.
-</ParamField>
+        <ParamField body="last_name" type="string" required>
+          Last name of the signer.
+        </ParamField>
 
-<ParamField body="signers.date_of_birth" type="string">
-  Date of birth of the signer in YYYY-MM-DD format.
-</ParamField>
+        <ParamField body="middle_name" type="string">
+          Middle name of the signer (optional).
+        </ParamField>
 
-<ParamField body="signers.middle_name" type="string">
-  Middle name of the signer (optional).
-</ParamField>
+        <ParamField body="date_of_birth" type="string">
+          Date of birth of the signer in YYYY-MM-DD format.
+        </ParamField>
 
-<ParamField body="signers.phone" type="string">
-  Phone number of the signer (optional).
-</ParamField>
+        <ParamField body="phone" type="string">
+          Phone number of the signer (optional).
+        </ParamField>
 
-<ParamField body="signers.signed" type="boolean">
-  Indicates if the signer has signed the document.
-</ParamField>
+        <ParamField body="signed" type="boolean">
+          Indicates if the signer has signed the document.
+        </ParamField>
 
-<ParamField body="signers.verified" type="boolean">
-  Indicates if the signer's identity has been verified.
-</ParamField>
+        <ParamField body="verified" type="boolean">
+          Indicates if the signer's identity has been verified.
+        </ParamField>
 
-<ParamField body="signers.labels" type="array">
-  Label information for signature positioning or other metadata.
+        <ParamField body="labels" type="array">
+          Label information for signature positioning or other metadata.
+          
+          <Expandable title="Label Object">
+            <ParamField body="type" type="string" required>
+              Type of label. Example: "signature", "location_and_date"
+            </ParamField>
+
+            <ParamField body="autodetection" type="string">
+              Whether to use autodetection. Values: "enabled", "disabled"
+            </ParamField>
+
+            <ParamField body="page" type="number">
+              Page number for the label placement
+            </ParamField>
+
+            <ParamField body="x_position" type="number">
+              X coordinate for label placement
+            </ParamField>
+
+            <ParamField body="y_position" type="number">
+              Y coordinate for label placement
+            </ParamField>
+
+            <ParamField body="width" type="number">
+              Width of the label area
+            </ParamField>
+
+            <ParamField body="height" type="number">
+              Height of the label area
+            </ParamField>
+          </Expandable>
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
 </ParamField>
 
 <ParamField body="client_reference" type="string">
@@ -100,18 +146,20 @@ description: "This endpoint creates a notarization request for a document"
 
 <ResponseField name="documents" type="array">
   List of documents included in this notarization request.
-</ResponseField>
 
-<ResponseField name="documents.document_id" type="string">
-  Unique identifier for the document.
-</ResponseField>
+  <Expandable title="Document Response Object">
+    <ResponseField name="document_id" type="string">
+      Unique identifier for the document.
+    </ResponseField>
 
-<ResponseField name="documents.status" type="string">
-  Current status of the document. Possible values: "processing", "ready", "signed", "notarized"
-</ResponseField>
+    <ResponseField name="status" type="string">
+      Current status of the document. Possible values: "processing", "ready", "signed", "notarized"
+    </ResponseField>
 
-<ResponseField name="documents.document_type" type="string">
-  The type of document as specified in the request.
+    <ResponseField name="document_type" type="string">
+      The type of document as specified in the request.
+    </ResponseField>
+  </Expandable>
 </ResponseField>
 
 ### Raw Request Example
@@ -214,19 +262,19 @@ curl --location 'https://api.platus.com/v1/notarization' \
 </RequestExample>
 
 <ResponseExample>
-  ```json
-  {
-      "case_id": "not-2024-abc123",
-      "status": "created",
-      "url": "https://app.platus.com/notarize/not-2024-abc123",
-      "expires_at": "2024-11-18T10:30:00Z",
-      "documents": [
-          {
-              "document_id": "doc-2024-xyz789",
-              "status": "processing",
-              "document_type": "Power of Attorney"
-          }
-      ]
-  }
-  ```
+```json
+{
+    "case_id": "not-2024-abc123",
+    "status": "created",
+    "url": "https://app.platus.com/notarize/not-2024-abc123",
+    "expires_at": "2024-11-18T10:30:00Z",
+    "documents": [
+        {
+            "document_id": "doc-2024-xyz789",
+            "status": "processing",
+            "document_type": "Power of Attorney"
+        }
+    ]
+}
+```
 </ResponseExample>
