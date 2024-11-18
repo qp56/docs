@@ -92,24 +92,24 @@ description: "This endpoint creates a notarization request for a document"
               Whether to use autodetection. Values: "enabled", "disabled"
             </ParamField>
 
-            <ParamField body="page" type="number">
-              Page number for the label placement
+            <ParamField body="page" type="number" required="autodetection=disabled">
+              Page number for the label placement. Required if autodetection is disabled.
             </ParamField>
 
-            <ParamField body="x_position" type="number">
-              X coordinate for label placement
+            <ParamField body="x_position" type="number" required="autodetection=disabled">
+              X coordinate for label placement. Required if autodetection is disabled.
             </ParamField>
 
-            <ParamField body="y_position" type="number">
-              Y coordinate for label placement
+            <ParamField body="y_position" type="number" required="autodetection=disabled">
+              Y coordinate for label placement. Required if autodetection is disabled.
             </ParamField>
 
-            <ParamField body="width" type="number">
-              Width of the label area
+            <ParamField body="width" type="number" required="autodetection=disabled">
+              Width of the label area. Required if autodetection is disabled.
             </ParamField>
 
-            <ParamField body="height" type="number">
-              Height of the label area
+            <ParamField body="height" type="number" required="autodetection=disabled">
+              Height of the label area. Required if autodetection is disabled.
             </ParamField>
           </Expandable>
         </ParamField>
