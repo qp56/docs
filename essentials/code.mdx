@@ -24,17 +24,17 @@ description: "This endpoint creates a notarization request for a document"
   An array of documents to be notarized containing document details and signer information.
 
   <Expandable title="Document Object">
-    <ParamField body="document_type" type="string" required>
+    <ParamField body="document_type" type="string" >
       The type of document. Example: "Power of Attorney"
     </ParamField>
 
     <ParamField body="document_file" type="object" required>
       File details for the document.
-      
+
       <ParamField body="type" type="string" required>
         Type of file reference. Must be "url"
       </ParamField>
-      
+
       <ParamField body="url" type="string" required>
         URL to the document file
       </ParamField>
@@ -46,7 +46,7 @@ description: "This endpoint creates a notarization request for a document"
 
     <ParamField body="signers" type="array" required>
       Array of signers for this document.
-      
+
       <Expandable title="Signer Object">
         <ParamField body="email" type="string" required>
           Email address of the signer.
@@ -82,10 +82,10 @@ description: "This endpoint creates a notarization request for a document"
 
         <ParamField body="labels" type="array">
           Label information for signature positioning or other metadata.
-          
+
           <Expandable title="Label Object">
             <ParamField body="type" type="string" required>
-              Type of label. Example: "signature", "location_and_date"
+              Type of label. Example: "signature", "location\_and\_date"
             </ParamField>
 
             <ParamField body="autodetection" type="string">
@@ -211,70 +211,70 @@ description: "This endpoint creates a notarization request for a document"
 ```
 
 <RequestExample>
-```bash
-curl --location 'https://api.platus.com/v1/notarization' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer <token>' \
---data '{
-    "jurisdiction": "US",
-    "state": "CA",
-    "documents": [
-        {
-            "document_type": "Power of Attorney",
-            "document_file": {
-                "type": "url",
-                "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
-            },
-            "is_already_signed": false,
-            "signers": [
-                {
-                    "email": "signer1@example.com",
-                    "first_name": "John",
-                    "middle_name": "Andreas",
-                    "last_name": "Doe",
-                    "date_of_birth": "1985-07-10",
-                    "phone": "+49123456789",
-                    "signed": false,
-                    "verified": false,
-                    "labels": [
-                        {
-                            "type": "signature",
-                            "autodetection": "enabled"
-                        },
-                        {
-                            "type": "location_and_date",
-                            "autodetection": false,
-                            "page": 3,
-                            "x_position": 396.418,
-                            "y_position": 553.625,
-                            "width": 270,
-                            "height": 54
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "client_reference": "REF-2024-001",
-    "client_postback_url": "https://client-domain.com/webhook-endpoint"
-}'
-```
+  ```bash
+  curl --location 'https://api.platus.com/v1/notarization' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer <token>' \
+  --data '{
+      "jurisdiction": "US",
+      "state": "CA",
+      "documents": [
+          {
+              "document_type": "Power of Attorney",
+              "document_file": {
+                  "type": "url",
+                  "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
+              },
+              "is_already_signed": false,
+              "signers": [
+                  {
+                      "email": "signer1@example.com",
+                      "first_name": "John",
+                      "middle_name": "Andreas",
+                      "last_name": "Doe",
+                      "date_of_birth": "1985-07-10",
+                      "phone": "+49123456789",
+                      "signed": false,
+                      "verified": false,
+                      "labels": [
+                          {
+                              "type": "signature",
+                              "autodetection": "enabled"
+                          },
+                          {
+                              "type": "location_and_date",
+                              "autodetection": false,
+                              "page": 3,
+                              "x_position": 396.418,
+                              "y_position": 553.625,
+                              "width": 270,
+                              "height": 54
+                          }
+                      ]
+                  }
+              ]
+          }
+      ],
+      "client_reference": "REF-2024-001",
+      "client_postback_url": "https://client-domain.com/webhook-endpoint"
+  }'
+  ```
 </RequestExample>
 
 <ResponseExample>
-```json
-{
-    "case_id": "not-2024-abc123",
-    "status": "created",
-    "url": "https://app.platus.com/notarize/not-2024-abc123",
-    "expires_at": "2024-11-18T10:30:00Z",
-    "documents": [
-        {
-            "document_id": "doc-2024-xyz789",
-            "status": "processing",
-            "document_type": "Power of Attorney"
-        }
-    ]
-}
-```
+  ```json
+  {
+      "case_id": "not-2024-abc123",
+      "status": "created",
+      "url": "https://app.platus.com/notarize/not-2024-abc123",
+      "expires_at": "2024-11-18T10:30:00Z",
+      "documents": [
+          {
+              "document_id": "doc-2024-xyz789",
+              "status": "processing",
+              "document_type": "Power of Attorney"
+          }
+      ]
+  }
+  ```
 </ResponseExample>
