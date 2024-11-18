@@ -24,7 +24,7 @@ description: "This endpoint creates a notarization request for a document"
   An array of documents to be notarized containing document details and signer information.
 
   <Expandable title="Document Object">
-    <ParamField body="document_type" type="string" >
+    <ParamField body="document_type" type="string">
       The type of document. Example: "Power of Attorney"
     </ParamField>
 
@@ -41,7 +41,7 @@ description: "This endpoint creates a notarization request for a document"
     </ParamField>
 
     <ParamField body="is_already_signed" type="boolean">
-      Whether the document is already signed before notarization.
+      Whether the document is already signed before notarization. Defaults to false if not provided.
     </ParamField>
 
     <ParamField body="signers" type="array" required>
@@ -73,11 +73,11 @@ description: "This endpoint creates a notarization request for a document"
         </ParamField>
 
         <ParamField body="signed" type="boolean">
-          Indicates if the signer has signed the document.
+          Indicates if the signer has signed the document. Defaults to false if not provided.
         </ParamField>
 
         <ParamField body="verified" type="boolean">
-          Indicates if the signer's identity has been verified.
+          Indicates if the signer's identity has been verified. Defaults to false if not provided.
         </ParamField>
 
         <ParamField body="labels" type="array">
@@ -85,7 +85,7 @@ description: "This endpoint creates a notarization request for a document"
 
           <Expandable title="Label Object">
             <ParamField body="type" type="string" required>
-              Type of label. Example: "signature", "location\_and\_date"
+              Type of label. Example: "signature", "location_and_date"
             </ParamField>
 
             <ParamField body="autodetection" type="string">
@@ -175,7 +175,6 @@ description: "This endpoint creates a notarization request for a document"
                 "type": "url",
                 "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
             },
-            "is_already_signed": false,
             "signers": [
                 {
                     "email": "signer1@example.com",
@@ -184,8 +183,6 @@ description: "This endpoint creates a notarization request for a document"
                     "last_name": "Doe",
                     "date_of_birth": "1985-07-10",
                     "phone": "+49123456789",
-                    "signed": false,
-                    "verified": false,
                     "labels": [
                         {
                             "type": "signature",
@@ -225,7 +222,6 @@ description: "This endpoint creates a notarization request for a document"
                   "type": "url",
                   "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
               },
-              "is_already_signed": false,
               "signers": [
                   {
                       "email": "signer1@example.com",
@@ -234,8 +230,6 @@ description: "This endpoint creates a notarization request for a document"
                       "last_name": "Doe",
                       "date_of_birth": "1985-07-10",
                       "phone": "+49123456789",
-                      "signed": false,
-                      "verified": false,
                       "labels": [
                           {
                               "type": "signature",
