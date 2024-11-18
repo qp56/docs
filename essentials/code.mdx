@@ -64,7 +64,7 @@ description: "This endpoint creates a notarization request for a document"
           Middle name of the signer (optional).
         </ParamField>
 
-        <ParamField body="date_of_birth" type="string">
+        <ParamField body="dob" type="string">
           Date of birth of the signer in YYYY-MM-DD format.
         </ParamField>
 
@@ -181,7 +181,7 @@ description: "This endpoint creates a notarization request for a document"
                     "first_name": "John",
                     "middle_name": "Andreas",
                     "last_name": "Doe",
-                    "date_of_birth": "1985-07-10",
+                    "dob": "1985-07-10",
                     "phone": "+49123456789",
                     "labels": [
                         {
@@ -228,7 +228,7 @@ description: "This endpoint creates a notarization request for a document"
                       "first_name": "John",
                       "middle_name": "Andreas",
                       "last_name": "Doe",
-                      "date_of_birth": "1985-07-10",
+                      "dob": "1985-07-10",
                       "phone": "+49123456789",
                       "labels": [
                           {
@@ -241,34 +241,3 @@ description: "This endpoint creates a notarization request for a document"
                               "page": 3,
                               "x_position": 396.418,
                               "y_position": 553.625,
-                              "width": 270,
-                              "height": 54
-                          }
-                      ]
-                  }
-              ]
-          }
-      ],
-      "client_reference": "REF-2024-001",
-      "client_postback_url": "https://client-domain.com/webhook-endpoint"
-  }'
-  ```
-</RequestExample>
-
-<ResponseExample>
-  ```json
-  {
-      "case_id": "not-2024-abc123",
-      "status": "created",
-      "url": "https://app.platus.com/notarize/not-2024-abc123",
-      "expires_at": "2024-11-18T10:30:00Z",
-      "documents": [
-          {
-              "document_id": "doc-2024-xyz789",
-              "status": "processing",
-              "document_type": "Power of Attorney"
-          }
-      ]
-  }
-  ```
-</ResponseExample>
