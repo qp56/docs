@@ -13,11 +13,15 @@ description: "This endpoint creates a notarization request for a document"
 ### Body
 
 <ParamField body="jurisdiction" type="string" required>
-  The jurisdiction in which the notarization will be executed. Example: "US"
+  The jurisdiction in which the notarization will be executed.
+
+  **Example**: `US`
 </ParamField>
 
 <ParamField body="state" type="string">
-  The state or region within the jurisdiction. Example: "CA"
+  The state or region within the jurisdiction.
+
+  **Example**: `CA`
 </ParamField>
 
 <ParamField body="documents" type="array" required>
@@ -25,14 +29,18 @@ description: "This endpoint creates a notarization request for a document"
 
   <Expandable title="Document Object">
     <ParamField body="document_type" type="string">
-      The type of document. Example: "Power of Attorney"
+      The type of document.
+
+      **Example**: `Power of Attorney`
     </ParamField>
 
     <ParamField body="document_file" type="object" required>
       File details for the document.
 
       <ParamField body="type" type="string" required>
-        Type of file reference. Must be "url"
+        Type of file reference.&#x20;
+
+        **Note**: Must be `url`
       </ParamField>
 
       <ParamField body="url" type="string" required>
@@ -69,7 +77,7 @@ description: "This endpoint creates a notarization request for a document"
         </ParamField>
 
         <ParamField body="phone" type="string">
-          Phone number of the signer (optional).
+          Phone number of the signer.
         </ParamField>
 
         <ParamField body="labels" type="array">
@@ -219,7 +227,7 @@ description: "This endpoint creates a notarization request for a document"
 <ResponseField name="timestamp" type="string">
   The exact date and time when the response was generated, formatted as an **ISO 8601** string in UTC.
 
-  **Example**: 2024-12-01T07:19:30.443Z
+  **Example**: `2024-12-01T07:19:30.443Z`
 </ResponseField>
 
 <RequestExample>
@@ -294,6 +302,6 @@ description: "This endpoint creates a notarization request for a document"
         ],
         "timestamp": "2024-12-01T07:19:30.443Z"
     }
-}
+  }
   ```
 </ResponseExample>
