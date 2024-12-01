@@ -10,41 +10,48 @@ The `notarization.completed` event is triggered automatically when a notarizatio
 ### Payload Fields
 
 <ResponseField name="webhook_id" type="string">
-  A unique identifier for this webhook delivery. Can be used to prevent duplicate processing.
-  Example: "webhook_abcdef123456"
+  A unique identifier for this webhook in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="event" type="string">
   The name of the event that triggered this webhook.
-  Value: "notarization.completed"
+
+  **Value**: `notarization.completed`
 </ResponseField>
 
 <ResponseField name="timestamp" type="string">
-  ISO 8601 timestamp indicating when the event occurred.
-  Example: "2024-10-18T12:00:00Z"
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
+
+  **Example**: `2024-12-01T07:19:30.443Z`
 </ResponseField>
 
-<ResponseField name="case" type="string">
-  The type of case this webhook relates to.
-  Value: "notarization"
+<ResponseField name="service" type="string">
+  The type of service this webhook relates to.
+
+  **Value**: `notarization`
 </ResponseField>
 
 <ResponseField name="case_id" type="string">
-  The unique identifier for the notarization case.
-  Example: "evt_123456"
+  The unique identifier for the created notarization case in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ResponseField name="document_id" type="string">
-  The unique identifier for the notarized document.
-  Example: "doc_123456"
+<ResponseField name="original_document_id" type="string">
+  The unique identifier for the original document in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ResponseField name="document_url" type="string">
-  A secure URL where you can download the notarized document. This URL is valid for 24 hours.
-  Example: "https://api.platus.com/documents/document123456.pdf"
+<ResponseField name="notarized_document_id" type="string">
+  The unique identifier for the original document in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ResponseField name="document_hash" type="string">
+<ResponseField name="notarized_document_url" type="string">
   SHA-256 hash of the notarized document. Use this to verify document integrity after download.
   Example: "sha256:a1b2c3d4e5f6..."
 </ResponseField>
@@ -54,25 +61,18 @@ The `notarization.completed` event is triggered automatically when a notarizatio
   Example: "REF-2024-001"
 </ResponseField>
 
-<ResponseField name="client_postback_url" type="string">
-  The URL where this webhook was sent, as configured in your settings.
-  Example: "https://client-domain.com/webhook-endpoint"
-</ResponseField>
-
 ### Webhook Payload Example
 
 ```json
 {
   "webhook_id": "webhook_abcdef123456",
-  "event": "notarization.completed",
+  "event": "notarization.completed",   
   "timestamp": "2024-10-18T12:00:00Z",
-  "case": "notarization",
-  "case_id": "evt_123456",
-  "document_id": "doc_123456",
-  "document_url": "https://api.platus.com/documents/document123456.pdf",
-  "document_hash": "sha256:a1b2c3d4e5f6...",
-  "client_reference": "REF-2024-001",
-  "client_postback_url": "https://client-domain.com/webhook-endpoint"
+  "case": "notarization", 
+  "case_id": "123e4567-e89b-12d3-a456-426614174000",
+  "original_document_id": "456e1234-e89b-12d3-a456-426614174001",
+  "notarized_document_id": "789e4567-e89b-12d3-a456-426614174002",
+  "notarized_document_url": "https://api.platus.com/notarized_documents/document123456.pdf"
 }
 ```
 
@@ -80,18 +80,19 @@ The `notarization.completed` event is triggered automatically when a notarizatio
 
 When your server receives a webhook, it's like getting a handshake from Platus. To confirm you received it:
 
-- Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
-- If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.
+* Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
+
+* If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.
 
 ### Best Practices
 
 Handle Platus webhooks like a pro by following these best practices:
 
-- **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn't cause unintended effects.
-- **Validate webhook signatures**: Verify the event's authenticity to ensure it originates from Platus.
-- **Respond quickly**: Acknowledge receipt promptly to prevent retries.
+* **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn't cause unintended effects.
 
+* **Validate webhook signatures**: Verify the event's authenticity to ensure it originates from Platus.
 
+* **Respond quickly**: Acknowledge receipt promptly to prevent retries.
 
 ### Need Help?
 
