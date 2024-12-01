@@ -40,8 +40,8 @@ description: "This endpoint creates a notarization request for a document"
       </ParamField>
     </ParamField>
 
-    <ParamField body="is_already_signed" type="boolean">
-      Whether the document is already signed before notarization. Defaults to false if not provided.
+    <ParamField body="require_signatures" default="false" type="boolean">
+      Whether the document requires signatures before notarization.
     </ParamField>
 
     <ParamField body="signers" type="array" required>
@@ -61,23 +61,15 @@ description: "This endpoint creates a notarization request for a document"
         </ParamField>
 
         <ParamField body="middle_name" type="string">
-          Middle name of the signer (optional).
+          Middle name of the signer.
         </ParamField>
 
         <ParamField body="dob" type="string">
-          Date of birth of the signer in YYYY-MM-DD format.
+          Date of birth of the signer in `YYYY-MM-DD` format.
         </ParamField>
 
         <ParamField body="phone" type="string">
           Phone number of the signer (optional).
-        </ParamField>
-
-        <ParamField body="signed" type="boolean">
-          Indicates if the signer has signed the document. Defaults to false if not provided.
-        </ParamField>
-
-        <ParamField body="verified" type="boolean">
-          Indicates if the signer's identity has been verified. Defaults to false if not provided.
         </ParamField>
 
         <ParamField body="labels" type="array">
@@ -85,31 +77,47 @@ description: "This endpoint creates a notarization request for a document"
 
           <Expandable title="Label Object">
             <ParamField body="type" type="string" required>
-              Type of label. Example: "signature", "location\_and\_date"
+              Type of label: `signature` or `location_and_date`
+
+              `signature` : Prompts the user to sign and displays their signature.
+
+              `location_and_date` : Detects the signer’s location and records the date upon signature.
             </ParamField>
 
-            <ParamField body="autodetection" type="string">
-              Whether to use autodetection. Values: "enabled", "disabled"
+            <ParamField body="autodetection" default="false" type="boolean">
+              Use AI to automatically detect the position and size of the labels on the document.
+
+              **Note**: *This feature is currently in beta.*
             </ParamField>
 
             <ParamField body="page" type="number" required="autodetection=disabled">
-              Page number for the label placement. Required if autodetection is disabled.
+              Page number for the label placement.
+
+              **Note**: *Required if autodetection is disabled.*
             </ParamField>
 
             <ParamField body="x_position" type="number" required="autodetection=disabled">
-              X coordinate for label placement. Required if autodetection is disabled.
+              X coordinate for label placement.&#x20;
+
+              **Note**: *Required if autodetection is disabled.*
             </ParamField>
 
             <ParamField body="y_position" type="number" required="autodetection=disabled">
-              Y coordinate for label placement. Required if autodetection is disabled.
+              Y coordinate for label placement.
+
+              **Note**: *Required if autodetection is disabled.*
             </ParamField>
 
             <ParamField body="width" type="number" required="autodetection=disabled">
-              Width of the label area. Required if autodetection is disabled.
+              Width of the label area.
+
+              **Note**: *Required if autodetection is disabled.*
             </ParamField>
 
             <ParamField body="height" type="number" required="autodetection=disabled">
-              Height of the label area. Required if autodetection is disabled.
+              Height of the label area.
+
+              **Note**: *Required if autodetection is disabled.*
             </ParamField>
           </Expandable>
         </ParamField>
