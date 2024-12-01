@@ -203,6 +203,14 @@ description: "This endpoint creates a notarization request for a document"
     <ResponseField name="last_name" type="string">
       The last name of the signer as provided during the notarization process.
     </ResponseField>
+
+    <ResponseField name="email" type="string">
+      The email address of the signer as provided during the notarization process.
+    </ResponseField>
+
+    <ResponseField name="url" type="string">
+      A unique invitation link containing an identification token. The link prompts the signer to complete required actions, such as signing or verifying documents, based on the notarization requirements.
+    </ResponseField>
   </Expandable>
 </ResponseField>
 
