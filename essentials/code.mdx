@@ -153,29 +153,35 @@ description: "This endpoint creates a notarization request for a document"
 </ResponseField>
 
 <ResponseField name="status" type="string">
-  The current status of the notarization request.&#x20;
+  The current status of the notarization request.
 
   Possible values: `In Progress`, `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
-  A unique URL where the signer can complete the notarization process. This URL is valid for 7 days. Example: "https://api.platus.com/notarize/not-2024-abc123"
+  A unique, case-specific URL for accessing and monitoring the current status and details of the notarization process.
+
+  **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="documents" type="array">
   List of documents included in this notarization request.
 
   <Expandable title="Document Response Object">
-    <ResponseField name="document_id" type="string">
-      Unique identifier for the document.
+    <ResponseField name="id" type="string">
+      The unique identifier for the created notarization case in a **UUID** format.
+
+      **Example**: `123e4567-e89b-12d3-a456-426614174000`
+    </ResponseField>
+
+    <ResponseField name="type" type="string">
+      The type of document as specified in the request.
     </ResponseField>
 
     <ResponseField name="status" type="string">
-      Current status of the document. Possible values: "processing", "ready", "signed", "notarized"
-    </ResponseField>
+      Indicates the current processing state of the specific document within the notarization case.
 
-    <ResponseField name="document_type" type="string">
-      The type of document as specified in the request.
+      **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
     </ResponseField>
   </Expandable>
 </ResponseField>
