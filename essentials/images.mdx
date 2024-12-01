@@ -45,7 +45,9 @@ description: "This endpoint retrieves the details of a notarization case"
 </ResponseField>
 
 <ResponseField name="url" type="string">
-  ISO 8601 timestamp indicating when the notarization was completed.
+  A unique, case-specific URL for accessing and monitoring the current status and details of the notarization process.
+
+  **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="client_reference" type="string">
@@ -108,38 +110,51 @@ description: "This endpoint retrieves the details of a notarization case"
   Indicates whether the signer's identity has been verified.
 </ResponseField>
 
-### Raw Response Example
+<ResponseField name="documents" type="array">
+  List of documents included in this notarization request.
 
-```json
-{
-    "case_id": "case_abc123xyz789",
-    "case": "notarization",
-    "jurisdiction": "US",
-    "status": "completed",
-    "completed_at": "2024-10-18T12:00:00Z",
-    "client_reference": "REF-2024-001",
-    "documents": [
-        {
-            "document_id": "doc_123456",
-            "document_type": "Power of Attorney",
-            "document_url": "https://api.beglaubigt.de/notarized/document.pdf",
-            "document_hash": "sha256:a1b2c3d4e5f6...",
-            "signers": [
-                {
-                    "signer_id": "signer_123456",
-                    "email": "signer1@example.com",
-                    "first_name": "John",
-                    "middle_name": "Andreas",
-                    "last_name": "Doe",
-                    "dob": "1985-07-10",
-                    "phone": "+49123456789",
-                    "verified": true
-                }
-            ]
-        }
-    ]
-}
-```
+  <Expandable title="Documents Response Object">
+    <ResponseField name="id" type="string">
+      The unique identifier for the created notarization case in a **UUID** format.
+
+      **Example**: `123e4567-e89b-12d3-a456-426614174000`
+    </ResponseField>
+
+    <ResponseField name="type" type="string">
+      The type of document as specified in the request.
+    </ResponseField>
+
+    <ResponseField name="status" type="string">
+      Indicates the current processing state of the specific document within the notarization case.
+
+      **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="signers" type="array">
+  List of signers included in this notarization request.
+
+  <Expandable title="Signers Response Object">
+    <ResponseField name="first_name" type="string">
+      The first name of the signer as provided during the notarization process.
+    </ResponseField>
+
+    <ResponseField name="last_name" type="string">
+      The last name of the signer as provided during the notarization process.
+    </ResponseField>
+
+    <ResponseField name="email" type="string">
+      The email address of the signer as provided during the notarization process.
+    </ResponseField>
+
+    <ResponseField name="url" type="string">
+      A unique invitation link containing an identification token. The link prompts the signer to complete required actions, such as signing or verifying documents, based on the notarization requirements.
+
+      **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
 
 <RequestExample>
   ```bash
