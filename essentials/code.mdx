@@ -223,11 +223,8 @@ description: "This endpoint creates a notarization request for a document"
 </ResponseField>
 
 <RequestExample>
-  ```bash
-  curl --location 'https://api.platus.com/v1/notarization' \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer <token>' \
-  --data '{
+  ```json
+  {
     "jurisdiction": "US",
     "state": "CA",
     "documents": [
@@ -244,12 +241,12 @@ description: "This endpoint creates a notarization request for a document"
                     "first_name": "John",
                     "middle_name": "Andreas",
                     "last_name": "Doe",
-                    "dob": "1985-07-10",
+                    "date_of_birth": "1985-07-10",
                     "phone": "+49123456789",
                     "labels": [
                         {
                             "type": "signature",
-                            "autodetection": true,
+                            "autodetection": true
                         },
                         {
                             "type": "location_and_date",
@@ -265,8 +262,8 @@ description: "This endpoint creates a notarization request for a document"
             ]
         }
     ],
-    "client_reference": "REF-2024-001",
-  }'
+    "client_reference": "REF-2024-001"
+  }
   ```
 </RequestExample>
 
