@@ -134,6 +134,10 @@ description: "This endpoint creates a notarization request for a document"
 
 ### Response
 
+<ResponseField name="url" type="string">
+  A unique URL where the signer can complete the notarization process. This URL is valid for 7 days. Example: "https://api.platus.com/notarize/not-2024-abc123"
+</ResponseField>
+
 <ResponseField name="case_id" type="string">
   The unique identifier for the created notarization case. Format: **UUID**.
 
