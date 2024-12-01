@@ -210,8 +210,16 @@ description: "This endpoint creates a notarization request for a document"
 
     <ResponseField name="url" type="string">
       A unique invitation link containing an identification token. The link prompts the signer to complete required actions, such as signing or verifying documents, based on the notarization requirements.
+
+      **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
   </Expandable>
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The exact date and time when the response was generated, formatted as an **ISO 8601** string in UTC.
+
+  **Example**: 2024-12-01T07:19:30.443Z
 </ResponseField>
 
 ### Raw Request Example
