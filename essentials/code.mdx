@@ -127,21 +127,23 @@ description: "This endpoint creates a notarization request for a document"
 </ParamField>
 
 <ParamField body="client_reference" type="string">
-  A custom client reference string for tracking purposes. Example: "REF-2024-001"
-</ParamField>
+  A custom client reference string for tracking purposes.
 
-<ParamField body="client_postback_url" type="string">
-  A URL where status updates will be sent. Example: "https://client-domain.com/webhook-endpoint"
+  **Example**: `REF-2024-001`
 </ParamField>
 
 ### Response
 
 <ResponseField name="case_id" type="string">
-  The unique identifier for the created notarization case. Example: "not-2024-abc123"
+  The unique identifier for the created notarization case. Format: **UUID**.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="status" type="string">
-  The current status of the notarization request. Possible values: "created", "processing", "completed"
+  The current status of the notarization request.&#x20;
+
+  Possible values: `In Progress`, `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -177,11 +179,12 @@ description: "This endpoint creates a notarization request for a document"
             "document_type": "Power of Attorney",
             "document_file": {
                 "type": "url",
-                "url": "https://app.platus.com/Power-of-Attorney-FG.pdf"
+                "url": "https://app.platus.com/Power-of-Attorney.pdf"
             },
+            "require_signatures": true,
             "signers": [
                 {
-                    "email": "signer1@example.com",
+                    "email": "john@example.com",
                     "first_name": "John",
                     "middle_name": "Andreas",
                     "last_name": "Doe",
@@ -190,14 +193,14 @@ description: "This endpoint creates a notarization request for a document"
                     "labels": [
                         {
                             "type": "signature",
-                            "autodetection": "enabled"
+                            "autodetection": true,
                         },
                         {
                             "type": "location_and_date",
                             "autodetection": false,
                             "page": 3,
-                            "x_position": 396.418,
-                            "y_position": 553.625,
+                            "x_position": 396,
+                            "y_position": 553,
                             "width": 270,
                             "height": 54
                         }
@@ -207,7 +210,6 @@ description: "This endpoint creates a notarization request for a document"
         }
     ],
     "client_reference": "REF-2024-001",
-    "client_postback_url": "https://client-domain.com/webhook-endpoint"
 }
 ```
 
