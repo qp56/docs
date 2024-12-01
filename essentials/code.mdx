@@ -270,17 +270,30 @@ description: "This endpoint creates a notarization request for a document"
 <ResponseExample>
   ```json
   {
-      "case_id": "not-2024-abc123",
-      "status": "created",
-      "url": "https://app.platus.com/notarize/not-2024-abc123",
-      "expires_at": "2024-11-18T10:30:00Z",
-      "documents": [
-          {
-              "document_id": "doc-2024-xyz789",
-              "status": "processing",
-              "document_type": "Power of Attorney"
-          }
-      ]
-  }
+    "response": {
+        "result": "success",
+        "message": "Case created successfully.",
+        "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
+        "status": "In Progress",
+        "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595",
+        "documents": [
+            {
+                "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
+                "type": "Power of Attorney",
+                "status": "Signatures Requested"
+            }
+        ],
+        "signers": [
+            {
+                "id": "2djywgiDrXM37XhiNAiEl",
+                "first_name": "John",
+                "last_name": "Doe",
+                "email": "john@example.com",
+                "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595?token=8963cd77-b5f9-4280-986d-6137e9fea106"
+            }
+        ],
+        "timestamp": "2024-12-01T07:19:30.443Z"
+    }
+}
   ```
 </ResponseExample>
