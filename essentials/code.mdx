@@ -167,7 +167,7 @@ description: "This endpoint creates a notarization request for a document"
 <ResponseField name="documents" type="array">
   List of documents included in this notarization request.
 
-  <Expandable title="Document Response Object">
+  <Expandable title="Documents Response Object">
     <ResponseField name="id" type="string">
       The unique identifier for the created notarization case in a **UUID** format.
 
@@ -182,6 +182,26 @@ description: "This endpoint creates a notarization request for a document"
       Indicates the current processing state of the specific document within the notarization case.
 
       **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="signers" type="array">
+  List of signers included in this notarization request.
+
+  <Expandable title="Signers Response Object">
+    <ResponseField name="id" type="string">
+      A unique identifier for the signer within the notarization case in **Nano ID** format.
+
+      **Example**: `2djywgiDrXM37XhiNAiEl`
+    </ResponseField>
+
+    <ResponseField name="first_name" type="string">
+      The first name of the signer as provided during the notarization process.
+    </ResponseField>
+
+    <ResponseField name="last_name" type="string">
+      The last name of the signer as provided during the notarization process.
     </ResponseField>
   </Expandable>
 </ResponseField>
