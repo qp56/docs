@@ -13,28 +13,38 @@ description: "This endpoint retrieves the details of a notarization case"
 ### Path Parameters
 
 <ParamField path="case_id" type="string" required>
-  The unique identifier of the notarization case to retrieve. Example: "case\_abc123xyz789"
+  The unique identifier of the notarization case to retrieve.&#x20;
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ParamField>
 
 ### Response
 
+<ResponseField name="result" type="string">
+  Indicates the outcome of the API request.
+
+  **Possible values**: `success` or `error`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Provides a human-readable message detailing the result of the API request.
+
+  **Exemple**: `Case created successfully.`
+</ResponseField>
+
 <ResponseField name="case_id" type="string">
-  The unique identifier of the notarization case.
-</ResponseField>
+  The unique identifier for the created notarization case in a **UUID** format.
 
-<ResponseField name="case" type="string">
-  The type of case. Value: "notarization"
-</ResponseField>
-
-<ResponseField name="jurisdiction" type="string">
-  The jurisdiction where the notarization was executed.
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="status" type="string">
-  Current status of the notarization. Possible values: "created", "processing", "completed"
+  The current status of the notarization request.
+
+  Possible values: `In Progress`, `Completed`
 </ResponseField>
 
-<ResponseField name="completed_at" type="string">
+<ResponseField name="url" type="string">
   ISO 8601 timestamp indicating when the notarization was completed.
 </ResponseField>
 
