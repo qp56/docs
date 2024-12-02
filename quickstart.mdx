@@ -3,10 +3,6 @@ title: Webhooks
 description: "Learn how to handle Platus webhook events"
 ---
 
-## API Reference
-
-### Webhooks
-
 Webhooks are like having a helpful assistant who proactively notifies your application when important notarization events occur. Instead of repeatedly asking, “Has the notarization been completed?”, webhooks automatically tap your application on the shoulder when it happens.
 
 ### Why use webhooks?
@@ -18,8 +14,6 @@ Webhooks are like having a helpful assistant who proactively notifies your appli
 * **Efficient**: No need to constantly poll the API for updates.
 
 * **Reliable**: Never miss an important event, even if your system is temporarily down.
-
-***
 
 ### Getting started
 
@@ -44,10 +38,8 @@ Here’s an example of the webhook payload you’ll receive for a completed nota
   "case_id": "123e4567-e89b-12d3-a456-426614174000",
   "original_document_id": "456e1234-e89b-12d3-a456-426614174001",
   "notarized_document_id": "789e4567-e89b-12d3-a456-426614174002",
-  "notarized_document_url": "https://api.platus.com/notarized_documents/document123456.pdf"
+  "notarized_document_url": "https://api.platus.com/notarized_documents/789e4567-e89b-12d3-a456-426614174002/document.pdf"
 }
-
-
 ```
 
 ## Webhook delivery & retries
