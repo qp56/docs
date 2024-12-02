@@ -42,8 +42,8 @@
     {
       "group": "API Reference",
       "pages": [
-        "essentials/code",
-        "essentials/images"
+        "notarization/post",
+        "notarization/get"
       ]
     },
     {
