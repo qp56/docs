@@ -47,7 +47,7 @@
       ]
     },
     {
-      "group": "Webhooks",
+      "group": "Webhook Events",
       "pages": [
         "webhooks/notarization.completed"
       ]
