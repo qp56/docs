@@ -50,84 +50,38 @@ description: "This endpoint retrieves the details of a notarization case"
   **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ResponseField name="client_reference" type="string">
-  The client reference string provided during creation.
-</ResponseField>
-
-<ResponseField name="documents" type="array">
-  List of documents included in this notarization.
-</ResponseField>
-
-<ResponseField name="documents.document_id" type="string">
-  Unique identifier for the document.
-</ResponseField>
-
-<ResponseField name="documents.document_type" type="string">
-  The type of document.
-</ResponseField>
-
-<ResponseField name="documents.document_url" type="string">
-  URL to download the notarized document.
-</ResponseField>
-
-<ResponseField name="documents.document_hash" type="string">
-  SHA-256 hash of the notarized document for verification.
-</ResponseField>
-
-<ResponseField name="documents.signers" type="array">
-  List of signers for this document.
-</ResponseField>
-
-<ResponseField name="documents.signers.signer_id" type="string">
-  Unique identifier for the signer.
-</ResponseField>
-
-<ResponseField name="documents.signers.email" type="string">
-  Email address of the signer.
-</ResponseField>
-
-<ResponseField name="documents.signers.first_name" type="string">
-  First name of the signer.
-</ResponseField>
-
-<ResponseField name="documents.signers.middle_name" type="string">
-  Middle name of the signer (if provided).
-</ResponseField>
-
-<ResponseField name="documents.signers.last_name" type="string">
-  Last name of the signer.
-</ResponseField>
-
-<ResponseField name="documents.signers.birthdate" type="string">
-  Date of birth of the signer in YYYY-MM-DD format.
-</ResponseField>
-
-<ResponseField name="documents.signers.phone" type="string">
-  Phone number of the signer.
-</ResponseField>
-
-<ResponseField name="documents.signers.verified" type="boolean">
-  Indicates whether the signer's identity has been verified.
-</ResponseField>
-
 <ResponseField name="documents" type="array">
   List of documents included in this notarization request.
 
   <Expandable title="Documents Response Object">
-    <ResponseField name="id" type="string">
-      The unique identifier for the created notarization case in a **UUID** format.
-
-      **Example**: `123e4567-e89b-12d3-a456-426614174000`
-    </ResponseField>
-
-    <ResponseField name="type" type="string">
-      The type of document as specified in the request.
-    </ResponseField>
-
     <ResponseField name="status" type="string">
       Indicates the current processing state of the specific document within the notarization case.
 
-      **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
+      **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
+    </ResponseField>
+
+    <ResponseField name="original_document_id" type="string">
+      The unique identifier for the original document associated with the case in a **UUID** format.
+
+      **Example**: `123e4567-e89b-12d3-a456-426614174000`
+    </ResponseField>
+
+    <ResponseField name="original_document_url" type="string">
+      The URL of the original document associated with the case in a **PDF** format.
+
+      **Example**: `https://oyglozqjanrgigsclqao.supabase.co/storage/v1/object/public/documents/123e4567-e89b-12d3-a456-426614174000/document.pdf`
+    </ResponseField>
+
+    <ResponseField name="notarized_document_id" type="string">
+      The unique identifier for the notarized version of the document associated with the case in a **UUID** format.
+
+      **Example**: `123e4567-e89b-12d3-a456-426614174000`
+    </ResponseField>
+
+    <ResponseField name="notarized_document_url" type="string">
+      Indicates the current processing state of the specific document within the notarization case.
+
+      **Example**: `https://oyglozqjanrgigsclqao.supabase.co/storage/v1/object/public/notarized_documents/123e4567-e89b-12d3-a456-426614174000/document.pdf`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -137,15 +91,15 @@ description: "This endpoint retrieves the details of a notarization case"
 
   <Expandable title="Signers Response Object">
     <ResponseField name="first_name" type="string">
-      The first name of the signer as provided during the notarization process.
+      The first name of the signer.
     </ResponseField>
 
     <ResponseField name="last_name" type="string">
-      The last name of the signer as provided during the notarization process.
+      The last name of the signer.
     </ResponseField>
 
     <ResponseField name="email" type="string">
-      The email address of the signer as provided during the notarization process.
+      The email address of the signer.
     </ResponseField>
 
     <ResponseField name="url" type="string">
@@ -154,6 +108,10 @@ description: "This endpoint retrieves the details of a notarization case"
       **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
   </Expandable>
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  The client reference string provided during creation.
 </ResponseField>
 
 <RequestExample>
