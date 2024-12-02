@@ -111,7 +111,9 @@ description: "This endpoint retrieves the details of a notarization case"
 </ResponseField>
 
 <ResponseField name="client_reference" type="string">
-  The client reference string provided during creation.
+  The custom client reference string provided when creating the case though the API POST request.
+
+  **Example**: `REF-2024-001`
 </ResponseField>
 
 <RequestExample>
@@ -149,6 +151,6 @@ description: "This endpoint retrieves the details of a notarization case"
         ],
         "client_reference": "REF-2024-001"
     }
-}
+  }
   ```
 </ResponseExample>
