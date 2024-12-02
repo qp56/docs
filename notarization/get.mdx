@@ -1,0 +1,156 @@
+---
+title: "Get Notarization"
+api: "GET https://api.platus.com/v1/notarization/{case_id}"
+description: "This endpoint retrieves the details of a notarization case"
+---
+
+### Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
+### Path Parameters
+
+<ParamField path="case_id" type="string" required>
+  The unique identifier of the notarization case to retrieve.&#x20;
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ParamField>
+
+### Response
+
+<ResponseField name="result" type="string">
+  Indicates the outcome of the API request.
+
+  **Possible values**: `success` or `error`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Provides a human-readable message detailing the result of the API request.
+
+  **Exemple**: `Case created successfully.`
+</ResponseField>
+
+<ResponseField name="case_id" type="string">
+  The unique identifier for the created notarization case in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The current status of the notarization request.
+
+  Possible values: `In Progress`, `Completed`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  A unique, case-specific URL for accessing and monitoring the current status and details of the notarization process.
+
+  **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="documents" type="array">
+  List of documents included in this notarization request.
+
+  <Expandable title="Documents Response Object">
+    <ResponseField name="status" type="string">
+      Indicates the current processing state of the specific document within the notarization case.
+
+      **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
+    </ResponseField>
+
+    <ResponseField name="original_document_id" type="string">
+      The unique identifier for the original document associated with the case in a **UUID** format.
+
+      **Example**: `123e4567-e89b-12d3-a456-426614174000`
+    </ResponseField>
+
+    <ResponseField name="original_document_url" type="string">
+      The URL of the original document associated with the case in a **PDF** format.
+
+      **Example**: `https://oyglozqjanrgigsclqao.supabase.co/storage/v1/object/public/documents/123e4567-e89b-12d3-a456-426614174000/document.pdf`
+    </ResponseField>
+
+    <ResponseField name="notarized_document_id" type="string">
+      The unique identifier for the notarized version of the document associated with the case in a **UUID** format.
+
+      **Example**: `123e4567-e89b-12d3-a456-426614174000`
+    </ResponseField>
+
+    <ResponseField name="notarized_document_url" type="string">
+      Indicates the current processing state of the specific document within the notarization case.
+
+      **Example**: `https://oyglozqjanrgigsclqao.supabase.co/storage/v1/object/public/notarized_documents/123e4567-e89b-12d3-a456-426614174000/document.pdf`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="signers" type="array">
+  List of signers included in this notarization request.
+
+  <Expandable title="Signers Response Object">
+    <ResponseField name="first_name" type="string">
+      The first name of the signer.
+    </ResponseField>
+
+    <ResponseField name="last_name" type="string">
+      The last name of the signer.
+    </ResponseField>
+
+    <ResponseField name="email" type="string">
+      The email address of the signer.
+    </ResponseField>
+
+    <ResponseField name="url" type="string">
+      A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the notarization requirements.
+
+      **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  The custom client reference string provided when creating the case though the API POST request.
+
+  **Example**: `REF-2024-001`
+</ResponseField>
+
+<RequestExample>
+  ```
+  --request GET 'https://api.platus.com/v1/notarization/123e4567-e89b-12d3-a456-426614174000' \
+  --header 'Authorization: Bearer <token>'
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```json
+  {
+    "response": {
+        "result": "success",
+        "message": "Case fetched successfully.",
+        "case_id": "123e4567-e89b-12d3-a456-426614174000",
+        "status": "In Progress",
+        "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000",
+        "documents": [
+            {
+                "status": "Completed",
+                "original_document_id": "123e4567-e89b-12d3-a456-426614174001",
+                "original_document_url": "https://oyglozqjanrgigsclqao.supabase.co/storage/v1/object/public/documents/123e4567-e89b-12d3-a456-426614174001/document.pdf",
+                "notarized_document_id": "123e4567-e89b-12d3-a456-426614174002",
+                "notarized_document_url": "https://oyglozqjanrgigsclqao.supabase.co/storage/v1/object/public/notarized_documents/123e4567-e89b-12d3-a456-426614174002/document.pdf"
+            }
+        ],
+        "signers": [
+            {
+                "first_name": "John",
+                "last_name": "Doe",
+                "email": "john@example.com",
+                "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
+            }
+        ],
+        "client_reference": "REF-2024-001"
+    }
+  }
+  ```
+</ResponseExample>
