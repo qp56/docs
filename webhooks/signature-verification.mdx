@@ -11,9 +11,9 @@ Signature verification ensures that webhook HTTP requests originate from Platus 
 
 When we send a webhook HTTP request to your endpoint, we include a digital signature in the `X-Signature` header. This signature is generated using the HMAC-SHA256 algorithm and a **secret key that is shared exclusively between Platus and your system**. The process involves:
 
-1. **Payload Preparation**: The payload of the webhook is serialized as a JSON string.
+1. **Secret Key**: Each webhook you create is associated with a unique secret key, that you can find on the webhooks page: [https://app.platus.com/api/webhooks](https://app.platus.com/api/webhooks)
 
-2. **Secret Key**: Each webhook you create is associated with a unique secret key, that you can find on the webhooks page: [https://app.platus.com/api/webhooks](https://app.platus.com/api/webhooks)
+2. **Payload Preparation**: The payload of the webhook is serialized as a JSON string.
 
 3. **Signature Generation**: Using the secret key, we compute the HMAC-SHA256 digest of the payload.
 
