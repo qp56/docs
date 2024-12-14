@@ -51,9 +51,9 @@ The `notarization.completed` event is triggered automatically when a notarizatio
 </ResponseField>
 
 <ResponseField name="notarized_document_url" type="string">
-  A direct URL to download the notarized document. This link provides access to the finalized and notarized version of the original document in PDF format.
+  The URL of the notarized document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.
 
-  **Example**: https://api.platus.com/notarized\_documents/document123456.pdf
+  **Example**: `https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=h4J...f7P`
 </ResponseField>
 
 <ResponseField name="client_reference" type="string">
@@ -73,7 +73,7 @@ The `notarization.completed` event is triggered automatically when a notarizatio
   "case_id": "123e4567-e89b-12d3-a456-426614174000",
   "original_document_id": "456e1234-e89b-12d3-a456-426614174001",
   "notarized_document_id": "789e4567-e89b-12d3-a456-426614174002",
-  "notarized_document_url": "https://api.platus.com/notarized_documents/789e4567-e89b-12d3-a456-426614174002/document.pdf"
+  "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=h4J...f7P"
 }
 ```
 
