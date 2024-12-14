@@ -1,0 +1,58 @@
+---
+title: "Signature Verification"
+description: "Learn to verify the authenticity of our webhook HTTP requests to ensure their security and integrity."
+---
+
+## Why Use Signature Verification?
+
+Signature verification ensures that webhook HTTP requests originate from Platus and have not been tampered with. By validating the included digital signature, you can protect your systems from unauthorized or malicious requests.
+
+## How it works?
+
+When we send a webhook HTTP request to your endpoint, we include a digital signature in the `X-Signature` header. This signature is generated using the HMAC-SHA256 algorithm and a **secret key that is shared exclusively between Platus and your system**. The process involves:
+
+1. **Payload Preparation**: The payload of the webhook is serialized as a JSON string.
+
+2. **Secret Key**: Each webhook you create is associated with a unique secret key, that you can find on the webhooks page: [https://app.platus.com/api/webhooks](https://app.platus.com/api/webhooks)
+
+3. **Signature Generation**: Using the secret key, we compute the HMAC-SHA256 digest of the payload.
+
+4. **Signature Inclusion**: The resulting digest (hexadecimal-encoded) is included in the `X-Signature` header of the webhook HTTP request.
+
+This allows you, the recipient, to independently compute the signature using the same payload and secret key to verify its authenticity.
+
+## Example
+
+Here’s a practical example using Node.js:
+
+```javascript
+const crypto = require('crypto');
+
+// Payload received in the webhook HTTP request
+const payload = {
+  "webhook_id": "webhook_abcdef123456",
+  "event": "notarization.completed",   
+  "timestamp": "2024-10-18T12:00:00Z",
+  "service": "notarization", 
+  "case_id": "123e4567-e89b-12d3-a456-426614174000",
+  "original_document_id": "456e1234-e89b-12d3-a456-426614174001",
+  "notarized_document_id": "789e4567-e89b-12d3-a456-426614174002",
+  "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJub3Rhcml6ZWRfZG9jdW1lbnRzL2E2ZWE4YTc2LWI5MTMtNGMyNy1hYThiLWY3ZWUwOTgxN2UyNy9kb2N1bWVudC5wZGYiLCJpYXQiOjE3MzQxNDM5NDksImV4cCI6MTczNDIzMDM0OX0.vCFf_u80LQ8FCd1vmOA1SihXnUVJIcLpck0txi62Nig"
+}
+
+// Your secret key, accessible on the dashboard
+const secretKey = '31d1cb83dbce4c2a6b1b4828794e1db6aa49f9e59063c40d754fef8a0626b77b';
+
+// Create HMAC-SHA256 digest
+const hmac = crypto.createHmac('sha256', secretKey);
+
+// Serialize the payload object into a JSON string
+hmac.update(JSON.stringify(payload));
+
+const digest = hmac.digest('hex');
+
+console.log(`Digest (Signature): ${digest}`);
+
+// Digest (Signature): c3d770fb1fa41726485593ccce86cb7df9b918ec6fd5e5a0d0c08943c55691f2
+
+```
