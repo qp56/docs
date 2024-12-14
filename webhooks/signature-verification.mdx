@@ -43,15 +43,12 @@ const payload = {
 // Your secret key, accessible on the dashboard
 const secretKey = '31d1cb83dbce4c2a6b1b4828794e1db6aa49f9e59063c40d754fef8a0626b77b';
 
-// Create HMAC-SHA256 digest
-const hmac = crypto.createHmac('sha256', secretKey);
-
 // Serialize the payload object into a JSON string
 const serializedPayload = JSON.stringify(payload);
 
-// Feed the serialized string to the HMAC algorithm
+// Compute the HMAC-SHA256 digest
+const hmac = crypto.createHmac('sha256', secretKey);
 hmac.update(serializedPayload);
-
 const digest = hmac.digest('hex');
 
 console.log(`Digest (Signature): ${digest}`);
