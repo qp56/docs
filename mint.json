@@ -50,7 +50,7 @@
       "group": "Webhook Events",
       "pages": [
         "webhooks/notarization.completed",
-        "webhooks/SignatureVerification"
+        "webhooks/signature-verification"
       ]
     }
   ],
