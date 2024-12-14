@@ -67,7 +67,7 @@ description: "This endpoint retrieves the details of a notarization case"
     </ResponseField>
 
     <ResponseField name="original_document_url" type="string">
-      The URL of the original document associated with the case in a **PDF** format.
+      The URL of the original document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.
 
       **Example**: `https://app.platus.com/download?bucket=documents&id=789e4567-e89b-12d3-a456-426614174002&token=a1H...To5`
     </ResponseField>
@@ -79,7 +79,7 @@ description: "This endpoint retrieves the details of a notarization case"
     </ResponseField>
 
     <ResponseField name="notarized_document_url" type="string">
-      Indicates the current processing state of the specific document within the notarization case.
+      The URL of the notarized document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.
 
       **Example**: `https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=h4J...f7P`
     </ResponseField>
