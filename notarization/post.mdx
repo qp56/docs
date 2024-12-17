@@ -134,6 +134,12 @@ description: "This endpoint creates a notarization request for a document"
   </Expandable>
 </ParamField>
 
+<ParamField body="persona_environment" default="production" type="string">
+  Specifies the environment for the persona API.
+
+  **Possible values:** `sandbox`, `production`
+</ParamField>
+
 <ParamField body="client_reference" type="string">
   A custom client reference string for tracking purposes.
 
@@ -163,7 +169,7 @@ description: "This endpoint creates a notarization request for a document"
 <ResponseField name="status" type="string">
   The current status of the notarization request.
 
-  Possible values: `In Progress`, `Completed`
+  **Possible values:** `In Progress`, `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
