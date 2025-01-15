@@ -59,7 +59,7 @@ The `notarization.completed` event is triggered automatically when a notarizatio
 <ResponseField name="client_reference" type="string">
   Your custom reference string provided during notarization creation.
 
-  **Example**: `REF-2024-001`
+  **Example**: `REF-2025-001`
 </ResponseField>
 
 ### Webhook Payload Example
@@ -73,7 +73,8 @@ The `notarization.completed` event is triggered automatically when a notarizatio
   "case_id": "123e4567-e89b-12d3-a456-426614174000",
   "original_document_id": "456e1234-e89b-12d3-a456-426614174001",
   "notarized_document_id": "789e4567-e89b-12d3-a456-426614174002",
-  "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=h4J...f7P"
+  "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=h4J...f7P",
+  "client_reference": "REF-2025-001"
 }
 ```
 
