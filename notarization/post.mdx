@@ -146,6 +146,12 @@ description: "This endpoint creates a notarization request for a document"
   **Example**: `REF-2024-001`
 </ParamField>
 
+<ParamField body="client_preferred_language" default="en" type="string">
+  This determines the language in which emails will be sent to the client.
+
+  **Possible values:** `en`, `de`, `es`, `fr` or `it`
+</ParamField>
+
 ### Response
 
 <ResponseField name="result" type="string">
