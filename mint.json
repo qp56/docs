@@ -49,7 +49,7 @@
     {
       "group": "Webhook",
       "pages": [
-        "Deliveries & Retries"
+        "webhooks/delivery-and-retries",
         "webhooks/signature-verification"
       ]
     },
