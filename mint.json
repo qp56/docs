@@ -52,8 +52,7 @@
         "webhooks/signatures.requested",
         "webhooks/signatures.completed",
         "webhooks/verifications.completed",
-        "webhooks/notarization.completed",
-        "webhooks/signature-verification"
+        "webhooks/notarization.completed"
       ]
     },
     {
