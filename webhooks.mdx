@@ -47,9 +47,7 @@ Here’s an example of the webhook payload you’ll receive for a completed nota
 
 When your server receives a webhook, it’s like getting a handshake from Platus. To confirm you received it:
 
-* Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
-
-* If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.
+* Your endpoint should respond with **HTTP status code 200 OK**.
 
 ## Best practices
 
