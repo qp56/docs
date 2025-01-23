@@ -20,6 +20,12 @@ The `notarization.completed` event is triggered automatically when a notarizatio
   **Value**: `notarization.completed`
 </ResponseField>
 
+<ResponseField name="message" type="string">
+  Provides a human-readable message indicating the result of the webhook event.
+
+  **Value**: `A document has been notarized.`
+</ResponseField>
+
 <ResponseField name="timestamp" type="string">
   The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
 
@@ -67,7 +73,8 @@ The `notarization.completed` event is triggered automatically when a notarizatio
 ```json
 {
   "webhook_id": "webhook_abcdef123456",
-  "event": "notarization.completed",   
+  "event": "notarization.completed",
+  "message": "A document has been notarized.",
   "timestamp": "2024-10-18T12:00:00Z",
   "service": "notarization", 
   "case_id": "123e4567-e89b-12d3-a456-426614174000",
