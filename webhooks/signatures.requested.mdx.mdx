@@ -1,0 +1,110 @@
+---
+title: "Signatures Requested"
+---
+
+### Understanding the Event
+
+The signatures.requested event is triggered automatically when a document requires signatures to complete the notarization process.
+
+### Payload Fields
+
+<ResponseField name="webhook_id" type="string">
+  A unique identifier for this webhook in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="event" type="string">
+  The name of the event that triggered this webhook.
+
+  **Value**: `signatures.requested`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Provides a human-readable message indicating the result of the webhook event.
+
+  **Value**: `The requests for document signatures have been sent.`
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
+
+  **Example**: `2024-12-01T07:19:30.443Z`
+</ResponseField>
+
+<ResponseField name="service" type="string">
+  The type of service this webhook relates to.
+
+  **Possible value**: `signature` or `notarization`
+</ResponseField>
+
+<ResponseField name="case_id" type="string">
+  The unique identifier for the created case in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="document_id" type="string">
+  The unique identifier for the document in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="document_status" type="string">
+  Indicates the current status of the document in the workflow.
+
+  **Possible values**: `In Draft`, `Signatures Requested`, `Verifications Requested` or `Completed`
+</ResponseField>
+
+<ResponseField name="signers" type="array">
+  List of signers included in this case.
+
+  <Expandable title="Signers Response Object">
+    <ResponseField name="first_name" type="string">
+      The first name of the signer.
+    </ResponseField>
+
+    <ResponseField name="last_name" type="string">
+      The last name of the signer.
+    </ResponseField>
+
+    <ResponseField name="email" type="string">
+      The email address of the signer.
+    </ResponseField>
+
+    <ResponseField name="url" type="string">
+      A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the case's requirements.
+
+      **Example**: `https://app.platus.com/sign/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  Your custom reference string provided during case creation.
+
+  **Example**: `REF-2025-001`
+</ResponseField>
+
+### Webhook Payload Example
+
+```json
+{
+  "webhook_id": "webhook_abcdef123456",
+  "event": "signatures.requested",   
+  "timestamp": "2024-10-18T12:00:00Z",
+  "service": "notarization", 
+  "case_id": "123e4567-e89b-12d3-a456-426614174000",
+  "document_id": "456e1234-e89b-12d3-a456-426614174001",
+  "document_status": "Signatures Requested",
+  "signers": [
+    {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john@example.com",
+        "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
+    }
+  ],
+  "client_reference": "REF-2025-001"
+}
+```
