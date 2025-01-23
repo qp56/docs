@@ -49,6 +49,7 @@
     {
       "group": "Webhook",
       "pages": [
+        "webhooks",
         "webhooks/delivery-and-retries",
         "webhooks/signature-verification"
       ]
