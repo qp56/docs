@@ -55,6 +55,12 @@
         "webhooks/notarization.completed",
         "webhooks/signature-verification"
       ]
+    },
+    {
+      "group": "Webhook Security",
+      "pages": [
+        "webhooks/signature-verification"
+      ]
     }
   ],
   "footerSocials": {
