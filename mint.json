@@ -50,6 +50,8 @@
       "group": "Webhook Events",
       "pages": [
         "webhooks/signatures.requested",
+        "webhooks/signatures.completed",
+        "webhooks/verifications.completed",
         "webhooks/notarization.completed",
         "webhooks/signature-verification"
       ]
