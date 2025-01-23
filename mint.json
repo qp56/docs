@@ -49,6 +49,7 @@
     {
       "group": "Webhook Events",
       "pages": [
+        "webhooks/signatures.requested",
         "webhooks/notarization.completed",
         "webhooks/signature-verification"
       ]
