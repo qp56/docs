@@ -62,14 +62,20 @@ The `signatures.requested` event is triggered automatically when a document requ
   <Expandable title="Signers Response Object">
     <ResponseField name="first_name" type="string">
       The first name of the signer.
+
+      **Example**: `John`
     </ResponseField>
 
     <ResponseField name="last_name" type="string">
       The last name of the signer.
+
+      **Example**: `Doe`
     </ResponseField>
 
     <ResponseField name="email" type="string">
       The email address of the signer.
+
+      **Example**: `john.doe@mail.com`
     </ResponseField>
 
     <ResponseField name="url" type="string">
@@ -102,7 +108,7 @@ The `signatures.requested` event is triggered automatically when a document requ
         "first_name": "John",
         "last_name": "Doe",
         "email": "john@example.com",
-        "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
+        "url": "https://app.platus.com/sign/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
     }
   ],
   "client_reference": "REF-2025-001"
