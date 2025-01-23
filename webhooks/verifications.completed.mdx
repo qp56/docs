@@ -72,16 +72,16 @@ The `verifications.completed` event is triggered automatically when the identiti
       **Example**: `Doe`
     </ResponseField>
 
+    <ResponseField name="email" type="string">
+      The email address of the signer.
+
+      **Example**: `john.doe@mail.com`
+    </ResponseField>
+
     <ResponseField name="identity_verified_at" type="string">
       The timestamp indicating when the signer verified their identity, formatted as an ISO 8601 string in UTC.
 
       **Example**: `2024-12-01T07:19:30.443Z`
-    </ResponseField>
-
-    <ResponseField name="url" type="string">
-      A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the case's requirements.
-
-      **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
   </Expandable>
 </ResponseField>
