@@ -1,0 +1,23 @@
+---
+title: 'Delivery & Retries'
+---
+
+When your server receives a webhook, it's like getting a handshake from Platus. To confirm you received it:
+
+* Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
+
+* If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.
+
+### Best Practices
+
+Handle Platus webhooks like a pro by following these best practices:
+
+* **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn't cause unintended effects.
+
+* **Validate webhook signatures**: Verify the event's authenticity to ensure it originates from Platus.
+
+* **Respond quickly**: Acknowledge receipt promptly to prevent retries.
+
+### Need Help?
+
+If you have any questions or need assistance, feel free to contact us at [team@platus.com](mailto:team@platus.com).

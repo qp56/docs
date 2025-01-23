@@ -47,18 +47,19 @@
       ]
     },
     {
+      "group": "Webhook",
+      "pages": [
+        "Deliveries & Retries"
+        "webhooks/signature-verification"
+      ]
+    },
+    {
       "group": "Webhook Events",
       "pages": [
         "webhooks/signatures.requested",
         "webhooks/signatures.completed",
         "webhooks/verifications.completed",
         "webhooks/notarization.completed"
-      ]
-    },
-    {
-      "group": "Webhook Security",
-      "pages": [
-        "webhooks/signature-verification"
       ]
     }
   ],
