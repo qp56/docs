@@ -35,8 +35,7 @@
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "webhooks"
+        "introduction"
       ]
     },
     {
