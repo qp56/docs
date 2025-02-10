@@ -54,7 +54,7 @@ description: "This endpoint creates a notarization request for a document"
       <ParamField body="autodetection" default="false" type="boolean">
         Signature and location/date fields will be automatically identified across the entire document using AI-powered detection.
 
-        *Note: This feature is in beta.*
+        **Note***: This feature is in beta.*
       </ParamField>
     </ParamField>
 
@@ -98,12 +98,6 @@ description: "This endpoint creates a notarization request for a document"
               `location_and_date` : Detects the signer’s location and records the date upon signature.
             </ParamField>
 
-            <ParamField body="autodetection" default="false" type="boolean">
-              Use AI to automatically detect the position and size of the labels on the document.
-
-              **Note**: *This feature is currently in beta.*
-            </ParamField>
-
             <ParamField body="page" type="number" required="autodetection=disabled">
               Page number for the label placement.
 
@@ -132,6 +126,12 @@ description: "This endpoint creates a notarization request for a document"
               Height of the label area.
 
               **Note**: *Required if autodetection is disabled.*
+            </ParamField>
+
+            <ParamField body="autodetection" default="false" type="boolean">
+              The label field will be automatically identified using AI-powered detection. You can specify the page to improve accuracy.
+
+              **Note***: This feature is in beta.*
             </ParamField>
           </Expandable>
         </ParamField>
