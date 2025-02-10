@@ -46,10 +46,16 @@ description: "This endpoint creates a notarization request for a document"
       <ParamField body="url" type="string" required>
         URL to the document file
       </ParamField>
-    </ParamField>
 
-    <ParamField body="require_signatures" default="false" type="boolean">
-      Whether the document requires signatures before notarization.
+      <ParamField body="require_signatures" default="false" type="boolean">
+        Whether the document requires signatures before notarization.
+      </ParamField>
+
+      <ParamField body="autodetection" default="false" type="boolean">
+        Signature and location/date fields will be automatically identified across the entire document using AI-powered detection.
+
+        *Note: This feature is in beta.*
+      </ParamField>
     </ParamField>
 
     <ParamField body="signers" type="array" required>
