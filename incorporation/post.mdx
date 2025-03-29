@@ -1,6 +1,6 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Initiate Incorporation"
+description: "Description of your new file."
 ---
 
 Below is the full documentation for the `POST https://api.beglaubigt.de/v1/incorporation` API endpoint in Markdown (`.md`) format, based on your request and structured similarly to the notarization API example you provided.
@@ -9,252 +9,237 @@ Below is the full documentation for the `POST https://api.beglaubigt.de/v1/incor
 
 # Create Incorporation
 
-**API**: `POST https://api.beglaubigt.de/v1/incorporation`  
+**API**: `POST https://api.beglaubigt.de/v1/incorporation`\
 **Description**: This endpoint creates an incorporation request for a company, such as a GmbH or UG, including company details, shareholders, and directors.
 
 ## Authorization
 
-- **Authorization** (string, required)  
+- **Authorization** (string, required)\
   Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
 
 ## Body
 
-- **company** (object, required)  
+- **company** (object, required)\
   Details of the company being incorporated.
 
   ### Company Object
-  - **name** (string, required)  
-    The legal name of the company.  
-    *Example*: `Example GmbH`
-  - **type** (string, required)  
-    The type of company being incorporated.  
-    *Possible values*: `GmbH`, `UG`  
-    *Example*: `GmbH`
-  - **purpose** (string, required)  
-    The purpose or business objective of the company.  
-    *Example*: `Software Development`
-  - **address** (object, required)  
+  - **name** (string, required)\
+    The legal name of the company.\
+    _Example_: `Example GmbH`
+  - **type** (string, required)\
+    The type of company being incorporated.\
+    _Possible values_: `GmbH`, `UG`\
+    _Example_: `GmbH`
+  - **purpose** (string, required)\
+    The purpose or business objective of the company.\
+    _Example_: `Software Development`
+  - **address** (object, required)\
     The registered address of the company.
 
     #### Address Object
-    - **street** (string, required)  
-      The street name and number.  
-      *Example*: `Hauptstraße 1`
-    - **second_line** (string)  
-      Additional address line (optional).  
-      *Example*: `Apartment 2B`
-    - **postal_code** (string, required)  
-      The postal code.  
-      *Example*: `80331`
-    - **city** (string, required)  
-      The city.  
-      *Example*: `Munich`
-    - **country** (string, required)  
-      The country.  
-      *Example*: `Germany`
-
-  - **capital** (number, required)  
-    The total share capital of the company in EUR.  
-    *Example*: `25000`
-  - **shares** (array, required)  
+    - **street** (string, required)\
+      The street name and number.\
+      _Example_: `Hauptstraße 1`
+    - **second_line** (string)\
+      Additional address line (optional).\
+      _Example_: `Apartment 2B`
+    - **postal_code** (string, required)\
+      The postal code.\
+      _Example_: `80331`
+    - **city** (string, required)\
+      The city.\
+      _Example_: `Munich`
+    - **country** (string, required)\
+      The country.\
+      _Example_: `Germany`
+  - **capital** (number, required)\
+    The total share capital of the company in EUR.\
+    _Example_: `25000`
+  - **shares** (array, required)\
     An array of share allocations for the shareholders.
 
     #### Share Object
-    - **shareholder_id** (number, required)  
-      The unique identifier linking to a shareholder in the `shareholders` array.  
-      *Example*: `0`
-    - **share_percentage** (number, required)  
-      The percentage of total shares owned by the shareholder.  
-      *Example*: `50`
-    - **share** (number, required)  
-      The monetary value of the shares owned by the shareholder in EUR.  
-      *Example*: `12500`
-
-- **shareholders** (array, required)  
+    - **shareholder_id** (number, required)\
+      The unique identifier linking to a shareholder in the `shareholders` array.\
+      _Example_: `0`
+    - **share_percentage** (number, required)\
+      The percentage of total shares owned by the shareholder.\
+      _Example_: `50`
+    - **share** (number, required)\
+      The monetary value of the shares owned by the shareholder in EUR.\
+      _Example_: `12500`
+- **shareholders** (array, required)\
   An array of shareholders involved in the company incorporation.
 
   ### Shareholder Object
-  - **first_name** (string, required)  
-    First name of the shareholder.  
-    *Example*: `John`
-  - **middle_name** (string)  
-    Middle name of the shareholder (optional).  
-    *Example*: `Andreas`
-  - **last_name** (string, required)  
-    Last name of the shareholder.  
-    *Example*: `Doe`
-  - **dob** (string, required)  
-    Date of birth of the shareholder in `YYYY-MM-DD` format.  
-    *Example*: `1985-07-10`
-  - **pob** (string, required)  
-    Place of birth of the shareholder.  
-    *Example*: `Berlin`
-  - **nationality** (string, required)  
-    Nationality of the shareholder.  
-    *Example*: `German`
-  - **address** (object, required)  
+  - **first_name** (string, required)\
+    First name of the shareholder.\
+    _Example_: `John`
+  - **middle_name** (string)\
+    Middle name of the shareholder (optional).\
+    _Example_: `Andreas`
+  - **last_name** (string, required)\
+    Last name of the shareholder.\
+    _Example_: `Doe`
+  - **dob** (string, required)\
+    Date of birth of the shareholder in `YYYY-MM-DD` format.\
+    _Example_: `1985-07-10`
+  - **pob** (string, required)\
+    Place of birth of the shareholder.\
+    _Example_: `Berlin`
+  - **nationality** (string, required)\
+    Nationality of the shareholder.\
+    _Example_: `German`
+  - **address** (object, required)\
     The residential address of the shareholder.
 
     #### Address Object
-    - **street** (string, required)  
-      The street name and number.  
-      *Example*: `Bahnhofstraße 10`
-    - **second_line** (string)  
-      Additional address line (optional).  
-      *Example*: `Floor 3`
-    - **postal_code** (string, required)  
-      The postal code.  
-      *Example*: `10115`
-    - **city** (string, required)  
-      The city.  
-      *Example*: `Berlin`
-    - **country** (string, required)  
-      The country.  
-      *Example*: `Germany`
-
-  - **is_legal_entity** (boolean, default: `false`)  
-    Indicates if the shareholder is a legal entity rather than an individual.  
-    *Example*: `false`
-  - **legal_entity_register** (string)  
-    The register where the legal entity is recorded (required if `is_legal_entity` is `true`).  
-    *Example*: `Handelsregister München`
-  - **legal_entity_director_first_name** (string)  
-    First name of the director of the legal entity (required if `is_legal_entity` is `true`).  
-    *Example*: `Anna`
-  - **legal_entity_director_last_name** (string)  
-    Last name of the director of the legal entity (required if `is_legal_entity` is `true`).  
-    *Example*: `Schmidt`
-  - **shareholder_id** (string, required)  
-    A unique identifier for the shareholder, used to link to the `shares` array.  
-    *Example*: `0`
-
-- **directors** (array, required)  
+    - **street** (string, required)\
+      The street name and number.\
+      _Example_: `Bahnhofstraße 10`
+    - **second_line** (string)\
+      Additional address line (optional).\
+      _Example_: `Floor 3`
+    - **postal_code** (string, required)\
+      The postal code.\
+      _Example_: `10115`
+    - **city** (string, required)\
+      The city.\
+      _Example_: `Berlin`
+    - **country** (string, required)\
+      The country.\
+      _Example_: `Germany`
+  - **is_legal_entity** (boolean, default: `false`)\
+    Indicates if the shareholder is a legal entity rather than an individual.\
+    _Example_: `false`
+  - **legal_entity_register** (string)\
+    The register where the legal entity is recorded (required if `is_legal_entity` is `true`).\
+    _Example_: `Handelsregister München`
+  - **legal_entity_director_first_name** (string)\
+    First name of the director of the legal entity (required if `is_legal_entity` is `true`).\
+    _Example_: `Anna`
+  - **legal_entity_director_last_name** (string)\
+    Last name of the director of the legal entity (required if `is_legal_entity` is `true`).\
+    _Example_: `Schmidt`
+  - **shareholder_id** (string, required)\
+    A unique identifier for the shareholder, used to link to the `shares` array.\
+    _Example_: `0`
+- **directors** (array, required)\
   An array of directors managing the company.
 
   ### Director Object
-  - **first_name** (string, required)  
-    First name of the director.  
-    *Example*: `Maria`
-  - **middle_name** (string)  
-    Middle name of the director (optional).  
-    *Example*: `Andreas`
-  - **last_name** (string, required)  
-    Last name of the director.  
-    *Example*: `Weber`
-  - **dob** (string, required)  
-    Date of birth of the director in `YYYY-MM-DD` format.  
-    *Example*: `1978-03-15`
-  - **pob** (string, required)  
-    Place of birth of the director.  
-    *Example*: `Hamburg`
-  - **address** (object, required)  
+  - **first_name** (string, required)\
+    First name of the director.\
+    _Example_: `Maria`
+  - **middle_name** (string)\
+    Middle name of the director (optional).\
+    _Example_: `Andreas`
+  - **last_name** (string, required)\
+    Last name of the director.\
+    _Example_: `Weber`
+  - **dob** (string, required)\
+    Date of birth of the director in `YYYY-MM-DD` format.\
+    _Example_: `1978-03-15`
+  - **pob** (string, required)\
+    Place of birth of the director.\
+    _Example_: `Hamburg`
+  - **address** (object, required)\
     The residential address of the director.
 
     #### Address Object
-    - **street** (string, required)  
-      The street name and number.  
-      *Example*: `Schillerstraße 5`
-    - **line2** (string)  
-      Additional address line (optional).  
-      *Example*: `Suite 12`
-    - **postal_code** (string, required)  
-      The postal code.  
-      *Example*: `80336`
-    - **city** (string, required)  
-      The city.  
-      *Example*: `Munich`
-    - **country** (string, required)  
-      The country.  
-      *Example*: `Germany`
-
-  - **authority** (string, required)  
-    The signing authority of the director.  
-    *Possible values*: `sole`, `joint`  
-    *Example*: `sole`
-
-- **client_reference** (string)  
-  A custom client reference string for tracking purposes.  
-  *Example*: `REF-2024-001`
+    - **street** (string, required)\
+      The street name and number.\
+      _Example_: `Schillerstraße 5`
+    - **line2** (string)\
+      Additional address line (optional).\
+      _Example_: `Suite 12`
+    - **postal_code** (string, required)\
+      The postal code.\
+      _Example_: `80336`
+    - **city** (string, required)\
+      The city.\
+      _Example_: `Munich`
+    - **country** (string, required)\
+      The country.\
+      _Example_: `Germany`
+  - **authority** (string, required)\
+    The signing authority of the director.\
+    _Possible values_: `sole`, `joint`\
+    _Example_: `sole`
+- **client_reference** (string)\
+  A custom client reference string for tracking purposes.\
+  _Example_: `REF-2024-001`
 
 ## Response
 
-- **result** (string)  
-  Indicates the outcome of the API request.  
-  *Possible values*: `success`, `error`
-
-- **message** (string)  
-  Provides a human-readable message detailing the result of the API request.  
-  *Example*: `Case created successfully.`
-
-- **case_id** (string)  
-  The unique identifier for the created incorporation case in a **UUID** format.  
-  *Example*: `450506c1-d1a7-46e2-aca6-41a816805595`
-
-- **status** (string)  
-  The current status of the incorporation request.  
-  *Possible values*: `Incorporation Initiated`, `In Progress`, `Completed`  
-  *Example*: `Incorporation Initiated`
-
-- **url** (string)  
-  A unique, case-specific URL for accessing and monitoring the incorporation process.  
-  *Example*: `https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595`
-
-- **documents** (array)  
+- **result** (string)\
+  Indicates the outcome of the API request.\
+  _Possible values_: `success`, `error`
+- **message** (string)\
+  Provides a human-readable message detailing the result of the API request.\
+  _Example_: `Case created successfully.`
+- **case_id** (string)\
+  The unique identifier for the created incorporation case in a **UUID** format.\
+  _Example_: `450506c1-d1a7-46e2-aca6-41a816805595`
+- **status** (string)\
+  The current status of the incorporation request.\
+  _Possible values_: `Incorporation Initiated`, `In Progress`, `Completed`\
+  _Example_: `Incorporation Initiated`
+- **url** (string)\
+  A unique, case-specific URL for accessing and monitoring the incorporation process.\
+  _Example_: `https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595`
+- **documents** (array)\
   List of documents generated for this incorporation request.
 
   ### Documents Response Object
-  - **id** (string)  
-    The unique identifier for the document in a **UUID** format.  
-    *Example*: `07347a09-7fa2-434f-a5f1-ec897f16d4b9`
-  - **type** (string)  
-    The type of document.  
-    *Example*: `Articles of Association`
-  - **status** (string)  
-    Indicates the current processing state of the document.  
-    *Possible values*: `Initiated`, `In Draft`, `Completed`  
-    *Example*: `Initiated`
-  - **url** (string)  
-    URL to access the document.  
-    *Example*: `https://app.beglaubigt.de/documents/450506c1-d1a7-46e2-aca6-41a816805595`
-
-- **notarization** (array)  
+  - **id** (string)\
+    The unique identifier for the document in a **UUID** format.\
+    _Example_: `07347a09-7fa2-434f-a5f1-ec897f16d4b9`
+  - **type** (string)\
+    The type of document.\
+    _Example_: `Articles of Association`
+  - **status** (string)\
+    Indicates the current processing state of the document.\
+    _Possible values_: `Initiated`, `In Draft`, `Completed`\
+    _Example_: `Initiated`
+  - **url** (string)\
+    URL to access the document.\
+    _Example_: `https://app.beglaubigt.de/documents/450506c1-d1a7-46e2-aca6-41a816805595`
+- **notarization** (array)\
   Details of the notarization process associated with the incorporation.
 
   ### Notarization Object
-  - **type** (string)  
-    The type of notarization.  
-    *Example*: `online`
-  - **date** (string)  
-    The scheduled date of notarization in `DD.MM.YYYY` format.  
-    *Example*: `28.10.2025`
-  - **notary** (object)  
+  - **type** (string)\
+    The type of notarization.\
+    _Example_: `online`
+  - **date** (string)\
+    The scheduled date of notarization in `DD.MM.YYYY` format.\
+    _Example_: `28.10.2025`
+  - **notary** (object)\
     Information about the notary handling the incorporation.
 
     #### Notary Object
-    - **first_name** (string)  
-      First name of the notary.  
-      *Example*: `Klara`
-    - **last_name** (string)  
-      Last name of the notary.  
-      *Example*: `Müller`
-    - **email** (string)  
-      Email address of the notary.  
-      *Example*: `klara.mueller@notary.de`
-
-  - **location** (string)  
-    The location of the notarization.  
-    *Example*: `Munich`
-  - **url** (string)  
-    A URL for accessing notarization details or joining an online session.  
-    *Example*: `https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595`
-
-- **client_reference** (string)  
-  The custom client reference string provided in the request.  
-  *Example*: `REF-2024-001`
-
-- **timestamp** (string)  
-  The exact date and time when the response was generated, formatted as an **ISO 8601** string in UTC.  
-  *Example*: `2024-12-01T07:19:30.443Z`
+    - **first_name** (string)\
+      First name of the notary.\
+      _Example_: `Klara`
+    - **last_name** (string)\
+      Last name of the notary.\
+      _Example_: `Müller`
+    - **email** (string)\
+      Email address of the notary.\
+      _Example_: `klara.mueller@notary.de`
+  - **location** (string)\
+    The location of the notarization.\
+    _Example_: `Munich`
+  - **url** (string)\
+    A URL for accessing notarization details or joining an online session.\
+    _Example_: `https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595`
+- **client_reference** (string)\
+  The custom client reference string provided in the request.\
+  _Example_: `REF-2024-001`
+- **timestamp** (string)\
+  The exact date and time when the response was generated, formatted as an **ISO 8601** string in UTC.\
+  _Example_: `2024-12-01T07:19:30.443Z`
 
 ## Request Example
 
@@ -359,4 +344,4 @@ Below is the full documentation for the `POST https://api.beglaubigt.de/v1/incor
 
 ---
 
-This Markdown documentation provides a clear, structured, and detailed description of the incorporation API, including all fields, examples, and nested objects. Let me know if you need any further modifications!
+This Markdown documentation provides a clear, structured, and detailed description of the incorporation API, including all fields, examples, and nested objects. Let me know if you need any further modifications\!
