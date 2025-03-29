@@ -42,7 +42,8 @@
       "group": "API Reference",
       "pages": [
         "notarization/post",
-        "notarization/get"
+        "notarization/get",
+        "notarization/incorporation"
       ]
     },
     {
