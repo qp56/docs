@@ -1,18 +1,7 @@
-I'll provide the full Markdown (`.md`) documentation for the `POST https://api.platus.com/v1/incorporation` endpoint, incorporating the changes we've discussed. Specifically, I'll:
-
-1. **Fix the domain inconsistency**: The frontmatter uses `api.platus.com`, but the body uses `api.beglaubigt.de`. I'll standardize it to `api.platus.com` since your JSON configuration indicates you're working with Platus.
-2. **Apply consistent formatting**: Remove bullet points (`-`) for all fields and place the field name (in bold) and its description on the same line, as requested earlier.
-3. **Remove unnecessary details**: Streamline the documentation by removing optional fields with minimal impact (e.g., `second_line`, `middle_name`, `pob`, `is_legal_entity`, etc.) and simplifying nested objects where possible.
-4. **Fix typos**: Correct "incorportation" to "incorporation" in the description.
-5. **Include all sections**: Ensure the documentation includes Authorization, Body, Response, Request Example, and Response Example, as provided in your original code.
-
-Here’s the updated Markdown documentation as a code snippet:
-
-```markdown
 ---
-title: "Initiate Incorporation"
+title: "Create Incorporation"
 api: "POST https://api.platus.com/v1/incorporation"
-description: "This endpoint initiates an incorporation"
+description: "This endpoint creates an incorporation request for a company"
 ---
 
 # Create Incorporation
@@ -255,41 +244,3 @@ _Example_: `2024-12-01T07:19:30.443Z`
   ],
   "client_reference": "REF-2024-001"
 }
-```
-
-## Response Example
-
-```json
-{
-  "response": {
-    "result": "success",
-    "message": "Case created successfully.",
-    "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
-    "status": "Incorporation Initiated",
-    "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
-    "documents": [
-      {
-        "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
-        "type": "Articles of Association",
-        "status": "Initiated",
-        "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595"
-      }
-    ],
-    "notarization": [
-      {
-        "type": "online",
-        "date": "28.10.2025",
-        "notary": {
-          "first_name": "Klara",
-          "last_name": "Müller",
-          "email": "klara.mueller@notary.de"
-        },
-        "location": "Munich",
-        "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595"
-      }
-    ],
-    "client_reference": "REF-2024-001",
-    "timestamp": "2024-12-01T07:19:30.443Z"
-  }
-}
-```
