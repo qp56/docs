@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Platus API Docs",
+  "name": "Beglaubigt.de API Docs",
   "logo": {
     "dark": "/logo/platus-api.svg",
     "light": "/logo/light.svg"
@@ -18,12 +18,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:team@platus.com"
+      "url": "mailto:info@beglaubigt.de"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://app.platus.com"
+    "url": "https://app.beglaubigt.de"
   },
   "tabs": [
     {
@@ -65,8 +65,8 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/platus-inc",
-    "github": "https://github.com/platus-inc",
-    "linkedin": "https://linkedin.com/company/platus-inc"
+    "x": "https://x.com/beglaubigt",
+    "github": "https://github.com/beglaubigt",
+    "linkedin": "https://linkedin.com/company/beglaubigt"
   }
 }
