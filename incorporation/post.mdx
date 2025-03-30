@@ -82,50 +82,89 @@ Details of the company being incorporated.
 <ParamField body="shareholders" type="array" required>  
 An array of shareholders involved in the company incorporation.  
   <Expandable title="Shareholder Object">  
+    <ParamField body="type" type="string" required>  
+    The type of shareholder. Must be either `"individual"` or `"entity"`.  
+    **Example**: `"individual"`  
+    </ParamField>  
+
+    <!-- Fields for type="individual" -->  
     <ParamField body="first_name" type="string" required>  
-    First name of the shareholder.  
-    **Example**: `John`  
-    </ParamField>
-        <ParamField body="middle_name" type="string" required>  
-    Middle name of the shareholder.  
-    **Example**: `Marius`  
+    First name of the shareholder (required if `type` is `"individual"`).  
+    **Example**: `"John"`  
+    </ParamField>  
+    <ParamField body="middle_name" type="string" required>  
+    Middle name of the shareholder (required if `type` is `"individual"`).  
+    **Example**: `"Marius"`  
     </ParamField>  
     <ParamField body="last_name" type="string" required>  
-    Last name of the shareholder.  
-    **Example**: `Doe`  
+    Last name of the shareholder (required if `type` is `"individual"`).  
+    **Example**: `"Doe"`  
     </ParamField>  
     <ParamField body="dob" type="string" required>  
-    Date of birth of the shareholder in `YYYY-MM-DD` format.  
-    **Example**: `1985-07-10`  
+    Date of birth of the shareholder in `YYYY-MM-DD` format (required if `type` is `"individual"`).  
+    **Example**: `"1985-07-10"`  
+    </ParamField>  
+    <ParamField body="pob" type="string" required>  
+    Place of birth of the shareholder (required if `type` is `"individual"`).  
+    **Example**: `"Hamburg"`  
     </ParamField>  
     <ParamField body="nationality" type="string" required>  
-    Nationality of the shareholder.  
-    **Example**: `German`  
+    Nationality of the shareholder (required if `type` is `"individual"`).  
+    **Example**: `"German"`  
     </ParamField>  
+
+    <!-- Fields for type="entity" -->  
+    <ParamField body="legal_entity_name" type="string" required>  
+    Legal name of the entity (required if `type` is `"entity"`).  
+    **Example**: `"Example GmbH"`  
+    </ParamField>  
+    <ParamField body="legal_entity_register" type="string" required>  
+    Registration number or authority of the entity (required if `type` is `"entity"`).  
+    **Example**: `"HRB 12345"`  
+    </ParamField>  
+    <ParamField body="legal_entity_director" type="object" required>  
+    Director of the entity (required if `type` is `"entity"`).  
+      <Expandable title="Director Object">  
+        <ParamField body="first_name" type="string" required>  
+        First name of the director.  
+        **Example**: `"Anna"`  
+        </ParamField>  
+        <ParamField body="last_name" type="string" required>  
+        Last name of the director.  
+        **Example**: `"Schmidt"`  
+        </ParamField>  
+      </Expandable>  
+    </ParamField>  
+
+    <!-- Common fields -->  
     <ParamField body="address" type="object" required>  
-    The residential address of the shareholder.  
+    The residential or registered address of the shareholder.  
       <Expandable title="Address Object">  
         <ParamField body="street" type="string" required>  
         The street name and number.  
-        **Example**: `Bahnhofstraße 10`  
+        **Example**: `"Bahnhofstraße 10"`  
+        </ParamField>  
+        <ParamField body="second_line" type="string">  
+        Optional second line of the address.  
+        **Example**: `"Apartment 5"`  
         </ParamField>  
         <ParamField body="postal_code" type="string" required>  
         The postal code.  
-        **Example**: `10115`  
+        **Example**: `"10115"`  
         </ParamField>  
         <ParamField body="city" type="string" required>  
         The city.  
-        **Example**: `Berlin`  
+        **Example**: `"Berlin"`  
         </ParamField>  
         <ParamField body="country" type="string" required>  
         The country.  
-        **Example**: `Germany`  
+        **Example**: `"Germany"`  
         </ParamField>  
       </Expandable>  
     </ParamField>  
     <ParamField body="shareholder_id" type="string" required>  
     A unique identifier for the shareholder, used to link to the `shares` array.  
-    **Example**: `0`  
+    **Example**: `"0"`  
     </ParamField>  
   </Expandable>  
 </ParamField>
@@ -176,7 +215,7 @@ An array of directors managing the company.
 
 <ParamField body="client_reference" type="string">  
 A custom client reference string for tracking purposes.  
-**Example**: `REF-2024-001`  
+**Example**: `REF-2025-001`  
 </ParamField>
 
 ## Request Example
@@ -197,7 +236,7 @@ A custom client reference string for tracking purposes.
     "capital": 25000,
     "shares": [
       {
-        "shareholder_id": 0,
+        "shareholder_id": 1,
         "share_percentage": 50,
         "share": 12500
       }
@@ -215,7 +254,7 @@ A custom client reference string for tracking purposes.
         "city": "Berlin",
         "country": "Germany"
       },
-      "shareholder_id": "0"
+      "shareholder_id": "1"
     }
   ],
   "directors": [
@@ -232,7 +271,7 @@ A custom client reference string for tracking purposes.
       "authority": "sole"
     }
   ],
-  "client_reference": "REF-2024-001"
+  "client_reference": "REF-2025-001"
 }
 ```  
 </RequestExample>
