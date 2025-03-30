@@ -177,6 +177,7 @@ A custom client reference string for tracking purposes.
 
 ## Request Example
 
+<RequestExample>
 ```json
 {
   "company": {
@@ -229,8 +230,7 @@ A custom client reference string for tracking purposes.
   ],
   "client_reference": "REF-2024-001"
 }
-
-```
+</RequestExample>```
 
 ## Response
 
@@ -335,39 +335,38 @@ The exact date and time when the response was generated, formatted as an ISO 860
 
 ## Response Example
 
-<ResponseExample>  
-  ```json  
-  {  
-    "response": {  
-      "result": "success",  
-      "message": "Case created successfully.",  
-      "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",  
-      "status": "Incorporation Initiated",  
-      "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",  
-      "documents": [  
-        {  
-          "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",  
-          "type": "Articles of Association",  
-          "status": "Initiated",  
-          "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595"  
-        }  
-      ],  
-      "notarization": [  
-        {  
-          "type": "online",  
-          "date": "28.10.2025",  
-          "notary": {  
-            "first_name": "Klara",  
-            "last_name": "Müller",  
-            "email": "klara.mueller@notary.de"  
-          },  
-          "location": "Munich",  
-          "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595"  
-        }  
-      ],  
-      "client_reference": "REF-2024-001",  
-      "timestamp": "2024-12-01T07:19:30.443Z"  
-    }  
-  }  
-
-  </ResponseExample> ```
+<ResponseExample>
+```json
+{
+  "response": {
+    "result": "success",
+    "message": "Case created successfully.",
+    "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
+    "status": "Incorporation Initiated",
+    "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
+    "documents": [
+      {
+        "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
+        "type": "Articles of Association",
+        "status": "Initiated",
+        "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595"
+      }
+    ],
+    "notarization": [
+      {
+        "type": "online",
+        "date": "28.10.2025",
+        "notary": {
+          "first_name": "Klara",
+          "last_name": "Müller",
+          "email": "klara.mueller@notary.de"
+        },
+        "location": "Munich",
+        "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595"
+      }
+    ],
+    "client_reference": "REF-2024-001",
+    "timestamp": "2024-12-01T07:19:30.443Z"
+  }
+}
+</ResponseExample> ```
