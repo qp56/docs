@@ -212,6 +212,29 @@ An array of directors managing the company.
     </ParamField>  
   </Expandable>  
 </ParamField>
+<ParamField body="documents" type="object" required>  
+A collection of documents related to the company.  
+  <Expandable title="Documents Object">  
+    <ParamField body="articles_of_association" type="object" required>  
+    The articles of association for the company.  
+      <Expandable title="Articles of Association Object">  
+        <ParamField body="type" type="string" required>  
+        The type of the articles.  
+        **Possible values**: `custom`, `musterprotokoll`  
+        **Example**: `custom`  
+        </ParamField>  
+        <ParamField body="file_path" type="string" required>  
+        The storage path of the document file.  
+        **Example**: `s3://bucket/custom_articles.pdf`  
+        </ParamField>  
+        <ParamField body="description" type="string">  
+        A description of the document.  
+        **Example**: `Individuelle Satzung der GmbH`  
+        </ParamField>  
+      </Expandable>  
+    </ParamField>  
+  </Expandable>  
+</ParamField>
 
 <ParamField body="client_reference" type="string">  
 A custom client reference string for tracking purposes.  
