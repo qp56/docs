@@ -11,184 +11,169 @@ description: "This endpoint creates an incorporation request for a company"
 
 ## Authorization
 
-**Authorization** (string, required)  
+<ParamField header="Authorization" type="string" required>  
 Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.  
-_Example_: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`
+**Example**: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`  
+</ParamField>
 
 ## Body
 
-**company** (object, required)  
+<ParamField body="company" type="object" required>  
 Details of the company being incorporated.  
-  **name** (string, required)  
-  The legal name of the company.  
-  _Example_: `Platus GmbH`  
-  **type** (string, required)  
-  The type of company being incorporated.  
-  _Possible values_: `GmbH`, `UG`  
-  _Example_: `GmbH`  
-  **purpose** (string, required)  
-  The purpose or business objective of the company.  
-  _Example_: `Digital Notarization Services`  
-  **address** (object, required)  
-  The registered address of the company.  
-    **street** (string, required)  
-    The street name and number.  
-    _Example_: `Platusstraße 1`  
-    **postal_code** (string, required)  
-    The postal code.  
-    _Example_: `80331`  
-    **city** (string, required)  
-    The city.  
-    _Example_: `Munich`  
-    **country** (string, required)  
-    The country.  
-    _Example_: `Germany`  
-  **capital** (number, required)  
-  The total share capital of the company in EUR.  
-  _Example_: `25000`  
-  **shares** (array, required)  
-  An array of share allocations for the shareholders.  
-    **shareholder_id** (number, required)  
-    The unique identifier linking to a shareholder in the `shareholders` array.  
-    _Example_: `0`  
-    **share_percentage** (number, required)  
-    The percentage of total shares owned by the shareholder.  
-    _Example_: `50`  
-    **share** (number, required)  
-    The monetary value of the shares owned by the shareholder in EUR.  
-    _Example_: `12500`
+  <Expandable title="Company Object">  
+    <ParamField body="name" type="string" required>  
+    The legal name of the company.  
+    **Example**: `Platus GmbH`  
+    </ParamField>  
+    <ParamField body="type" type="string" required>  
+    The type of company being incorporated.  
+    **Possible values**: `GmbH`, `UG`  
+    **Example**: `GmbH`  
+    </ParamField>  
+    <ParamField body="purpose" type="string" required>  
+    The purpose or business objective of the company.  
+    **Example**: `Digital Notarization Services`  
+    </ParamField>  
+    <ParamField body="address" type="object" required>  
+    The registered address of the company.  
+      <Expandable title="Address Object">  
+        <ParamField body="street" type="string" required>  
+        The street name and number.  
+        **Example**: `Platusstraße 1`  
+        </ParamField>  
+        <ParamField body="postal_code" type="string" required>  
+        The postal code.  
+        **Example**: `80331`  
+        </ParamField>  
+        <ParamField body="city" type="string" required>  
+        The city.  
+        **Example**: `Munich`  
+        </ParamField>  
+        <ParamField body="country" type="string" required>  
+        The country.  
+        **Example**: `Germany`  
+        </ParamField>  
+      </Expandable>  
+    </ParamField>  
+    <ParamField body="capital" type="number" required>  
+    The total share capital of the company in EUR.  
+    **Example**: `25000`  
+    </ParamField>  
+    <ParamField body="shares" type="array" required>  
+    An array of share allocations for the shareholders.  
+      <Expandable title="Share Object">  
+        <ParamField body="shareholder_id" type="number" required>  
+        The unique identifier linking to a shareholder in the `shareholders` array.  
+        **Example**: `0`  
+        </ParamField>  
+        <ParamField body="share_percentage" type="number" required>  
+        The percentage of total shares owned by the shareholder.  
+        **Example**: `50`  
+        </ParamField>  
+        <ParamField body="share" type="number" required>  
+        The monetary value of the shares owned by the shareholder in EUR.  
+        **Example**: `12500`  
+        </ParamField>  
+      </Expandable>  
+    </ParamField>  
+  </Expandable>  
+</ParamField>
 
-**shareholders** (array, required)  
+<ParamField body="shareholders" type="array" required>  
 An array of shareholders involved in the company incorporation.  
-  **first_name** (string, required)  
-  First name of the shareholder.  
-  _Example_: `John`  
-  **last_name** (string, required)  
-  Last name of the shareholder.  
-  _Example_: `Doe`  
-  **dob** (string, required)  
-  Date of birth of the shareholder in `YYYY-MM-DD` format.  
-  _Example_: `1985-07-10`  
-  **nationality** (string, required)  
-  Nationality of the shareholder.  
-  _Example_: `German`  
-  **address** (object, required)  
-  The residential address of the shareholder.  
-    **street** (string, required)  
-    The street name and number.  
-    _Example_: `Bahnhofstraße 10`  
-    **postal_code** (string, required)  
-    The postal code.  
-    _Example_: `10115`  
-    **city** (string, required)  
-    The city.  
-    _Example_: `Berlin`  
-    **country** (string, required)  
-    The country.  
-    _Example_: `Germany`  
-  **shareholder_id** (string, required)  
-  A unique identifier for the shareholder, used to link to the `shares` array.  
-  _Example_: `0`
+  <Expandable title="Shareholder Object">  
+    <ParamField body="first_name" type="string" required>  
+    First name of the shareholder.  
+    **Example**: `John`  
+    </ParamField>  
+    <ParamField body="last_name" type="string" required>  
+    Last name of the shareholder.  
+    **Example**: `Doe`  
+    </ParamField>  
+    <ParamField body="dob" type="string" required>  
+    Date of birth of the shareholder in `YYYY-MM-DD` format.  
+    **Example**: `1985-07-10`  
+    </ParamField>  
+    <ParamField body="nationality" type="string" required>  
+    Nationality of the shareholder.  
+    **Example**: `German`  
+    </ParamField>  
+    <ParamField body="address" type="object" required>  
+    The residential address of the shareholder.  
+      <Expandable title="Address Object">  
+        <ParamField body="street" type="string" required>  
+        The street name and number.  
+        **Example**: `Bahnhofstraße 10`  
+        </ParamField>  
+        <ParamField body="postal_code" type="string" required>  
+        The postal code.  
+        **Example**: `10115`  
+        </ParamField>  
+        <ParamField body="city" type="string" required>  
+        The city.  
+        **Example**: `Berlin`  
+        </ParamField>  
+        <ParamField body="country" type="string" required>  
+        The country.  
+        **Example**: `Germany`  
+        </ParamField>  
+      </Expandable>  
+    </ParamField>  
+    <ParamField body="shareholder_id" type="string" required>  
+    A unique identifier for the shareholder, used to link to the `shares` array.  
+    **Example**: `0`  
+    </ParamField>  
+  </Expandable>  
+</ParamField>
 
-**directors** (array, required)  
+<ParamField body="directors" type="array" required>  
 An array of directors managing the company.  
-  **first_name** (string, required)  
-  First name of the director.  
-  _Example_: `Maria`  
-  **last_name** (string, required)  
-  Last name of the director.  
-  _Example_: `Weber`  
-  **dob** (string, required)  
-  Date of birth of the director in `YYYY-MM-DD` format.  
-  _Example_: `1978-03-15`  
-  **address** (object, required)  
-  The residential address of the director.  
-    **street** (string, required)  
-    The street name and number.  
-    _Example_: `Schillerstraße 5`  
-    **postal_code** (string, required)  
-    The postal code.  
-    _Example_: `80336`  
-    **city** (string, required)  
-    The city.  
-    _Example_: `Munich`  
-    **country** (string, required)  
-    The country.  
-    _Example_: `Germany`  
-  **authority** (string, required)  
-  The signing authority of the director.  
-  _Possible values_: `sole`, `joint`  
-  _Example_: `sole`
+  <Expandable title="Director Object">  
+    <ParamField body="first_name" type="string" required>  
+    First name of the director.  
+    **Example**: `Maria`  
+    </ParamField>  
+    <ParamField body="last_name" type="string" required>  
+    Last name of the director.  
+    **Example**: `Weber`  
+    </ParamField>  
+    <ParamField body="dob" type="string" required>  
+    Date of birth of the director in `YYYY-MM-DD` format.  
+    **Example**: `1978-03-15`  
+    </ParamField>  
+    <ParamField body="address" type="object" required>  
+    The residential address of the director.  
+      <Expandable title="Address Object">  
+        <ParamField body="street" type="string" required>  
+        The street name and number.  
+        **Example**: `Schillerstraße 5`  
+        </ParamField>  
+        <ParamField body="postal_code" type="string" required>  
+        The postal code.  
+        **Example**: `80336`  
+        </ParamField>  
+        <ParamField body="city" type="string" required>  
+        The city.  
+        **Example**: `Munich`  
+        </ParamField>  
+        <ParamField body="country" type="string" required>  
+        The country.  
+        **Example**: `Germany`  
+        </ParamField>  
+      </Expandable>  
+    </ParamField>  
+    <ParamField body="authority" type="string" required>  
+    The signing authority of the director.  
+    **Possible values**: `sole`, `joint`  
+    **Example**: `sole`  
+    </ParamField>  
+  </Expandable>  
+</ParamField>
 
-**client_reference** (string, optional)  
+<ParamField body="client_reference" type="string">  
 A custom client reference string for tracking purposes.  
-_Example_: `REF-2024-001`
-
-## Response
-
-**result** (string)  
-Indicates the outcome of the API request.  
-_Possible values_: `success`, `error`  
-_Example_: `success`  
-**message** (string)  
-Provides a human-readable message detailing the result of the API request.  
-_Example_: `Case created successfully.`  
-**case_id** (string)  
-The unique identifier for the created incorporation case in a UUID format.  
-_Example_: `450506c1-d1a7-46e2-aca6-41a816805595`  
-**status** (string)  
-The current status of the incorporation request.  
-_Possible values_: `Incorporation Initiated`, `In Progress`, `Completed`  
-_Example_: `Incorporation Initiated`  
-**url** (string)  
-A unique, case-specific URL for accessing and monitoring the incorporation process.  
-_Example_: `https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595`  
-**documents** (array)  
-List of documents generated for this incorporation request.  
-  **id** (string)  
-  The unique identifier for the document in a UUID format.  
-  _Example_: `07347a09-7fa2-434f-a5f1-ec897f16d4b9`  
-  **type** (string)  
-  The type of document.  
-  _Example_: `Articles of Association`  
-  **status** (string)  
-  Indicates the current processing state of the document.  
-  _Possible values_: `Initiated`, `In Draft`, `Completed`  
-  _Example_: `Initiated`  
-  **url** (string)  
-  URL to access the document.  
-  _Example_: `https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595`  
-**notarization** (array)  
-Details of the notarization process associated with the incorporation.  
-  **type** (string)  
-  The type of notarization.  
-  _Example_: `online`  
-  **date** (string)  
-  The scheduled date of notarization in `DD.MM.YYYY` format.  
-  _Example_: `28.10.2025`  
-  **notary** (object)  
-  Information about the notary handling the incorporation.  
-    **first_name** (string)  
-    First name of the notary.  
-    _Example_: `Klara`  
-    **last_name** (string)  
-    Last name of the notary.  
-    _Example_: `Müller`  
-    **email** (string)  
-    Email address of the notary.  
-    _Example_: `klara.mueller@notary.de`  
-  **location** (string)  
-  The location of the notarization.  
-  _Example_: `Munich`  
-  **url** (string)  
-  A URL for accessing notarization details or joining an online session.  
-  _Example_: `https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595`  
-**client_reference** (string)  
-The custom client reference string provided in the request.  
-_Example_: `REF-2024-001`  
-**timestamp** (string)  
-The exact date and time when the response was generated, formatted as an ISO 8601 string in UTC.  
-_Example_: `2024-12-01T07:19:30.443Z`
+**Example**: `REF-2024-001`  
+</ParamField>
 
 ## Request Example
 
@@ -244,42 +229,145 @@ _Example_: `2024-12-01T07:19:30.443Z`
   ],
   "client_reference": "REF-2024-001"
 }
+
 ```
+
+## Response
+
+<ResponseField name="result" type="string">  
+Indicates the outcome of the API request.  
+**Possible values**: `success`, `error`  
+**Example**: `success`  
+</ResponseField>  
+
+<ResponseField name="message" type="string">  
+Provides a human-readable message detailing the result of the API request.  
+**Example**: `Case created successfully.`  
+</ResponseField>  
+
+<ResponseField name="case_id" type="string">  
+The unique identifier for the created incorporation case in a UUID format.  
+**Example**: `450506c1-d1a7-46e2-aca6-41a816805595`  
+</ResponseField>  
+
+<ResponseField name="status" type="string">  
+The current status of the incorporation request.  
+**Possible values**: `Incorporation Initiated`, `In Progress`, `Completed`  
+**Example**: `Incorporation Initiated`  
+</ResponseField>  
+
+<ResponseField name="url" type="string">  
+A unique, case-specific URL for accessing and monitoring the incorporation process.  
+**Example**: `https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595`  
+</ResponseField>  
+
+<ResponseField name="documents" type="array">  
+List of documents generated for this incorporation request.  
+  <Expandable title="Documents Response Object">  
+    <ResponseField name="id" type="string">  
+    The unique identifier for the document in a UUID format.  
+    **Example**: `07347a09-7fa2-434f-a5f1-ec897f16d4b9`  
+    </ResponseField>  
+    <ResponseField name="type" type="string">  
+    The type of document.  
+    **Example**: `Articles of Association`  
+    </ResponseField>  
+    <ResponseField name="status" type="string">  
+    Indicates the current processing state of the document.  
+    **Possible values**: `Initiated`, `In Draft`, `Completed`  
+    **Example**: `Initiated`  
+    </ResponseField>  
+    <ResponseField name="url" type="string">  
+    URL to access the document.  
+    **Example**: `https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595`  
+    </ResponseField>  
+  </Expandable>  
+</ResponseField>  
+
+<ResponseField name="notarization" type="array">  
+Details of the notarization process associated with the incorporation.  
+  <Expandable title="Notarization Object">  
+    <ResponseField name="type" type="string">  
+    The type of notarization.  
+    **Example**: `online`  
+    </ResponseField>  
+    <ResponseField name="date" type="string">  
+    The scheduled date of notarization in `DD.MM.YYYY` format.  
+    **Example**: `28.10.2025`  
+    </ResponseField>  
+    <ResponseField name="notary" type="object">  
+    Information about the notary handling the incorporation.  
+      <Expandable title="Notary Object">  
+        <ResponseField name="first_name" type="string">  
+        First name of the notary.  
+        **Example**: `Klara`  
+        </ResponseField>  
+        <ResponseField name="last_name" type="string">  
+        Last name of the notary.  
+        **Example**: `Müller`  
+        </ResponseField>  
+        <ResponseField name="email" type="string">  
+        Email address of the notary.  
+        **Example**: `klara.mueller@notary.de`  
+        </ResponseField>  
+      </Expandable>  
+    </ResponseField>  
+    <ResponseField name="location" type="string">  
+    The location of the notarization.  
+    **Example**: `Munich`  
+    </ResponseField>  
+    <ResponseField name="url" type="string">  
+    A URL for accessing notarization details or joining an online session.  
+    **Example**: `https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595`  
+    </ResponseField>  
+  </Expandable>  
+</ResponseField>  
+
+<ResponseField name="client_reference" type="string">  
+The custom client reference string provided in the request.  
+**Example**: `REF-2024-001`  
+</ResponseField>  
+
+<ResponseField name="timestamp" type="string">  
+The exact date and time when the response was generated, formatted as an ISO 8601 string in UTC.  
+**Example**: `2024-12-01T07:19:30.443Z`  
+</ResponseField>
 
 ## Response Example
 
-```json
-{
-  "response": {
-    "result": "success",
-    "message": "Case created successfully.",
-    "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
-    "status": "Incorporation Initiated",
-    "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
-    "documents": [
-      {
-        "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
-        "type": "Articles of Association",
-        "status": "Initiated",
-        "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595"
-      }
-    ],
-    "notarization": [
-      {
-        "type": "online",
-        "date": "28.10.2025",
-        "notary": {
-          "first_name": "Klara",
-          "last_name": "Müller",
-          "email": "klara.mueller@notary.de"
-        },
-        "location": "Munich",
-        "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595"
-      }
-    ],
-    "client_reference": "REF-2024-001",
-    "timestamp": "2024-12-01T07:19:30.443Z"
-  }
-}
-```
- 
+<ResponseExample>  
+  ```json  
+  {  
+    "response": {  
+      "result": "success",  
+      "message": "Case created successfully.",  
+      "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",  
+      "status": "Incorporation Initiated",  
+      "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",  
+      "documents": [  
+        {  
+          "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",  
+          "type": "Articles of Association",  
+          "status": "Initiated",  
+          "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595"  
+        }  
+      ],  
+      "notarization": [  
+        {  
+          "type": "online",  
+          "date": "28.10.2025",  
+          "notary": {  
+            "first_name": "Klara",  
+            "last_name": "Müller",  
+            "email": "klara.mueller@notary.de"  
+          },  
+          "location": "Munich",  
+          "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595"  
+        }  
+      ],  
+      "client_reference": "REF-2024-001",  
+      "timestamp": "2024-12-01T07:19:30.443Z"  
+    }  
+  }  
+
+  </ResponseExample> ```
