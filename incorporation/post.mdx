@@ -1,12 +1,12 @@
 ---
 title: "Initiate Incorporation"
-api: "POST https://api.platus.com/v1/incorporation"
+api: "POST https://api.beglaubigt.de/v1/incorporation"
 description: "This endpoint creates an incorporation request for a company in Germany such as a GmbH or UG, including company details, shareholders, and directors."
 ---
 
 # Initiate Incorporation
 
-**API**: `POST https://api.platus.com/v1/incorporation`  
+**API**: `POST https://api.beglaubigt.de/v1/incorporation`  
 **Description**: This endpoint creates an incorporation request for a company, such as a GmbH or UG, including company details, shareholders, and directors.
 
 ## Authorization
@@ -218,10 +218,10 @@ A custom client reference string for tracking purposes.
   "company": {
     "name": "Platus GmbH",
     "type": "GmbH",
-    "purpose": "Digital Notarization Services",
+    "purpose": "Digital Notarization Services for Germany and Europe",
     "address": {
-      "street": "Platusstraße 1",
-      "postal_code": "80331",
+      "street": "Schwanthaler Str. 32",
+      "postal_code": "80336",
       "city": "Munich",
       "country": "Germany"
     },
@@ -294,7 +294,7 @@ The current status of the incorporation request.
 
 <ResponseField name="url" type="string">  
 A unique, case-specific URL for accessing and monitoring the incorporation process.  
-**Example**: `https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595`  
+**Example**: `https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595`  
 </ResponseField>  
 
 <ResponseField name="documents" type="array">  
@@ -315,7 +315,7 @@ List of documents generated for this incorporation request.
     </ResponseField>  
     <ResponseField name="url" type="string">  
     URL to access the document.  
-    **Example**: `https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595`  
+    **Example**: `https://app.beglaubigt.de/documents/450506c1-d1a7-46e2-aca6-41a816805595`  
     </ResponseField>  
   </Expandable>  
 </ResponseField>  
@@ -344,7 +344,7 @@ Details of the notarization process associated with the incorporation.
         </ResponseField>  
         <ResponseField name="email" type="string">  
         Email address of the notary.  
-        **Example**: `klara.mueller@notary.de`  
+        **Example**: `klara.mueller@beglaubigt.de`  
         </ResponseField>  
       </Expandable>  
     </ResponseField>  
@@ -354,7 +354,7 @@ Details of the notarization process associated with the incorporation.
     </ResponseField>  
     <ResponseField name="url" type="string">  
     A URL for accessing notarization details or joining an online session.  
-    **Example**: `https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595`  
+    **Example**: `https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595`  
     </ResponseField>  
   </Expandable>  
 </ResponseField>  
@@ -379,13 +379,13 @@ The exact date and time when the response was generated, formatted as an ISO 860
     "message": "Case created successfully.",
     "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
     "status": "Incorporation Initiated",
-    "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
+    "url": "https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
     "documents": [
       {
         "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
         "type": "Articles of Association",
         "status": "Initiated",
-        "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595"
+        "url": "https://app.beglaubigt.de/documents/450506c1-d1a7-46e2-aca6-41a816805595"
       }
     ],
     "notarization": [
@@ -395,10 +395,10 @@ The exact date and time when the response was generated, formatted as an ISO 860
         "notary": {
           "first_name": "Klara",
           "last_name": "Müller",
-          "email": "klara.mueller@notary.de"
+          "email": "klara.mueller@beglaubigt.de"
         },
         "location": "Munich",
-        "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595"
+        "url": "https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595"
       }
     ],
     "client_reference": "REF-2025-001",
