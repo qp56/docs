@@ -109,15 +109,15 @@ An array of shareholders involved in the company incorporation.
     Nationality of the shareholder (required if `type` is `"individual"`).  
     **Example**: `"German"`  
     </ParamField>  
-    <ParamField body="legal_entity_name" type="string" required>  
+    <ParamField body="entity_name" type="string" required>  
     Legal name of the entity (required if `type` is `"entity"`).  
     **Example**: `"Example GmbH"`  
     </ParamField>  
-    <ParamField body="legal_entity_register" type="string" required>  
+    <ParamField body="entity_register" type="string" required>  
     Registration number or authority of the entity (required if `type` is `"entity"`).  
     **Example**: `"HRB 12345"`  
     </ParamField>  
-    <ParamField body="legal_entity_director" type="object" required>  
+    <ParamField body="entity_director" type="object" required>  
     Director of the entity (required if `type` is `"entity"`).  
       <Expandable title="Director Object">  
         <ParamField body="first_name" type="string" required>  
