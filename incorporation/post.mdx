@@ -223,7 +223,7 @@ A collection of documents related to the company.
         **Possible values**: `custom`, `standard`  
         **Example**: `custom`  
         </ParamField>  
-        <ParamField body="file_path" type="string" required>  
+        <ParamField body="url" type="string" required>  
         The storage path of the document file.  
         **Example**: `s3://bucket/gesellschaftervertrag.pdf`  
         </ParamField>  
@@ -293,7 +293,7 @@ A custom client reference string for tracking purposes.
   "documents": {
     "articles_of_association": {
       "type": "custom",
-      "file_path": "s3://bucket/gesellschaftervertrag.pdf"
+      "url": "s3://bucket/gesellschaftervertrag.pdf"
     }
   "client_reference": "REF-2025-001"
 }
