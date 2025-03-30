@@ -32,18 +32,18 @@ Details of the company being incorporated.
     </ParamField>  
     <ParamField body="purpose" type="string" required>  
     The purpose or business objective of the company.  
-    **Example**: `Digital Notarization Services`  
+    **Example**: `Digital Notarization Services for Germany and Europe`  
     </ParamField>  
     <ParamField body="address" type="object" required>  
     The registered address of the company.  
       <Expandable title="Address Object">  
         <ParamField body="street" type="string" required>  
         The street name and number.  
-        **Example**: `Platusstraße 1`  
+        **Example**: `Schwanthaler Str. 32`  
         </ParamField>  
         <ParamField body="postal_code" type="string" required>  
         The postal code.  
-        **Example**: `80331`  
+        **Example**: `80336`  
         </ParamField>  
         <ParamField body="city" type="string" required>  
         The city.  
@@ -96,6 +96,14 @@ An array of shareholders involved in the company incorporation.
     <ParamField body="last_name" type="string" required>  
     Last name of the shareholder (required if `type` is `"individual"`).  
     **Example**: `"Doe"`  
+    </ParamField>  
+    <ParamField body="email" type="email">  
+    Email of the shareholder (required if `type` is `"individual"`).  
+    **Example**: `"name@mail.com"`  
+    </ParamField>  
+    <ParamField body="phone" type="string">  
+    Phone of the shareholder (required if `type` is `"individual"`).  
+    **Example**: `"4915775402820"`  
     </ParamField>  
     <ParamField body="dob" type="string" required>  
     Date of birth of the shareholder in `YYYY-MM-DD` format (required if `type` is `"individual"`).  
