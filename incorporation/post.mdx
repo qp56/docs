@@ -231,6 +231,28 @@ A collection of documents related to the company.
     </ParamField>  
   </Expandable>  
 </ParamField>
+<ParamField body="notarization" type="object" required>  
+Details about the notarization process.  
+  <Expandable title="Notarization Object">  
+    <ParamField body="type" type="string" required>  
+    The method of notarization.  
+    **Possible values**: `online`, `offline`  
+    **Example**: `online`  
+    </ParamField>  
+    <ParamField body="express" type="boolean">  
+    Requests expedited notarization.  
+    **Example**: `true`  
+    </ParamField>  
+    <ParamField body="desired_date" type="string">  
+    Target notarization date in `YYYY-MM-DD` format.  
+    **Example**: `2025-04-15`  
+    </ParamField>  
+    <ParamField body="desired_location" type="string">  
+    Desired location for notarization. Can be German or English City name. 
+    **Example**: `Munich`  
+    </ParamField>  
+  </Expandable>  
+</ParamField>
 
 <ParamField body="client_reference" type="string">  
 A custom client reference string for tracking purposes.  
