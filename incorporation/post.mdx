@@ -1,7 +1,8 @@
+```markdown
 ---
 title: "Create Incorporation"
 api: "POST https://api.platus.com/v1/incorporation"
-description: "this endpoint creates an incorporation request for a company"
+description: "This endpoint creates an incorporation request for a company"
 ---
 
 # Create Incorporation
@@ -192,60 +193,94 @@ _Example_: `2024-12-01T07:19:30.443Z`
 
 ## Request Example
 
-<RequestExample>
-  ```json
-  {
-    "company": {
-      "name": "Platus GmbH",
-      "type": "GmbH",
-      "purpose": "Digital Notarization Services",
+```json
+{
+  "company": {
+    "name": "Platus GmbH",
+    "type": "GmbH",
+    "purpose": "Digital Notarization Services",
+    "address": {
+      "street": "Platusstraße 1",
+      "postal_code": "80331",
+      "city": "Munich",
+      "country": "Germany"
+    },
+    "capital": 25000,
+    "shares": [
+      {
+        "shareholder_id": 0,
+        "share_percentage": 50,
+        "share": 12500
+      }
+    ]
+  },
+  "shareholders": [
+    {
+      "first_name": "John",
+      "last_name": "Doe",
+      "dob": "1985-07-10",
+      "nationality": "German",
       "address": {
-        "street": "Platusstraße 1",
-        "postal_code": "80331",
+        "street": "Bahnhofstraße 10",
+        "postal_code": "10115",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "shareholder_id": "0"
+    }
+  ],
+  "directors": [
+    {
+      "first_name": "Maria",
+      "last_name": "Weber",
+      "dob": "1978-03-15",
+      "address": {
+        "street": "Schillerstraße 5",
+        "postal_code": "80336",
         "city": "Munich",
         "country": "Germany"
       },
-      "capital": 25000,
-      "shares": [
-        {
-          "shareholder_id": 0,
-          "share_percentage": 50,
-          "share": 12500
-        }
-      ]
-    },
-    "shareholders": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "dob": "1985-07-10",
-        "nationality": "German",
-        "address": {
-          "street": "Bahnhofstraße 10",
-          "postal_code": "10115",
-          "city": "Berlin",
-          "country": "Germany"
-        },
-        "shareholder_id": "0"
-      }
-    ],
-    "directors": [
-      {
-        "first_name": "Maria",
-        "last_name": "Weber",
-        "dob": "1978-03-15",
-        "address": {
-          "street": "Schillerstraße 5",
-          "postal_code": "80336",
-          "city": "Munich",
-          "country": "Germany"
-        },
-        "authority": "sole"
-      }
-    ],
-    "client_reference": "REF-2024-001"
-  }
-  </RequestExample>
+      "authority": "sole"
+    }
+  ],
+  "client_reference": "REF-2024-001"
+}
+```
 
-  Response Example
-<ResponseExample> ```json { "response": { "result": "success", "message": "Case created successfully.", "case_id": "450506c1-d1a7-46e2-aca6-41a816805595", "status": "Incorporation Initiated", "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595", "documents": [ { "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9", "type": "Articles of Association", "status": "Initiated", "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595" } ], "notarization": [ { "type": "online", "date": "28.10.2025", "notary": { "first_name": "Klara", "last_name": "Müller", "email": "klara.mueller@notary.de" }, "location": "Munich", "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595" } ], "client_reference": "REF-2024-001", "timestamp": "2024-12-01T07:19:30.443Z" } } ``` </ResponseExample> ```
+## Response Example
+
+```json
+{
+  "response": {
+    "result": "success",
+    "message": "Case created successfully.",
+    "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
+    "status": "Incorporation Initiated",
+    "url": "https://app.platus.com/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
+    "documents": [
+      {
+        "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
+        "type": "Articles of Association",
+        "status": "Initiated",
+        "url": "https://app.platus.com/documents/450506c1-d1a7-46e2-aca6-41a816805595"
+      }
+    ],
+    "notarization": [
+      {
+        "type": "online",
+        "date": "28.10.2025",
+        "notary": {
+          "first_name": "Klara",
+          "last_name": "Müller",
+          "email": "klara.mueller@notary.de"
+        },
+        "location": "Munich",
+        "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595"
+      }
+    ],
+    "client_reference": "REF-2024-001",
+    "timestamp": "2024-12-01T07:19:30.443Z"
+  }
+}
+```
+```
