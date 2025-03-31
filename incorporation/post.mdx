@@ -166,23 +166,23 @@ description: "This endpoint creates an incorporation request for a company in Ge
       <Expandable title="Address Object">
         <ParamField body="street" type="string" required>
           The street name and number.\
-          **Example**: `"Bahnhofstraße 10"`
+          **Example**: `Bahnhofstraße 10`
         </ParamField>
         <ParamField body="second_line" type="string">
           Optional second line of the address.\
-          **Example**: `"Apartment 5"`
+          **Example**: `Apartment 5`
         </ParamField>
         <ParamField body="postal_code" type="string" required>
           The postal code.\
-          **Example**: `"10115"`
+          **Example**: `10115`
         </ParamField>
         <ParamField body="city" type="string" required>
           The city.\
-          **Example**: `"Berlin"`
+          **Example**: `Berlin`
         </ParamField>
         <ParamField body="country" type="string" required>
           The country.\
-          **Example**: `"Germany"`
+          **Example**: `Germany` 
         </ParamField>
       </Expandable>
     </ParamField>
@@ -233,7 +233,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
     </ParamField>
     <ParamField body="authority" type="string" required>
       The signing authority of the director.\
-      **Possible values**: `sole`, `joint`
+      **Possible values**: `sole` or `joint`
     </ParamField>
   </Expandable>
 </ParamField>
@@ -268,8 +268,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
       **Possible values**: `online` or `offline`
     </ParamField>
     <ParamField body="express" type="boolean">
-      Requests expedited notarization.\
-      **Example**: `true`
+      Requests expedited notarization.
     </ParamField>
     <ParamField body="desired_date" type="string">
       Target notarization date in `YYYY-MM-DD` format.\
