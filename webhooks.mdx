@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-description: "Learn how to handle Platus webhook events"
+description: "Learn how to handle Beglaubigt webhook events"
 ---
 
 Webhooks are like having a helpful assistant who proactively notifies your application when important notarization events occur. Instead of repeatedly asking, “Has the notarization been completed?”, webhooks automatically tap your application on the shoulder when it happens.
@@ -17,11 +17,11 @@ Webhooks are like having a helpful assistant who proactively notifies your appli
 
 ### Getting started
 
-To start receiving webhooks from Platus, follow these steps:
+To start receiving webhooks from Beglaubigt, follow these steps:
 
 1. Set up a publicly accessible HTTPS endpoint on your server.
 
-2. Register your webhook URL with Platus (via your dashboard under `/webhooks`).
+2. Register your webhook URL with Beglaubigt (via your dashboard under `/webhooks`).
 
 3. Implement a handler to process the `notarization.completed` event.
 
@@ -39,24 +39,24 @@ Here’s an example of the webhook payload you’ll receive for a completed nota
   "case_id": "123e4567-e89b-12d3-a456-426614174000",
   "original_document_id": "456e1234-e89b-12d3-a456-426614174001",
   "notarized_document_id": "789e4567-e89b-12d3-a456-426614174002",
-  "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=b6V...km3",
+  "notarized_document_url": "https://app.beglaubigt.de/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=b6V...km3",
   "client_reference": "REF-2025-001"
 }
 ```
 
 ## Webhook delivery & retries
 
-When your server receives a webhook, it’s like getting a handshake from Platus. To confirm you received it:
+When your server receives a webhook, it’s like getting a handshake from Beglaubigt. To confirm you received it:
 
 * Your endpoint should respond with **HTTP status code 200 OK**.
 
 ## Best practices
 
-Handle Platus webhooks like a pro by following these best practices:
+Handle Beglaubigt webhooks like a pro by following these best practices:
 
 * **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn’t cause unintended effects.
 
-* **Validate webhook signatures**: Verify the event’s authenticity to ensure it originates from Platus.
+* **Validate webhook signatures**: Verify the event’s authenticity to ensure it originates from Beglaubigt.
 
 * **Respond quickly**: Acknowledge receipt promptly to prevent retries.
 

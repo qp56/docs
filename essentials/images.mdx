@@ -1,6 +1,6 @@
 ---
 title: "Get Notarization"
-api: "GET https://api.platus.com/v1/notarization/{case_id}"
+api: "GET https://api.beglaubigt.de/v1/notarization/{case_id}"
 description: "This endpoint retrieves the details of a notarization case"
 ---
 
@@ -47,7 +47,7 @@ description: "This endpoint retrieves the details of a notarization case"
 <ResponseField name="url" type="string">
   A unique, case-specific URL for accessing and monitoring the current status and details of the notarization process.
 
-  **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000`
+  **Example**: `https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="documents" type="array">
@@ -105,7 +105,7 @@ description: "This endpoint retrieves the details of a notarization case"
     <ResponseField name="url" type="string">
       A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the notarization requirements.
 
-      **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
+      **Example**: `https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -118,7 +118,7 @@ description: "This endpoint retrieves the details of a notarization case"
 
 <RequestExample>
   ```
-  --request GET 'https://api.platus.com/v1/notarization/123e4567-e89b-12d3-a456-426614174000' \
+  --request GET 'https://api.beglaubigt.de/v1/notarization/123e4567-e89b-12d3-a456-426614174000' \
   --header 'Authorization: Bearer <token>'
   ```
 </RequestExample>
@@ -131,7 +131,7 @@ description: "This endpoint retrieves the details of a notarization case"
         "message": "Case fetched successfully.",
         "case_id": "123e4567-e89b-12d3-a456-426614174000",
         "status": "In Progress",
-        "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000",
+        "url": "https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000",
         "documents": [
             {
                 "status": "Completed",
@@ -146,7 +146,7 @@ description: "This endpoint retrieves the details of a notarization case"
                 "first_name": "John",
                 "last_name": "Doe",
                 "email": "john@example.com",
-                "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
+                "url": "https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
             }
         ],
         "client_reference": "REF-2024-001"

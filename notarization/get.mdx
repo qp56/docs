@@ -13,7 +13,7 @@ description: "This endpoint retrieves the details of a notarization case"
 ### Path Parameters
 
 <ParamField path="case_id" type="string" required>
-  The unique identifier of the notarization case to retrieve.&#x20;
+  The unique identifier of the notarization case to retrieve.
 
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ParamField>
@@ -47,7 +47,7 @@ description: "This endpoint retrieves the details of a notarization case"
 <ResponseField name="url" type="string">
   A unique, case-specific URL for accessing and monitoring the current status and details of the notarization process.
 
-  **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000`
+  **Example**: `https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="documents" type="array">
@@ -59,29 +59,25 @@ description: "This endpoint retrieves the details of a notarization case"
 
       **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
     </ResponseField>
-
     <ResponseField name="original_document_id" type="string">
       The unique identifier for the original document associated with the case in a **UUID** format.
 
       **Example**: `123e4567-e89b-12d3-a456-426614174000`
     </ResponseField>
-
     <ResponseField name="original_document_url" type="string">
       The URL of the original document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.
 
-      **Example**: `https://app.platus.com/download?bucket=documents&id=123e4567-e89b-12d3-a456-426614174000&token=a1H...To5`
+      **Example**: `https://app.beglaubigt.de/download?bucket=documents&id=123e4567-e89b-12d3-a456-426614174000&token=a1H...To5`
     </ResponseField>
-
     <ResponseField name="notarized_document_id" type="string">
       The unique identifier for the notarized version of the document associated with the case in a **UUID** format.
 
       **Example**: `123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
-
     <ResponseField name="notarized_document_url" type="string">
       The URL of the notarized document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.
 
-      **Example**: `https://app.platus.com/download?bucket=notarized_documents&id=123e4567-e89b-12d3-a456-426614174001&token=h4J...f7P`
+      **Example**: `https://app.beglaubigt.de/download?bucket=notarized_documents&id=123e4567-e89b-12d3-a456-426614174001&token=h4J...f7P`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -93,19 +89,16 @@ description: "This endpoint retrieves the details of a notarization case"
     <ResponseField name="first_name" type="string">
       The first name of the signer.
     </ResponseField>
-
     <ResponseField name="last_name" type="string">
       The last name of the signer.
     </ResponseField>
-
     <ResponseField name="email" type="string">
       The email address of the signer.
     </ResponseField>
-
     <ResponseField name="url" type="string">
       A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the notarization requirements.
 
-      **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
+      **Example**: `https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -117,40 +110,44 @@ description: "This endpoint retrieves the details of a notarization case"
 </ResponseField>
 
 <RequestExample>
-  ```
-  --request GET 'https://api.platus.com/v1/notarization/123e4567-e89b-12d3-a456-426614174000' \
-  --header 'Authorization: Bearer <token>'
-  ```
+
+```
+--request GET 'https://api.beglaubigt.de/v1/notarization/123e4567-e89b-12d3-a456-426614174000' \
+--header 'Authorization: Bearer <token>'
+```
+
 </RequestExample>
 
 <ResponseExample>
-  ```json
-  {
-    "response": {
-        "result": "success",
-        "message": "Case fetched successfully.",
-        "case_id": "123e4567-e89b-12d3-a456-426614174000",
-        "status": "In Progress",
-        "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000",
-        "documents": [
-            {
-                "status": "Completed",
-                "original_document_id": "123e4567-e89b-12d3-a456-426614174001",
-                "original_document_url": "https://app.platus.com/download?bucket=documents&id=123e4567-e89b-12d3-a456-426614174001&token=b4n...omL",
-                "notarized_document_id": "123e4567-e89b-12d3-a456-426614174002",
-                "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=123e4567-e89b-12d3-a456-426614174002&token=u5K...m1C"
-            }
-        ],
-        "signers": [
-            {
-                "first_name": "John",
-                "last_name": "Doe",
-                "email": "john@example.com",
-                "url": "https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
-            }
-        ],
-        "client_reference": "REF-2024-001"
-    }
+
+```json
+{
+  "response": {
+      "result": "success",
+      "message": "Case fetched successfully.",
+      "case_id": "123e4567-e89b-12d3-a456-426614174000",
+      "status": "In Progress",
+      "url": "https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000",
+      "documents": [
+          {
+              "status": "Completed",
+              "original_document_id": "123e4567-e89b-12d3-a456-426614174001",
+              "original_document_url": "https://app.platus.com/download?bucket=documents&id=123e4567-e89b-12d3-a456-426614174001&token=b4n...omL",
+              "notarized_document_id": "123e4567-e89b-12d3-a456-426614174002",
+              "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=123e4567-e89b-12d3-a456-426614174002&token=u5K...m1C"
+          }
+      ],
+      "signers": [
+          {
+              "first_name": "John",
+              "last_name": "Doe",
+              "email": "john@example.com",
+              "url": "https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174003"
+          }
+      ],
+      "client_reference": "REF-2024-001"
   }
-  ```
+}
+```
+
 </ResponseExample>

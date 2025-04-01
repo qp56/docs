@@ -1,6 +1,6 @@
 ---
 title: "Create Notarization"
-api: "POST https://api.platus.com/v1/notarization"
+api: "POST https://api.beglaubigt.de/v1/notarization"
 description: "This endpoint creates a notarization request for a document"
 ---
 
@@ -33,31 +33,26 @@ description: "This endpoint creates a notarization request for a document"
 
       **Example**: `Power of Attorney`
     </ParamField>
-
     <ParamField body="document_file" type="object" required>
       File details for the document.
 
       <ParamField body="type" type="string" required>
-        Type of file reference.&#x20;
+        Type of file reference.
 
         **Note**: Must be `url`
       </ParamField>
-
       <ParamField body="url" type="string" required>
         URL to the document file
       </ParamField>
-
       <ParamField body="require_signatures" default="false" type="boolean">
         Whether the document requires signatures before notarization.
       </ParamField>
-
       <ParamField body="autodetection" default="false" type="boolean">
         Signature and location/date fields will be automatically identified across the entire document using AI-powered detection.
 
-        **Note**: *This feature is in beta.*
+        **Note**: _This feature is in beta._
       </ParamField>
     </ParamField>
-
     <ParamField body="signers" type="array" required>
       Array of signers for this document.
 
@@ -65,27 +60,21 @@ description: "This endpoint creates a notarization request for a document"
         <ParamField body="email" type="string" required>
           Email address of the signer.
         </ParamField>
-
         <ParamField body="first_name" type="string" required>
           First name of the signer.
         </ParamField>
-
         <ParamField body="last_name" type="string" required>
           Last name of the signer.
         </ParamField>
-
         <ParamField body="middle_name" type="string">
           Middle name of the signer.
         </ParamField>
-
         <ParamField body="dob" type="string">
           Date of birth of the signer in `YYYY-MM-DD` format.
         </ParamField>
-
         <ParamField body="phone" type="string">
           Phone number of the signer.
         </ParamField>
-
         <ParamField body="labels" type="array">
           Label information for signature positioning or other metadata.
 
@@ -97,41 +86,35 @@ description: "This endpoint creates a notarization request for a document"
 
               `location_and_date` : Detects the signer’s location and records the date upon signature.
             </ParamField>
-
             <ParamField body="page" type="number" required="autodetection=disabled">
               Page number for the label placement.
 
-              **Note**: *Required if autodetection is disabled.*
+              **Note**: _Required if autodetection is disabled._
             </ParamField>
-
             <ParamField body="x_position" type="number" required="autodetection=disabled">
-              X coordinate for label placement.&#x20;
+              X coordinate for label placement.
 
-              **Note**: *Required if autodetection is disabled.*
+              **Note**: _Required if autodetection is disabled._
             </ParamField>
-
             <ParamField body="y_position" type="number" required="autodetection=disabled">
               Y coordinate for label placement.
 
-              **Note**: *Required if autodetection is disabled.*
+              **Note**: _Required if autodetection is disabled._
             </ParamField>
-
             <ParamField body="width" type="number" required="autodetection=disabled">
               Width of the label area.
 
-              **Note**: *Required if autodetection is disabled.*
+              **Note**: _Required if autodetection is disabled._
             </ParamField>
-
             <ParamField body="height" type="number" required="autodetection=disabled">
               Height of the label area.
 
-              **Note**: *Required if autodetection is disabled.*
+              **Note**: _Required if autodetection is disabled._
             </ParamField>
-
             <ParamField body="autodetection" default="false" type="boolean">
               The label field will be automatically identified using AI-powered detection. You can specify the page to improve accuracy.
 
-              **Note**: *This feature is in beta.*
+              **Note**: _This feature is in beta._
             </ParamField>
           </Expandable>
         </ParamField>
@@ -199,11 +182,9 @@ description: "This endpoint creates a notarization request for a document"
 
       **Example**: `123e4567-e89b-12d3-a456-426614174000`
     </ResponseField>
-
     <ResponseField name="type" type="string">
       The type of document as specified in the request.
     </ResponseField>
-
     <ResponseField name="status" type="string">
       Indicates the current processing state of the specific document within the notarization case.
 
@@ -219,19 +200,16 @@ description: "This endpoint creates a notarization request for a document"
     <ResponseField name="first_name" type="string">
       The first name of the signer as provided during the notarization process.
     </ResponseField>
-
     <ResponseField name="last_name" type="string">
       The last name of the signer as provided during the notarization process.
     </ResponseField>
-
     <ResponseField name="email" type="string">
       The email address of the signer as provided during the notarization process.
     </ResponseField>
-
     <ResponseField name="url" type="string">
       A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the notarization requirements.
 
-      **Example**: `https://app.platus.com/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
+      **Example**: `https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -243,81 +221,85 @@ description: "This endpoint creates a notarization request for a document"
 </ResponseField>
 
 <RequestExample>
-  ```json
-  {
-    "jurisdiction": "US",
-    "state": "CA",
-    "documents": [
-        {
-            "document_type": "Power of Attorney",
-            "document_file": {
-                "type": "url",
-                "url": "https://app.platus.com/Power-of-Attorney.pdf"
-            },
-            "require_signatures": true,
-            "autodetection": false,
-            "signers": [
-                {
-                    "email": "john@example.com",
-                    "first_name": "John",
-                    "middle_name": "Andreas",
-                    "last_name": "Doe",
-                    "dob": "1985-07-10",
-                    "phone": "+49123456789",
-                    "labels": [
-                        {
-                            "type": "signature",
-                            "autodetection": true
-                        },
-                        {
-                            "type": "location_and_date",
-                            "page": 3,
-                            "x_position": 396,
-                            "y_position": 553,
-                            "width": 270,
-                            "height": 54,
-                            "autodetection": false
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "persona_environment": "production",
-    "client_reference": "REF-2024-001",
-    "client_preferred_language": "de"
-  }
-  ```
+
+```json
+{
+  "jurisdiction": "US",
+  "state": "CA",
+  "documents": [
+      {
+          "document_type": "Power of Attorney",
+          "document_file": {
+              "type": "url",
+              "url": "https://app.beglaubigt.de/Power-of-Attorney.pdf"
+          },
+          "require_signatures": true,
+          "autodetection": false,
+          "signers": [
+              {
+                  "email": "john@example.com",
+                  "first_name": "John",
+                  "middle_name": "Andreas",
+                  "last_name": "Doe",
+                  "dob": "1985-07-10",
+                  "phone": "+49123456789",
+                  "labels": [
+                      {
+                          "type": "signature",
+                          "autodetection": true
+                      },
+                      {
+                          "type": "location_and_date",
+                          "page": 3,
+                          "x_position": 396,
+                          "y_position": 553,
+                          "width": 270,
+                          "height": 54,
+                          "autodetection": false
+                      }
+                  ]
+              }
+          ]
+      }
+  ],
+  "persona_environment": "production",
+  "client_reference": "REF-2024-001",
+  "client_preferred_language": "de"
+}
+```
+
 </RequestExample>
 
 <ResponseExample>
-  ```json
-  {
-    "response": {
-        "result": "success",
-        "message": "Case created successfully.",
-        "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
-        "status": "In Progress",
-        "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595",
-        "documents": [
-            {
-                "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
-                "type": "Power of Attorney",
-                "status": "Signatures Requested"
-            }
-        ],
-        "signers": [
-            {
-                "first_name": "John",
-                "last_name": "Doe",
-                "email": "john@example.com",
-                "url": "https://app.platus.com/notarize/450506c1-d1a7-46e2-aca6-41a816805595?token=8963cd77-b5f9-4280-986d-6137e9fea106"
-            }
-        ],
-        "client_reference": "REF-2025-001"
-        "client_preferred_language": "de",
-        "timestamp": "2025-12-01T07:19:30.443Z"
-    }
+
+```json
+{
+  "response": {
+      "result": "success",
+      "message": "Case created successfully.",
+      "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
+      "status": "In Progress",
+      "url": "https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595",
+      "documents": [
+          {
+              "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
+              "type": "Power of Attorney",
+              "status": "Signatures Requested"
+          }
+      ],
+      "signers": [
+          {
+              "first_name": "John",
+              "last_name": "Doe",
+              "email": "john@example.com",
+              "url": "https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595?token=8963cd77-b5f9-4280-986d-6137e9fea106"
+          }
+      ],
+      "client_reference": "REF-2025-001"
+      "client_preferred_language": "de",
+      "timestamp": "2025-12-01T07:19:30.443Z"
   }
-  ```
+}
+```
+
 </ResponseExample>

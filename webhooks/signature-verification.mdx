@@ -5,13 +5,13 @@ description: "Learn to verify the authenticity of our webhook HTTP requests to e
 
 ## Why Use Signature Verification?
 
-Signature verification ensures that webhook HTTP requests originate from Platus and have not been tampered with. By validating the included digital signature, you can protect your systems from unauthorized or malicious requests.
+Signature verification ensures that webhook HTTP requests originate from Beglaubigt and have not been tampered with. By validating the included digital signature, you can protect your systems from unauthorized or malicious requests.
 
 ## How it works?
 
-When we send a webhook HTTP request to your endpoint, we include a digital signature in the `X-Signature` header. This signature is generated using the HMAC-SHA256 algorithm and a **secret key that is shared exclusively between Platus and your system**. The process involves:
+When we send a webhook HTTP request to your endpoint, we include a digital signature in the `X-Signature` header. This signature is generated using the HMAC-SHA256 algorithm and a **secret key that is shared exclusively between Beglaubigt and your system**. The process involves:
 
-1. **Secret Key**: Each webhook you create is associated with a unique secret key, that you can find on the webhooks page: [https://app.platus.com/api/webhooks](https://app.platus.com/api/webhooks)
+1. **Secret Key**: Each webhook you create is associated with a unique secret key, that you can find on the webhooks page: [https://app.beglaubigt.de/api/webhooks](https://app.beglaubigt.de/api/webhooks)
 
 2. **Payload Preparation**: The payload of the webhook is serialized as a JSON string.
 
@@ -37,7 +37,7 @@ const payload = {
   "case_id": "123e4567-e89b-12d3-a456-426614174000",
   "original_document_id": "456e1234-e89b-12d3-a456-426614174001",
   "notarized_document_id": "789e4567-e89b-12d3-a456-426614174002",
-  "notarized_document_url": "https://app.platus.com/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJub3Rhcml6ZWRfZG9jdW1lbnRzL2E2ZWE4YTc2LWI5MTMtNGMyNy1hYThiLWY3ZWUwOTgxN2UyNy9kb2N1bWVudC5wZGYiLCJpYXQiOjE3MzQxNDM5NDksImV4cCI6MTczNDIzMDM0OX0.vCFf_u80LQ8FCd1vmOA1SihXnUVJIcLpck0txi62Nig"
+  "notarized_document_url": "https://app.beglaubigt.de/download?bucket=notarized_documents&id=789e4567-e89b-12d3-a456-426614174002&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJub3Rhcml6ZWRfZG9jdW1lbnRzL2E2ZWE4YTc2LWI5MTMtNGMyNy1hYThiLWY3ZWUwOTgxN2UyNy9kb2N1bWVudC5wZGYiLCJpYXQiOjE3MzQxNDM5NDksImV4cCI6MTczNDIzMDM0OX0.vCFf_u80LQ8FCd1vmOA1SihXnUVJIcLpck0txi62Nig"
 }
 
 // Your secret key, accessible on the dashboard
