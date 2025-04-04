@@ -15,16 +15,19 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
 <ParamField body="name" type="string" required>
   The legal name of the company.
+
   **Example**: `Beglaubigt.de GmbH`
 </ParamField>
 
 <ParamField body="type" type="string" required>
   The type of company being incorporated.
+
   **Possible values**: `GmbH` or `UG`
 </ParamField>
 
 <ParamField body="purpose" type="string" required>
-  The purpose or business objective of the company.\
+  The purpose or business objective of the company.
+
   **Example**: `Digital Notarization Services for Germany and Europe`
 </ParamField>
 
@@ -33,30 +36,36 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
   <Expandable title="Address">
     <ParamField body="street" type="string" required>
-      The street name and number of the company.\
+      The street name and number of the company.
+
       **Example**: `Schillerstraße 5`
     </ParamField>
     <ParamField body="street_second_line" type="string">
-      Additional address information, such as apartment number, suite, floor, or building.\
+      Additional address information, such as apartment number, suite, floor, or building.
+
       **Example**: `Apartment 4B`
     </ParamField>
     <ParamField body="zip" type="string" required>
-      The postal code of the company.\
+      The postal code of the company.
+
       **Example**: `80336`
     </ParamField>
     <ParamField body="city" type="string" required>
-      The city of the company.\
+      The city of the company.
+
       **Example**: `Munich`
     </ParamField>
     <ParamField body="country" type="string" required>
-      The country of the company.\
+      The country of the company.
+
       **Example**: `Germany`
     </ParamField>
   </Expandable>
 </ParamField>
 
 <ParamField body="capital" type="number" required>
-  The total share capital of the company in EUR.\
+  The total share capital of the company in EUR.
+
   **Example**: `25000`
 </ParamField>
 
