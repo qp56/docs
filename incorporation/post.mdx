@@ -407,17 +407,17 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
 <ResponseField name="message" type="string">
   Provides a human-readable message detailing the result of the API request.\
-  **Example**: `Case created successfully.`
+  **Example**: `Incorporation created successfully.`
 </ResponseField>
 
 <ResponseField name="case_id" type="string">
-  The unique identifier for the created incorporation case in a UUID format.\
+  The unique identifier for the created incorporation case in a **UUID** format.\
   **Example**: `450506c1-d1a7-46e2-aca6-41a816805595`
 </ResponseField>
 
 <ResponseField name="status" type="string">
   The current status of the incorporation request.\
-  **Possible values**: `Incorporation Initiated`, `In Progress` or `Completed`
+  **Possible values**: `Initiated`, `In Progress` or `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -434,16 +434,12 @@ description: "This endpoint creates an incorporation request for a company in Ge
       **Example**: `07347a09-7fa2-434f-a5f1-ec897f16d4b9`
     </ResponseField>
     <ResponseField name="type" type="string">
-      The type of document.\
+      The type of document as specified in the request.\
       **Example**: `Articles of Association`
     </ResponseField>
     <ResponseField name="status" type="string">
       Indicates the current processing state of the document.\
       **Possible values**: `Initiated`, `In Draft` or `Completed`
-    </ResponseField>
-    <ResponseField name="url" type="string">
-      URL to access the document.\
-      **Example**: `https://app.beglaubigt.de/documents/450506c1-d1a7-46e2-aca6-41a816805595`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -454,7 +450,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
   <Expandable title="Notarization Object">
     <ResponseField name="type" type="string">
       The type of notarization.\
-      **Example**: `online`
+      **Possible values**:  `offline` or `online`
     </ResponseField>
     <ResponseField name="date" type="string">
       The scheduled date of notarization in `YYYY-MM-DD` format.\
@@ -507,16 +503,15 @@ description: "This endpoint creates an incorporation request for a company in Ge
 {
   "response": {
     "result": "success",
-    "message": "Case created successfully.",
+    "message": "Incorporation created successfully.",
     "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
-    "status": "Incorporation Initiated",
+    "status": "Initiated",
     "url": "https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
     "documents": [
       {
         "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
         "type": "Articles of Association",
         "status": "Initiated",
-        "url": "https://app.beglaubigt.de/documents/450506c1-d1a7-46e2-aca6-41a816805595"
       }
     ],
     "notarization": [
@@ -528,8 +523,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
           "last_name": "Müller",
           "email": "klara.mueller@beglaubigt.de"
         },
-        "location": "Munich",
-        "url": "https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595"
+        "location": "Munich"
       }
     ],
     "client_reference": "REF-2025-001",
