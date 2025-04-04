@@ -6,10 +6,12 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
 ## Authorization
 
-<ParamField header="Authorization" type="string" required>
-  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.\
-  **Example**: `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
-</ParamField>
+<Request method="POST" url="https://api.beglaubigt.de/v1/incorporation">
+  <ParamField header="Authorization" type="string" required>
+    Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.\
+    **Example**: `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
+  </ParamField>
+</Request>
 
 ## Body
 
