@@ -8,187 +8,193 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
 <ParamField header="Authorization" type="string" required>
   Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.\
-  **Example**: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`
+  **Example**: `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
 </ParamField>
 
 ## Body
 
-<ParamField body="company" type="object" required>
-  Details of the company being incorporated.
+<ParamField body="name" type="string" required>
+  The legal name of the company.
+  **Example**: `Beglaubigt.de GmbH`
+</ParamField>
 
-  <Expandable title="Company Object">
-    <ParamField body="name" type="string" required>
-      The legal name of the company.\
-      **Example**: `Beglaubigt.de GmbH`
-    </ParamField>
-    <ParamField body="type" type="string" required>
-      The type of company being incorporated.\
-      **Possible values**: `GmbH`, `UG`
-    </ParamField>
-    <ParamField body="purpose" type="string" required>
-      The purpose or business objective of the company.\
-      **Example**: `Digital Notarization Services for Germany and Europe`
-    </ParamField>
-    <ParamField body="address" type="object" required>
-      The registered address of the company.
+<ParamField body="type" type="string" required>
+  The type of company being incorporated.
+  **Possible values**: `GmbH` or `UG`
+</ParamField>
 
-      <Expandable title="Address Object">
-        <ParamField body="street" type="string" required>
-          The street name and number.\
-          **Example**: `Schwanthaler Str. 32`
-        </ParamField>
-        <ParamField body="postal_code" type="string" required>
-          The postal code.\
-          **Example**: `80336`
-        </ParamField>
-        <ParamField body="city" type="string" required>
-          The city.\
-          **Example**: `Munich`
-        </ParamField>
-        <ParamField body="country" type="string" required>
-          The country.\
-          **Example**: `Germany`
-        </ParamField>
-      </Expandable>
-    </ParamField>
-    <ParamField body="capital" type="number" required>
-      The total share capital of the company in EUR.\
-      **Example**: `25000`
-    </ParamField>
-    <ParamField body="shares" type="array" required>
-      An array of share allocations for the shareholders.
+<ParamField body="purpose" type="string" required>
+  The purpose or business objective of the company.\
+  **Example**: `Digital Notarization Services for Germany and Europe`
+</ParamField>
 
-      <Expandable title="Share Object">
-        <ParamField body="shareholder_id" type="number" required>
-          The unique identifier linking to a shareholder in the `shareholders` array.\
-          **Example**: `0`
-        </ParamField>
-        <ParamField body="share_percentage" type="number" required>
-          The percentage of total shares owned by the shareholder.\
-          **Example**: `50`
-        </ParamField>
-        <ParamField body="share" type="number" required>
-          The monetary value of the shares owned by the shareholder in EUR.\
-          **Example**: `12500`
-        </ParamField>
-      </Expandable>
+<ParamField body="address" type="object" required>
+  The address of the company.
+
+  <Expandable title="Address">
+    <ParamField body="street" type="string" required>
+      The street name and number of the company.\
+      **Example**: `Schillerstraße 5`
+    </ParamField>
+    <ParamField body="street_second_line" type="string">
+      Additional address information, such as apartment number, suite, floor, or building.\
+      **Example**: `Apartment 4B`
+    </ParamField>
+    <ParamField body="zip" type="string" required>
+      The postal code of the company.\
+      **Example**: `80336`
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      The city of the company.\
+      **Example**: `Munich`
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      The country of the company.\
+      **Example**: `Germany`
     </ParamField>
   </Expandable>
 </ParamField>
 
-<ParamField body="shareholders" type="array" required>
-  An array of shareholders involved in the company incorporation.
+<ParamField body="capital" type="number" required>
+  The total share capital of the company in EUR.\
+  **Example**: `25000`
+</ParamField>
 
-  <Expandable title="Shareholder Object">
-    <ParamField body="type" type="string" required>
-      The type of shareholder.\
-      **Possible values**: `individual` or `entity`
-    </ParamField>
-    <ParamField body="first_name" type="string" required>
-      First name of the shareholder.
+<ParamField body="shareholders" type="object" required>
+  An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
 
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `John`
-    </ParamField>
-    <ParamField body="middle_name" type="string" required>
-      Middle name of the shareholder.
+  <Expandable title="Individuals">
+    <ParamField body="individuals" type="array" required="false">
+      An array of individual shareholders.
 
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `Marius`
-    </ParamField>
-    <ParamField body="last_name" type="string" required>
-      Last name of the shareholder.
-
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `Doe`
-    </ParamField>
-    <ParamField body="email" type="string">
-      Email of the shareholder.
-
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `name@mail.com`
-    </ParamField>
-    <ParamField body="phone" type="string">
-      Phone of the shareholder.
-
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `4915775402820`
-    </ParamField>
-    <ParamField body="dob" type="string" required>
-      Date of birth of the shareholder in `YYYY-MM-DD` format.
-
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `1985-07-10`
-    </ParamField>
-    <ParamField body="pob" type="string" required>
-      Place of birth of the shareholder.
-
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `Hamburg`
-    </ParamField>
-    <ParamField body="nationality" type="string" required>
-      Nationality of the shareholder.
-
-      **Note**: Required if `type` is `individual`.\
-      **Example**: `German`
-    </ParamField>
-    <ParamField body="entity_name" type="string" required>
-      Legal name of the entity.
-
-      **Note**: Required if `type` is `entity`.\
-      **Example**: `EntityName GmbH`
-    </ParamField>
-    <ParamField body="register_number" type="string" required>
-      Registration number or authority of the entity.
-
-      **Note**: Required if `type` is `entity`.\
-      **Example**: `HRB 12345`
-    </ParamField>
-    <ParamField body="entity_directors" type="object" required>
-      Director of the entity.
-
-      **Note**: Required if `type` is `entity`.
-
-      <Expandable title="Director Object">
+      <Expandable title="Individual">
         <ParamField body="first_name" type="string" required>
-          First name of the director.\
-          **Example**: `Anna`
+          The first name of the individual shareholder.\
+          **Example**: `Max`
+        </ParamField>
+        <ParamField body="middle_name" type="string">
+          The middle name of the individual shareholder.\
+          **Example**: `Alexander`
         </ParamField>
         <ParamField body="last_name" type="string" required>
-          Last name of the director.\
-          **Example**: `Schmidt`
+          The last name of the individual shareholder.\
+          **Example**: `Mustermann`
         </ParamField>
-      </Expandable>
-    </ParamField>
-    <ParamField body="address" type="object" required>
-      The residential or registered address of the shareholder.
+        <ParamField body="email" type="string" required>
+          The email address of the individual shareholder.\
+          **Example**: `max.mustermann@example.com`
+        </ParamField>
+        <ParamField body="phone" type="string">
+          The phone number of the individual shareholder.\
+          **Example**: `+491234567890`
+        </ParamField>
+        <ParamField body="dob" type="string" required>
+          The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
+          **Example**: `1985-10-05`
+        </ParamField>
+        <ParamField body="nationality" type="string" required>
+          The nationality of the individual shareholder.\
+          **Example**: `German`
+        </ParamField>
+        <ParamField body="address" type="object" required>
+          The address of the individual shareholder.
 
-      <Expandable title="Address Object">
-        <ParamField body="street" type="string" required>
-          The street name and number.\
-          **Example**: `Bahnhofstraße 10`
+          <Expandable title="Address">
+            <ParamField body="street" type="string" required>
+              The street name and number of the individual shareholder.\
+              **Example**: `Schillerstraße 5`
+            </ParamField>
+            <ParamField body="street_second_line" type="string">
+              Additional address information, such as apartment number, suite, floor, or building.\
+              **Example**: `Apartment 4B`
+            </ParamField>
+            <ParamField body="zip" type="string" required>
+              The postal code of the individual shareholder.\
+              **Example**: `80336`
+            </ParamField>
+            <ParamField body="city" type="string" required>
+              The city of the individual shareholder.\
+              **Example**: `Munich`
+            </ParamField>
+            <ParamField body="country" type="string" required>
+              The country of the individual shareholder.\
+              **Example**: `Germany`
+            </ParamField>
+          </Expandable>
         </ParamField>
-        <ParamField body="second_line" type="string">
-          Optional second line of the address.\
-          **Example**: `Apartment 5`
+        <ParamField body="shares" type="number" required>
+          The number of shares owned by the shareholder.\
+          **Example**: `2500`
         </ParamField>
-        <ParamField body="postal_code" type="string" required>
-          The postal code.\
-          **Example**: `10115`
-        </ParamField>
-        <ParamField body="city" type="string" required>
-          The city.\
-          **Example**: `Berlin`
-        </ParamField>
-        <ParamField body="country" type="string" required>
-          The country.\
-          **Example**: `Germany`
+        <ParamField body="share_percentage" type="number" required>
+          The percentage of shares owned by the shareholder.\
+          **Example**: `25`
         </ParamField>
       </Expandable>
     </ParamField>
-    <ParamField body="shareholder_id" type="string" required>
-      A unique identifier for the shareholder, used to link to the `shares` array.\
-      **Example**: `"0"`
+  </Expandable>
+  <Expandable title="Entities">
+    <ParamField body="entities" type="array" required="false">
+      An array of entity shareholders.
+
+      <Expandable title="Entity">
+        <ParamField body="name" type="string" required>
+          The name of the entity shareholder.\
+          **Example**: `Max`
+        </ParamField>
+        <ParamField body="registration_number" type="string">
+          The registration number of the entity shareholder.\
+          **Example**: `Alexander`
+        </ParamField>
+        <ParamField body="address" type="object" required>
+          The address of the entity shareholder.
+
+          <Expandable title="Address">
+            <ParamField body="street" type="string" required>
+              The street name and number of the entity shareholder.\
+              **Example**: `Schillerstraße 5`
+            </ParamField>
+            <ParamField body="street_second_line" type="string">
+              Additional address information, such as apartment number, suite, floor, or building.\
+              **Example**: `Apartment 4B`
+            </ParamField>
+            <ParamField body="zip" type="string" required>
+              The postal code of the entity shareholder.\
+              **Example**: `80336`
+            </ParamField>
+            <ParamField body="city" type="string" required>
+              The city of the entity shareholder.\
+              **Example**: `Munich`
+            </ParamField>
+            <ParamField body="country" type="string" required>
+              The country of the entity shareholder.\
+              **Example**: `Germany`
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="directors" type="object" required>
+          The directors of the entity shareholder.
+
+          <Expandable title="Directors">
+            <ParamField body="first_name" type="string" required>
+              The first name of the entity's director.\
+              **Example**: `John`
+            </ParamField>
+            <ParamField body="last_name" type="string">
+              The last name of the entity's director.\
+              **Example**: `Doe`
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="shares" type="number" required>
+          The number of shares owned by the shareholder.\
+          **Example**: `2500`
+        </ParamField>
+        <ParamField body="share_percentage" type="number" required>
+          The percentage of shares owned by the shareholder.\
+          **Example**: `25`
+        </ParamField>
+      </Expandable>
     </ParamField>
   </Expandable>
 </ParamField>
@@ -196,7 +202,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
 <ParamField body="directors" type="array" required>
   An array of directors managing the company.
 
-  <Expandable title="Director Object">
+  <Expandable title="Director">
     <ParamField body="first_name" type="string" required>
       First name of the director.\
       **Example**: `Maria`
@@ -205,34 +211,42 @@ description: "This endpoint creates an incorporation request for a company in Ge
       Last name of the director.\
       **Example**: `Weber`
     </ParamField>
+    <ParamField body="email" type="string" required>
+      Email address of the director.\
+      **Example**: `maria.weber@example.com`
+    </ParamField>
     <ParamField body="dob" type="string" required>
       Date of birth of the director in `YYYY-MM-DD` format.\
       **Example**: `1978-03-15`
     </ParamField>
     <ParamField body="address" type="object" required>
-      The residential address of the director.
+      Address of the director.
 
-      <Expandable title="Address Object">
+      <Expandable title="Address">
         <ParamField body="street" type="string" required>
-          The street name and number.\
+          The street name and number of the director.\
           **Example**: `Schillerstraße 5`
         </ParamField>
-        <ParamField body="postal_code" type="string" required>
-          The postal code.\
+        <ParamField body="street_second_line" type="string">
+          Additional address information, such as apartment number, suite, floor, or building.\
+          **Example**: `Apartment 4B`
+        </ParamField>
+        <ParamField body="zip" type="string" required>
+          The postal code of the director.\
           **Example**: `80336`
         </ParamField>
         <ParamField body="city" type="string" required>
-          The city.\
+          The city of the director.\
           **Example**: `Munich`
         </ParamField>
         <ParamField body="country" type="string" required>
-          The country.\
+          The country of the director.\
           **Example**: `Germany`
         </ParamField>
       </Expandable>
     </ParamField>
     <ParamField body="authority" type="string" required>
-      The signing authority of the director.\
+      The director’s signing authority.\
       **Possible values**: `sole` or `joint`
     </ParamField>
   </Expandable>
@@ -241,14 +255,14 @@ description: "This endpoint creates an incorporation request for a company in Ge
 <ParamField body="documents" type="object" required>
   A collection of documents related to the company.
 
-  <Expandable title="Documents Object">
-    <ParamField body="articles_of_association" type="object" required>
+  <Expandable title="Documents">
+    <ParamField body="articles_of_association" type="array" required>
       The articles of association for the company.
 
-      <Expandable title="Articles of Association Object">
+      <Expandable title="Articles of Association">
         <ParamField body="type" type="string" required>
           Specifies the nature of the articles of association. Use `standard` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `custom` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
-          **Possible values**: `custom` or `standard`
+          **Possible values**: `standard` or `custom`
         </ParamField>
         <ParamField body="url" type="string">
           If the document already exists, you can attach it. Leave empty if incorporation is done with Musterprotokoll.
@@ -265,7 +279,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
   <Expandable title="Notarization Object">
     <ParamField body="type" type="string" required>
       The method of notarization.\
-      **Possible values**: `online` or `offline`
+      **Possible values**: `offline` or `online`
     </ParamField>
     <ParamField body="express" type="boolean">
       Requests expedited notarization.
@@ -275,7 +289,8 @@ description: "This endpoint creates an incorporation request for a company in Ge
       **Example**: `2025-04-15`
     </ParamField>
     <ParamField body="desired_location" type="string">
-      Desired location for notarization. Can be German or English City name.
+      Desired location for notarization. Can be German or English city name.
+
       **Example**: `Munich`
     </ParamField>
   </Expandable>
@@ -292,52 +307,71 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
 ```json
 {
-  "company": {
-    "name": "Platus GmbH",
-    "type": "GmbH",
-    "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
-    "address": {
-      "street": "Schwanthaler Str. 32",
-      "postal_code": "80336",
-      "city": "Munich",
-      "country": "Germany"
-    },
-    "capital": 25000,
-    "shares": [
+  "name": "Beglaubigt.de GmbH",
+  "type": "GmbH",
+  "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
+  "address": {
+    "street": "Schwanthaler Str. 32",
+    "street_second_line": "Building A, Floor 2",
+    "zip": "80336",
+    "city": "Munich",
+    "country": "Germany"
+  },
+  "capital": 25000,
+  "shareholders": {
+    "individuals": [
       {
-        "shareholder_id": 1,
-        "share_percentage": 50,
-        "share": 12500
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john@doe.de",
+        "phone": "+49 151 12345678",
+        "dob": "1985-07-10",
+        "nationality": "German",
+        "address": {
+          "street": "Bahnhofstraße 10",
+          "zip": "10115",
+          "city": "Berlin",
+          "country": "Germany"
+        },
+        "shares": 12500,
+        "share_percentage": 50
+      }
+    ],
+    "entities": [
+      {
+        "name": "Acme Holdings GmbH",
+        "registration_number": "HRB123456",
+        "address": {
+          "street": "Königsallee 50",
+          "zip": "40212",
+          "city": "Düsseldorf",
+          "country": "Germany"
+        },
+        "directors": [
+          {
+            "first_name": "Stefan",
+            "last_name": "Müller"
+          },
+          {
+            "first_name": "Anna",
+            "last_name": "Schmidt"
+          }
+        ],
+        "shares": 12500,
+        "share_percentage": 50
       }
     ]
   },
-  "shareholders": [
-    {
-      "first_name": "John",
-      "last_name": "Doe",
-      "email": "john@doe.de",
-      "phone": "15775823923", 
-      "dob": "1985-07-10",
-      "nationality": "German",
-      "address": {
-        "street": "Bahnhofstraße 10",
-        "postal_code": "10115",
-        "city": "Berlin",
-        "country": "Germany"
-      },
-      "shareholder_id": "1"
-    }
-  ],
   "directors": [
     {
       "first_name": "Maria",
       "last_name": "Weber",
       "email": "maria@weber.de",
-      "phone": "15775823923", 
+      "phone": "+49 151 12345678",
       "dob": "1978-03-15",
       "address": {
         "street": "Schillerstraße 5",
-        "postal_code": "80336",
+        "zip": "80336",
         "city": "Munich",
         "country": "Germany"
       },
@@ -345,10 +379,12 @@ description: "This endpoint creates an incorporation request for a company in Ge
     }
   ],
   "documents": {
-    "articles_of_association": {
-      "type": "custom",
-      "url": "s3://bucket/gesellschaftervertrag.pdf"
-    }
+    "articles_of_association": [
+      {
+        "type": "custom",
+        "url": "https://pdfobject.com/pdf/sample.pdf"
+      }
+    ]
   },
   "notarization": {
     "type": "online",
@@ -366,7 +402,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
 <ResponseField name="result" type="string">
   Indicates the outcome of the API request.\
-  **Possible values**: `success` or`error`
+  **Possible values**: `success` or `error`
 </ResponseField>
 
 <ResponseField name="message" type="string">
@@ -381,7 +417,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
 
 <ResponseField name="status" type="string">
   The current status of the incorporation request.\
-  **Possible values**: `Incorporation Initiated`, `In Progress` or`Completed`
+  **Possible values**: `Incorporation Initiated`, `In Progress` or `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -403,7 +439,7 @@ description: "This endpoint creates an incorporation request for a company in Ge
     </ResponseField>
     <ResponseField name="status" type="string">
       Indicates the current processing state of the document.\
-      **Possible values**: `Initiated`, `In Draft`or `Completed`
+      **Possible values**: `Initiated`, `In Draft` or `Completed`
     </ResponseField>
     <ResponseField name="url" type="string">
       URL to access the document.\
