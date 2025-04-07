@@ -7,350 +7,310 @@ authMethod: "bearer"
 
 ## Authorization
 
-  <ParamField type="string" required>
-    Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.\
-    **Example**: `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
-  </ParamField>
-
-  ## Body
-
-  <ParamField body="name" type="string" required>
-    The legal name of the company.
-
-    **Example**: `Beglaubigt.de GmbH`
-  </ParamField>
-
-  <ParamField body="type" type="string" required>
-    The type of company being incorporated.
-
-    **Possible values**: `GmbH` or `UG`
-  </ParamField>
-
-  <ParamField body="purpose" type="string" required>
-    The purpose or business objective of the company.
-
-    **Example**: `Digital Notarization Services for Germany and Europe`
-  </ParamField>
-
-  <ParamField body="address" type="object" required>
-    The address of the company.
-
-    <Expandable title="Address">
-      <ParamField body="street" type="string" required>
-        The street name and number of the company.
-
-        **Example**: `Schillerstraße 5`
-      </ParamField>
-
-      <ParamField body="street_second_line" type="string">
-        Additional address information, such as apartment number, suite, floor, or building.
-
-        **Example**: `Apartment 4B`
-      </ParamField>
-
-      <ParamField body="zip" type="string" required>
-        The postal code of the company.
-
-        **Example**: `80336`
-      </ParamField>
-
-      <ParamField body="city" type="string" required>
-        The city of the company.
-
-        **Example**: `Munich`
-      </ParamField>
-
-      <ParamField body="country" type="string" required>
-        The country of the company.
-
-        **Example**: `Germany`
-      </ParamField>
-    </Expandable>
-  </ParamField>
-
-  <ParamField body="capital" type="number" required>
-    The total share capital of the company in EUR.
-
-    **Example**: `25000`
-  </ParamField>
-
-  <ParamField body="shareholders" type="object" required>
-    An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
-
-    <Expandable title="Individuals">
-      <ParamField body="individuals" type="array" required="false">
-        An array of individual shareholders.
-
-        <Expandable title="Individual">
-          <ParamField body="first_name" type="string" required>
-            The first name of the individual shareholder.\
-            **Example**: `Max`
-          </ParamField>
-
-          <ParamField body="middle_name" type="string">
-            The middle name of the individual shareholder.\
-            **Example**: `Alexander`
-          </ParamField>
-
-          <ParamField body="last_name" type="string" required>
-            The last name of the individual shareholder.\
-            **Example**: `Mustermann`
-          </ParamField>
-
-          <ParamField body="email" type="string" required>
-            The email address of the individual shareholder.\
-            **Example**: `max.mustermann@example.com`
-          </ParamField>
-
-          <ParamField body="phone" type="string">
-            The phone number of the individual shareholder.\
-            **Example**: `+491234567890`
-          </ParamField>
-
-          <ParamField body="dob" type="string" required>
-            The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
-            **Example**: `1985-10-05`
-          </ParamField>
-
-          <ParamField body="nationality" type="string" required>
-            The nationality of the individual shareholder.\
-            **Example**: `German`
-          </ParamField>
-
-          <ParamField body="address" type="object" required>
-            The address of the individual shareholder.
-
-            <Expandable title="Address">
-              <ParamField body="street" type="string" required>
-                The street name and number of the individual shareholder.\
-                **Example**: `Schillerstraße 5`
-              </ParamField>
-
-              <ParamField body="street_second_line" type="string">
-                Additional address information, such as apartment number, suite, floor, or building.\
-                **Example**: `Apartment 4B`
-              </ParamField>
-
-              <ParamField body="zip" type="string" required>
-                The postal code of the individual shareholder.\
-                **Example**: `80336`
-              </ParamField>
-
-              <ParamField body="city" type="string" required>
-                The city of the individual shareholder.\
-                **Example**: `Munich`
-              </ParamField>
-
-              <ParamField body="country" type="string" required>
-                The country of the individual shareholder.\
-                **Example**: `Germany`
-              </ParamField>
-            </Expandable>
-          </ParamField>
-
-          <ParamField body="shares" type="number" required>
-            The number of shares owned by the shareholder.\
-            **Example**: `2500`
-          </ParamField>
-
-          <ParamField body="share_percentage" type="number" required>
-            The percentage of shares owned by the shareholder.\
-            **Example**: `25`
-          </ParamField>
-        </Expandable>
-      </ParamField>
-    </Expandable>
-
-    <Expandable title="Entities">
-      <ParamField body="entities" type="array" required="false">
-        An array of entity shareholders.
-
-        <Expandable title="Entity">
-          <ParamField body="name" type="string" required>
-            The name of the entity shareholder.\
-            **Example**: `Max`
-          </ParamField>
-
-          <ParamField body="registration_number" type="string">
-            The registration number of the entity shareholder.\
-            **Example**: `Alexander`
-          </ParamField>
-
-          <ParamField body="address" type="object" required>
-            The address of the entity shareholder.
-
-            <Expandable title="Address">
-              <ParamField body="street" type="string" required>
-                The street name and number of the entity shareholder.\
-                **Example**: `Schillerstraße 5`
-              </ParamField>
-
-              <ParamField body="street_second_line" type="string">
-                Additional address information, such as apartment number, suite, floor, or building.\
-                **Example**: `Apartment 4B`
-              </ParamField>
-
-              <ParamField body="zip" type="string" required>
-                The postal code of the entity shareholder.\
-                **Example**: `80336`
-              </ParamField>
-
-              <ParamField body="city" type="string" required>
-                The city of the entity shareholder.\
-                **Example**: `Munich`
-              </ParamField>
-
-              <ParamField body="country" type="string" required>
-                The country of the entity shareholder.\
-                **Example**: `Germany`
-              </ParamField>
-            </Expandable>
-          </ParamField>
-
-          <ParamField body="directors" type="object" required>
-            The directors of the entity shareholder.
-
-            <Expandable title="Directors">
-              <ParamField body="first_name" type="string" required>
-                The first name of the entity's director.\
-                **Example**: `John`
-              </ParamField>
-
-              <ParamField body="last_name" type="string">
-                The last name of the entity's director.\
-                **Example**: `Doe`
-              </ParamField>
-            </Expandable>
-          </ParamField>
-
-          <ParamField body="shares" type="number" required>
-            The number of shares owned by the shareholder.\
-            **Example**: `2500`
-          </ParamField>
-
-          <ParamField body="share_percentage" type="number" required>
-            The percentage of shares owned by the shareholder.\
-            **Example**: `25`
-          </ParamField>
-        </Expandable>
-      </ParamField>
-    </Expandable>
-  </ParamField>
-
-  <ParamField body="directors" type="array" required>
-    An array of directors managing the company.
-
-    <Expandable title="Director">
-      <ParamField body="first_name" type="string" required>
-        First name of the director.\
-        **Example**: `Maria`
-      </ParamField>
-
-      <ParamField body="last_name" type="string" required>
-        Last name of the director.\
-        **Example**: `Weber`
-      </ParamField>
-
-      <ParamField body="email" type="string" required>
-        Email address of the director.\
-        **Example**: `maria.weber@example.com`
-      </ParamField>
-
-      <ParamField body="dob" type="string" required>
-        Date of birth of the director in `YYYY-MM-DD` format.\
-        **Example**: `1978-03-15`
-      </ParamField>
-
-      <ParamField body="address" type="object" required>
-        Address of the director.
-
-        <Expandable title="Address">
-          <ParamField body="street" type="string" required>
-            The street name and number of the director.\
-            **Example**: `Schillerstraße 5`
-          </ParamField>
-
-          <ParamField body="street_second_line" type="string">
-            Additional address information, such as apartment number, suite, floor, or building.\
-            **Example**: `Apartment 4B`
-          </ParamField>
-
-          <ParamField body="zip" type="string" required>
-            The postal code of the director.\
-            **Example**: `80336`
-          </ParamField>
-
-          <ParamField body="city" type="string" required>
-            The city of the director.\
-            **Example**: `Munich`
-          </ParamField>
-
-          <ParamField body="country" type="string" required>
-            The country of the director.\
-            **Example**: `Germany`
-          </ParamField>
-        </Expandable>
-      </ParamField>
-
-      <ParamField body="authority" type="string" required>
-        The director’s signing authority.\
-        **Possible values**: `sole` or `joint`
-      </ParamField>
-    </Expandable>
-  </ParamField>
-
-  <ParamField body="documents" type="object" required>
-    A collection of documents related to the company.
-
-    <Expandable title="Documents">
-      <ParamField body="articles_of_association" type="array" required>
-        The articles of association for the company.
-
-        <Expandable title="Articles of Association">
-          <ParamField body="type" type="string" required>
-            Specifies the nature of the articles of association. Use `standard` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `custom` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
-            **Possible values**: `standard` or `custom`
-          </ParamField>
-
-          <ParamField body="url" type="string">
-            If the document already exists, you can attach it. Leave empty if incorporation is done with Musterprotokoll.
-            **Example**: `s3://bucket/gesellschaftervertrag.pdf`
-          </ParamField>
-        </Expandable>
-      </ParamField>
-    </Expandable>
-  </ParamField>
-
-  <ParamField body="notarization" type="object" required>
-    Details about the notarization process.
-
-    <Expandable title="Notarization Object">
-      <ParamField body="type" type="string" required>
-        The method of notarization.\
-        **Possible values**: `offline` or `online`
-      </ParamField>
-
-      <ParamField body="express" type="boolean">
-        Requests expedited notarization.
-      </ParamField>
-
-      <ParamField body="desired_date" type="string">
-        Target notarization date in `YYYY-MM-DD` format.\
-        **Example**: `2025-04-15`
-      </ParamField>
-
-      <ParamField body="desired_location" type="string">
-        Desired location for notarization. Can be German or English city name.
-
-        **Example**: `Munich`
-      </ParamField>
-    </Expandable>
-  </ParamField>
-
-  <ParamField body="client_reference" type="string">
-    A custom client reference string for tracking purposes.\
-    **Example**: `REF-2025-001`
-  </ParamField>
+To authenticate requests, include an Authorization header with a Bearer token:
+
+`Authorization: Bearer <token>`
+
+**Example:** `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
+
+## Body
+
+<ParamField body="name" type="string" required>
+  The legal name of the company.
+
+  **Example**: `Beglaubigt.de GmbH`
+</ParamField>
+
+<ParamField body="type" type="string" required>
+  The type of company being incorporated.
+
+  **Possible values**: `GmbH` or `UG`
+</ParamField>
+
+<ParamField body="purpose" type="string" required>
+  The purpose or business objective of the company.
+
+  **Example**: `Digital Notarization Services for Germany and Europe`
+</ParamField>
+
+<ParamField body="address" type="object" required>
+  The address of the company.
+
+  <Expandable title="Address">
+    <ParamField body="street" type="string" required>
+      The street name and number of the company.
+
+      **Example**: `Schillerstraße 5`
+    </ParamField>
+    <ParamField body="street_second_line" type="string">
+      Additional address information, such as apartment number, suite, floor, or building.
+
+      **Example**: `Apartment 4B`
+    </ParamField>
+    <ParamField body="zip" type="string" required>
+      The postal code of the company.
+
+      **Example**: `80336`
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      The city of the company.
+
+      **Example**: `Munich`
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      The country of the company.
+
+      **Example**: `Germany`
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="capital" type="number" required>
+  The total share capital of the company in EUR.
+
+  **Example**: `25000`
+</ParamField>
+
+<ParamField body="shareholders" type="object" required>
+  An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
+
+  <Expandable title="Individuals">
+    <ParamField body="individuals" type="array" required="false">
+      An array of individual shareholders.
+
+      <Expandable title="Individual">
+        <ParamField body="first_name" type="string" required>
+          The first name of the individual shareholder.\
+          **Example**: `Max`
+        </ParamField>
+        <ParamField body="middle_name" type="string">
+          The middle name of the individual shareholder.\
+          **Example**: `Alexander`
+        </ParamField>
+        <ParamField body="last_name" type="string" required>
+          The last name of the individual shareholder.\
+          **Example**: `Mustermann`
+        </ParamField>
+        <ParamField body="email" type="string" required>
+          The email address of the individual shareholder.\
+          **Example**: `max.mustermann@example.com`
+        </ParamField>
+        <ParamField body="phone" type="string">
+          The phone number of the individual shareholder.\
+          **Example**: `+491234567890`
+        </ParamField>
+        <ParamField body="dob" type="string" required>
+          The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
+          **Example**: `1985-10-05`
+        </ParamField>
+        <ParamField body="nationality" type="string" required>
+          The nationality of the individual shareholder.\
+          **Example**: `German`
+        </ParamField>
+        <ParamField body="address" type="object" required>
+          The address of the individual shareholder.
+
+          <Expandable title="Address">
+            <ParamField body="street" type="string" required>
+              The street name and number of the individual shareholder.\
+              **Example**: `Schillerstraße 5`
+            </ParamField>
+            <ParamField body="street_second_line" type="string">
+              Additional address information, such as apartment number, suite, floor, or building.\
+              **Example**: `Apartment 4B`
+            </ParamField>
+            <ParamField body="zip" type="string" required>
+              The postal code of the individual shareholder.\
+              **Example**: `80336`
+            </ParamField>
+            <ParamField body="city" type="string" required>
+              The city of the individual shareholder.\
+              **Example**: `Munich`
+            </ParamField>
+            <ParamField body="country" type="string" required>
+              The country of the individual shareholder.\
+              **Example**: `Germany`
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="shares" type="number" required>
+          The number of shares owned by the shareholder.\
+          **Example**: `2500`
+        </ParamField>
+        <ParamField body="share_percentage" type="number" required>
+          The percentage of shares owned by the shareholder.\
+          **Example**: `25`
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+  <Expandable title="Entities">
+    <ParamField body="entities" type="array" required="false">
+      An array of entity shareholders.
+
+      <Expandable title="Entity">
+        <ParamField body="name" type="string" required>
+          The name of the entity shareholder.\
+          **Example**: `Max`
+        </ParamField>
+        <ParamField body="registration_number" type="string">
+          The registration number of the entity shareholder.\
+          **Example**: `Alexander`
+        </ParamField>
+        <ParamField body="address" type="object" required>
+          The address of the entity shareholder.
+
+          <Expandable title="Address">
+            <ParamField body="street" type="string" required>
+              The street name and number of the entity shareholder.\
+              **Example**: `Schillerstraße 5`
+            </ParamField>
+            <ParamField body="street_second_line" type="string">
+              Additional address information, such as apartment number, suite, floor, or building.\
+              **Example**: `Apartment 4B`
+            </ParamField>
+            <ParamField body="zip" type="string" required>
+              The postal code of the entity shareholder.\
+              **Example**: `80336`
+            </ParamField>
+            <ParamField body="city" type="string" required>
+              The city of the entity shareholder.\
+              **Example**: `Munich`
+            </ParamField>
+            <ParamField body="country" type="string" required>
+              The country of the entity shareholder.\
+              **Example**: `Germany`
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="directors" type="object" required>
+          The directors of the entity shareholder.
+
+          <Expandable title="Directors">
+            <ParamField body="first_name" type="string" required>
+              The first name of the entity's director.\
+              **Example**: `John`
+            </ParamField>
+            <ParamField body="last_name" type="string">
+              The last name of the entity's director.\
+              **Example**: `Doe`
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="shares" type="number" required>
+          The number of shares owned by the shareholder.\
+          **Example**: `2500`
+        </ParamField>
+        <ParamField body="share_percentage" type="number" required>
+          The percentage of shares owned by the shareholder.\
+          **Example**: `25`
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="directors" type="array" required>
+  An array of directors managing the company.
+
+  <Expandable title="Director">
+    <ParamField body="first_name" type="string" required>
+      First name of the director.\
+      **Example**: `Maria`
+    </ParamField>
+    <ParamField body="last_name" type="string" required>
+      Last name of the director.\
+      **Example**: `Weber`
+    </ParamField>
+    <ParamField body="email" type="string" required>
+      Email address of the director.\
+      **Example**: `maria.weber@example.com`
+    </ParamField>
+    <ParamField body="dob" type="string" required>
+      Date of birth of the director in `YYYY-MM-DD` format.\
+      **Example**: `1978-03-15`
+    </ParamField>
+    <ParamField body="address" type="object" required>
+      Address of the director.
+
+      <Expandable title="Address">
+        <ParamField body="street" type="string" required>
+          The street name and number of the director.\
+          **Example**: `Schillerstraße 5`
+        </ParamField>
+        <ParamField body="street_second_line" type="string">
+          Additional address information, such as apartment number, suite, floor, or building.\
+          **Example**: `Apartment 4B`
+        </ParamField>
+        <ParamField body="zip" type="string" required>
+          The postal code of the director.\
+          **Example**: `80336`
+        </ParamField>
+        <ParamField body="city" type="string" required>
+          The city of the director.\
+          **Example**: `Munich`
+        </ParamField>
+        <ParamField body="country" type="string" required>
+          The country of the director.\
+          **Example**: `Germany`
+        </ParamField>
+      </Expandable>
+    </ParamField>
+    <ParamField body="authority" type="string" required>
+      The director’s signing authority.\
+      **Possible values**: `sole` or `joint`
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="documents" type="object" required>
+  A collection of documents related to the company.
+
+  <Expandable title="Documents">
+    <ParamField body="articles_of_association" type="array" required>
+      The articles of association for the company.
+
+      <Expandable title="Articles of Association">
+        <ParamField body="type" type="string" required>
+          Specifies the nature of the articles of association. Use `standard` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `custom` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
+          **Possible values**: `standard` or `custom`
+        </ParamField>
+        <ParamField body="url" type="string">
+          If the document already exists, you can attach it. Leave empty if incorporation is done with Musterprotokoll.
+          **Example**: `s3://bucket/gesellschaftervertrag.pdf`
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="notarization" type="object" required>
+  Details about the notarization process.
+
+  <Expandable title="Notarization Object">
+    <ParamField body="type" type="string" required>
+      The method of notarization.\
+      **Possible values**: `offline` or `online`
+    </ParamField>
+    <ParamField body="express" type="boolean">
+      Requests expedited notarization.
+    </ParamField>
+    <ParamField body="desired_date" type="string">
+      Target notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-15`
+    </ParamField>
+    <ParamField body="desired_location" type="string">
+      Desired location for notarization. Can be German or English city name.
+
+      **Example**: `Munich`
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="client_reference" type="string">
+  A custom client reference string for tracking purposes.\
+  **Example**: `REF-2025-001`
+</ParamField>
 
 ## Request Example
 

@@ -7,9 +7,11 @@ authMethod: "bearer"
 
 ### Authorization
 
-<ParamField header="Authorization" type="string" required>
-  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
-</ParamField>
+To authenticate requests, include an Authorization header with a Bearer token:
+
+`Authorization: Bearer <token>`
+
+**Example:** `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
 
 ### Body
 
