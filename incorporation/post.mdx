@@ -183,7 +183,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
             </ParamField>
           </Expandable>
         </ParamField>
-        <ParamField body="directors" type="array" required={false}>
+        <ParamField body="directors" type="array" required="false">
           The directors of the entity shareholder.
 
           <Expandable title="Directors">
@@ -227,8 +227,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `maria.weber@example.com`
     </ParamField>
     <ParamField body="phone" type="string">
-        The phone number of the director.\
-        **Example**: `+491234567890`
+      The phone number of the director.\
+      **Example**: `+491234567890`
     </ParamField>
     <ParamField body="dob" type="string" required>
       Date of birth of the director in `YYYY-MM-DD` format.\
@@ -425,7 +425,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Example**: `Incorporation created successfully.`
 </ResponseField>
 
-<ResponseField name="case_id" type="string">
+<ResponseField name="incorporation_id" type="string">
   The unique identifier for the created incorporation case in a **UUID** format.\
   **Example**: `450506c1-d1a7-46e2-aca6-41a816805595`
 </ResponseField>
