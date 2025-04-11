@@ -267,11 +267,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ParamField>
 
-<ParamField body="documents" type="object" required>
+<ParamField body="documents" type="object">
   A collection of documents related to the company.
 
   <Expandable title="Documents">
-    <ParamField body="articles_of_association" type="array" required>
+    <ParamField body="articles_of_association" type="array">
       The articles of association for the company.
 
       <Expandable title="Articles of Association">
@@ -519,7 +519,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   "response": {
     "result": "success",
     "message": "Incorporation created successfully.",
-    "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
+    "incorporation_id": "450506c1-d1a7-46e2-aca6-41a816805595",
     "status": "Initiated",
     "url": "https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
     "documents": [
