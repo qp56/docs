@@ -32,19 +32,19 @@ The `incorporation.completed` event is triggered automatically when an incorpora
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ParamField name="name" type="string">
+<ParamField type="string">
   The legal name of the company.
 
   **Example**: `Beglaubigt.de GmbH`
 </ParamField>
 
-<ParamField name="type" type="string">
+<ParamField type="string">
   The type of company incorporated.
 
   **Possible values**: `GmbH` or `UG`
 </ParamField>
 
-<ParamField name="capital" type="number">
+<ParamField type="number">
   The total share capital of the company in EUR.
 
   **Example**: `25000`
@@ -62,10 +62,11 @@ The `incorporation.completed` event is triggered automatically when an incorpora
   **Example**: `https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ResponseField name="documents" type="array">
-  List of documents generated for this incorporation request.
+<ResponseField name="documents" type="object">
+  A collection of documents related to the company.
+
   <Expandable title="Documents">
-    <ResponseField name="articles_of_association" type="object">
+    <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
 
       <Expandable title="Article of Association">
@@ -151,13 +152,15 @@ The `incorporation.completed` event is triggered automatically when an incorpora
   "capital": 12500,
   "status": "Completed",
   "url": "https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000",
-  "documents": [
-    {
-      "name": "document.pdf",
-      "type": "custom",
-      "status": "Initiated"
-    }
-  ],
+  "documents": {
+    "articles_of_association": [
+      {
+        "name": "sample.pdf",
+        "type": "custom",
+        "status": "Initiated"
+      }
+    ]
+  },
   "notarization": {
     "type": "online",
     "express": false,
@@ -165,7 +168,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     "location": "Berlin",
     "notary": {
       "first_name": "John",
-      "last_name": "Doe"
+      "last_name": "Doe",
       "email": "john.doe@example.com"
     }
   },
