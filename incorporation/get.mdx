@@ -178,135 +178,137 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="shareholders" type="object">
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
-  
-  <Expandable title="Individuals">
-    <ResponseField name="individuals" type="array">
-      An array of individual shareholders.
-      <Expandable title="Individual">
-        <ResponseField name="first_name" type="string">
-          The first name of the individual shareholder.\
-          **Example**: `Max`
-        </ResponseField>
-        <ResponseField name="middle_name" type="string">
-          The middle name of the individual shareholder.\
-          **Example**: `Alexander`
-        </ResponseField>
-        <ResponseField name="last_name" type="string">
-          The last name of the individual shareholder.\
-          **Example**: `Mustermann`
-        </ResponseField>
-        <ResponseField name="email" type="string">
-          The email address of the individual shareholder.\
-          **Example**: `max.mustermann@example.com`
-        </ResponseField>
-        <ResponseField name="phone" type="string">
-          The phone number of the individual shareholder.\
-          **Example**: `+491234567890`
-        </ResponseField>
-        <ResponseField name="dob" type="string">
-          The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
-          **Example**: `1985-10-05`
-        </ResponseField>
-        <ResponseField name="nationality" type="string">
-          The nationality of the individual shareholder.\
-          **Example**: `German`
-        </ResponseField>
-        <ResponseField name="address" type="object">
-          The address of the individual shareholder.
-          <Expandable title="Address">
-            <ResponseField name="street" type="string">
-              The street name and number of the individual shareholder.\
-              **Example**: `Schillerstraße 5`
-            </ResponseField>
-            <ResponseField name="street_second_line" type="string">
-              Additional address information, such as apartment number, suite, floor, or building.\
-              **Example**: `Apartment 4B`
-            </ResponseField>
-            <ResponseField name="zip" type="string">
-              The postal code of the individual shareholder.\
-              **Example**: `80336`
-            </ResponseField>
-            <ResponseField name="city" type="string">
-              The city of the individual shareholder.\
-              **Example**: `Munich`
-            </ResponseField>
-            <ResponseField name="country" type="string">
-              The country of the individual shareholder.\
-              **Example**: `Germany`
-            </ResponseField>
-          </Expandable>
-        </ResponseField>
-        <ResponseField name="shares" type="number" required>
-          The number of shares owned by the shareholder.\
-          **Example**: `2500`
-        </ResponseField>
-        <ResponseField name="share_percentage" type="number">
-          The percentage of shares owned by the shareholder.\
-          **Example**: `25`
-        </ResponseField>
-      </Expandable>
-    </ResponseField>
-  </Expandable>
-  <Expandable title="Entities">
-    <ResponseField name="entities" type="array">
-      An array of entity shareholders.
-      <Expandable title="Entity">
-        <ResponseField name="name" type="string">
-          The name of the entity shareholder.\
-          **Example**: `Max`
-        </ResponseField>
-        <ResponseField name="registration_number" type="string">
-          The registration number of the entity shareholder.\
-          **Example**: `Alexander`
-        </ResponseField>
-        <ResponseField name="address" type="object">
-          The address of the entity shareholder.
-          <Expandable title="Address">
-            <ResponseField name="street" type="string">
-              The street name and number of the entity shareholder.\
-              **Example**: `Schillerstraße 5`
-            </ResponseField>
-            <ResponseField name="street_second_line" type="string">
-              Additional address information, such as apartment number, suite, floor, or building.\
-              **Example**: `Apartment 4B`
-            </ResponseField>
-            <ResponseField name="zip" type="string">
-              The postal code of the entity shareholder.\
-              **Example**: `80336`
-            </ResponseField>
-            <ResponseField name="city" type="string">
-              The city of the entity shareholder.\
-              **Example**: `Munich`
-            </ResponseField>
-            <ResponseField name="country" type="string">
-              The country of the entity shareholder.\
-              **Example**: `Germany`
-            </ResponseField>
-          </Expandable>
-        </ResponseField>
-        <ResponseField name="directors" type="array" require>
-          The directors of the entity shareholder.
-          <Expandable title="Directors">
-            <ResponseField name="first_name" type="string">
-              The first name of the entity's director.\
-              **Example**: `John`
-            </ResponseField>
-            <ResponseField name="last_name" type="string">
-              The last name of the entity's director.\
-              **Example**: `Doe`
-            </ResponseField>
-          </Expandable>
-        </ResponseField>
-        <ResponseField name="shares" type="number">
-          The number of shares owned by the shareholder.\
-          **Example**: `2500`
-        </ResponseField>
-        <ResponseField name="share_percentage" type="number">
-          The percentage of shares owned by the shareholder.\
-          **Example**: `25`
-        </ResponseField>
-      </Expandable>
-    </ResponseField>
+
+  <Expandable title="Shareholders">
+    <Expandable title="Individuals">
+      <ResponseField name="individuals" type="array">
+        An array of individual shareholders.
+        <Expandable title="Individual">
+          <ResponseField name="first_name" type="string">
+            The first name of the individual shareholder.\
+            **Example**: `Max`
+          </ResponseField>
+          <ResponseField name="middle_name" type="string">
+            The middle name of the individual shareholder.\
+            **Example**: `Alexander`
+          </ResponseField>
+          <ResponseField name="last_name" type="string">
+            The last name of the individual shareholder.\
+            **Example**: `Mustermann`
+          </ResponseField>
+          <ResponseField name="email" type="string">
+            The email address of the individual shareholder.\
+            **Example**: `max.mustermann@example.com`
+          </ResponseField>
+          <ResponseField name="phone" type="string">
+            The phone number of the individual shareholder.\
+            **Example**: `+491234567890`
+          </ResponseField>
+          <ResponseField name="dob" type="string">
+            The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
+            **Example**: `1985-10-05`
+          </ResponseField>
+          <ResponseField name="nationality" type="string">
+            The nationality of the individual shareholder.\
+            **Example**: `German`
+          </ResponseField>
+          <ResponseField name="address" type="object">
+            The address of the individual shareholder.
+            <Expandable title="Address">
+              <ResponseField name="street" type="string">
+                The street name and number of the individual shareholder.\
+                **Example**: `Schillerstraße 5`
+              </ResponseField>
+              <ResponseField name="street_second_line" type="string">
+                Additional address information, such as apartment number, suite, floor, or building.\
+                **Example**: `Apartment 4B`
+              </ResponseField>
+              <ResponseField name="zip" type="string">
+                The postal code of the individual shareholder.\
+                **Example**: `80336`
+              </ResponseField>
+              <ResponseField name="city" type="string">
+                The city of the individual shareholder.\
+                **Example**: `Munich`
+              </ResponseField>
+              <ResponseField name="country" type="string">
+                The country of the individual shareholder.\
+                **Example**: `Germany`
+              </ResponseField>
+            </Expandable>
+          </ResponseField>
+          <ResponseField name="shares" type="number" required>
+            The number of shares owned by the shareholder.\
+            **Example**: `2500`
+          </ResponseField>
+          <ResponseField name="share_percentage" type="number">
+            The percentage of shares owned by the shareholder.\
+            **Example**: `25`
+          </ResponseField>
+        </Expandable>
+      </ResponseField>
+    </Expandable>
+    <Expandable title="Entities">
+      <ResponseField name="entities" type="array">
+        An array of entity shareholders.
+        <Expandable title="Entity">
+          <ResponseField name="name" type="string">
+            The name of the entity shareholder.\
+            **Example**: `Max`
+          </ResponseField>
+          <ResponseField name="registration_number" type="string">
+            The registration number of the entity shareholder.\
+            **Example**: `Alexander`
+          </ResponseField>
+          <ResponseField name="address" type="object">
+            The address of the entity shareholder.
+            <Expandable title="Address">
+              <ResponseField name="street" type="string">
+                The street name and number of the entity shareholder.\
+                **Example**: `Schillerstraße 5`
+              </ResponseField>
+              <ResponseField name="street_second_line" type="string">
+                Additional address information, such as apartment number, suite, floor, or building.\
+                **Example**: `Apartment 4B`
+              </ResponseField>
+              <ResponseField name="zip" type="string">
+                The postal code of the entity shareholder.\
+                **Example**: `80336`
+              </ResponseField>
+              <ResponseField name="city" type="string">
+                The city of the entity shareholder.\
+                **Example**: `Munich`
+              </ResponseField>
+              <ResponseField name="country" type="string">
+                The country of the entity shareholder.\
+                **Example**: `Germany`
+              </ResponseField>
+            </Expandable>
+          </ResponseField>
+          <ResponseField name="directors" type="array" require>
+            The directors of the entity shareholder.
+            <Expandable title="Directors">
+              <ResponseField name="first_name" type="string">
+                The first name of the entity's director.\
+                **Example**: `John`
+              </ResponseField>
+              <ResponseField name="last_name" type="string">
+                The last name of the entity's director.\
+                **Example**: `Doe`
+              </ResponseField>
+            </Expandable>
+          </ResponseField>
+          <ResponseField name="shares" type="number">
+            The number of shares owned by the shareholder.\
+            **Example**: `2500`
+          </ResponseField>
+          <ResponseField name="share_percentage" type="number">
+            The percentage of shares owned by the shareholder.\
+            **Example**: `25`
+          </ResponseField>
+        </Expandable>
+      </ResponseField>
+    </Expandable>
   </Expandable>
 </ResponseField>
 
@@ -319,3 +321,112 @@ To authenticate requests, include an Authorization header with a Bearer token:
   A custom client reference string for tracking purposes.\
   **Example**: `REF-2025-001`
 </ResponseField>
+
+## Response Example
+
+<ResponseExample>
+
+```json
+{
+    "response": {
+        "result": "success",
+        "message": "Incorporation fetched successfully.",
+        "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
+        "name": "Acme Holdings GmbH",
+        "type": "GmbH",
+        "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
+        "capital": 12500,
+        "address": {
+            "street": "Schwanthaler Str. 32",
+            "street_second_line": "Building A, Floor 2"
+            "zip": "80336",
+            "city": "Munich",
+            "country": "Germany"
+        },
+        "status": "Initiated",
+        "url": "https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000",
+        "directors": [
+            {
+                "first_name": "Maria",
+                "last_name": "Weber",
+                "email": "maria@weber.de",
+                "phone": "+491234567890",
+                "dob": "1978-03-15",
+                "address": {
+                    "street": "Schillerstraße 5",
+                    "street_second_line": "Building A, Floor 2",
+                    "zip": "80336",
+                    "city": "Munich",
+                    "country": "Germany"
+                },
+                "authority": "sole"
+            }
+        ],
+        "documents": [
+            {
+                "name": "sample.pdf",
+                "type": "custom",
+                "status": "Initiated"
+            }
+        ],
+        "shareholders": {
+            "individuals": [
+                {
+                    "first_name": "John",
+                    "middle_name": "Michael",
+                    "last_name": "Doe",
+                    "email": "john.doe@example.com",
+                    "phone": "+491234567890",
+                    "dob": "1985-07-10",
+                    "nationality": "German",
+                    "address": {
+                        "street": "Bahnhofstraße 10",
+                        "street_second_line": "Building A, Floor 2",
+                        "zip": "10115",
+                        "city": "Berlin",
+                        "country": "Germany"
+                    },
+                    "shares": 12500,
+                    "share_percentage": 50
+                }
+            ],
+            "entities": [
+                {
+                  "name": "Acme Ventures GmbH",
+                  "registration_number": "HRB123456",
+                  "address": {
+                    "street": "Hauptstraße 42",
+                    "street_second_line": "3. Etage, Büro 12",
+                    "zip": "10115",
+                    "city": "Berlin",
+                    "country": "Germany"
+                  },
+                  "directors": [
+                    {
+                      "first_name": "Lukas",
+                      "last_name": "Schneider"
+                    }
+                  ],
+                  "shares": 5000,
+                  "share_percentage": 5
+                }
+            ]
+        },
+        "notarization": {
+            "type": "online",
+            "express": false,
+            "date": "15.05.2025",
+            "location": "Munich",
+            "notary": {
+                "first_name": "Anna",
+                "last_name": "Keller",
+                "email": "anna.keller@example.com"
+            }
+        },
+        "created_at": "2025-04-12T08:33:18.35395+00:00",
+        "client_reference": "REF-2025-001"
+    }
+}
+```
+
+</ResponseExample>
