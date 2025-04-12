@@ -115,6 +115,10 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           The last name of the notary.\
           **Example**: `Doe`
         </ResponseField>
+        <ResponseField name="email" type="boolean">
+          The email address of the notary.\
+          **Example**: `john.doe@example.com`
+        </ResponseField>
       </Expandable>
     </ResponseField>
   </Expandable>
@@ -160,6 +164,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     "notary": {
       "first_name": "John",
       "last_name": "Doe"
+      "email": "john.doe@example.com"
     }
   },
   "client_reference": "REF-2025-001",
