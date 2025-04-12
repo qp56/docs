@@ -9,50 +9,42 @@ The `signatures.completed` event is triggered automatically when all required si
 ### Payload Fields
 
 <ResponseField name="webhook_id" type="string">
-  A unique identifier for this webhook in a **UUID** format.
-
+  A unique identifier for this webhook in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="event" type="string">
-  The name of the event that triggered this webhook.
-
+  The name of the event that triggered this webhook.\
   **Value**: `signatures.completed`
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  Provides a human-readable message indicating the result of the webhook event.
-
+  Provides a human-readable message indicating the result of the webhook event.\
   **Value**: `The document has been signed by all signers.`
 </ResponseField>
 
 <ResponseField name="timestamp" type="string">
-  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
-
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
   **Example**: `2024-12-01T07:19:30.443Z`
 </ResponseField>
 
 <ResponseField name="service" type="string">
-  The type of service this webhook relates to.
-
+  The type of service this webhook relates to.\
   **Possible values**: `signature` or `notarization`
 </ResponseField>
 
 <ResponseField name="case_id" type="string">
-  The unique identifier for the case in a **UUID** format.
-
+  The unique identifier for the case in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="document_id" type="string">
-  The unique identifier for the document in a **UUID** format.
-
+  The unique identifier for the document in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="document_status" type="string">
-  Indicates the current status of the document.
-
+  Indicates the current status of the document.\
   **Possible values**: `In Draft`, `Signatures Requested`, `Verifications Requested` or `Completed`
 </ResponseField>
 
@@ -61,34 +53,29 @@ The `signatures.completed` event is triggered automatically when all required si
 
   <Expandable title="Signers Response Object">
     <ResponseField name="first_name" type="string">
-      The first name of the signer.
-
+      The first name of the signer.\
       **Example**: `John`
     </ResponseField>
 
     <ResponseField name="last_name" type="string">
-      The last name of the signer.
-
+      The last name of the signer.\
       **Example**: `Doe`
     </ResponseField>
 
     <ResponseField name="email" type="string">
-      The email address of the signer.
-
+      The email address of the signer.\
       **Example**: `john.doe@mail.com`
     </ResponseField>
 
     <ResponseField name="signed_at" type="string">
-      The timestamp of the signature, formatted as an **ISO 8601** string in UTC.
-
+      The timestamp of the signature, formatted as an **ISO 8601** string in UTC.\
       **Example**: `2024-12-01T07:19:30.443Z`
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="client_reference" type="string">
-  Your custom reference string provided during case creation.
-
+  Your custom reference string provided during case creation.\
   **Example**: `REF-2025-001`
 </ResponseField>
 
