@@ -445,7 +445,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 </ResponseField>
 
 <ResponseField name="documents" type="array">
-  List of documents generated for this incorporation request.
+  A collection of documents related to the company.
 
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="object">
@@ -532,13 +532,15 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "incorporation_id": "450506c1-d1a7-46e2-aca6-41a816805595",
     "status": "Initiated",
     "url": "https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
-    "documents": [
-      {
-        "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
-        "type": "Articles of Association",
-        "status": "Initiated",
-      }
-    ],
+    "documents": {
+      "articles_of_association": [
+        {
+          "name": "sample.pdf",
+          "type": "custom",
+          "status": "Initiated"
+        }
+      ]
+    },
     "notarization": [
       {
         "type": "online",
