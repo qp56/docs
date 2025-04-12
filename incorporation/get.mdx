@@ -135,6 +135,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
+
       <Expandable title="Address">
         <ResponseField name="street" type="string">
           The street name and number of the director.\
@@ -164,27 +165,31 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
   </Expandable>
 </ResponseField>
+
 <ResponseField name="documents" type="array">
   A list of documents included in the incorporation.
 
   <Expandable title="Document">
     <ResponseField name="name" type="string">
       The name of the document.
+
       **Example**: `document.pdf`
     </ResponseField>
     <ResponseField name="type" type="string">
       The type of document.
+
       **Possible values**: `standard` or `custom`
     </ResponseField>
     <ResponseField name="status" type="string">
       The status of the document.
+
       **Possible values**: `Initiated` or `Completed`
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="created_at" type="string">
-    The timestamp at which the incorporation was created, formatted as an ISO 8601 string (UTC).\
+  The timestamp at which the incorporation was created, formatted as an ISO 8601 string (UTC).\
   **Example**: `2025-06-15T08:00:00.000Z`
 </ResponseField>
 
