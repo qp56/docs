@@ -61,7 +61,7 @@
         "webhooks/signatures.completed",
         "webhooks/verifications.completed",
         "webhooks/notarization.completed",
-        "webhooks/incorporation.initiated",
+        "webhooks/incorporation.initiated"
       ]
     }
   ],
