@@ -44,7 +44,7 @@
         "notarization/post",
         "notarization/get",
         "incorporation/post",
-        "incorporation/get",
+        "incorporation/get"
       ]
     },
     {
