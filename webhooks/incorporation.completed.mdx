@@ -1,0 +1,169 @@
+---
+title: "New file"
+description: "Description of your new file."
+---
+
+### Understanding the Event
+
+The `incorporation.completed` event is triggered automatically when an incorporation has been completed.
+
+### Payload Fields
+
+<ResponseField name="webhook_id" type="string">
+  A unique identifier for this webhook in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="event" type="string">
+  The name of the event that triggered this webhook.
+
+  **Value**: `incorporation.completed`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Provides a human-readable message indicating the result of the webhook event.
+
+  **Value**: `The incorporation has been completed.`
+</ResponseField>
+
+<ResponseField name="incorporation_id" type="string">
+  The unique identifier for the incorporation in a **UUID** format.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ParamField body="name" type="string" required>
+  The legal name of the company.
+
+  **Example**: `Beglaubigt.de GmbH`
+</ParamField>
+
+<ParamField body="type" type="string" required>
+  The type of company incorporated.
+
+  **Possible values**: `GmbH` or `UG`
+</ParamField>
+
+<ParamField body="capital" type="number" required>
+  The total share capital of the company in EUR.
+
+  **Example**: `25000`
+</ParamField>
+
+<ResponseField name="status" type="string">
+  The status of the incorporation.
+
+  **Example**: `Initiated` or `Completed`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  The URL of the incorporation.
+
+  **Example**: `https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="documents" type="array">
+  A list of documents included in the incorporation.
+
+  <Expandable title="Document">
+    <ResponseField name="name" type="string">
+      The name of the document.
+
+      **Example**: `document.pdf`
+    </ResponseField>
+    <ResponseField name="type" type="string">
+      The type of document.
+
+      **Possible values**: `standard` or `custom`
+    </ResponseField>
+    <ResponseField name="status" type="string">
+      The status of the document.
+
+      **Possible values**: `Initiated` or `Completed`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="notarization" type="object">
+  Details about the notarization process.
+
+  <Expandable title="Notarization">
+    <ResponseField name="type" type="string">
+      The method of notarization.\
+      **Possible values**: `offline` or `online`
+    </ResponseField>
+    <ResponseField name="express" type="boolean">
+      Requests expedited notarization.
+    </ResponseField>
+    <ResponseField name="date" type="string">
+      The notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-15`
+    </ResponseField>
+    <ResponseField name="location" type="string">
+      The location of the notarization.\
+      **Example**: `Munich`
+    </ResponseField>
+    <ResponseField name="notary" type="object">
+      Details about the notary.
+
+      <Expandable title="Notary">
+        <ResponseField name="first_name" type="string">
+          The first name of the notary.\
+          **Example**: `John`
+        </ResponseField>
+        <ResponseField name="last_name" type="boolean">
+          The last name of the notary.\
+          **Example**: `Doe`
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  Your custom reference string provided during incorporation creation.
+
+  **Example**: `REF-2025-001`
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
+
+  **Example**: `2025-06-01T08:00:00.443Z`
+</ResponseField>
+
+### Webhook Payload Example
+
+```json
+{
+  "webhook_id": "123e4567-e89b-12d3-a456-426614174000",
+  "event": "incorporation.completed",
+  "message": "The incorporation has been completed.",
+  "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
+  "name": "Acme Holdings GmbH",
+  "type": "GmbH",
+  "capital": 12500,
+  "status": "Completed",
+  "url": "https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000",
+  "documents": [
+    {
+      "name": "document.pdf",
+      "type": "custom",
+      "status": "Initiated"
+    }
+  ],
+  "notarization": {
+    "type": "online",
+    "express": false,
+    "date": "15.05.2025",
+    "location": "Berlin",
+    "notary": {
+      "first_name": "John",
+      "last_name": "Doe"
+    }
+  },
+  "client_reference": "REF-2025-001",
+  "timestamp": "2025-05-15T08:00:00.000Z"
+}
+```
