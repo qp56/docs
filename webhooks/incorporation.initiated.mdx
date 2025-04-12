@@ -41,19 +41,18 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
 <ResponseField name="url" type="string">
   The URL of the incorporation.
 
-  **Example**: `Initiated`
+  **Example**: `https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="documents" type="array">
-  List of documents included in the incorporation.
-  
+  A list of documents included in the incorporation.
+
   <Expandable title="Document">
     <ResponseField name="name" type="string">
       The name of the document.
 
       **Example**: `document.pdf`
     </ResponseField>
-    
     <ResponseField name="type" type="string">
       The type of document.
 
@@ -71,7 +70,7 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
 <ResponseField name="timestamp" type="string">
   The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
 
-  **Example**: `2024-12-01T07:19:30.443Z`
+  **Example**: `2025-06-01T08:00:00.443Z`
 </ResponseField>
 
 ### Webhook Payload Example
