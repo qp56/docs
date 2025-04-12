@@ -16,52 +16,44 @@ To authenticate requests, include an Authorization header with a Bearer token:
 ### Path Parameters
 
 <ParamField path="incorporation_id" type="string" required>
-  The unique identifier of the incorporation to retrieve.
-
+  The unique identifier of the incorporation to retrieve.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ParamField>
 
 ### Response
 
 <ResponseField name="result" type="string">
-  Indicates the outcome of the API request.
-
+  Indicates the outcome of the API request.\
   **Possible values**: `success` or `error`
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  Provides a human-readable message detailing the result of the API request.
-
+  Provides a human-readable message detailing the result of the API request.\
   **Exemple**: `Incorporation fetched successfully.`
 </ResponseField>
 
 <ResponseField name="incorporation_id" type="string">
-  The unique identifier for the incorporation in a **UUID** format.
-
+  The unique identifier for the incorporation in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="name" type="string">
-  The legal name of the company.
-
+  The legal name of the company.\
   **Example**: `Acme Holdings GmbH`
 </ResponseField>
 
 <ResponseField name="type" type="string">
-  The type of company incorporated.
-
+  The type of company incorporated.\
   **Possible values**: `GmbH` or `UG`
 </ResponseField>
 
 <ResponseField name="purpose" type="string">
-  The purpose or business objective of the company.
-
+  The purpose or business objective of the company.\
   **Example**: `Digital Notarization Services for Germany and Europe`
 </ResponseField>
 
 <ResponseField name="capital" type="number">
-  The total share capital of the company in EUR.
-
+  The total share capital of the company in EUR.\
   **Example**: `25000`
 </ResponseField>
 
@@ -70,37 +62,35 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
   <Expandable title="Address">
     <ResponseField name="street" type="string">
-      The street name and number of the company.
+      The street name and number of the company.\
       **Example**: `Schillerstraße 5`
     </ResponseField>
     <ResponseField name="street_second_line" type="string">
-      Additional address information, such as apartment number, suite, floor, or building.
+      Additional address information, such as apartment number, suite, floor, or building.\
       **Example**: `Apartment 4B`
     </ResponseField>
     <ResponseField name="zip" type="string">
-      The postal code of the company.
+      The postal code of the company.\
       **Example**: `80336`
     </ResponseField>
     <ResponseField name="city" type="string">
-      The city of the company.
+      The city of the company.\
       **Example**: `Munich`
     </ResponseField>
     <ResponseField name="country" type="string">
-      The country of the company.
+      The country of the company.\
       **Example**: `Germany`
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="status" type="string">
-  The status of the incorporation.
-
+  The status of the incorporation.\
   **Example**: `Initiated` or `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
-  The URL of the incorporation.
-
+  The URL of the incorporation.\
   **Example**: `https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
