@@ -9,50 +9,42 @@ The `signatures.requested` event is triggered automatically when a document requ
 ### Payload Fields
 
 <ResponseField name="webhook_id" type="string">
-  A unique identifier for this webhook in a **UUID** format.
-
+  A unique identifier for this webhook in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="event" type="string">
-  The name of the event that triggered this webhook.
-
+  The name of the event that triggered this webhook.\
   **Value**: `signatures.requested`
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  Provides a human-readable message indicating the result of the webhook event.
-
+  Provides a human-readable message indicating the result of the webhook event.\
   **Value**: `The requests for document signatures have been sent.`
 </ResponseField>
 
 <ResponseField name="timestamp" type="string">
-  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
-
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
   **Example**: `2024-12-01T07:19:30.443Z`
 </ResponseField>
 
 <ResponseField name="service" type="string">
-  The type of service this webhook relates to.
-
+  The type of service this webhook relates to.\
   **Possible values**: `signature` or `notarization`
 </ResponseField>
 
 <ResponseField name="case_id" type="string">
-  The unique identifier for the case in a **UUID** format.
-
+  The unique identifier for the case in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="document_id" type="string">
-  The unique identifier for the document in a **UUID** format.
-
+  The unique identifier for the document in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="document_status" type="string">
-  Indicates the current status of the document.
-
+  Indicates the current status of the document.\
   **Possible values**: `In Draft`, `Signatures Requested`, `Verifications Requested` or `Completed`
 </ResponseField>
 
@@ -61,25 +53,22 @@ The `signatures.requested` event is triggered automatically when a document requ
 
   <Expandable title="Signers Response Object">
     <ResponseField name="first_name" type="string">
-      The first name of the signer.
-
+      The first name of the signer.\
       **Example**: `John`
     </ResponseField>
 
     <ResponseField name="last_name" type="string">
-      The last name of the signer.
-
+      The last name of the signer.\
       **Example**: `Doe`
     </ResponseField>
 
     <ResponseField name="email" type="string">
-      The email address of the signer.
-
+      The email address of the signer.\
       **Example**: `john.doe@mail.com`
     </ResponseField>
 
     <ResponseField name="url" type="string">
-      A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the case's requirements.
+      A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the case's requirements.\
 
       **Example**: `https://app.beglaubigt.de/sign/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
@@ -87,8 +76,7 @@ The `signatures.requested` event is triggered automatically when a document requ
 </ResponseField>
 
 <ResponseField name="client_reference" type="string">
-  Your custom reference string provided during case creation.
-
+  Your custom reference string provided during case creation.\
   **Example**: `REF-2025-001`
 </ResponseField>
 
