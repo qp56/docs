@@ -58,6 +58,11 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
 
       **Possible values**: `standard` or `custom`
     </ResponseField>
+    <ResponseField name="status" type="string">
+      The status of the document.
+
+      **Possible values**: `Initiated` or `Completed`
+    </ResponseField>
   </Expandable>
 </ResponseField>
 
@@ -86,7 +91,8 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
   "documents": [
     {
       "name": "document.pdf",
-      "type": "custom"
+      "type": "custom",
+	  "status": "Initiated"
     }
   ],
   "client_reference": "REF-2025-001"
