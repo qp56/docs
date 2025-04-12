@@ -44,10 +44,11 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
   **Example**: `https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ResponseField name="documents" type="array">
-  List of documents generated for this incorporation request.
+<ResponseField name="documents" type="object">
+  A collection of documents related to the company.
+
   <Expandable title="Documents">
-    <ResponseField name="articles_of_association" type="object">
+    <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
 
       <Expandable title="Article of Association">
@@ -84,20 +85,22 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
 
 ```json
 {
-  "webhook_id": "webhook_abcdef123456",
+  "webhook_id": "123e4567-e89b-12d3-a456-426614174000",
   "event": "incorporation.initiated",
   "message": "The incorporation has been initiated.",
   "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
   "status": "Initiated",
   "url": "https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000",
-  "documents": [
-    {
-      "name": "document.pdf",
-      "type": "custom",
-	  "status": "Initiated"
-    }
-  ],
-  "client_reference": "REF-2025-001"
+  "documents": {
+    "articles_of_association": [
+      {
+        "name": "sample.pdf",
+        "type": "custom",
+        "status": "Initiated"
+      }
+    ]
+  },
+  "client_reference": "REF-2025-001",
   "timestamp": "2025-10-18T12:00:00Z"
 }
 ```
