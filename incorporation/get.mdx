@@ -1,5 +1,22 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Get Incorporation"
+api: "GET https://api.beglaubigt.de/v1/incorporation/{case_id}"
+description: "This endpoint retrieves the details of an incorporation"
+authMethod: "bearer"
 ---
 
+### Authorization
+
+To authenticate requests, include an Authorization header with a Bearer token:
+
+`Authorization: Bearer <token>`
+
+**Example:** `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
+
+### Path Parameters
+
+<ParamField path="incorporation_id" type="string" required>
+  The unique identifier of the incorporation to retrieve.
+
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ParamField>
