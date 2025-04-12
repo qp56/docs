@@ -277,10 +277,12 @@ To authenticate requests, include an Authorization header with a Bearer token:
       <Expandable title="Articles of Association">
         <ParamField body="type" type="string" required>
           Specifies the nature of the articles of association. Use `standard` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `custom` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
+
           **Possible values**: `standard` or `custom`
         </ParamField>
         <ParamField body="url" type="string">
           If the document already exists, you can attach it. Leave empty if incorporation is done with Musterprotokoll.
+
           **Example**: `s3://bucket/gesellschaftervertrag.pdf`
         </ParamField>
       </Expandable>
@@ -442,6 +444,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="documents" type="array">
   List of documents generated for this incorporation request.
+
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="object">
       The articles of association for the company.

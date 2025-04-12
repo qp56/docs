@@ -161,11 +161,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ResponseField>
 
-<ResponseField name="documents" type="array">
-  List of documents related to the incorporation.
+<ResponseField name="documents" type="object">
+  A collection of documents related to the company.
 
   <Expandable title="Documents">
-    <ResponseField name="articles_of_association" type="object">
+    <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
 
       <Expandable title="Article of Association">
