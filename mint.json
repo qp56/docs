@@ -43,7 +43,8 @@
       "pages": [
         "notarization/post",
         "notarization/get",
-        "incorporation/post"
+        "incorporation/post",
+        "incorporation/get",
       ]
     },
     {
