@@ -74,6 +74,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
 <ParamField body="shareholders" type="object" required>
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
 
+  **Note**: _At least one shareholder is required._
+
   <Expandable title="Individuals">
     <ParamField body="individuals" type="array" required="false">
       An array of individual shareholders.
