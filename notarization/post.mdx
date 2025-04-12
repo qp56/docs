@@ -34,7 +34,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `Power of Attorney`
     </ParamField>
     <ParamField body="document_file" type="object" required>
-      File details for the document.\
+      File details for the document.
       <ParamField body="type" type="string" required>
         Type of file reference.\
         **Note**: Must be `url`
@@ -168,16 +168,14 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
   <Expandable title="Documents Response Object">
     <ResponseField name="id" type="string">
-      The unique identifier for the created notarization case in a **UUID** format.
-
+      The unique identifier for the created notarization case in a **UUID** format.\
       **Example**: `123e4567-e89b-12d3-a456-426614174000`
     </ResponseField>
     <ResponseField name="type" type="string">
       The type of document as specified in the request.
     </ResponseField>
     <ResponseField name="status" type="string">
-      Indicates the current processing state of the specific document within the notarization case.
-
+      Indicates the current processing state of the specific document within the notarization case.\
       **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
     </ResponseField>
   </Expandable>
