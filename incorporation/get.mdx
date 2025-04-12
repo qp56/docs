@@ -178,71 +178,71 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ResponseField>
 
-<ResponseField body="shareholders" type="object" required>
+<ResponseField name="shareholders" type="object">
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
   
   <Expandable title="Individuals">
-    <ResponseField body="individuals" type="array" required="false">
+    <ResponseField name="individuals" type="array">
       An array of individual shareholders.
       <Expandable title="Individual">
-        <ResponseField body="first_name" type="string" required>
+        <ResponseField name="first_name" type="string">
           The first name of the individual shareholder.\
           **Example**: `Max`
         </ResponseField>
-        <ResponseField body="middle_name" type="string">
+        <ResponseField name="middle_name" type="string">
           The middle name of the individual shareholder.\
           **Example**: `Alexander`
         </ResponseField>
-        <ResponseField body="last_name" type="string" required>
+        <ResponseField name="last_name" type="string">
           The last name of the individual shareholder.\
           **Example**: `Mustermann`
         </ResponseField>
-        <ResponseField body="email" type="string" required>
+        <ResponseField name="email" type="string">
           The email address of the individual shareholder.\
           **Example**: `max.mustermann@example.com`
         </ResponseField>
-        <ResponseField body="phone" type="string">
+        <ResponseField name="phone" type="string">
           The phone number of the individual shareholder.\
           **Example**: `+491234567890`
         </ResponseField>
-        <ResponseField body="dob" type="string" required>
+        <ResponseField name="dob" type="string">
           The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
           **Example**: `1985-10-05`
         </ResponseField>
-        <ResponseField body="nationality" type="string" required>
+        <ResponseField name="nationality" type="string">
           The nationality of the individual shareholder.\
           **Example**: `German`
         </ResponseField>
-        <ResponseField body="address" type="object" required>
+        <ResponseField name="address" type="object">
           The address of the individual shareholder.
           <Expandable title="Address">
-            <ResponseField body="street" type="string" required>
+            <ResponseField name="street" type="string">
               The street name and number of the individual shareholder.\
               **Example**: `Schillerstraße 5`
             </ResponseField>
-            <ResponseField body="street_second_line" type="string">
+            <ResponseField name="street_second_line" type="string">
               Additional address information, such as apartment number, suite, floor, or building.\
               **Example**: `Apartment 4B`
             </ResponseField>
-            <ResponseField body="zip" type="string" required>
+            <ResponseField name="zip" type="string">
               The postal code of the individual shareholder.\
               **Example**: `80336`
             </ResponseField>
-            <ResponseField body="city" type="string" required>
+            <ResponseField name="city" type="string">
               The city of the individual shareholder.\
               **Example**: `Munich`
             </ResponseField>
-            <ResponseField body="country" type="string" required>
+            <ResponseField name="country" type="string">
               The country of the individual shareholder.\
               **Example**: `Germany`
             </ResponseField>
           </Expandable>
         </ResponseField>
-        <ResponseField body="shares" type="number" required>
+        <ResponseField name="shares" type="number" required>
           The number of shares owned by the shareholder.\
           **Example**: `2500`
         </ResponseField>
-        <ResponseField body="share_percentage" type="number" required>
+        <ResponseField name="share_percentage" type="number">
           The percentage of shares owned by the shareholder.\
           **Example**: `25`
         </ResponseField>
@@ -250,7 +250,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
   </Expandable>
   <Expandable title="Entities">
-    <ResponseField body="entities" type="array" required="false">
+    <ResponseField name="entities" type="array">
       An array of entity shareholders.
       <Expandable title="Entity">
         <ResponseField name="name" type="string">
