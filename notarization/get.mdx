@@ -16,40 +16,34 @@ To authenticate requests, include an Authorization header with a Bearer token:
 ### Path Parameters
 
 <ParamField path="case_id" type="string" required>
-  The unique identifier of the notarization case to retrieve.
-
+  The unique identifier of the notarization case to retrieve.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ParamField>
 
 ### Response
 
 <ResponseField name="result" type="string">
-  Indicates the outcome of the API request.
-
+  Indicates the outcome of the API request.\
   **Possible values**: `success` or `error`
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  Provides a human-readable message detailing the result of the API request.
-
+  Provides a human-readable message detailing the result of the API request.\
   **Exemple**: `Case created successfully.`
 </ResponseField>
 
 <ResponseField name="case_id" type="string">
-  The unique identifier for the created notarization case in a **UUID** format.
-
+  The unique identifier for the created notarization case in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="status" type="string">
-  The current status of the notarization request.
-
+  The current status of the notarization request.\
   Possible values: `In Progress`, `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
-  A unique, case-specific URL for accessing and monitoring the current status and details of the notarization process.
-
+  A unique, case-specific URL for accessing and monitoring the current status and details of the notarization process.\
   **Example**: `https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
@@ -58,28 +52,23 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
   <Expandable title="Documents Response Object">
     <ResponseField name="status" type="string">
-      Indicates the current processing state of the specific document within the notarization case.
-
+      Indicates the current processing state of the specific document within the notarization case.\
       **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
     </ResponseField>
     <ResponseField name="original_document_id" type="string">
-      The unique identifier for the original document associated with the case in a **UUID** format.
-
+      The unique identifier for the original document associated with the case in a **UUID** format.\
       **Example**: `123e4567-e89b-12d3-a456-426614174000`
     </ResponseField>
     <ResponseField name="original_document_url" type="string">
-      The URL of the original document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.
-
+      The URL of the original document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.\
       **Example**: `https://app.beglaubigt.de/download?bucket=documents&id=123e4567-e89b-12d3-a456-426614174000&token=a1H...To5`
     </ResponseField>
     <ResponseField name="notarized_document_id" type="string">
-      The unique identifier for the notarized version of the document associated with the case in a **UUID** format.
-
+      The unique identifier for the notarized version of the document associated with the case in a **UUID** format.\
       **Example**: `123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
     <ResponseField name="notarized_document_url" type="string">
-      The URL of the notarized document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.
-
+      The URL of the notarized document associated with the case in a **PDF** format. The URL is available for **24 hours** after the request.\
       **Example**: `https://app.beglaubigt.de/download?bucket=notarized_documents&id=123e4567-e89b-12d3-a456-426614174001&token=h4J...f7P`
     </ResponseField>
   </Expandable>
@@ -99,7 +88,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
       The email address of the signer.
     </ResponseField>
     <ResponseField name="url" type="string">
-      A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the notarization requirements.
+      A unique invitation link containing an identification token. The link prompts the signer to complete the required actions, such as signing or verifying documents, based on the notarization requirements.\
 
       **Example**: `https://app.beglaubigt.de/notarize/123e4567-e89b-12d3-a456-426614174000?token=123e4567-e89b-12d3-a456-426614174001`
     </ResponseField>
@@ -107,7 +96,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 </ResponseField>
 
 <ResponseField name="client_reference" type="string">
-  The custom client reference string provided when creating the case though the API POST request.
+  The custom client reference string provided when creating the case though the API POST request.\
 
   **Example**: `REF-2024-001`
 </ResponseField>
