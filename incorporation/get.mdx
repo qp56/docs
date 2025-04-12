@@ -162,10 +162,12 @@ To authenticate requests, include an Authorization header with a Bearer token:
 </ResponseField>
 
 <ResponseField name="documents" type="array">
-  List of documents generated for this incorporation request.
+  List of documents related to the incorporation.
+
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="object">
       The articles of association for the company.
+
       <Expandable title="Article of Association">
         <ResponseField name="id" type="string">
           The unique identifier for the document in a UUID format.\
@@ -375,13 +377,15 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 "authority": "sole"
             }
         ],
-        "documents": [
-            {
-                "name": "sample.pdf",
-                "type": "custom",
-                "status": "Initiated"
-            }
-        ],
+        "documents": {
+            "articles_of_association": [
+				{
+					"name": "sample.pdf",
+	                "type": "custom",
+    	            "status": "Initiated"
+				}
+            ]
+        },
         "shareholders": {
             "individuals": [
                 {
