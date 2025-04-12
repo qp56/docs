@@ -9,38 +9,32 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
 ### Payload Fields
 
 <ResponseField name="webhook_id" type="string">
-  A unique identifier for this webhook in a **UUID** format.
-
+  A unique identifier for this webhook in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="event" type="string">
-  The name of the event that triggered this webhook.
-
+  The name of the event that triggered this webhook.\
   **Value**: `incorporation.initiated`
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  Provides a human-readable message indicating the result of the webhook event.
-
+  Provides a human-readable message indicating the result of the webhook event.\
   **Value**: `The incorporation has been initiated.`
 </ResponseField>
 
 <ResponseField name="incorporation_id" type="string">
-  The unique identifier for the incorporation in a **UUID** format.
-
+  The unique identifier for the incorporation in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
 <ResponseField name="status" type="string">
-  The status of the incorporation.
-
+  The status of the incorporation.\
   **Example**: `Initiated` or `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
-  The URL of the incorporation.
-
+  The URL of the incorporation.\
   **Example**: `https://app.beglaubigt.de/incorporation/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
@@ -70,14 +64,12 @@ The `incorporation.initiated` event is triggered automatically when an incorpora
 </ResponseField>
 
 <ResponseField name="client_reference" type="string">
-  Your custom reference string provided during incorporation creation.
-
+  Your custom reference string provided during incorporation creation.\
   **Example**: `REF-2025-001`
 </ResponseField>
 
 <ResponseField name="timestamp" type="string">
-  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.
-
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
   **Example**: `2025-06-01T08:00:00.443Z`
 </ResponseField>
 
