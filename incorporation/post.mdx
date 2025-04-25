@@ -188,6 +188,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
               The last name of the entity's director.\
               **Example**: `Doe`
             </ParamField>
+            <ParamField body="email" type="string" required>
+              The email of the entity's director.\
+              **Example**: `john.doe@exemple.com`
+            </ParamField>
           </Expandable>
         </ParamField>
         <ParamField body="shares" type="number" required>
@@ -360,11 +364,13 @@ To authenticate requests, include an Authorization header with a Bearer token:
         "directors": [
           {
             "first_name": "Stefan",
-            "last_name": "Müller"
+            "last_name": "Müller",
+            "email": "stefan.muller@mail.de"
           },
           {
             "first_name": "Anna",
-            "last_name": "Schmidt"
+            "last_name": "Schmidt",
+            "email": "anne.schmidt@mail.de"
           }
         ],
         "shares": 12500,
