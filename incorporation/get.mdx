@@ -301,6 +301,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 The last name of the entity's director.\
                 **Example**: `Doe`
               </ResponseField>
+              <ResponseField name="email" type="string">
+                The email of the entity's director.\
+                **Example**: `john.doe@mail.com`
+              </ResponseField>
             </Expandable>
           </ResponseField>
           <ResponseField name="shares" type="number">
@@ -410,6 +414,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
             {
               "first_name": "Lukas",
               "last_name": "Schneider"
+              "mail": "lukas.schneider@mail.de"
             }
           ],
           "shares": 5000,
