@@ -64,7 +64,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="shareholders" type="object" required>
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
-  
+
   **Note**: _At least one shareholder is required._
 
   <Expandable title="Individuals">
@@ -439,7 +439,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="url" type="string">
   A unique, case-specific URL for accessing and monitoring the incorporation process.\
-  **Example**: `https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595`
+  **Example**: `https://app.beglaubigt.de/incorporate/450506c1-d1a7-46e2-aca6-41a816805595`
 </ResponseField>
 
 <ResponseField name="documents" type="array">
@@ -527,7 +527,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "message": "Incorporation created successfully.",
     "incorporation_id": "450506c1-d1a7-46e2-aca6-41a816805595",
     "status": "Initiated",
-    "url": "https://app.beglaubigt.de/incorporation/450506c1-d1a7-46e2-aca6-41a816805595",
+    "url": "https://app.beglaubigt.de/incorporate/450506c1-d1a7-46e2-aca6-41a816805595",
     "documents": {
       "articles_of_association": [
         {
