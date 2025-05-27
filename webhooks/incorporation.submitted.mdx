@@ -38,11 +38,6 @@ The `incorporation.submitted` event is automatically triggered when the client c
   **Example**: `https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
-<ResponseField name="client_reference" type="string">
-  Your custom reference string provided during incorporation creation.\
-  **Example**: `REF-2025-001`
-</ResponseField>
-
 <ResponseField name="timestamp" type="string">
   The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
   **Example**: `2025-06-01T08:00:00.443Z`
@@ -58,7 +53,6 @@ The `incorporation.submitted` event is automatically triggered when the client c
   "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
   "status": "Submitted",
   "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
-  "client_reference": "REF-2025-001",
   "timestamp": "2025-10-18T12:00:00Z"
 }
 ```
