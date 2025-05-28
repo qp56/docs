@@ -434,7 +434,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="status" type="string">
   The current status of the incorporation request.\
-  **Possible values**: `Initiated`, `In Progress` or `Completed`
+  **Possible values**: `Initiated`, `Pending` or `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -526,7 +526,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "result": "success",
     "message": "Incorporation created successfully.",
     "incorporation_id": "450506c1-d1a7-46e2-aca6-41a816805595",
-    "status": "Initiated",
+    "status": "Pending",
     "url": "https://app.beglaubigt.de/incorporate/450506c1-d1a7-46e2-aca6-41a816805595",
     "documents": {
       "articles_of_association": [
