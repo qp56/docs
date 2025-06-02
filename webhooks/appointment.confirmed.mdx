@@ -78,6 +78,11 @@ The `appointment.confirmed` event is automatically triggered when the date for t
   </Expandable>
 </ResponseField>
 
+<ResponseField name="client_reference" type="string">
+  Your custom reference string provided during incorporation creation.\
+  **Example**: `REF-2025-001`
+</ResponseField>
+
 <ResponseField name="timestamp" type="string">
   The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
   **Example**: `2025-06-01T08:00:00.443Z`
@@ -104,6 +109,7 @@ The `appointment.confirmed` event is automatically triggered when the date for t
       "email": "anna.schulz@notare.de"
     }
   },
+  "client_reference": "REF-2025-001",
   "timestamp": "2025-10-18T12:00:00Z"
 }
 ```
