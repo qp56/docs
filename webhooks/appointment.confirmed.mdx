@@ -38,6 +38,46 @@ The `appointment.confirmed` event is automatically triggered when the date for t
   **Example**: `https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
+<ResponseField name="notarization" type="object">
+  Details about the notarization process.
+
+  <Expandable title="Notarization">
+    <ResponseField name="type" type="string">
+      The method of notarization.\
+      **Possible values**: `offline` or `online`
+    </ResponseField>
+    <ResponseField name="express" type="boolean">
+      Requests expedited notarization.
+    </ResponseField>
+    <ResponseField name="date" type="string">
+      The notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-15`
+    </ResponseField>
+    <ResponseField name="location" type="string">
+      The location of the notarization.\
+      **Example**: `Leopoldstraße 1, 80802 München`
+    </ResponseField>
+    <ResponseField name="notary" type="object">
+      Details about the notary.
+
+      <Expandable title="Notary">
+        <ResponseField name="first_name" type="string">
+          The first name of the notary.\
+          **Example**: `John`
+        </ResponseField>
+        <ResponseField name="last_name" type="string">
+          The last name of the notary.\
+          **Example**: `Doe`
+        </ResponseField>
+        <ResponseField name="email" type="string">
+          The email address of the notary.\
+          **Example**: `john.doe@example.com`
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
 <ResponseField name="timestamp" type="string">
   The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
   **Example**: `2025-06-01T08:00:00.443Z`
