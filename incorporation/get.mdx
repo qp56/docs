@@ -96,7 +96,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="directors" type="array">
   An array of directors managing the company.
-
   <Expandable title="Director">
     <ResponseField name="first_name" type="string">
       First name of the director.\
@@ -120,7 +119,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
-
       <Expandable title="Address">
         <ResponseField name="street" type="string">
           The street name and number of the director.\
@@ -153,11 +151,9 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="documents" type="object">
   A collection of documents related to the company.
-
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
-
       <Expandable title="Article of Association">
         <ResponseField name="id" type="string">
           The unique identifier for the document in a UUID format.\
