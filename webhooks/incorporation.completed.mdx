@@ -323,16 +323,16 @@ The `incorporation.completed` event is triggered automatically when an incorpora
       Details about the notary.
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
-          The first name of the notary.\
-          **Example**: `John`
+          The office of the notary.\
+          **Example**: `Kanzlei Hoffmann & Partner`
         </ResponseField>
         <ResponseField name="name" type="string">
-          The last name of the notary.\
-          **Example**: `Doe`
+          The full name of the notary.\
+          **Example**: `Dr. Anna Hoffmann`
         </ResponseField>
         <ResponseField name="email" type="string">
           The email address of the notary.\
-          **Example**: `john.doe@example.com`
+          **Example**: `anna.hoffmann@example.com`
         </ResponseField>
         <ResponseField name="phone" type="string">
           The phone number of the notary.\
@@ -361,107 +361,109 @@ The `incorporation.completed` event is triggered automatically when an incorpora
 
 ```json
 {
-  "response": {
-    "result": "success",
-    "message": "Incorporation fetched successfully.",
+    "webhook_id": "bbcc7dfd-e501-4c7e-a94c-296af04044e2",
+    "event": "incorporation.completed",
+    "message": "The incorporation has been completed.",
     "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
     "name": "Acme Holdings GmbH",
     "type": "GmbH",
     "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
     "capital": 12500,
     "address": {
-      "street": "Goethestraße 18",
-      "street_second_line": "2. Etage, Büro 5B",
-      "zip": "50667",
-      "city": "Cologne",
-      "country": "Germany"
+        "street": "Goethestraße 18",
+        "street_second_line": "2. Etage, Büro 5B",
+        "zip": "50667",
+        "city": "Cologne",
+        "country": "Germany"
     },
     "status": "Initiated",
-    "url": "https://app.beglaubigt.de/incorporate/123e4567-e89b-12d3-a456-426614174000",
+    "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
     "directors": [
-      {
-        "first_name": "Maria",
-        "last_name": "Weber",
-        "email": "maria@weber.de",
-        "phone": "+491234567890",
-        "dob": "1978-03-15",
-        "address": {
-          "street": "Rathenauplatz 7",
-          "street_second_line": "1. Stock, Raum 3A",
-          "zip": "90489",
-          "city": "Nuremberg",
-          "country": "Germany"
-        },
-        "authority": "sole"
-      }
+        {
+            "first_name": "Maria",
+            "last_name": "Weber",
+            "email": "maria@weber.de",
+            "phone": "+491234567890",
+            "dob": "1978-03-15",
+            "address": {
+                "street": "Rathenauplatz 7",
+                "street_second_line": "1. Stock, Raum 3A",
+                "zip": "90489",
+                "city": "Nuremberg",
+                "country": "Germany"
+            },
+            "authority": "sole"
+        }
     ],
     "documents": {
-      "articles_of_association": [
-        {
-          "name": "sample.pdf",
-          "type": "custom",
-          "status": "Initiated"
-        }
-      ]
+        "articles_of_association": [
+            {
+                "name": "sample.pdf",
+                "type": "custom",
+                "status": "Initiated"
+            }
+        ]
     },
     "shareholders": {
-      "individuals": [
-        {
-          "first_name": "John",
-          "middle_name": "Michael",
-          "last_name": "Doe",
-          "email": "john.doe@example.com",
-          "phone": "+491234567890",
-          "dob": "1985-07-10",
-          "nationality": "German",
-          "address": {
-            "street": "Lindenallee 12",
-            "street_second_line": "EG, Büro 1",
-            "zip": "60594",
-            "city": "Frankfurt am Main",
-            "country": "Germany"
-          },
-          "shares": 12500,
-          "share_percentage": 50
-        }
-      ],
-      "entities": [
-        {
-          "name": "Acme Ventures GmbH",
-          "registration_number": "HRB123456",
-          "address": {
-            "street": "Kaiserstraße 21",
-            "street_second_line": "4. OG, Zimmer 402",
-            "zip": "60311",
-            "city": "Frankfurt",
-            "country": "Germany"
-          },
-          "directors": [
+        "individuals": [
             {
-              "first_name": "Lukas",
-              "last_name": "Schneider"
-              "email": "lukas.schneider@mail.de"
+                "first_name": "John",
+                "middle_name": "Michael",
+                "last_name": "Doe",
+                "email": "john.doe@example.com",
+                "phone": "+491234567890",
+                "dob": "1985-07-10",
+                "nationality": "German",
+                "address": {
+                    "street": "Lindenallee 12",
+                    "street_second_line": "EG, Büro 1",
+                    "zip": "60594",
+                    "city": "Frankfurt am Main",
+                    "country": "Germany"
+                },
+                "shares": 12500,
+                "share_percentage": 50
             }
-          ],
-          "shares": 5000,
-          "share_percentage": 5
-        }
-      ]
+        ],
+        "entities": [
+            {
+                "name": "Acme Ventures GmbH",
+                "registration_number": "HRB123456",
+                "address": {
+                    "street": "Kaiserstraße 21",
+                    "street_second_line": "4. OG, Zimmer 402",
+                    "zip": "60311",
+                    "city": "Frankfurt",
+                    "country": "Germany"
+                },
+                "directors": [
+                    {
+                        "first_name": "Lukas",
+                        "last_name": "Schneider",
+                        "email": "lukas.schneider@mail.de"
+                    }
+                ],
+                "shares": 5000,
+                "share_percentage": 5
+            }
+        ]
     },
     "notarization": {
-      "type": "online",
-      "express": false,
-      "date": "15.05.2025",
-      "location": "Munich",
-      "notary": {
-        "first_name": "Anna",
-        "last_name": "Keller",
-        "email": "anna.keller@example.com"
-      }
+        "type": "online",
+        "express": false,
+        "date": "15.05.2025",
+		"time": "14:30",
+        "location": "Munich",
+        "notary": {
+            "office": "Kanzlei Hoffmann & Partner",
+            "name": "Dr. Anna Hoffmann",
+            "email": "anna.hoffmann@example.com",
+			"phone": "+49 1512 3456789",
+			"address": "Musterstraße 12, 10115 Berlin"
+        }
     },
-    "created_at": "2025-04-12T08:00:00.0000+00:00",
-    "client_reference": "REF-2025-001"
-  }
+    "client_reference": "REF-2025-001",
+    "created_at": "2025-04-12T08:00:00.0000+00:00"
 }
 ```
 
