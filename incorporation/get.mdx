@@ -86,16 +86,17 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="status" type="string">
   The status of the incorporation.\
-  **Example**: `Initiated` , `Pending` or `Completed`
+  **Example**: `Initiated` , `Pending`, `Appointment Confirmed` or `Completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
   The URL of the incorporation.\
-  **Example**: `https://app.beglaubigt.de/incorporate/123e4567-e89b-12d3-a456-426614174000`
+  **Example**: `https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000` 
 </ResponseField>
 
 <ResponseField name="directors" type="array">
   An array of directors managing the company.
+
   <Expandable title="Director">
     <ResponseField name="first_name" type="string">
       First name of the director.\
@@ -119,6 +120,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
+
       <Expandable title="Address">
         <ResponseField name="street" type="string">
           The street name and number of the director.\
@@ -151,9 +153,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="documents" type="object">
   A collection of documents related to the company.
+
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
+
       <Expandable title="Article of Association">
         <ResponseField name="id" type="string">
           The unique identifier for the document in a UUID format.\
@@ -161,11 +165,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ResponseField>
         <ResponseField name="type" type="string">
           The type of document as specified in the request.\
-          **Example**: `Articles of Association`
+          **Possible values**: `musterprotokoll` or `individual`
         </ResponseField>
         <ResponseField name="status" type="string">
           Indicates the current processing state of the document.\
-          **Possible values**: `Initiated` or `Completed`
+          **Possible values**: `submitted`, `in-review` or `reviewed`
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -174,10 +178,12 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="shareholders" type="object">
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
+
   <Expandable title="Shareholders">
     <Expandable title="Individuals">
       <ResponseField name="individuals" type="array">
         An array of individual shareholders.
+
         <Expandable title="Individual">
           <ResponseField name="first_name" type="string">
             The first name of the individual shareholder.\
@@ -209,6 +215,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the individual shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the individual shareholder.\
@@ -246,6 +253,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <Expandable title="Entities">
       <ResponseField name="entities" type="array">
         An array of entity shareholders.
+
         <Expandable title="Entity">
           <ResponseField name="name" type="string">
             The name of the entity shareholder.\
@@ -257,6 +265,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the entity shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the entity shareholder.\
@@ -282,6 +291,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="directors" type="array">
             The directors of the entity shareholder.
+
             <Expandable title="Directors">
               <ResponseField name="first_name" type="string">
                 The first name of the entity's director.\
@@ -363,8 +373,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       "articles_of_association": [
         {
           "name": "sample.pdf",
-          "type": "custom",
-          "status": "Initiated"
+          "type": "musterprotokoll",
+          "status": "submitted"
         }
       ]
     },
