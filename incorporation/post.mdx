@@ -275,7 +275,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         <ParamField body="type" type="string" required>
           Specifies the nature of the articles of association. Use `standard` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `custom` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
 
-          **Possible values**: `standard` or `custom`
+          **Possible values**: `musterprotokoll` or `individual`
         </ParamField>
         <ParamField body="url" type="string">
           If the document already exists, you can attach it. Leave empty if incorporation is done with Musterprotokoll.
@@ -398,7 +398,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   "documents": {
     "articles_of_association": [
       {
-        "type": "custom",
+        "type": "musterprotokoll",
         "url": "https://pdfobject.com/pdf/sample.pdf"
       }
     ]
@@ -456,11 +456,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ResponseField>
         <ResponseField name="type" type="string">
           The type of document as specified in the request.\
-          **Example**: `Articles of Association`
+          **Possible values**: `musterprotokoll` or `individual`
         </ResponseField>
         <ResponseField name="status" type="string">
           Indicates the current processing state of the document.\
-          **Possible values**: `Initiated` or `Completed`
+          **Possible values**: `submitted`, `in-review` or `reviewed`
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -533,7 +533,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         {
           "name": "sample.pdf",
           "type": "custom",
-          "status": "Initiated"
+          "status": "submitted"
         }
       ]
     },
