@@ -1,0 +1,60 @@
+---
+title: "Incorporation Blocked"
+---
+
+### Understanding the Event
+
+The `incorporation.blocked` event is automatically triggered when an incorporation data has been verified and blocked by our internal team.
+
+### Payload Fields
+
+<ResponseField name="webhook_id" type="string">
+  A unique identifier for this webhook in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="event" type="string">
+  The name of the event that triggered this webhook.\
+  **Value**: `blocked`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Provides a human-readable message indicating the result of the webhook event.\
+  **Value**: `The incorporation has been blocked`
+</ResponseField>
+
+<ResponseField name="incorporation_id" type="string">
+  The unique identifier for the incorporation in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The status of the incorporation.\
+  **Possible values**: `Initiated` , `Pending`, `Appointment Confirmed`, `Completed` or `Blocked`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  The URL of the incorporation.\
+  **Example**: `https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
+  **Example**: `2025-06-01T08:00:00.443Z`
+</ResponseField>
+
+<ResponseExample>
+
+```json
+{
+  "webhook_id": "123e4567-e89b-12d3-a456-426614174000",
+  "event": "incorporation.blocked",
+  "message": "The incorporation has been blocked.",
+  "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
+  "status": "Blocked",
+  "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
+  "timestamp": "2025-10-18T12:00:00Z"
+}
+```
+
+</ResponseExample>
