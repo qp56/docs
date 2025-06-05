@@ -63,6 +63,8 @@
         "webhooks/verifications.completed",
         "webhooks/notarization.completed",
         "webhooks/incorporation.initiated",
+        "webhooks/incorporation.submitted",
+        "webhooks/appointment.confirmed",
         "webhooks/incorporation.completed"
       ]
     }

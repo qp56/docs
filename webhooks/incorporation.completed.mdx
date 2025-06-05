@@ -82,6 +82,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
 
 <ResponseField name="directors" type="array">
   An array of directors managing the company.
+
   <Expandable title="Director">
     <ResponseField name="first_name" type="string">
       First name of the director.\
@@ -105,6 +106,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
+
       <Expandable title="Address">
         <ResponseField name="street" type="string">
           The street name and number of the director.\
@@ -137,9 +139,11 @@ The `incorporation.completed` event is triggered automatically when an incorpora
 
 <ResponseField name="documents" type="object">
   A collection of documents related to the company.
+
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
+
       <Expandable title="Article of Association">
         <ResponseField name="id" type="string">
           The unique identifier for the document in a UUID format.\
@@ -160,10 +164,12 @@ The `incorporation.completed` event is triggered automatically when an incorpora
 
 <ResponseField name="shareholders" type="object">
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
+
   <Expandable title="Shareholders">
     <Expandable title="Individuals">
       <ResponseField name="individuals" type="array">
         An array of individual shareholders.
+
         <Expandable title="Individual">
           <ResponseField name="first_name" type="string">
             The first name of the individual shareholder.\
@@ -195,6 +201,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the individual shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the individual shareholder.\
@@ -232,6 +239,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     <Expandable title="Entities">
       <ResponseField name="entities" type="array">
         An array of entity shareholders.
+
         <Expandable title="Entity">
           <ResponseField name="name" type="string">
             The name of the entity shareholder.\
@@ -243,6 +251,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the entity shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the entity shareholder.\
@@ -268,6 +277,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           </ResponseField>
           <ResponseField name="directors" type="array">
             The directors of the entity shareholder.
+
             <Expandable title="Directors">
               <ResponseField name="first_name" type="string">
                 The first name of the entity's director.\
@@ -299,6 +309,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
 
 <ResponseField name="notarization" type="object">
   Details about the notarization process.
+
   <Expandable title="Notarization">
     <ResponseField name="type" type="string">
       The method of notarization.\
@@ -321,6 +332,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     </ResponseField>
     <ResponseField name="notary" type="object">
       Details about the notary.
+
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
           The office of the notary.\
