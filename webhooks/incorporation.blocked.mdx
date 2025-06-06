@@ -33,6 +33,11 @@ The `incorporation.blocked` event is automatically triggered when an incorporati
   **Possible values**: `Initiated` , `Pending`, `Appointment Confirmed`, `Completed` or `Blocked`
 </ResponseField>
 
+<ResponseField name="reason" type="string">
+  The reason provided by our team for blocking the incorporation.\
+  **Example**: `The shareholder's identity document is invalid.`
+</ResponseField>
+
 <ResponseField name="url" type="string">
   The URL of the incorporation.\
   **Example**: `https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000`
@@ -52,6 +57,7 @@ The `incorporation.blocked` event is automatically triggered when an incorporati
   "message": "The incorporation has been blocked.",
   "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
   "status": "Blocked",
+  "reason": "The shareholder's identity document is invalid.",
   "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
   "timestamp": "2025-10-18T12:00:00Z"
 }
