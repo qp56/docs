@@ -35,7 +35,7 @@ The `appointment.confirmed` event is automatically triggered when the date for t
 
 <ResponseField name="type" type="string">
   The type of company incorporated.\
-  **Possible values**: `GmbH` or `UG`
+  **Possible values**: `gmbh` or `ug`
 </ResponseField>
 
 <ResponseField name="capital" type="string">
@@ -45,7 +45,7 @@ The `appointment.confirmed` event is automatically triggered when the date for t
 
 <ResponseField name="status" type="string">
   The status of the incorporation.\
-  **Possible values**: `Initiated` , `Pending`, `Appointment Confirmed`, `Completed` or `Blocked`
+  **Possible values**: `initiated`, `pending`, `appointment-confirmed`, `completed`, `blocked`, `archive` or 'unprocessable'
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -112,9 +112,9 @@ The `appointment.confirmed` event is automatically triggered when the date for t
   "message": "The notary appointment has been confirmed.",
   "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
   "name": "Acme Holdings GmbH",
-  "type": "GmbH",
+  "type": "gmbh",
   "capital": 12500,
-  "status": "Appointment Confirmed",
+  "status": "appointment-confirmed",
   "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
   "notarization": {
     "type": "online",

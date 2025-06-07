@@ -72,7 +72,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
 
 <ResponseField name="status" type="string">
   The status of the incorporation.\
-  **Possible values**: `Initiated` , `Pending`, `Appointment Confirmed`, `Completed` or `Blocked`
+  **Possible values**: `initiated`, `pending`, `appointment-confirmed`, `completed`, `blocked`, `archive` or 'unprocessable'
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -378,7 +378,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     "message": "The incorporation has been completed.",
     "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
     "name": "Acme Holdings GmbH",
-    "type": "GmbH",
+    "type": "gmbh",
     "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
     "capital": 12500,
     "address": {
@@ -388,7 +388,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
         "city": "Cologne",
         "country": "Germany"
     },
-    "status": "Initiated",
+    "status": "initiated",
     "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
     "directors": [
         {
@@ -411,7 +411,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
         "articles_of_association": [
             {
                 "name": "sample.pdf",
-                "type": "custom",
+                "type": "individual",
                 "status": "submitted"
             }
         ]

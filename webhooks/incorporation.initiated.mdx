@@ -30,7 +30,7 @@ The `incorporation.initiated` event is automatically triggered once the initial 
 
 <ResponseField name="status" type="string">
   The status of the incorporation.\
-  **Possible values**: `Initiated` , `Pending`, `Appointment Confirmed`, `Completed` or `Blocked`
+  **Possible values**: `initiated`, `pending`, `appointment-confirmed`, `completed`, `blocked`, `archive` or 'unprocessable'
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -51,7 +51,7 @@ The `incorporation.initiated` event is automatically triggered once the initial 
   "event": "incorporation.initiated",
   "message": "The incorporation has been initiated.",
   "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
-  "status": "Initiated",
+  "status": "initiated",
   "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
   "client_reference": "REF-2025-001",
   "timestamp": "2025-10-18T12:00:00Z"
