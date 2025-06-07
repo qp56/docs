@@ -20,7 +20,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Example**: `Beglaubigt.de GmbH`
 </ParamField>
 
-<ParamField body="type" type="string" required>
+<ParamField body="legal_form" type="string" required={false}>
   The type of company being incorporated.\
   **Possible values**: `gmbh` or `ug`
 </ParamField>
@@ -319,7 +319,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 ```json
 {
   "name": "Beglaubigt.de GmbH",
-  "type": "gmbh",
+  "legal_form": "gmbh",
   "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
   "address": {
     "street": "Schwanthaler Str. 32",
