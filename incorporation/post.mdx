@@ -22,7 +22,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="type" type="string" required>
   The type of company being incorporated.\
-  **Possible values**: `GmbH` or `UG`
+  **Possible values**: `gmbh` or `ug`
 </ParamField>
 
 <ParamField body="purpose" type="string" required>
@@ -319,7 +319,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 ```json
 {
   "name": "Beglaubigt.de GmbH",
-  "type": "GmbH",
+  "type": "gmbh",
   "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
   "address": {
     "street": "Schwanthaler Str. 32",
@@ -434,7 +434,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="status" type="string">
   The current status of the incorporation request.\
-  **Possible values**: `Initiated` , `Pending`, `Appointment Confirmed` or `Completed`
+  **Possible values**: `initiated`, `pending`, `appointment-confirmed`, `completed`, `blocked`, `archive` or 'unprocessable'
 </ResponseField>
 
 <ResponseField name="url" type="string">
