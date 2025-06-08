@@ -155,7 +155,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="status" type="string">
   The current status of the notarization request.\
-  **Possible values:** `In Progress`, `Completed`
+  **Possible values:** `in-progress` or `completed`
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -176,7 +176,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="status" type="string">
       Indicates the current processing state of the specific document within the notarization case.\
-      **Possible values**: `In Draft`, `Signatures Requested`, `Waiting for Verifications`, `Notarization Started` or `Completed`
+      **Possible values**: `draft`, `signatures-requested`, `waiting-for-verifications`, `notarization-started` or `completed`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -264,13 +264,13 @@ To authenticate requests, include an Authorization header with a Bearer token:
       "result": "success",
       "message": "Case created successfully.",
       "incorporation_id": "450506c1-d1a7-46e2-aca6-41a816805595",
-      "status": "In Progress",
+      "status": "in-progress",
       "url": "https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595",
       "documents": [
           {
               "id": "07347a09-7fa2-434f-a5f1-ec897f16d4b9",
               "type": "Power of Attorney",
-              "status": "Signatures Requested"
+              "status": "signatures-requested"
           }
       ],
       "signers": [

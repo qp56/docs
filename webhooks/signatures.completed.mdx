@@ -45,7 +45,7 @@ The `signatures.completed` event is triggered automatically when all required si
 
 <ResponseField name="document_status" type="string">
   Indicates the current status of the document.\
-  **Possible values**: `In Draft`, `Signatures Requested`, `Verifications Requested` or `Completed`
+  **Possible values**: `draft`, `signatures-requested`, `waiting-for-verifications`, `notarization-started` or `completed`
 </ResponseField>
 
 <ResponseField name="signers" type="array">
@@ -89,7 +89,7 @@ The `signatures.completed` event is triggered automatically when all required si
   "service": "signature",
   "case_id": "123e4567-e89b-12d3-a456-426614174000",
   "document_id": "456e1234-e89b-12d3-a456-426614174001",
-  "document_status": "Signatures Completed",
+  "document_status": "signatures-completed",
   "signers": [
     {
       "first_name": "John",
