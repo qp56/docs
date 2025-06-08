@@ -35,6 +35,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ParamField>
     <ParamField body="document_file" type="object" required>
       File details for the document.
+
       <ParamField body="type" type="string" required>
         Type of file reference.\
         **Note**: Must be `url`
@@ -78,11 +79,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
           <Expandable title="Label Object">
             <ParamField body="type" type="string" required>
-              Type of label: `signature` or `location_and_date`
+              Type of label: `signature` or `location-and-date`
 
               `signature` : Prompts the user to sign and displays their signature.
 
-              `location_and_date` : Detects the signer’s location and records the date upon signature.
+              `location-and-date` : Detects the signer’s location and records the date upon signature.
             </ParamField>
             <ParamField body="page" type="number" required="autodetection=disabled">
               Page number for the label placement.
@@ -235,7 +236,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                           "autodetection": true
                       },
                       {
-                          "type": "location_and_date",
+                          "type": "location-and-date",
                           "page": 3,
                           "x_position": 396,
                           "y_position": 553,
