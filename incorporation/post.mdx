@@ -20,7 +20,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Example**: `Beglaubigt.de GmbH`
 </ParamField>
 
-<ParamField body="legal_form" type="string" required={false}>
+<ParamField body="legal_form" type="string" required="false">
   The type of company being incorporated.\
   **Possible values**: `gmbh` or `ug`
 </ParamField>
@@ -93,8 +93,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
           **Example**: `+491234567890`
         </ParamField>
         <ParamField body="dob" type="string" required>
-          The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
-          **Example**: `1985-10-05`
+          The date of birth of the individual shareholder. Format: `DD.MM.YYYY`.\
+          **Example**: `10.05.1985`
         </ParamField>
         <ParamField body="nationality" type="string" required>
           The nationality of the individual shareholder.\
@@ -228,8 +228,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `+491234567890`
     </ParamField>
     <ParamField body="dob" type="string" required>
-      Date of birth of the director in `YYYY-MM-DD` format.\
-      **Example**: `1978-03-15`
+      Date of birth of the director in `DD.MM.YYYY` format.\
+      **Example**: `03.15.1978`
     </ParamField>
     <ParamField body="address" type="object" required>
       Address of the director.
@@ -299,8 +299,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       Requests expedited notarization.
     </ParamField>
     <ParamField body="desired_date" type="string">
-      Target notarization date in `YYYY-MM-DD` format.\
-      **Example**: `2025-04-15`
+      Target notarization date in `DD.MM.YYYY` format.\
+      **Example**: `15.04.2025`
     </ParamField>
     <ParamField body="desired_location" type="string">
       Desired location for notarization. Can be German or English city name.\
@@ -337,7 +337,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         "last_name": "Doe",
         "email": "john@doe.de",
         "phone": "+49 151 12345678",
-        "dob": "1985-07-10",
+        "dob": "10.07.1985",
         "nationality": "German",
         "address": {
           "street": "Bahnhofstraße 10",
@@ -384,7 +384,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
       "last_name": "Weber",
       "email": "maria@weber.de",
       "phone": "+49 151 12345678",
-      "dob": "1978-03-15",
+      "dob": "03.15.1978",
       "address": {
         "street": "Schillerstraße 5",
         "street_second_line": "2. OG, Einheit 7A",
@@ -406,7 +406,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   "notarization": {
     "type": "online",
     "express": false,
-    "desired_date": "2025-04-15",
+    "desired_date": "15.04.2026",
     "desired_location": "Munich"
   },
   "client_reference": "REF-2025-001"
@@ -476,8 +476,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Possible values**:  `offline` or `online`
     </ResponseField>
     <ResponseField name="date" type="string">
-      The scheduled date of notarization in `YYYY-MM-DD` format.\
-      **Example**: `2025.10.28`
+      The scheduled date of notarization in `DD.MM.YYYY` format.\
+      **Example**: `28.10.2025`
     </ResponseField>
     <ResponseField name="notary" type="object">
       Information about the notary handling the incorporation.
