@@ -115,8 +115,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `+491234567890`
     </ResponseField>
     <ResponseField name="dob" type="string">
-      Date of birth of the director in `YYYY-MM-DD` format.\
-      **Example**: `1978-03-15`
+      Date of birth of the director in `DD-MM-YYYY` format.\
+      **Example**: `15-03-1978`
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
@@ -206,8 +206,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
             **Example**: `+491234567890`
           </ResponseField>
           <ResponseField name="dob" type="string">
-            The date of birth of the individual shareholder. Format: `YYYY-MM-DD`.\
-            **Example**: `1985-10-05`
+            The date of birth of the individual shareholder. Format: `DD-MM-YYYY`.\
+            **Example**: `05-10-1985`
           </ResponseField>
           <ResponseField name="nationality" type="string">
             The nationality of the individual shareholder.\
@@ -358,7 +358,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         "last_name": "Weber",
         "email": "maria@weber.de",
         "phone": "+491234567890",
-        "dob": "1978-03-15",
+        "dob": "15-03-1978",
         "address": {
           "street": "Rathenauplatz 7",
           "street_second_line": "1. Stock, Raum 3A",
@@ -386,7 +386,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           "last_name": "Doe",
           "email": "john.doe@example.com",
           "phone": "+491234567890",
-          "dob": "1985-07-10",
+          "dob": "10-07-1985",
           "nationality": "German",
           "address": {
             "street": "Lindenallee 12",
