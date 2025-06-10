@@ -312,7 +312,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="notarization" type="object">
   Details about the notarization process.
-  <Expandable title="Notarization Object">
+  <Expandable title="Notarization">
     <ResponseField name="type" type="string">
       The method of notarization.\
       **Possible values**: `offline` or `online`
@@ -470,16 +470,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
       "type": "online",
       "express": false,
       "desired_timeframe": 7,
-      "date": "2025-05-16",
-      "time": "14:30",
-      "appointment_status": "confirmed",
-      "notary": {
-        "office": "Notariat Schiller & Partner",
-        "name": "Dr. Anna Becker",
-        "email": "dr.becker@notariat-schiller.de",
-        "phone": "+49 89 12345678",
-        "address": "Schillerstraße 15, 10117, Berlin"
-      }
+      "appointment_status": "confirmed"
     },
     "created_at": "2025-04-12T08:00:00.0000+00:00",
     "client_reference": "REF-2025-001"
