@@ -323,6 +323,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="notarization" type="object">
   Details about the notarization process.
+
   <Expandable title="Notarization Object">
     <ResponseField name="type" type="string">
       The method of notarization.\
@@ -341,7 +342,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `2025-04-16`
     </ResponseField>
     <ResponseField name="desired_location" type="string">
-      Desired location for notarization. Can be German or English city name.\
+      The client's preferred location for notarization, specified as a city name
+      in either German or English.
       **Example**: `Munich`
     </ResponseField>
     <ResponseField name="location" type="string">
