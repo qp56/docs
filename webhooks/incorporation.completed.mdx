@@ -318,41 +318,46 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     <ResponseField name="express" type="boolean">
       Requests expedited notarization.
     </ResponseField>
+    <ResponseField name="desired_timeframe" type="number">
+      The client's preferred timeframe for notarization, expressed as the number of days
+      from the request date.
+      **Possible values**: `7`, `14`, `30`
+    </ResponseField>
     <ResponseField name="date" type="string">
-      The notarization date in `YYYY-MM-DD` format.\
-      **Example**: `2025-04-15`
+      Notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-16`
     </ResponseField>
     <ResponseField name="time" type="string">
-      The notarization time in `HH-mm` format.\
-      **Example**: `16:20`
+      Notarization date in `HH:mm` format.\
+      **Example**: `14:30`
     </ResponseField>
-    <ResponseField name="location" type="string">
-      The location of the notarization.\
-      **Example**: `Munich`
+    <ResponseField name="appointment_status" type="string">
+      The current status of the notarization appointment.
+      **Possible values**: `pending` or `confirmed`
     </ResponseField>
     <ResponseField name="notary" type="object">
-      Details about the notary.
+      Notary responsible for the notarization.
 
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
-          The office of the notary.\
-          **Example**: `Kanzlei Hoffmann & Partner`
+          The name of the notary’s office.\
+          **Example**: `Notariat Schiller & Partner`
         </ResponseField>
         <ResponseField name="name" type="string">
           The full name of the notary.\
-          **Example**: `Dr. Anna Hoffmann`
+          **Example**: `Dr. Anna Becker`
         </ResponseField>
         <ResponseField name="email" type="string">
           The email address of the notary.\
-          **Example**: `anna.hoffmann@example.com`
+          **Example**: `dr.becker@notariat-schiller.de`
         </ResponseField>
         <ResponseField name="phone" type="string">
-          The phone number of the notary.\
-          **Example**: `+49 1512 3456789`
+          The contact phone number of the notary.\
+          **Example**: `+49 89 12345678`
         </ResponseField>
         <ResponseField name="address" type="string">
-          The address of the notary.\
-          **Example**: `Musterstraße 12, 10115 Berlin`
+          The full address of the notary's office, formatted as `street name and number, postal code, city`.\
+          **Example**: `Schillerstraße 15, 10117, Berlin`
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -463,15 +468,16 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     "notarization": {
         "type": "online",
         "express": false,
-        "date": "15.05.2025",
-		"time": "14:30",
-        "location": "Munich",
+        "desired_timeframe": 7,
+        "date": "2025-05-16",
+        "time": "14:30",
+        "appointment_status": "confirmed",
         "notary": {
-            "office": "Kanzlei Hoffmann & Partner",
-            "name": "Dr. Anna Hoffmann",
-            "email": "anna.hoffmann@example.com",
-			"phone": "+49 1512 3456789",
-			"address": "Musterstraße 12, 10115 Berlin"
+            "office": "Notariat Schiller & Partner",
+            "name": "Dr. Anna Becker",
+            "email": "dr.becker@notariat-schiller.de",
+            "phone": "+49 89 12345678",
+            "address": "Schillerstraße 15, 10117, Berlin"
         }
     },
     "client_reference": "REF-2025-001",
