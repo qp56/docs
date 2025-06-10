@@ -70,7 +70,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Individuals">
     <ParamField body="individuals" type="array" required="false">
       An array of individual shareholders.
-
       <Expandable title="Individual">
         <ParamField body="first_name" type="string" required>
           The first name of the individual shareholder.\
@@ -102,7 +101,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the individual shareholder.
-
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the individual shareholder.\
@@ -140,7 +138,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Entities">
     <ParamField body="entities" type="array" required="false">
       An array of entity shareholders.
-
       <Expandable title="Entity">
         <ParamField body="name" type="string" required>
           The name of the entity shareholder.\
@@ -152,7 +149,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the entity shareholder.
-
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the entity shareholder.\
@@ -178,7 +174,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="directors" type="array" required="false">
           The directors of the entity shareholder.
-
           <Expandable title="Directors">
             <ParamField body="first_name" type="string" required>
               The first name of the entity's director.\
@@ -209,7 +204,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="directors" type="array" required>
   An array of directors managing the company.
-
   <Expandable title="Director">
     <ParamField body="first_name" type="string" required>
       First name of the director.\
@@ -233,7 +227,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ParamField>
     <ParamField body="address" type="object" required>
       Address of the director.
-
       <Expandable title="Address">
         <ParamField body="street" type="string" required>
           The street name and number of the director.\
@@ -270,16 +263,13 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Documents">
     <ParamField body="articles_of_association" type="array">
       The articles of association for the company.
-
       <Expandable title="Articles of Association">
         <ParamField body="type" type="string" required>
           Specifies the nature of the articles of association. Use `musterprotokoll` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `individual` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
-
           **Possible values**: `musterprotokoll` or `individual`
         </ParamField>
         <ParamField body="url" type="string">
           If the document already exists, you can attach it. Leave empty if incorporation is done with Musterprotokoll.
-
           **Example**: `s3://bucket/gesellschaftervertrag.pdf`
         </ParamField>
       </Expandable>

@@ -59,6 +59,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="address" type="object">
   AThe address of the company.
+
   <Expandable title="Address">
     <ResponseField name="street" type="string">
       The street name and number of the company.\
@@ -310,52 +311,30 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ResponseField>
 
-<ResponseField body="notarization" type="object" required>
+<ResponseField type="object" required>
   Details about the notarization process.
+
   <Expandable title="Notarization Object">
-    <ResponseField body="type" type="string" required>
+    <ResponseField name='type' type="string" required>
       The method of notarization.\
       **Possible values**: `offline` or `online`
     </ResponseField>
-    <ResponseField body="express" type="boolean">
+    <ResponseField name='express' type="boolean">
       Requests expedited notarization.
     </ResponseField>
-    <ResponseField body="date" type="string">
-      Target notarization date in `DD.MM.YYYY` format.\
-      **Example**: `15.04.2025`
+    <ResponseField name='desired_date' type="string">
+      Target notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-15`
     </ResponseField>
-    <ResponseField body="desired_location" type="string">
+    <ResponseField name= 'desired_location' type="string">
       Desired location for notarization. Can be German or English city name.\
       **Example**: `Munich`
     </ResponseField>
-    <ResponseField body="location" type="string">
+    <ResponseField name='location' type="string">
       Location for notarization. Can be German or English city name.\
       **Example**: `Munich`
     </ResponseField>
-    <ResponseField name="directors" type="array">
-  An array of directors managing the company.
-  <Expandable title="Director">
-    <ResponseField name="first_name" type="string">
-      First name of the director.\
-      **Example**: `Maria`
-    </ResponseField>
-    <ResponseField name="last_name" type="string">
-      Last name of the director.\
-      **Example**: `Weber`
-    </ResponseField>
-    <ResponseField name="email" type="string">
-      Email address of the director.\
-      **Example**: `maria.weber@example.com`
-    </ResponseField>
-    <ResponseField name="phone" type="string">
-      The phone number of the director.\
-      **Example**: `+491234567890`
-    </ResponseField>
-    <ResponseField name="dob" type="string">
-      Date of birth of the director in `YYYY-MM-DD` format.\
-      **Example**: `1978-03-15`
-    </ResponseField>
-        <ResponseField name="notary" type="object">
+    <ResponseField name="notary" type="object">
           Notary responsible for the notarization.
           <Expandable title="Notary">
             <ResponseField name="office" type="string">
@@ -381,8 +360,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
             </ResponseField>
           </Expandable>
         </ResponseField>
-      </Expandable>
-    </ResponseField>
   </Expandable>
 </ResponseField>
 
