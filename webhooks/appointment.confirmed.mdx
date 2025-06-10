@@ -75,10 +75,6 @@ The `appointment.confirmed` event is automatically triggered when the date for t
       Notarization date in `YYYY-MM-DD` format.\
       **Example**: `2025-04-16`
     </ResponseField>
-    <ResponseField name="preferred_time" type="string">
-      The client's preferred time for notarization, specified in `HH:mm` format.
-      **Example**: `14:30`
-    </ResponseField>
     <ResponseField name="time" type="string">
       Notarization date in `HH:mm` format.\
       **Example**: `14:30`
@@ -145,7 +141,6 @@ The `appointment.confirmed` event is automatically triggered when the date for t
 		"preferred_location": "Berlin",
         "preferred_timeframe": 7,
         "date": "2025-05-16",
-		"preferred_time": "14:00",
         "time": "14:30",
         "appointment_status": "confirmed",
         "notary": {

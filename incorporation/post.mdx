@@ -304,10 +304,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
       The client's preferred timeframe for notarization, expressed as the number of days from the request date.
       **Possible values**: `7`, `14`, `30`
     </ParamField>
-    <ParamField body="preferred_time" type="string">
-      The client's preferred time for notarization, specified in `HH:mm` format.
-      **Example**: `14:30`
-    </ParamField>
   </Expandable>
 </ParamField>
 
@@ -409,8 +405,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         "type": "online",
         "express": false,
         "preferred_location": "Munich",
-        "preferred_timeframe": 7,
-        "preferred_time": "14:00"
+        "preferred_timeframe": 7
     },
     "client_reference": "REF-2025-001"
 }
@@ -488,10 +483,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
       The client's preferred timeframe for notarization, expressed as the number of days from the request date.
       **Possible values**: `7`, `14`, `30`
     </ResponseField>
-    <ResponseField name="preferred_time" type="string">
-      The client's preferred time for notarization, specified in `HH:mm` format.
-      **Example**: `14:30`
-    </ResponseField>
     <ResponseField name="appointment_status" type="string">
       The current status of the notarization appointment.
       **Possible values**: `pending` or `confirmed`
@@ -533,7 +524,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
             "express": true,
             "preferred_location": "Munich",
             "preferred_timeframe": 7,
-            "preferred_time": "14:00",
             "appointment_status": "pending"
         },
         "client_reference": "REF-2025-001",

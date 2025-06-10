@@ -343,10 +343,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
       Notarization date in `YYYY-MM-DD` format.\
       **Example**: `2025-04-16`
     </ResponseField>
-    <ResponseField name="preferred_time" type="string">
-      The client's preferred time for notarization, specified in `HH:mm` format.
-      **Example**: `14:30`
-    </ResponseField>
     <ResponseField name="time" type="string">
       Notarization date in `HH:mm` format.\
       **Example**: `14:30`
@@ -357,6 +353,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="notary" type="object">
       Notary responsible for the notarization.
+
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
           The name of the notary’s office.\
@@ -490,7 +487,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
             "preferred_location": "Munich",
             "preferred_timeframe": 7,
             "date": "2025-05-16",
-            "preferred_time": "14:00",
             "time": "14:30",
             "appointment_status": "confirmed",
             "notary": {
