@@ -323,7 +323,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="notarization" type="object">
   Details about the notarization process.
-
   <Expandable title="Notarization Object">
     <ResponseField name="type" type="string">
       The method of notarization.\
@@ -332,17 +331,25 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <ResponseField name="express" type="boolean">
       Requests expedited notarization.
     </ResponseField>
-    <ResponseField name="desired_date" type="string">
-      Target notarization date in `YYYY-MM-DD` format.\
-      **Example**: `2025-04-15`
+    <ResponseField name="desired_timeframe" type="string">
+      The client's preferred timeframe for notarization, expressed as the number of days
+      from the request date.
+      **Possible values**: `7`, `14`, `30`
+    </ResponseField>
+    <ResponseField name="date" type="string">
+      Notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-16`
+    </ResponseField>
+    <ResponseField name="desired_location" type="string">
+      Desired location for notarization. Can be German or English city name.\
+      **Example**: `Munich`
     </ResponseField>
     <ResponseField name="location" type="string">
-      Location for notarization. Can be German or English city name.\
+      Location for notarization.\
       **Example**: `Munich`
     </ResponseField>
     <ResponseField name="notary" type="object">
       Notary responsible for the notarization.
-
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
           The name of the notary’s office.
@@ -473,7 +480,9 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "notarization": {
       "type": "online",
       "express": false,
-      "date": "2025-05-15",
+      "desired_timeframe": 7,
+      "date": "2025-05-16",
+      "desired_location": "Munich",
       "location": "Munich",
       "notary": {
         "office": "Notariat Schiller & Partner",
