@@ -297,8 +297,16 @@ To authenticate requests, include an Authorization header with a Bearer token:
       Requests expedited notarization.\
       **Default value:** `false`
     </ParamField>
-    <ParamField body="desired_timeframe" default="7" type="number" required>
-      The client's preferred timeframe for notarization, expressed as the number of days from the request date. **Possible values**: `7`, `14`, `30`
+    <ParamField body="preferred_location" type="string">
+      The client's preferred location for notarization, specified as a city name in either German or English. **Example**: `Munich`
+    </ParamField>
+    <ParamField body="preferred_timeframe" type="number">
+      The client's preferred timeframe for notarization, expressed as the number of days from the request date.
+      **Possible values**: `7`, `14`, `30`
+    </ParamField>
+    <ParamField body="preferred_time" type="string">
+      The client's preferred time for notarization, specified in `HH:mm` format.
+      **Example**: `14:30`
     </ParamField>
   </Expandable>
 </ParamField>
@@ -400,7 +408,9 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "notarization": {
         "type": "online",
         "express": false,
-        "desired_timeframe": 14
+        "preferred_location": "Munich",
+        "preferred_timeframe": 7,
+        "preferred_time": "14:00"
     },
     "client_reference": "REF-2025-001"
 }
@@ -471,10 +481,16 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <ResponseField name="express" type="boolean">
       Requests expedited notarization.
     </ResponseField>
-    <ResponseField name="desired_timeframe" type="number">
-      The client's preferred timeframe for notarization, expressed as the number of days
-      from the request date.
+    <ResponseField name="preferred_location" type="string">
+      The client's preferred location for notarization, specified as a city name in either German or English. **Example**: `Munich`
+    </ResponseField>
+    <ResponseField name="preferred_timeframe" type="number">
+      The client's preferred timeframe for notarization, expressed as the number of days from the request date.
       **Possible values**: `7`, `14`, `30`
+    </ResponseField>
+    <ResponseField name="preferred_time" type="string">
+      The client's preferred time for notarization, specified in `HH:mm` format.
+      **Example**: `14:30`
     </ResponseField>
     <ResponseField name="appointment_status" type="string">
       The current status of the notarization appointment.
@@ -516,7 +532,9 @@ To authenticate requests, include an Authorization header with a Bearer token:
             {
                 "type": "online",
                 "express": true,
-                "desired_timeframe": 14,
+                "preferred_location": "Munich",
+                "preferred_timeframe": 7,
+                "preferred_time": "14:00",
                 "appointment_status": "pending"
             }
         ],
