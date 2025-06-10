@@ -209,6 +209,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="directors" type="array" required>
   An array of directors managing the company.
+
   <Expandable title="Director">
     <ParamField body="first_name" type="string" required>
       First name of the director.\
@@ -232,6 +233,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ParamField>
     <ParamField body="address" type="object" required>
       Address of the director.
+
       <Expandable title="Address">
         <ParamField body="street" type="string" required>
           The street name and number of the director.\
@@ -286,7 +288,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 <ParamField body="notarization" type="object" required>
   Details about the notarization process.
 
-  <Expandable title="Notarization Object">
+  <Expandable title="Notarization">
     <ParamField body="type" type="string" required>
       The method of notarization.\
       **Possible values**: `offline` or `online`
@@ -310,98 +312,97 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 ```json
 {
-  "name": "Beglaubigt.de GmbH",
-  "legal_form": "gmbh",
-  "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
-  "address": {
-    "street": "Schwanthaler Str. 32",
-    "street_second_line": "Building A, Floor 2",
-    "zip": "80336",
-    "city": "Munich",
-    "country": "Germany"
-  },
-  "capital": 25000,
-  "shareholders": {
-    "individuals": [
-      {
-        "first_name": "John",
-        "middle_name": "Michael",
-        "last_name": "Doe",
-        "email": "john@doe.de",
-        "phone": "+49 151 12345678",
-        "dob": "1985-07-10",
-        "nationality": "German",
-        "address": {
-          "street": "Bahnhofstraße 10",
-          "street_second_line": "Gebäude B, 2. Etage, Raum 204",
-          "zip": "10115",
-          "city": "Berlin",
-          "country": "Germany"
-        },
-        "shares": 12500,
-        "share_percentage": 50
-      }
-    ],
-    "entities": [
-      {
-        "name": "Acme Holdings GmbH",
-        "registration_number": "HRB123456",
-        "address": {
-          "street": "Königsallee 50",
-          "street_second_line": "Haus C, 3. Stock, Büro 301",
-          "zip": "40212",
-          "city": "Düsseldorf",
-          "country": "Germany"
-        },
-        "directors": [
-          {
-            "first_name": "Stefan",
-            "last_name": "Müller",
-            "email": "stefan.muller@mail.de"
-          },
-          {
-            "first_name": "Anna",
-            "last_name": "Schmidt",
-            "email": "anne.schmidt@mail.de"
-          }
-        ],
-        "shares": 12500,
-        "share_percentage": 50
-      }
-    ]
-  },
-  "directors": [
-    {
-      "first_name": "Maria",
-      "last_name": "Weber",
-      "email": "maria@weber.de",
-      "phone": "+49 151 12345678",
-      "dob": "1978-03-15",
-      "address": {
-        "street": "Schillerstraße 5",
-        "street_second_line": "2. OG, Einheit 7A",
+    "name": "Beglaubigt.de GmbH",
+    "legal_form": "gmbh",
+    "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
+    "address": {
+        "street": "Schwanthaler Str. 32",
+        "street_second_line": "Building A, Floor 2",
         "zip": "80336",
         "city": "Munich",
         "country": "Germany"
-      },
-      "authority": "sole"
-    }
-  ],
-  "documents": {
-    "articles_of_association": [
-      {
-        "type": "musterprotokoll",
-        "url": "https://pdfobject.com/pdf/sample.pdf"
-      }
-    ]
-  },
-  "notarization": {
-    "type": "online",
-    "express": false,
-    "desired_date": "2026-04-15",
-    "desired_location": "Munich"
-  },
-  "client_reference": "REF-2025-001"
+    },
+    "capital": 25000,
+    "shareholders": {
+        "individuals": [
+            {
+                "first_name": "John",
+                "middle_name": "Michael",
+                "last_name": "Doe",
+                "email": "john@doe.de",
+                "phone": "+49 151 12345678",
+                "dob": "1985-07-10",
+                "nationality": "German",
+                "address": {
+                    "street": "Bahnhofstraße 10",
+                    "street_second_line": "Gebäude B, 2. Etage, Raum 204",
+                    "zip": "10115",
+                    "city": "Berlin",
+                    "country": "Germany"
+                },
+                "shares": 12500,
+                "share_percentage": 50
+            }
+        ],
+        "entities": [
+            {
+                "name": "Acme Holdings GmbH",
+                "registration_number": "HRB123456",
+                "address": {
+                    "street": "Königsallee 50",
+                    "street_second_line": "Haus C, 3. Stock, Büro 301",
+                    "zip": "40212",
+                    "city": "Düsseldorf",
+                    "country": "Germany"
+                },
+                "directors": [
+                    {
+                        "first_name": "Stefan",
+                        "last_name": "Müller",
+                        "email": "stefan.muller@mail.de"
+                    },
+                    {
+                        "first_name": "Anna",
+                        "last_name": "Schmidt",
+                        "email": "anne.schmidt@mail.de"
+                    }
+                ],
+                "shares": 12500,
+                "share_percentage": 50
+            }
+        ]
+    },
+    "directors": [
+        {
+            "first_name": "Maria",
+            "last_name": "Weber",
+            "email": "maria@weber.de",
+            "phone": "+49 151 12345678",
+            "dob": "1978-03-15",
+            "address": {
+                "street": "Schillerstraße 5",
+                "street_second_line": "2. OG, Einheit 7A",
+                "zip": "80336",
+                "city": "Munich",
+                "country": "Germany"
+            },
+            "authority": "sole"
+        }
+    ],
+    "documents": {
+        "articles_of_association": [
+            {
+                "type": "musterprotokoll",
+                "url": "https://pdfobject.com/pdf/sample.pdf"
+            }
+        ]
+    },
+    "notarization": {
+        "type": "online",
+        "express": false,
+        "desired_timeframe": 14
+    },
+    "client_reference": "REF-2025-001"
 }
 ```
 
@@ -459,43 +460,24 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ResponseField>
 
-<ResponseField name="notarization" type="array">
-  Details of the notarization process associated with the incorporation.
-
+<ResponseField name="notarization" type="object">
+  Details about the notarization process.
   <Expandable title="Notarization Object">
     <ResponseField name="type" type="string">
-      The type of notarization.\
-      **Possible values**:  `offline` or `online`
+      The method of notarization.\
+      **Possible values**: `offline` or `online`
     </ResponseField>
-    <ResponseField name="date" type="string">
-      The scheduled date of notarization in `YYYY-MM-DD` format.\
-      **Example**: `2025-10-28`
+    <ResponseField name="express" type="boolean">
+      Requests expedited notarization.
     </ResponseField>
-    <ResponseField name="notary" type="object">
-      Information about the notary handling the incorporation.
-
-      <Expandable title="Notary Object">
-        <ResponseField name="first_name" type="string">
-          First name of the notary.\
-          **Example**: `Klara`
-        </ResponseField>
-        <ResponseField name="last_name" type="string">
-          Last name of the notary.\
-          **Example**: `Müller`
-        </ResponseField>
-        <ResponseField name="email" type="string">
-          Email address of the notary.\
-          **Example**: `klara.mueller@beglaubigt.de`
-        </ResponseField>
-      </Expandable>
+    <ResponseField name="desired_timeframe" type="number">
+      The client's preferred timeframe for notarization, expressed as the number of days
+      from the request date.
+      **Possible values**: `7`, `14`, `30`
     </ResponseField>
-    <ResponseField name="location" type="string">
-      The location of the notarization.\
-      **Example**: `Munich`
-    </ResponseField>
-    <ResponseField name="url" type="string">
-      A URL for accessing notarization details or joining an online session.\
-      **Example**: `https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595`
+    <ResponseField name="appointment_status" type="string">
+      The current status of the notarization appointment.
+      **Possible values**: `pending`, `confirmed`
     </ResponseField>
   </Expandable>
 </ResponseField>
