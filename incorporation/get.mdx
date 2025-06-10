@@ -332,15 +332,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <ResponseField name="express" type="boolean">
       Requests expedited notarization.
     </ResponseField>
-    <ResponseField name="desired_timeframe" type="string">
-      The client's preferred timeframe for notarization, expressed as the number of days
-      from the request date.
-      **Possible values**: `7`, `14`, `30`
-    </ResponseField>
-    <ResponseField name="date" type="string">
-      Notarization date in `YYYY-MM-DD` format.\
-      **Example**: `2025-04-16`
-    </ResponseField>
     <ResponseField name="desired_location" type="string">
       The client's preferred location for notarization, specified as a city name
       in either German or English.
@@ -350,8 +341,26 @@ To authenticate requests, include an Authorization header with a Bearer token:
       Location for notarization.\
       **Example**: `Munich`
     </ResponseField>
+    <ResponseField name="desired_timeframe" type="string">
+      The client's preferred timeframe for notarization, expressed as the number of days
+      from the request date.
+      **Possible values**: `7`, `14`, `30`
+    </ResponseField>
+    <ResponseField name="date" type="string">
+      Notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-16`
+    </ResponseField>
+    <ResponseField name="time" type="string">
+      Notarization date in `HH:mm` format.\
+      **Example**: `14:30`
+    </ResponseField>
+    <ResponseField name="appointment_status" type="string">
+      The current status of the notarization appointment.
+      **Possible values**: `pending`, `confirmed`
+    </ResponseField>
     <ResponseField name="notary" type="object">
       Notary responsible for the notarization.
+
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
           The name of the notary’s office.
