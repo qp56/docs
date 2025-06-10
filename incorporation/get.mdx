@@ -96,6 +96,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="directors" type="array">
   An array of directors managing the company.
+
   <Expandable title="Director">
     <ResponseField name="first_name" type="string">
       First name of the director.\
@@ -119,6 +120,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
+
       <Expandable title="Address">
         <ResponseField name="street" type="string">
           The street name and number of the director.\
@@ -151,9 +153,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="documents" type="object">
   A collection of documents related to the company.
+
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
+
       <Expandable title="Article of Association">
         <ResponseField name="id" type="string">
           The unique identifier for the document in a UUID format.\
@@ -174,10 +178,12 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="shareholders" type="object">
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
+
   <Expandable title="Shareholders">
     <Expandable title="Individuals">
       <ResponseField name="individuals" type="array">
         An array of individual shareholders.
+
         <Expandable title="Individual">
           <ResponseField name="first_name" type="string">
             The first name of the individual shareholder.\
@@ -209,6 +215,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the individual shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the individual shareholder.\
@@ -246,6 +253,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <Expandable title="Entities">
       <ResponseField name="entities" type="array">
         An array of entity shareholders.
+
         <Expandable title="Entity">
           <ResponseField name="name" type="string">
             The name of the entity shareholder.\
@@ -257,6 +265,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the entity shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the entity shareholder.\
@@ -282,6 +291,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="directors" type="array">
             The directors of the entity shareholder.
+
             <Expandable title="Directors">
               <ResponseField name="first_name" type="string">
                 The first name of the entity's director.\
@@ -311,55 +321,56 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ResponseField>
 
-<ResponseField type="object" required>
+<ResponseField name="notarization" type="object" required>
   Details about the notarization process.
 
   <Expandable title="Notarization Object">
-    <ResponseField name='type' type="string" required>
+    <ResponseField name="type" type="string" required>
       The method of notarization.\
       **Possible values**: `offline` or `online`
     </ResponseField>
-    <ResponseField name='express' type="boolean">
+    <ResponseField name="express" type="boolean">
       Requests expedited notarization.
     </ResponseField>
-    <ResponseField name='desired_date' type="string">
+    <ResponseField name="desired_date" type="string">
       Target notarization date in `YYYY-MM-DD` format.\
       **Example**: `2025-04-15`
     </ResponseField>
-    <ResponseField name= 'desired_location' type="string">
+    <ResponseField name="desired_location" type="string">
       Desired location for notarization. Can be German or English city name.\
       **Example**: `Munich`
     </ResponseField>
-    <ResponseField name='location' type="string">
+    <ResponseField name="location" type="string">
       Location for notarization. Can be German or English city name.\
       **Example**: `Munich`
     </ResponseField>
     <ResponseField name="notary" type="object">
-          Notary responsible for the notarization.
-          <Expandable title="Notary">
-            <ResponseField name="office" type="string">
-              The name of the notary’s office.
-              **Example**: `Notariat Schiller & Partner`
-            </ResponseField>
-            <ResponseField name="name" type="string">
-              The full name of the notary, including any academic or professional titles.
-              **Example**: `Dr. Anna Becker`
-            </ResponseField>
-            <ResponseField name="email" type="string">
-              The email address of the notary.
-              **Example**: `dr.becker@notariat-schiller.de`
-            </ResponseField>
-            <ResponseField name="phone" type="string">
-              The contact phone number of the notary.
-              **Example**: `+49 89 12345678`
-            </ResponseField>
-            <ResponseField name="address" type="string">
-              The full address of the notary's office, formatted as "street name and number,
-              postal code, city".
-              **Example**: `Schillerstraße 15, 10117, Berlin`
-            </ResponseField>
-          </Expandable>
+      Notary responsible for the notarization.
+
+      <Expandable title="Notary">
+        <ResponseField name="office" type="string">
+          The name of the notary’s office.
+          **Example**: `Notariat Schiller & Partner`
         </ResponseField>
+        <ResponseField name="name" type="string">
+          The full name of the notary, including any academic or professional titles.
+          **Example**: `Dr. Anna Becker`
+        </ResponseField>
+        <ResponseField name="email" type="string">
+          The email address of the notary.
+          **Example**: `dr.becker@notariat-schiller.de`
+        </ResponseField>
+        <ResponseField name="phone" type="string">
+          The contact phone number of the notary.
+          **Example**: `+49 89 12345678`
+        </ResponseField>
+        <ResponseField name="address" type="string">
+          The full address of the notary's office, formatted as "street name and number,
+          postal code, city".
+          **Example**: `Schillerstraße 15, 10117, Berlin`
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
   </Expandable>
 </ResponseField>
 
