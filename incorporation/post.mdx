@@ -70,6 +70,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Individuals">
     <ParamField body="individuals" type="array" required="false">
       An array of individual shareholders.
+
       <Expandable title="Individual">
         <ParamField body="first_name" type="string" required>
           The first name of the individual shareholder.\
@@ -101,6 +102,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the individual shareholder.
+
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the individual shareholder.\
@@ -138,6 +140,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Entities">
     <ParamField body="entities" type="array" required="false">
       An array of entity shareholders.
+
       <Expandable title="Entity">
         <ParamField body="name" type="string" required>
           The name of the entity shareholder.\
@@ -149,6 +152,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the entity shareholder.
+
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the entity shareholder.\
@@ -174,6 +178,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="directors" type="array" required="false">
           The directors of the entity shareholder.
+
           <Expandable title="Directors">
             <ParamField body="first_name" type="string" required>
               The first name of the entity's director.\
@@ -263,6 +268,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Documents">
     <ParamField body="articles_of_association" type="array">
       The articles of association for the company.
+
       <Expandable title="Articles of Association">
         <ParamField body="type" type="string" required>
           Specifies the nature of the articles of association. Use `musterprotokoll` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `individual` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
@@ -285,16 +291,12 @@ To authenticate requests, include an Authorization header with a Bearer token:
       The method of notarization.\
       **Possible values**: `offline` or `online`
     </ParamField>
-    <ParamField body="express" type="boolean">
-      Requests expedited notarization.
+    <ParamField body="express" default="false" type="boolean">
+      Requests expedited notarization.\
+      **Default value:** `false`
     </ParamField>
-    <ParamField body="desired_date" type="string">
-      Target notarization date in `DD.MM.YYYY` format.\
-      **Example**: `15.04.2025`
-    </ParamField>
-    <ParamField body="desired_location" type="string">
-      Desired location for notarization. Can be German or English city name.\
-      **Example**: `Munich`
+    <ParamField body="desired_timeframe" type="number">
+      The client's preferred timeframe for notarization, expressed as the number of days from the request date. **Possible values**: `7`, `14`, `30`
     </ParamField>
   </Expandable>
 </ParamField>
