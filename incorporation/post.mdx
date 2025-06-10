@@ -300,6 +300,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <ParamField body="desired_timeframe" default="7" type="number" required>
       The client's preferred timeframe for notarization, expressed as the number of days from the request date. **Possible values**: `7`, `14`, `30`
     </ParamField>
+    <ParamField body="appointment_status" type="string">
+      The current status of the notarization appointment.
+      **Possible values**: `pending` or `confirmed`
+    </ParamField>
   </Expandable>
 </ParamField>
 
@@ -400,7 +404,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "notarization": {
         "type": "online",
         "express": false,
-        "desired_timeframe": 14
+        "desired_timeframe": 14,
+		"appointment_status": "pending"
     },
     "client_reference": "REF-2025-001"
 }

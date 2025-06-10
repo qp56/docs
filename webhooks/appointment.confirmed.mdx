@@ -64,29 +64,45 @@ The `appointment.confirmed` event is automatically triggered when the date for t
     <ResponseField name="express" type="boolean">
       Requests expedited notarization.
     </ResponseField>
-    <ResponseField name="date" type="string">
-      The notarization date in `YYYY-MM-DD` format.\
-      **Example**: `2025-04-15`
+    <ResponseField name="desired_timeframe" type="number">
+      The client's preferred timeframe for notarization, expressed as the number of days
+      from the request date.
+      **Possible values**: `7`, `14`, `30`
     </ResponseField>
-    <ResponseField name="location" type="string">
-      The location of the notarization.\
-      **Example**: `Leopoldstraße 1, 80802 München`
+    <ResponseField name="date" type="string">
+      Notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-16`
+    </ResponseField>
+    <ResponseField name="time" type="string">
+      Notarization date in `HH:mm` format.\
+      **Example**: `14:30`
+    </ResponseField>
+    <ResponseField name="appointment_status" type="string">
+      The current status of the notarization appointment.
+      **Possible values**: `pending` or `confirmed`
     </ResponseField>
     <ResponseField name="notary" type="object">
-      Details about the notary.
-
+      Notary responsible for the notarization.
       <Expandable title="Notary">
-        <ResponseField name="first_name" type="string">
-          The first name of the notary.\
-          **Example**: `John`
+        <ResponseField name="office" type="string">
+          The name of the notary’s office.\
+          **Example**: `Notariat Schiller & Partner`
         </ResponseField>
-        <ResponseField name="last_name" type="string">
-          The last name of the notary.\
-          **Example**: `Doe`
+        <ResponseField name="name" type="string">
+          The full name of the notary.\
+          **Example**: `Dr. Anna Becker`
         </ResponseField>
         <ResponseField name="email" type="string">
           The email address of the notary.\
-          **Example**: `john.doe@example.com`
+          **Example**: `dr.becker@notariat-schiller.de`
+        </ResponseField>
+        <ResponseField name="phone" type="string">
+          The contact phone number of the notary.\
+          **Example**: `+49 89 12345678`
+        </ResponseField>
+        <ResponseField name="address" type="string">
+          The full address of the notary's office, formatted as `street name and number, postal code, city`.\
+          **Example**: `Schillerstraße 15, 10117, Berlin`
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -107,28 +123,32 @@ The `appointment.confirmed` event is automatically triggered when the date for t
 
 ```json
 {
-  "webhook_id": "123e4567-e89b-12d3-a456-426614174000",
-  "event": "appointment.confirmed",
-  "message": "The notary appointment has been confirmed.",
-  "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
-  "name": "Acme Holdings GmbH",
-  "type": "gmbh",
-  "capital": 12500,
-  "status": "appointment-confirmed",
-  "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
-  "notarization": {
-    "type": "online",
-    "express": false,
-    "date": "2025-06-05",
-    "location": "Leopoldstraße 1, 80802 München",
-    "notary": {
-      "first_name": "Anna",
-      "last_name": "Schulz",
-      "email": "anna.schulz@notare.de"
-    }
-  },
-  "client_reference": "REF-2025-001",
-  "timestamp": "2025-10-18T12:00:00Z"
+    "webhook_id": "123e4567-e89b-12d3-a456-426614174000",
+    "event": "appointment.confirmed",
+    "message": "The notary appointment has been confirmed.",
+    "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
+    "name": "Acme Holdings GmbH",
+    "type": "gmbh",
+    "capital": 12500,
+    "status": "appointment-confirmed",
+    "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
+    "notarization": {
+        "type": "online",
+        "express": false,
+        "desired_timeframe": 7,
+        "date": "2025-05-16",
+        "time": "14:30",
+        "appointment_status": "confirmed",
+        "notary": {
+            "office": "Notariat Schiller & Partner",
+            "name": "Dr. Anna Becker",
+            "email": "dr.becker@notariat-schiller.de",
+            "phone": "+49 89 12345678",
+            "address": "Schillerstraße 15, 10117, Berlin"
+        }
+    },
+    "client_reference": "REF-2025-001",
+    "timestamp": "2025-10-18T12:00:00Z"
 }
 ```
 
