@@ -321,11 +321,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ResponseField>
 
-<ResponseField name="notarization" type="object" required>
+<ResponseField name="notarization" type="object">
   Details about the notarization process.
 
   <Expandable title="Notarization Object">
-    <ResponseField name="type" type="string" required>
+    <ResponseField name="type" type="string">
       The method of notarization.\
       **Possible values**: `offline` or `online`
     </ResponseField>
@@ -335,10 +335,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <ResponseField name="desired_date" type="string">
       Target notarization date in `YYYY-MM-DD` format.\
       **Example**: `2025-04-15`
-    </ResponseField>
-    <ResponseField name="desired_location" type="string">
-      Desired location for notarization. Can be German or English city name.\
-      **Example**: `Munich`
     </ResponseField>
     <ResponseField name="location" type="string">
       Location for notarization. Can be German or English city name.\
@@ -353,7 +349,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           **Example**: `Notariat Schiller & Partner`
         </ResponseField>
         <ResponseField name="name" type="string">
-          The full name of the notary, including any academic or professional titles.
+          The full name of the notary
           **Example**: `Dr. Anna Becker`
         </ResponseField>
         <ResponseField name="email" type="string">
@@ -365,8 +361,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           **Example**: `+49 89 12345678`
         </ResponseField>
         <ResponseField name="address" type="string">
-          The full address of the notary's office, formatted as "street name and number,
-          postal code, city".
+          The full address of the notary's office, formatted as `street name and number, postal code, city`.
           **Example**: `Schillerstraße 15, 10117, Berlin`
         </ResponseField>
       </Expandable>
@@ -466,7 +461,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           "directors": [
             {
               "first_name": "Lukas",
-              "last_name": "Schneider"
+              "last_name": "Schneider",
               "email": "lukas.schneider@mail.de"
             }
           ],
