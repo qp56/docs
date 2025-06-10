@@ -528,16 +528,14 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 }
             ]
         },
-        "notarization": [
-            {
-                "type": "online",
-                "express": true,
-                "preferred_location": "Munich",
-                "preferred_timeframe": 7,
-                "preferred_time": "14:00",
-                "appointment_status": "pending"
-            }
-        ],
+        "notarization": {
+            "type": "online",
+            "express": true,
+            "preferred_location": "Munich",
+            "preferred_timeframe": 7,
+            "preferred_time": "14:00",
+            "appointment_status": "pending"
+        },
         "client_reference": "REF-2025-001",
         "timestamp": "2025-12-01T07:19:30.443Z"
     }
