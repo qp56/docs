@@ -332,15 +332,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <ResponseField name="express" type="boolean">
       Requests expedited notarization.
     </ResponseField>
-    <ResponseField name="desired_location" type="string">
-      The client's preferred location for notarization, specified as a city name
-      in either German or English.
-      **Example**: `Munich`
-    </ResponseField>
-    <ResponseField name="location" type="string">
-      Location for notarization.\
-      **Example**: `Munich`
-    </ResponseField>
     <ResponseField name="desired_timeframe" type="string">
       The client's preferred timeframe for notarization, expressed as the number of days
       from the request date.
@@ -493,8 +484,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       "express": false,
       "desired_timeframe": 7,
       "date": "2025-05-16",
-      "desired_location": "Munich",
-      "location": "Munich",
+      "time": "14:30",
+      "appointment_status": "confirmed",
       "notary": {
         "office": "Notariat Schiller & Partner",
         "name": "Dr. Anna Becker",
