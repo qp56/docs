@@ -432,7 +432,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="status" type="string">
   The current status of the incorporation request.\
-  **Possible values**: `initiated`, `pending`, `appointment-confirmed`, `completed`, `blocked`, `archive` or `unprocessable`
+  **Possible values**: `initiated`, `submitted`, `appointment-confirmed`, `completed`, `blocked`, `archive` or `unprocessable`
 </ResponseField>
 
 <ResponseField name="url" type="string">
@@ -508,7 +508,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         "result": "success",
         "message": "Incorporation created successfully.",
         "incorporation_id": "450506c1-d1a7-46e2-aca6-41a816805595",
-        "status": "pending",
+        "status": "submitted",
         "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
         "documents": {
             "articles_of_association": [
