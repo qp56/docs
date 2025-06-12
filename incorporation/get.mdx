@@ -385,6 +385,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Example**: `REF-2025-001`
 </ResponseField>
 
+<ResponseField name="client_preferred_language" type="string">
+  The preferred language of the client, specified using **ISO 639-1** language codes.\
+  **Possible values**: `en`, `de`, `es`, `fr` or `it`
+</ResponseField>
+
 <ResponseField name="created_at" type="string">
   The timestamp at which the incorporation was created, formatted as an ISO 8601 string (UTC).\
   **Example**: `2025-06-15T08:00:00.000Z`
@@ -498,6 +503,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
             }
         },
         "client_reference": "REF-2025-001",
+        "client_preferred_language": "de",
         "created_at": "2025-04-12T08:00:00.0000+00:00"
     }
 }
