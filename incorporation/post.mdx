@@ -312,6 +312,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Example**: `REF-2025-001`
 </ParamField>
 
+<ParamField body="client_preferred_language" type="string">
+  The preferred language of the client, specified using **ISO 639-1** language codes.\
+  **Possible values**: `en`, `de`, `es`, `fr` or `it`
+</ParamField>
+
 <RequestExample>
 
 ```json
@@ -407,7 +412,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
         "preferred_location": "Munich",
         "preferred_timeframe": 7
     },
-    "client_reference": "REF-2025-001"
+    "client_reference": "REF-2025-001",
+	"client_preferred_language": "de"
 }
 ```
 
@@ -495,6 +501,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Example**: `REF-2024-001`
 </ResponseField>
 
+<ResponseField body="client_preferred_language" type="string">
+  The preferred language of the client, specified using **ISO 639-1** language codes.\
+  **Possible values**: `en`, `de`, `es`, `fr` or `it`
+</ResponseField>
+
 <ResponseField name="timestamp" type="string">
   The exact date and time when the response was generated, formatted as an **ISO 8601** string in UTC.\
   **Example**: `2024-12-01T07:19:30.443Z`
@@ -527,6 +538,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
             "appointment_status": "pending"
         },
         "client_reference": "REF-2025-001",
+        "client_preferred_language": "de",
         "timestamp": "2025-12-01T07:19:30.443Z"
     }
 }
