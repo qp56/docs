@@ -50,6 +50,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
       The city of the company.\
       **Example**: `Munich`
     </ParamField>
+    <ParamField body="state" type="string">
+      The state of the company.\
+      **Example**: `Bayern`
+    </ParamField>
     <ParamField body="country" type="string" required>
       The country of the company.\
       **Example**: `Germany`
@@ -70,6 +74,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Individuals">
     <ParamField body="individuals" type="array" required="false">
       An array of individual shareholders.
+
       <Expandable title="Individual">
         <ParamField body="first_name" type="string" required>
           The first name of the individual shareholder.\
@@ -101,6 +106,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the individual shareholder.
+
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the individual shareholder.\
@@ -117,6 +123,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
             <ParamField body="city" type="string" required>
               The city of the individual shareholder.\
               **Example**: `Munich`
+            </ParamField>
+            <ParamField body="state" type="string">
+              The state of the individual shareholder.\
+              **Example**: `Bayern`
             </ParamField>
             <ParamField body="country" type="string" required>
               The country of the individual shareholder.\
@@ -138,6 +148,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Entities">
     <ParamField body="entities" type="array" required="false">
       An array of entity shareholders.
+
       <Expandable title="Entity">
         <ParamField body="name" type="string" required>
           The name of the entity shareholder.\
@@ -149,6 +160,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the entity shareholder.
+
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the entity shareholder.\
@@ -166,6 +178,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
               The city of the entity shareholder.\
               **Example**: `Munich`
             </ParamField>
+            <ParamField body="state" type="string">
+              The state of the entity shareholder\
+              **Example**: `Bayern`
+            </ParamField>
             <ParamField body="country" type="string" required>
               The country of the entity shareholder.\
               **Example**: `Germany`
@@ -174,6 +190,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="directors" type="array" required="false">
           The directors of the entity shareholder.
+
           <Expandable title="Directors">
             <ParamField body="first_name" type="string" required>
               The first name of the entity's director.\
@@ -201,6 +218,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
             </ParamField>
             <ParamField body="address" type="object" required>
               Address of the entity director.
+
               <Expandable title="Address">
                 <ParamField body="street" type="string" required>
                   The street name and number of the entity director.\
@@ -217,6 +235,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 <ParamField body="city" type="string" required>
                   The city of the entity director.\
                   **Example**: `Munich`
+                </ParamField>
+                <ParamField body="state" type="string">
+                  The state of the entity director.\
+                  **Example**: `Bayern`
                 </ParamField>
                 <ParamField body="country" type="string" required>
                   The country of the entity director.\
@@ -241,6 +263,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="directors" type="array" required>
   An array of directors managing the company.
+
   <Expandable title="Director">
     <ParamField body="first_name" type="string" required>
       First name of the director.\
@@ -264,6 +287,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ParamField>
     <ParamField body="address" type="object" required>
       Address of the director.
+
       <Expandable title="Address">
         <ParamField body="street" type="string" required>
           The street name and number of the director.\
@@ -281,6 +305,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
           The city of the director.\
           **Example**: `Munich`
         </ParamField>
+        <ParamField body="state" type="string">
+          The state of the director.\
+          **Example**: `Bayern`
+        </ParamField>
         <ParamField body="country" type="string" required>
           The country of the director.\
           **Example**: `Germany`
@@ -296,9 +324,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="documents" type="object">
   A collection of documents related to the company.
+
   <Expandable title="Documents">
     <ParamField body="articles_of_association" type="array">
       The articles of association for the company.
+
       <Expandable title="Articles of Association">
         <ParamField body="type" type="string" required>
           Specifies the nature of the articles of association. Use `musterprotokoll` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `individual` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
@@ -315,6 +345,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="notarization" type="object" required>
   Details about the notarization process.
+
   <Expandable title="Notarization">
     <ParamField body="type" type="string" required>
       The method of notarization.\
@@ -374,6 +405,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     "street_second_line": "Gebäude B, 2. Etage, Raum 204",
                     "zip": "10115",
                     "city": "Berlin",
+					"state": "Berlin",
                     "country": "Germany"
                 },
                 "shares": 12500,
@@ -389,6 +421,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     "street_second_line": "Haus C, 3. Stock, Büro 301",
                     "zip": "40212",
                     "city": "Düsseldorf",
+					"state": "Nordrhein-Westfalen",
                     "country": "Germany"
                 },
                 "directors": [
@@ -442,6 +475,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 "street_second_line": "2. OG, Einheit 7A",
                 "zip": "80336",
                 "city": "Munich",
+				"state": "Bayern",
                 "country": "Germany"
             },
             "authority": "sole"
