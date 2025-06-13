@@ -63,6 +63,10 @@ The `incorporation.completed` event is triggered automatically when an incorpora
       The city of the company.\
       **Example**: `Munich`
     </ResponseField>
+    <ResponseField name="state" type="string">
+      The state of the company.\
+      **Example**: `Bayern`
+    </ResponseField>
     <ResponseField name="country" type="string">
       The country of the company.\
       **Example**: `Germany`
@@ -124,6 +128,10 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           The city of the director.\
           **Example**: `Munich`
         </ResponseField>
+        <ResponseField name="state" type="string">
+          The state of the director\
+          **Example**: `Bayern`
+        </ResponseField>
         <ResponseField name="country" type="string">
           The country of the director.\
           **Example**: `Germany`
@@ -169,6 +177,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     <Expandable title="Individuals">
       <ResponseField name="individuals" type="array">
         An array of individual shareholders.
+
         <Expandable title="Individual">
           <ResponseField name="first_name" type="string">
             The first name of the individual shareholder.\
@@ -200,6 +209,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the individual shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the individual shareholder.\
@@ -216,6 +226,10 @@ The `incorporation.completed` event is triggered automatically when an incorpora
               <ResponseField name="city" type="string">
                 The city of the individual shareholder.\
                 **Example**: `Munich`
+              </ResponseField>
+              <ResponseField name="state" type="string">
+                The state of the individual shareholder.\
+                **Example**: `Bayern`
               </ResponseField>
               <ResponseField name="country" type="string">
                 The country of the individual shareholder.\
@@ -237,6 +251,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     <Expandable title="Entities">
       <ResponseField name="entities" type="array">
         An array of entity shareholders.
+
         <Expandable title="Entity">
           <ResponseField name="name" type="string">
             The name of the entity shareholder.\
@@ -248,6 +263,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the entity shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the entity shareholder.\
@@ -265,6 +281,10 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                 The city of the entity shareholder.\
                 **Example**: `Munich`
               </ResponseField>
+              <ResponseField name="state" type="string">
+                The state of the entity shreholder.\
+                **Example**: `Bayern`
+              </ResponseField>
               <ResponseField name="country" type="string">
                 The country of the entity shareholder.\
                 **Example**: `Germany`
@@ -273,6 +293,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           </ResponseField>
           <ResponseField name="directors" type="array">
             The directors of the entity shareholder.
+
             <Expandable title="Directors">
               <ResponseField name="first_name" type="string">
                 The first name of the entity's director.\
@@ -300,6 +321,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
               </ResponseField>
               <ResponseField name="address" type="object">
                 Address of the entity director.
+
                 <Expandable title="Address">
                   <ResponseField type="string">
                     The street name and number of the entity director.\
@@ -316,6 +338,10 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                   <ResponseField name="city" type="string">
                     The city of the entity director.\
                     **Example**: `Munich`
+                  </ResponseField>
+                  <ResponseField name="state" type="string">
+                    The state of the entity director.\
+                    **Example**: `Bayern`
                   </ResponseField>
                   <ResponseField name="country" type="string">
                     The country of the entity director.\
@@ -341,6 +367,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
 
 <ResponseField name="notarization" type="object">
   Details about the notarization process.
+
   <Expandable title="Notarization">
     <ResponseField name="type" type="string">
       The method of notarization.\
@@ -370,6 +397,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
     </ResponseField>
     <ResponseField name="notary" type="object">
       Notary responsible for the notarization.
+
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
           The name of the notary’s office.\
@@ -428,6 +456,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
         "street_second_line": "2. Etage, Büro 5B",
         "zip": "50667",
         "city": "Cologne",
+        "state": "Nordrhein-Westfalen",
         "country": "Germany"
     },
     "status": "completed",
@@ -444,6 +473,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                 "street_second_line": "1. Stock, Raum 3A",
                 "zip": "90489",
                 "city": "Nuremberg",
+		        "state": "Bayern",
                 "country": "Germany"
             },
             "authority": "sole"
@@ -473,6 +503,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                     "street_second_line": "EG, Büro 1",
                     "zip": "60594",
                     "city": "Frankfurt am Main",
+        			"state": "Hessen",
                     "country": "Germany"
                 },
                 "shares": 12500,
@@ -488,6 +519,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                     "street_second_line": "4. OG, Zimmer 402",
                     "zip": "60311",
                     "city": "Frankfurt",
+        			"state": "Hessen",
                     "country": "Germany"
                 },
                 "directors": [
