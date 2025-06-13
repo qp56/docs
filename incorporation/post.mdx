@@ -61,6 +61,37 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ParamField>
 
+<ParamField body="business_address" type="object" required>
+  The business address of the company.
+
+  <Expandable title="Business Address">
+    <ParamField body="street" type="string" required>
+      The street name and number of the company.\
+      **Example**: `Schillerstraße 5`
+    </ParamField>
+    <ParamField body="street_second_line" type="string">
+      Additional address information, such as apartment number, suite, floor, or building.\
+      **Example**: `Apartment 4B`
+    </ParamField>
+    <ParamField body="zip" type="string" required>
+      The postal code of the company.\
+      **Example**: `80336`
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      The city of the company.\
+      **Example**: `Munich`
+    </ParamField>
+    <ParamField body="state" type="string">
+      The state of the company.\
+      **Example**: `Bayern`
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      The country of the company.\
+      **Example**: `Germany`
+    </ParamField>
+  </Expandable>
+</ParamField>
+
 <ParamField body="capital" type="number" required>
   The total share capital of the company in EUR.\
   **Example**: `25000`
@@ -383,11 +414,19 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "legal_form": "gmbh",
     "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
     "address": {
-        "street": "Schwanthaler Str. 32",
-        "street_second_line": "Building A, Floor 2",
-        "zip": "80336",
+        "street": "Maximilianstraße 15",
+        "street_second_line": "Apartment 3B",
+        "zip": "80539",
         "city": "Munich",
-        "city": "Bayern",
+        "state": "Bayern",
+        "country": "Germany"
+    },
+    "business_address": {
+        "street": "Goethestraße 18",
+        "street_second_line": "2. Etage, Büro 5B",
+        "zip": "50667",
+        "city": "Cologne",
+        "state": "Nordrhein-Westfalen",
         "country": "Germany"
     },
     "capital": 25000,
@@ -406,7 +445,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     "street_second_line": "Gebäude B, 2. Etage, Raum 204",
                     "zip": "10115",
                     "city": "Berlin",
-					"state": "Berlin",
+                    "state": "Berlin",
                     "country": "Germany"
                 },
                 "shares": 12500,
@@ -422,7 +461,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     "street_second_line": "Haus C, 3. Stock, Büro 301",
                     "zip": "40212",
                     "city": "Düsseldorf",
-					"state": "Nordrhein-Westfalen",
+                    "state": "Nordrhein-Westfalen",
                     "country": "Germany"
                 },
                 "directors": [
@@ -476,7 +515,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 "street_second_line": "2. OG, Einheit 7A",
                 "zip": "80336",
                 "city": "Munich",
-				"state": "Bayern",
+                "state": "Bayern",
                 "country": "Germany"
             },
             "authority": "sole"

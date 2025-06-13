@@ -88,6 +88,37 @@ To authenticate requests, include an Authorization header with a Bearer token:
   </Expandable>
 </ResponseField>
 
+<ResponseField name="business_address" type="object">
+  The business address of the company.
+
+  <Expandable title="Business Address">
+    <ResponseField name="street" type="string">
+      The street name and number of the company.\
+      **Example**: `Schillerstraße 5`
+    </ResponseField>
+    <ResponseField name="street_second_line" type="string">
+      Additional address information, such as apartment number, suite, floor, or building.\
+      **Example**: `Apartment 4B`
+    </ResponseField>
+    <ResponseField name="zip" type="string">
+      The postal code of the company.\
+      **Example**: `80336`
+    </ResponseField>
+    <ResponseField name="city" type="string">
+      The city of the company.\
+      **Example**: `Munich`
+    </ResponseField>
+    <ResponseField name="state" type="string">
+      The state of the company.\
+      **Example**: `Bayern`
+    </ResponseField>
+    <ResponseField name="country" type="string">
+      The country of the company.\
+      **Example**: `Germany`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
 <ResponseField name="status" type="string">
   The status of the incorporation.\
   **Possible values**: `initiated`, `submitted`, `appointment-confirmed`, `completed`, `blocked`, `archive` or `unprocessable`
@@ -466,6 +497,14 @@ To authenticate requests, include an Authorization header with a Bearer token:
         "purpose": "Durchführung von digitalen Notarisierungsverfahren mit Schwerpunkt auf Deutschland und dem europäischen Raum.",
         "capital": 12500,
         "address": {
+            "street": "Maximilianstraße 15",
+    		"street_second_line": "Apartment 3B",
+		    "zip": "80539",
+    		"city": "Munich",
+    		"state": "Bayern",
+    		"country": "Germany"
+        },
+		"business_address": {
             "street": "Goethestraße 18",
             "street_second_line": "2. Etage, Büro 5B",
             "zip": "50667",
