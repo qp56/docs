@@ -59,6 +59,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="address" type="object">
   The address of the company.
+
   <Expandable title="Address">
     <ResponseField name="street" type="string">
       The street name and number of the company.\
@@ -99,6 +100,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="directors" type="array">
   An array of directors managing the company.
+
   <Expandable title="Director">
     <ResponseField name="first_name" type="string">
       First name of the director.\
@@ -122,6 +124,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
+
       <Expandable title="Address">
         <ResponseField name="street" type="string">
           The street name and number of the director.\
@@ -140,9 +143,9 @@ To authenticate requests, include an Authorization header with a Bearer token:
           **Example**: `Munich`
         </ResponseField>
         <ResponseField name="state" type="string">
-      The state of the director.\
-      **Example**: `Bayern`
-    </ResponseField>
+          The state of the director.\
+          **Example**: `Bayern`
+        </ResponseField>
         <ResponseField name="country" type="string">
           The country of the director.\
           **Example**: `Germany`
@@ -158,9 +161,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="documents" type="object">
   A collection of documents related to the company.
+
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
+
       <Expandable title="Article of Association">
         <ResponseField name="id" type="string">
           The unique identifier for the document in a UUID format.\
@@ -181,10 +186,12 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="shareholders" type="object">
   An object containing arrays of individual and entity shareholders, including their details, addresses, and shareholding information.
+
   <Expandable title="Shareholders">
     <Expandable title="Individuals">
       <ResponseField name="individuals" type="array">
         An array of individual shareholders.
+
         <Expandable title="Individual">
           <ResponseField name="first_name" type="string">
             The first name of the individual shareholder.\
@@ -216,6 +223,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the individual shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the individual shareholder.\
@@ -257,6 +265,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <Expandable title="Entities">
       <ResponseField name="entities" type="array">
         An array of entity shareholders.
+
         <Expandable title="Entity">
           <ResponseField name="name" type="string">
             The name of the entity shareholder.\
@@ -268,6 +277,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the entity shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the entity shareholder.\
@@ -286,7 +296,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 **Example**: `Munich`
               </ResponseField>
               <ResponseField name="state" type="string">
-                The state of the individual shareholder.\
+                The state of the entity shareholder.\
                 **Example**: `Bayern`
               </ResponseField>
               <ResponseField name="country" type="string">
@@ -297,6 +307,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="directors" type="array">
             The directors of the entity shareholder.
+
             <Expandable title="Directors">
               <ResponseField name="first_name" type="string">
                 The first name of the entity's director.\
@@ -324,6 +335,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
               </ResponseField>
               <ResponseField name="address" type="object">
                 Address of the entity director.
+
                 <Expandable title="Address">
                   <ResponseField type="string">
                     The street name and number of the entity director.\
@@ -342,9 +354,9 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     **Example**: `Munich`
                   </ResponseField>
                   <ResponseField name="state" type="string">
-                  The state of the entity director.\
-                  **Example**: `Bayern`
-                </ResponseField>
+                    The state of the entity director.\
+                    **Example**: `Bayern`
+                  </ResponseField>
                   <ResponseField name="country" type="string">
                     The country of the entity director.\
                     **Example**: `Germany`
@@ -369,6 +381,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="notarization" type="object">
   Details about the notarization process.
+
   <Expandable title="Notarization">
     <ResponseField name="type" type="string">
       The method of notarization.\
@@ -398,6 +411,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="notary" type="object">
       Notary responsible for the notarization.
+
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
           The name of the notary’s office.\
@@ -472,6 +486,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     "street_second_line": "1. Stock, Raum 3A",
                     "zip": "90489",
                     "city": "Nuremberg",
+					"state": "Bayern",
                     "country": "Germany"
                 },
                 "authority": "sole"
@@ -501,6 +516,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                         "street_second_line": "EG, Büro 1",
                         "zip": "60594",
                         "city": "Frankfurt am Main",
+						"state": "Hessen",
                         "country": "Germany"
                     },
                     "shares": 12500,
@@ -516,6 +532,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                         "street_second_line": "4. OG, Zimmer 402",
                         "zip": "60311",
                         "city": "Frankfurt",
+						"state": "Hessen",
                         "country": "Germany"
                     },
                     "directors": [
