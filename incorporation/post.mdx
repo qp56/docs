@@ -32,7 +32,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="address" type="object" required>
   The address of the company.
-
   <Expandable title="Address">
     <ParamField body="street" type="string" required>
       The street name and number of the company.\
@@ -70,7 +69,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Individuals">
     <ParamField body="individuals" type="array" required="false">
       An array of individual shareholders.
-
       <Expandable title="Individual">
         <ParamField body="first_name" type="string" required>
           The first name of the individual shareholder.\
@@ -102,7 +100,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the individual shareholder.
-
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the individual shareholder.\
@@ -140,7 +137,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
   <Expandable title="Entities">
     <ParamField body="entities" type="array" required="false">
       An array of entity shareholders.
-
       <Expandable title="Entity">
         <ParamField body="name" type="string" required>
           The name of the entity shareholder.\
@@ -152,7 +148,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the entity shareholder.
-
           <Expandable title="Address">
             <ParamField body="street" type="string" required>
               The street name and number of the entity shareholder.\
@@ -178,7 +173,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
         </ParamField>
         <ParamField body="directors" type="array" required="false">
           The directors of the entity shareholder.
-
           <Expandable title="Directors">
             <ParamField body="first_name" type="string" required>
               The first name of the entity's director.\
@@ -188,9 +182,46 @@ To authenticate requests, include an Authorization header with a Bearer token:
               The last name of the entity's director.\
               **Example**: `Doe`
             </ParamField>
+            <ParamField body="dob" type="string" required>
+              Date of birth of the entity director in `YYYY-MM-DD` format.\
+              **Example**: `1978-03-15`
+            </ParamField>
+            <ParamField body="nationality" type="string" required>
+              The nationality of the entity's director, specified using *ISO 3166-1 alpha-2* country codes.\
+              **Example**: `de`
+            </ParamField>
             <ParamField body="email" type="string" required>
               The email of the entity's director.\
               **Example**: `john.doe@exemple.com`
+            </ParamField>
+            <ParamField body="phone" type="string">
+              The phone number of the entity director.\
+              **Example**: `+491234567890`
+            </ParamField>
+            <ParamField body="address" type="object" required>
+              Address of the entity director.
+              <Expandable title="Address">
+                <ParamField body="street" type="string" required>
+                  The street name and number of the entity director.\
+                  **Example**: `Schillerstraße 5`
+                </ParamField>
+                <ParamField body="street_second_line" type="string">
+                  Additional address information, such as apartment number, suite, floor, or building.\
+                  **Example**: `Apartment 4B`
+                </ParamField>
+                <ParamField body="zip" type="string" required>
+                  The postal code of the entity director.\
+                  **Example**: `80336`
+                </ParamField>
+                <ParamField body="city" type="string" required>
+                  The city of the entity director.\
+                  **Example**: `Munich`
+                </ParamField>
+                <ParamField body="country" type="string" required>
+                  The country of the entity director.\
+                  **Example**: `Germany`
+                </ParamField>
+              </Expandable>
             </ParamField>
           </Expandable>
         </ParamField>
@@ -209,7 +240,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="directors" type="array" required>
   An array of directors managing the company.
-
   <Expandable title="Director">
     <ParamField body="first_name" type="string" required>
       First name of the director.\
@@ -233,7 +263,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ParamField>
     <ParamField body="address" type="object" required>
       Address of the director.
-
       <Expandable title="Address">
         <ParamField body="street" type="string" required>
           The street name and number of the director.\
@@ -266,11 +295,9 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="documents" type="object">
   A collection of documents related to the company.
-
   <Expandable title="Documents">
     <ParamField body="articles_of_association" type="array">
       The articles of association for the company.
-
       <Expandable title="Articles of Association">
         <ParamField body="type" type="string" required>
           Specifies the nature of the articles of association. Use `musterprotokoll` for wishing to use standardized template typically used by UGs (Musterprotokoll), or `individual` for bespoke articles tailored to specific needs, commonly used by GmbHs or UGs with unique requirements.
@@ -287,7 +314,6 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ParamField body="notarization" type="object" required>
   Details about the notarization process.
-
   <Expandable title="Notarization">
     <ParamField body="type" type="string" required>
       The method of notarization.\
@@ -501,7 +527,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Example**: `REF-2024-001`
 </ResponseField>
 
-<ResponseField body="client_preferred_language" type="string">
+<ResponseField type="string">
   The preferred language of the client, specified using **ISO 639-1** language codes.\
   **Possible values**: `en`, `de`, `es`, `fr` or `it`
 </ResponseField>
