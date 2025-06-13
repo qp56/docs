@@ -96,6 +96,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="directors" type="array">
   An array of directors managing the company.
+
   <Expandable title="Director">
     <ResponseField name="first_name" type="string">
       First name of the director.\
@@ -119,6 +120,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
+
       <Expandable title="Address">
         <ResponseField name="street" type="string">
           The street name and number of the director.\
@@ -151,9 +153,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="documents" type="object">
   A collection of documents related to the company.
+
   <Expandable title="Documents">
     <ResponseField name="articles_of_association" type="array">
       The articles of association for the company.
+
       <Expandable title="Article of Association">
         <ResponseField name="id" type="string">
           The unique identifier for the document in a UUID format.\
@@ -179,6 +183,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <Expandable title="Individuals">
       <ResponseField name="individuals" type="array">
         An array of individual shareholders.
+
         <Expandable title="Individual">
           <ResponseField name="first_name" type="string">
             The first name of the individual shareholder.\
@@ -210,6 +215,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the individual shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the individual shareholder.\
@@ -247,6 +253,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     <Expandable title="Entities">
       <ResponseField name="entities" type="array">
         An array of entity shareholders.
+
         <Expandable title="Entity">
           <ResponseField name="name" type="string">
             The name of the entity shareholder.\
@@ -258,6 +265,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
           </ResponseField>
           <ResponseField name="address" type="object">
             The address of the entity shareholder.
+
             <Expandable title="Address">
               <ResponseField name="street" type="string">
                 The street name and number of the entity shareholder.\
@@ -282,59 +290,61 @@ To authenticate requests, include an Authorization header with a Bearer token:
             </Expandable>
           </ResponseField>
           <ResponseField name="directors" type="array">
-          The directors of the entity shareholder.
-          <Expandable title="Directors">
-            <ResponseField name="first_name" type="string">
-              The first name of the entity's director.\
-              **Example**: `John`
-            </ResponseField>
-            <ResponseField name="last_name" type="string">
-              The last name of the entity's director.\
-              **Example**: `Doe`
-            </ResponseField>
-            <ResponseField name="dob" type="string">
-              Date of birth of the entity director in `YYYY-MM-DD` format.\
-              **Example**: `1978-03-15`
-            </ResponseField>
-            <ResponseField name="nationality" type="string">
-              The nationality of the entity's director, specified using **ISO 3166-1 alpha-2** country codes.\
-              **Example**: `de`
-            </ResponseField>
-            <ResponseField name="email" type="string">
-              The email of the entity's director.\
-              **Example**: `john.doe@exemple.com`
-            </ResponseField>
-            <ResponseField name="phone" type="string">
-              The phone number of the entity director.\
-              **Example**: `+491234567890`
-            </ResponseField>
-            <ResponseField name="address" type="object">
-              Address of the entity director.
-              <Expandable title="Address">
-                <ResponseField body="street" type="string">
-                  The street name and number of the entity director.\
-                  **Example**: `Schillerstraße 5`
-                </ResponseField>
-                <ResponseField name="street_second_line" type="string">
-                  Additional address information, such as apartment number, suite, floor, or building.\
-                  **Example**: `Apartment 4B`
-                </ResponseField>
-                <ResponseField name="zip" type="string">
-                  The postal code of the entity director.\
-                  **Example**: `80336`
-                </ResponseField>
-                <ResponseField name="city" type="string">
-                  The city of the entity director.\
-                  **Example**: `Munich`
-                </ResponseField>
-                <ResponseField name="country" type="string">
-                  The country of the entity director.\
-                  **Example**: `Germany`
-                </ResponseField>
-              </Expandable>
-            </ResponseField>
-          </Expandable>
-        </ResponseField>
+            The directors of the entity shareholder.
+
+            <Expandable title="Directors">
+              <ResponseField name="first_name" type="string">
+                The first name of the entity's director.\
+                **Example**: `John`
+              </ResponseField>
+              <ResponseField name="last_name" type="string">
+                The last name of the entity's director.\
+                **Example**: `Doe`
+              </ResponseField>
+              <ResponseField name="dob" type="string">
+                Date of birth of the entity director in `YYYY-MM-DD` format.\
+                **Example**: `1978-03-15`
+              </ResponseField>
+              <ResponseField name="nationality" type="string">
+                The nationality of the entity's director, specified using **ISO 3166-1 alpha-2** country codes.\
+                **Example**: `de`
+              </ResponseField>
+              <ResponseField name="email" type="string">
+                The email of the entity's director.\
+                **Example**: `john.doe@exemple.com`
+              </ResponseField>
+              <ResponseField name="phone" type="string">
+                The phone number of the entity director.\
+                **Example**: `+491234567890`
+              </ResponseField>
+              <ResponseField name="address" type="object">
+                Address of the entity director.
+
+                <Expandable title="Address">
+                  <ResponseField type="string">
+                    The street name and number of the entity director.\
+                    **Example**: `Schillerstraße 5`
+                  </ResponseField>
+                  <ResponseField name="street_second_line" type="string">
+                    Additional address information, such as apartment number, suite, floor, or building.\
+                    **Example**: `Apartment 4B`
+                  </ResponseField>
+                  <ResponseField name="zip" type="string">
+                    The postal code of the entity director.\
+                    **Example**: `80336`
+                  </ResponseField>
+                  <ResponseField name="city" type="string">
+                    The city of the entity director.\
+                    **Example**: `Munich`
+                  </ResponseField>
+                  <ResponseField name="country" type="string">
+                    The country of the entity director.\
+                    **Example**: `Germany`
+                  </ResponseField>
+                </Expandable>
+              </ResponseField>
+            </Expandable>
+          </ResponseField>
           <ResponseField name="shares" type="number">
             The number of shares owned by the shareholder.\
             **Example**: `2500`
@@ -351,6 +361,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 
 <ResponseField name="notarization" type="object">
   Details about the notarization process.
+
   <Expandable title="Notarization">
     <ResponseField name="type" type="string">
       The method of notarization.\
@@ -380,6 +391,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
     </ResponseField>
     <ResponseField name="notary" type="object">
       Notary responsible for the notarization.
+
       <Expandable title="Notary">
         <ResponseField name="office" type="string">
           The name of the notary’s office.\
