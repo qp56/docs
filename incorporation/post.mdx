@@ -55,8 +55,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `Bayern`
     </ParamField>
     <ParamField body="country" type="string" required>
-      The country of the company.\
-      **Example**: `Germany`
+      The country of the company, specified using **ISO 3166-1 alpha-2** country code.\
+      **Example**: `de`
     </ParamField>
   </Expandable>
 </ParamField>
@@ -86,8 +86,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `Bayern`
     </ParamField>
     <ParamField body="country" type="string" required>
-      The country of the company.\
-      **Example**: `Germany`
+      The country of the company, specified using **ISO 3166-1 alpha-2** country code.\
+      **Example**: `de`
     </ParamField>
   </Expandable>
 </ParamField>
@@ -132,8 +132,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
           **Example**: `1985-05-10`
         </ParamField>
         <ParamField body="nationality" type="string" required>
-          The nationality of the individual shareholder.\
-          **Example**: `German`
+          The nationality of the individual shareholder, specified using **ISO 3166-1 alpha-2** country code.\
+          **Example**: `de`
         </ParamField>
         <ParamField body="address" type="object" required>
           The address of the individual shareholder.
@@ -160,8 +160,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
               **Example**: `Bayern`
             </ParamField>
             <ParamField body="country" type="string" required>
-              The country of the individual shareholder.\
-              **Example**: `Germany`
+              The country of the individual shareholder, specified using **ISO 3166-1 alpha-2** country code.\
+              **Example**: `de`
             </ParamField>
           </Expandable>
         </ParamField>
@@ -214,8 +214,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
               **Example**: `Bayern`
             </ParamField>
             <ParamField body="country" type="string" required>
-              The country of the entity shareholder.\
-              **Example**: `Germany`
+              The country of the entity shareholder, specified using **ISO 3166-1 alpha-2** country code.\
+              **Example**: `de`
             </ParamField>
           </Expandable>
         </ParamField>
@@ -272,8 +272,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
                   **Example**: `Bayern`
                 </ParamField>
                 <ParamField body="country" type="string" required>
-                  The country of the entity director.\
-                  **Example**: `Germany`
+                  The country of the entity director, specified using **ISO 3166-1 alpha-2** country code.\
+                  **Example**: `de`
                 </ParamField>
               </Expandable>
             </ParamField>
@@ -316,6 +316,10 @@ To authenticate requests, include an Authorization header with a Bearer token:
       Date of birth of the director in `YYYY-MM-DD` format.\
       **Example**: `1978-03-15`
     </ParamField>
+    <ParamField body="nationality" type="string" required>
+      The nationality of the director, specified using **ISO 3166-1 alpha-2** country code.\
+      **Example**: `de`
+    </ParamField>
     <ParamField body="address" type="object" required>
       Address of the director.
 
@@ -341,8 +345,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
           **Example**: `Bayern`
         </ParamField>
         <ParamField body="country" type="string" required>
-          The country of the director.\
-          **Example**: `Germany`
+          The country of the director, specified using **ISO 3166-1 alpha-2** country code.\
+          **Example**: `de`
         </ParamField>
       </Expandable>
     </ParamField>
@@ -439,7 +443,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 "email": "john@doe.de",
                 "phone": "+49 151 12345678",
                 "dob": "1985-07-10",
-                "nationality": "German",
+                "nationality": "de",
                 "address": {
                     "street": "Bahnhofstraße 10",
                     "street_second_line": "Gebäude B, 2. Etage, Raum 204",
@@ -462,7 +466,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     "zip": "40212",
                     "city": "Düsseldorf",
                     "state": "Nordrhein-Westfalen",
-                    "country": "Germany"
+                    "country": "de"
                 },
                 "directors": [
                     {
@@ -478,7 +482,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                             "zip": "10115",
                             "city": "Berlin",
                             "state": "Berlin",
-                            "country": "Germany"
+                            "country": "de"
                         }
                     },
                     {
@@ -494,7 +498,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                             "zip": "80331",
                             "city": "München",
                             "state": "Bayern",
-                            "country": "Germany"
+                            "country": "de"
                         }
                     }
                 ],
@@ -510,13 +514,14 @@ To authenticate requests, include an Authorization header with a Bearer token:
             "email": "maria@weber.de",
             "phone": "+49 151 12345678",
             "dob": "1978-03-15",
+            "nationality": "de",
             "address": {
                 "street": "Schillerstraße 5",
                 "street_second_line": "2. OG, Einheit 7A",
                 "zip": "80336",
                 "city": "Munich",
                 "state": "Bayern",
-                "country": "Germany"
+                "country": "de"
             },
             "authority": "sole"
         }

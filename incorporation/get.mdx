@@ -82,7 +82,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
       **Example**: `Bayern`
     </ResponseField>
     <ResponseField name="country" type="string">
-      The country of the company, specified using **ISO 3166-1 alpha-2 **country code.\
+      The country of the company, specified using **ISO 3166-1 alpha-2** country code.\
       **Example**: `de`
     </ResponseField>
   </Expandable>
@@ -502,7 +502,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
 		    "zip": "80539",
     		"city": "Munich",
     		"state": "Bayern",
-    		"country": "Germany"
+    		"country": "de"
         },
 		"business_address": {
             "street": "Goethestraße 18",
@@ -510,7 +510,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
             "zip": "50667",
             "city": "Cologne",
 			"state": "Nordrhein-Westfalen",
-            "country": "Germany"
+            "country": "de"
         },
         "status": "submitted",
         "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
@@ -521,13 +521,14 @@ To authenticate requests, include an Authorization header with a Bearer token:
                 "email": "maria@weber.de",
                 "phone": "+491234567890",
                 "dob": "1978-03-15",
+				"nationality": "de",
                 "address": {
                     "street": "Rathenauplatz 7",
                     "street_second_line": "1. Stock, Raum 3A",
                     "zip": "90489",
                     "city": "Nuremberg",
 					"state": "Bayern",
-                    "country": "Germany"
+                    "country": "de"
                 },
                 "authority": "sole"
             }
@@ -550,14 +551,14 @@ To authenticate requests, include an Authorization header with a Bearer token:
                     "email": "john.doe@example.com",
                     "phone": "+491234567890",
                     "dob": "1985-07-10",
-                    "nationality": "German",
+                    "nationality": "de",
                     "address": {
                         "street": "Lindenallee 12",
                         "street_second_line": "EG, Büro 1",
                         "zip": "60594",
                         "city": "Frankfurt am Main",
 						"state": "Hessen",
-                        "country": "Germany"
+                        "country": "de"
                     },
                     "shares": 12500,
                     "share_percentage": 50
@@ -573,7 +574,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                         "zip": "60311",
                         "city": "Frankfurt",
 						"state": "Hessen",
-                        "country": "Germany"
+                        "country": "de"
                     },
                     "directors": [
                         {
@@ -589,7 +590,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
                                 "zip": "10115",
                                 "city": "Berlin",
                                 "state": "Berlin",
-                                "country": "Germany"
+                                "country": "de"
                             }
                         }
                     ],
