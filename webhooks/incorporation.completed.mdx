@@ -140,9 +140,9 @@ The `incorporation.completed` event is triggered automatically when an incorpora
       **Example**: `1978-03-15`
     </ResponseField>
     <ResponseField name="nationality" type="string">
-            The nationality of the director, specified using **ISO 3166-1 alpha-2** country code.\
-            **Example**: `German`
-          </ResponseField>
+      The nationality of the director, specified using **ISO 3166-1 alpha-2** country code.\
+      **Example**: `German`
+    </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
 
@@ -492,7 +492,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
         "zip": "80539",
         "city": "Munich",
         "state": "Bayern",
-        "country": "Germany"
+        "country": "de"
     },
     "business_address": {
         "street": "Goethestraße 18",
@@ -500,7 +500,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
         "zip": "50667",
         "city": "Cologne",
         "state": "Nordrhein-Westfalen",
-        "country": "Germany"
+        "country": "de"
     },
     "status": "completed",
     "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
@@ -511,13 +511,14 @@ The `incorporation.completed` event is triggered automatically when an incorpora
             "email": "maria@weber.de",
             "phone": "+491234567890",
             "dob": "1978-03-15",
+            "nationality": "de",
             "address": {
                 "street": "Rathenauplatz 7",
                 "street_second_line": "1. Stock, Raum 3A",
                 "zip": "90489",
                 "city": "Nuremberg",
                 "state": "Bayern",
-                "country": "Germany"
+                "country": "de"
             },
             "authority": "sole"
         }
@@ -540,14 +541,14 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                 "email": "john.doe@example.com",
                 "phone": "+491234567890",
                 "dob": "1985-07-10",
-                "nationality": "German",
+                "nationality": "de",
                 "address": {
                     "street": "Lindenallee 12",
                     "street_second_line": "EG, Büro 1",
                     "zip": "60594",
                     "city": "Frankfurt am Main",
                     "state": "Hessen",
-                    "country": "Germany"
+                    "country": "de"
                 },
                 "shares": 12500,
                 "share_percentage": 50
@@ -563,7 +564,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                     "zip": "60311",
                     "city": "Frankfurt",
                     "state": "Hessen",
-                    "country": "Germany"
+                    "country": "de"
                 },
                 "directors": [
                     {
@@ -579,7 +580,7 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                             "zip": "10115",
                             "city": "Berlin",
                             "state": "Berlin",
-                            "country": "Germany"
+                            "country": "de"
                         }
                     }
                 ],
