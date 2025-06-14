@@ -68,8 +68,8 @@ The `incorporation.completed` event is triggered automatically when an incorpora
       **Example**: `Bayern`
     </ResponseField>
     <ResponseField name="country" type="string">
-      The country of the company.\
-      **Example**: `Germany`
+      The country of the company, specified using **ISO 3166-1 alpha-2** country code.\
+      **Example**: `de`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -99,8 +99,8 @@ The `incorporation.completed` event is triggered automatically when an incorpora
       **Example**: `Bayern`
     </ResponseField>
     <ResponseField name="country" type="string">
-      The country of the company.\
-      **Example**: `Germany`
+      The country of the company, specified using **ISO 3166-1 alpha-2** country code.\
+      **Example**: `de`
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -139,6 +139,10 @@ The `incorporation.completed` event is triggered automatically when an incorpora
       Date of birth of the director in `YYYY-MM-DD` format.\
       **Example**: `1978-03-15`
     </ResponseField>
+    <ResponseField name="nationality" type="string">
+            The nationality of the director, specified using **ISO 3166-1 alpha-2** country code.\
+            **Example**: `German`
+          </ResponseField>
     <ResponseField name="address" type="object">
       Address of the director.
 
@@ -164,8 +168,8 @@ The `incorporation.completed` event is triggered automatically when an incorpora
           **Example**: `Bayern`
         </ResponseField>
         <ResponseField name="country" type="string">
-          The country of the director.\
-          **Example**: `Germany`
+          The country of the director, specified using **ISO 3166-1 alpha-2** country code.\
+          **Example**: `de`
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -263,8 +267,8 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                 **Example**: `Bayern`
               </ResponseField>
               <ResponseField name="country" type="string">
-                The country of the individual shareholder.\
-                **Example**: `Germany`
+                The country of the individual shareholder, specified using **ISO 3166-1 alpha-2** country code.\
+                **Example**: `de`
               </ResponseField>
             </Expandable>
           </ResponseField>
@@ -317,8 +321,8 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                 **Example**: `Bayern`
               </ResponseField>
               <ResponseField name="country" type="string">
-                The country of the entity shareholder.\
-                **Example**: `Germany`
+                The country of the entity shareholder, specified using **ISO 3166-1 alpha-2** country code.\
+                **Example**: `de`
               </ResponseField>
             </Expandable>
           </ResponseField>
@@ -375,8 +379,8 @@ The `incorporation.completed` event is triggered automatically when an incorpora
                     **Example**: `Bayern`
                   </ResponseField>
                   <ResponseField name="country" type="string">
-                    The country of the entity director.\
-                    **Example**: `Germany`
+                    The country of the entity director, specified using **ISO 3166-1 alpha-2** country code.\
+                    **Example**: `de`
                   </ResponseField>
                 </Expandable>
               </ResponseField>
