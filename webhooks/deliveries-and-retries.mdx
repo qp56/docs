@@ -1,22 +1,19 @@
 ---
-title: 'Delivery & Retries'
+title: "Delivery & Retries"
 ---
 
 When your server receives a webhook, it's like getting a handshake from Beglaubigt. To confirm you received it:
 
-* Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
-
-* If your server fails to respond, we will retry delivery up to **20 times** using **exponential backoff** to avoid overwhelming your system.
+- Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
+- If your server fails to respond, we will retry delivery up to **5 times** using **exponential backoff** to avoid overwhelming your system.
 
 ### Best Practices
 
 Handle Beglaubigt webhooks like a pro by following these best practices:
 
-* **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn't cause unintended effects.
-
-* **Validate webhook signatures**: Verify the event's authenticity to ensure it originates from Beglaubigt.
-
-* **Respond quickly**: Acknowledge receipt promptly to prevent retries.
+- **Make handlers idempotent**: Ensure receiving the same webhook multiple times doesn't cause unintended effects.
+- **Validate webhook signatures**: Verify the event's authenticity to ensure it originates from Beglaubigt.
+- **Respond quickly**: Acknowledge receipt promptly to prevent retries.
 
 ### Need Help?
 
