@@ -7,6 +7,14 @@ When your server receives a webhook, it's like getting a handshake from Beglaubi
 - Your endpoint should respond with **HTTP status code 200 OK** or **201 Created**.
 - If your server fails to respond, we will retry delivery up to **5 times** using **exponential backoff** to avoid overwhelming your system.
 
+  | Number of retry | Backoff time |
+  | --------------- | ------------ |
+  | 1               | 2 minutes    |
+  | 2               | 4 minutes    |
+  | 3               | 8 minutes    |
+  | 4               | 16 minutes   |
+  | 5               | 32 minutes   |
+
 ### Best Practices
 
 Handle Beglaubigt webhooks like a pro by following these best practices:
