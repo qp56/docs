@@ -1,0 +1,159 @@
+---
+title: "Appointment Completed"
+---
+
+### Understanding the Event
+
+The `appointment.completed` event is automatically triggered when the notary appointment date has passed.
+
+### Payload Fields
+
+<ResponseField name="webhook_id" type="string">
+  A unique identifier for this webhook in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="event" type="string">
+  The name of the event that triggered this webhook.\
+  **Value**: `appointment.completed`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Provides a human-readable message indicating the result of the webhook event.\
+  **Value**: `The notary appointment date has passed.`
+</ResponseField>
+
+<ResponseField name="incorporation_id" type="string">
+  The unique identifier for the incorporation in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The legal name of the company.\
+  **Example**: `Acme Holdings GmbH`
+</ResponseField>
+
+<ResponseField name="type" type="string">
+  The type of company incorporated.\
+  **Possible values**: `gmbh` or `ug`
+</ResponseField>
+
+<ResponseField name="capital" type="number">
+  The total share capital of the company in EUR.\
+  **Example**: `25000`
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The status of the incorporation.\
+  **Value**: `appointment-confirmed`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  The URL of the incorporation.\
+  **Example**: `https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="notarization" type="object">
+  Details about the notarization process.
+
+  <Expandable title="Notarization">
+    <ResponseField name="type" type="string">
+      The method of notarization.\
+      **Possible values**: `offline` or `online`
+    </ResponseField>
+    <ResponseField name="express" type="boolean">
+      Requests expedited notarization.
+    </ResponseField>
+    <ResponseField name="preferred_location" type="string">
+      The client's preferred location for notarization, specified as a city name in either German or English. **Example**: `Munich`
+    </ResponseField>
+    <ResponseField name="preferred_timeframe" type="number">
+      The client's preferred timeframe for notarization, expressed as the number of days from the request date.
+      **Possible values**: `7`, `14`, `30`
+    </ResponseField>
+    <ResponseField name="date" type="string">
+      Notarization date in `YYYY-MM-DD` format.\
+      **Example**: `2025-04-16`
+    </ResponseField>
+    <ResponseField name="time" type="string">
+      Notarization date in `HH:mm` format.\
+      **Example**: `14:30`
+    </ResponseField>
+    <ResponseField name="appointment_status" type="string">
+      The current status of the notarization appointment.
+      **Possible values**: `pending` or `confirmed`
+    </ResponseField>
+    <ResponseField name="notary" type="object">
+      Notary responsible for the notarization.
+
+      <Expandable title="Notary">
+        <ResponseField name="office" type="string">
+          The name of the notary’s office.\
+          **Example**: `Notariat Schiller & Partner`
+        </ResponseField>
+        <ResponseField name="name" type="string">
+          The full name of the notary.\
+          **Example**: `Dr. Anna Becker`
+        </ResponseField>
+        <ResponseField name="email" type="string">
+          The email address of the notary.\
+          **Example**: `dr.becker@notariat-schiller.de`
+        </ResponseField>
+        <ResponseField name="phone" type="string">
+          The contact phone number of the notary.\
+          **Example**: `+49 89 12345678`
+        </ResponseField>
+        <ResponseField name="address" type="string">
+          The full address of the notary's office, formatted as `street name and number, postal code, city`.\
+          **Example**: `Schillerstraße 15, 10117, Berlin`
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  Your custom reference string provided during incorporation creation.\
+  **Example**: `REF-2025-001`
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
+  **Example**: `2025-06-01T08:00:00.443Z`
+</ResponseField>
+
+<ResponseExample>
+
+```json
+{
+    "webhook_id": "123e4567-e89b-12d3-a456-426614174000",
+    "event": "appointment.confirmed",
+    "message": "The notary appointment date has passed.",
+    "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
+    "name": "Acme Holdings GmbH",
+    "type": "gmbh",
+    "capital": 12500,
+    "status": "appointment-completed",
+    "url": "https://app.beglaubigt.de/incorporate/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
+    "notarization": {
+        "type": "online",
+        "express": false,
+		"preferred_location": "Berlin",
+        "preferred_timeframe": 7,
+        "date": "2025-05-16",
+        "time": "14:30",
+        "appointment_status": "confirmed",
+        "notary": {
+            "office": "Notariat Schiller & Partner",
+            "name": "Dr. Anna Becker",
+            "email": "dr.becker@notariat-schiller.de",
+            "phone": "+49 89 12345678",
+            "address": "Schillerstraße 15, 10117, Berlin"
+        }
+    },
+    "client_reference": "REF-2025-001",
+    "timestamp": "2025-10-18T12:00:00Z"
+}
+```
+
+</ResponseExample>
