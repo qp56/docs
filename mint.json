@@ -65,6 +65,7 @@
         "webhooks/incorporation.initiated",
         "webhooks/incorporation.submitted",
         "webhooks/appointment.confirmed",
+        "webhooks/appointment.completed",
         "webhooks/incorporation.completed",
         "webhooks/incorporation.blocked"
       ]
