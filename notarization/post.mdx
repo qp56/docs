@@ -149,8 +149,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
   **Exemple**: `Case created successfully.`
 </ResponseField>
 
-<ResponseField name="incorporation_id" type="string">
-  The unique identifier for the created incorporation in a **UUID** format.\
+<ResponseField name="case_id" type="string">
+  The unique identifier for the created case in a **UUID** format.\
   **Example**: `123e4567-e89b-12d3-a456-426614174000`
 </ResponseField>
 
@@ -264,7 +264,7 @@ To authenticate requests, include an Authorization header with a Bearer token:
   "response": {
       "result": "success",
       "message": "Case created successfully.",
-      "incorporation_id": "450506c1-d1a7-46e2-aca6-41a816805595",
+      "case_id": "450506c1-d1a7-46e2-aca6-41a816805595",
       "status": "in-progress",
       "url": "https://app.beglaubigt.de/notarize/450506c1-d1a7-46e2-aca6-41a816805595",
       "documents": [
