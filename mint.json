@@ -68,7 +68,6 @@
         "webhooks/appointment.completed",
         "webhooks/incorporation.completed",
         "webhooks/incorporation.blocked",
-        
         "webhooks/registration.initiated",
         "webhooks/registration.submitted",
         "webhooks/registration.completed"
