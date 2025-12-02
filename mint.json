@@ -70,6 +70,7 @@
         "webhooks/incorporation.blocked",
         "webhooks/registration.initiated",
         "webhooks/registration.submitted",
+        "webhooks/registration.form-rendered",
         "webhooks/registration.completed"
       ]
     }
