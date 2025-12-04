@@ -71,7 +71,8 @@
         "webhooks/registration.initiated",
         "webhooks/registration.submitted",
         "webhooks/registration.form-rendered",
-        "webhooks/registration.completed"
+        "webhooks/registration.completed",
+        "webhooks/registration.blocked"
       ]
     }
   ],
