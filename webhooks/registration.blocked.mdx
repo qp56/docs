@@ -1,0 +1,73 @@
+---
+title: "Registration Blocked"
+---
+
+### Understanding the Event
+
+The `registration.blocked` event is automatically triggered when a registration data has been verified and blocked by our internal team.
+
+### Payload Fields
+
+<ResponseField name="webhook_id" type="string">
+  A unique identifier for this webhook in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="event" type="string">
+  The name of the event that triggered this webhook.\
+  **Value**: `registration.blocked`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Provides a human-readable message indicating the result of the webhook event.\
+  **Value**: `The registration has been blocked`
+</ResponseField>
+
+<ResponseField name="registration_id" type="string">
+  The unique identifier for the registration in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The status of the registration\
+  **Value**: `blocked`
+</ResponseField>
+
+<ResponseField name="package" type="string">
+  The package selected by the customer.\
+  **Possible values**: `self` or `assisted`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  The URL of the registration\
+  **Example**: `https://app.beglaubigt.de/register/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  Your custom reference string provided during registration creation.\
+  **Example**: `REF-2025-001`
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The exact date and time when the webhook was triggered, formatted as an **ISO 8601** string in UTC.\
+  **Example**: `2025-06-01T08:00:00.443Z`
+</ResponseField>
+
+<ResponseExample>
+
+```json
+{
+  "webhook_id": "123e4567-e89b-12d3-a456-426614174000",
+  "event": "registration.submitted",
+  "message": "The registration has been blocked.",
+  "incorporation_id": "123e4567-e89b-12d3-a456-426614174000",
+  "status": "initiated",
+  "package": "assisted",
+  "blocked_reason": "Invalid registration number.",
+  "url": "https://app.beglaubigt.de/register/acme-holding-gmbh/123e4567-e89b-12d3-a456-426614174000",
+  "client_reference": "REF-2025-001",
+  "timestamp": "2025-10-18T12:00:00Z"
+}
+```
+
+</ResponseExample>
