@@ -1,0 +1,274 @@
+---
+title: "Get Translation"
+api: "GET https://api.beglaubigt.de/v1/translation/{translation_id}"
+description: "This endpoint retrieves the details of a translation request, including documents."
+authMethod: "bearer"
+---
+
+### Authorization
+
+To authenticate requests, include an Authorization header with a Bearer token:
+
+`Authorization: Bearer <token>`
+
+**Example:** `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
+
+### Path Parameters
+
+<ParamField path="translation_id" type="string" required>
+  The unique identifier of the translation case to retrieve.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ParamField>
+
+### Response
+
+<ResponseField name="result" type="string">
+  Indicates the outcome of the request.\
+  **Possible values**: `success` or `error`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A human-readable summary of the result.\
+  **Example**: `Translation fetched successfully.`
+</ResponseField>
+
+<ResponseField name="translation_id" type="string">
+  The unique identifier for the translation case in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The current status of the translation process.\
+  **Possible values**: `draft`, `pending`, `completed`, `archive`, `feedback-requested` or `refund-needed`
+</ResponseField>
+
+<ResponseField name="translation_type" type="string">
+  The service type.\
+  **Possible values**: `standard` or `certified`
+</ResponseField>
+
+<ResponseField name="certification_jurisdiction" type="string">
+  The 2-letter ISO country code of the country where the certified translation is valid.\
+  **Example**: `DE`
+</ResponseField>
+
+<ResponseField name="source_language" type="string">
+  The ISO code of the language the original document is written in.\
+  **Example**: `de`
+</ResponseField>
+
+<ResponseField name="target_language" type="string">
+  The ISO code of the language the document should be translated into.\
+  **Example**: `en`
+</ResponseField>
+
+<ResponseField name="is_apostille_needed" type="boolean">
+  Indicates if a legal apostille was requested for the translated documents.\\
+</ResponseField>
+
+<ResponseField name="urgency" type="string">
+  The priority level of the request.\
+  **Possible values**: `standard`, `priority` or `express` 
+</ResponseField>
+
+<ResponseField name="documents" type="array">
+  List of documents associated with this case.
+
+  <Expandable title="Document Object">
+    <ResponseField name="id" type="string">
+      Unique document UUID.\
+      **Example**: `123e4567-e89b-12d3-a456-426614174001`
+    </ResponseField>
+    <ResponseField name="type" type="string">
+      The role of the document in the case.\
+      **Possible values**: `original` or `translation`
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      The file name of the document.\
+      **Example**: `birth_certificate.pdf`
+    </ResponseField>
+    <ResponseField name="pages" type="number">
+      Number of pages in the document.\
+      **Example**: `2`
+    </ResponseField>
+    <ResponseField name="download_url" type="string">
+      A temporary signed URL to download the PDF. Valid for **24 hours**.\
+      **Example**: `https://app.beglaubigt.de/download?bucket=translation-documents&id=123e4567-e89b-12d3-a456-426614174000&token=a1H...To5`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="delivery_method" type="string">
+  The selected delivery method for the final documents.\
+  **Possible values**: `email`, `postal` or `express`
+</ResponseField>
+
+<ResponseField name="is_insurance_needed" type="boolean">
+  Indicates if order insurance was applied to the request.
+</ResponseField>
+
+<ResponseField name="client_details" type="object">
+  Information about the requesting client.
+
+  <Expandable title="Client Details">
+    <ResponseField name="first_name" type="string">
+      The first name of the client.\
+      **Example**: `John`
+    </ResponseField>
+    <ResponseField name="last_name" type="string">
+      The last name of the client.\
+      **Example**: `Doe`
+    </ResponseField>
+    <ResponseField name="email" type="string">
+      The email address of the client.\
+      **Example**: `john.doe@example.com`
+    </ResponseField>
+    <ResponseField name="phone" type="string">
+      The phone number of the client.\
+      **Example**: `+491701234567`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="delivery_address" type="object">
+  The physical address where the documents will be shipped.
+
+  <Expandable title="Address Object">
+    <ResponseField name="person_type" type="string">
+      The type of recipient.\
+      **Possible values**: `private` or `business` \\
+    </ResponseField>
+    <ResponseField name="first_name" type="string">
+      The first name of the recipient.\
+      **Example**: `John`
+    </ResponseField>
+    <ResponseField name="last_name" type="string">
+      The last name of the recipient.\
+      **Example**: `Doe`
+    </ResponseField>
+    <ResponseField name="business_name" type="string">
+      The name of the company.\
+      **Example**: `Beglaubigt GmbH`
+    </ResponseField>
+    <ResponseField name="street" type="string">
+      The street name and house number.\
+      **Example**: `Hauptstraße 12`
+    </ResponseField>
+    <ResponseField name="city" type="string">
+      The city of the address.\
+      **Example**: `Berlin`
+    </ResponseField>
+    <ResponseField name="zip" type="string">
+      The postal code.\
+      **Example**: `10115`
+    </ResponseField>
+    <ResponseField name="country" type="string">
+      The 2-letter ISO country code.\
+      **Example**: `DE`
+    </ResponseField>
+    <ResponseField name="additional" type="string">
+      Additional information like floor, suite, or apartment.\
+      **Example**: `Hinterhaus, 2. OG`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="billing_address" type="object">
+  The address used for invoicing. Follows the same structure as `delivery_address`.
+</ResponseField>
+
+<ResponseField name="price" type="number">
+  The total price of the translation in EUR.\
+  **Example**: `85.50`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  Direct dashboard link to the case.\
+  **Example**: `https://app.beglaubigt.de/cases/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="client_reference" type="string">
+  The custom reference provided during request creation.\
+  **Example**: `PO-99821`
+</ResponseField>
+
+<ResponseField name="client_preferred_language" type="string">
+  The ISO code for notification preferences.\
+  **Possible values**: `de`, `en`, `fr`, `es` or `it` 
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  ISO 8601 timestamp of translation creation.\
+  **Example**: `2026-02-07T14:21:30.000Z`
+</ResponseField>
+
+<RequestExample>
+
+```
+--request GET 'https://api.beglaubigt.de/v1/translation/123e4567-e89b-12d3-a456-426614174000' \
+--header 'Authorization: Bearer <token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json
+{
+  "response": {
+    "result": "success",
+    "message": "Translation fetched successfully.",
+    "translation_id": "123e4567-e89b-12d3-a456-426614174000",
+    "status": "pending",
+    "translation_type": "certified",
+    "certification_jurisdiction": "DE",
+    "source_language": "de",
+    "target_language": "en",
+    "is_apostille_needed": true,
+    "urgency": "priority",
+    "documents": [
+      {
+        "id": "123e4567-e89b-12d3-a456-426614174001",
+        "type": "original",
+        "name": "birth_certificate.pdf",
+        "pages": 2,
+        "download_url": "https://app.beglaubigt.de/download?bucket=translation-documents&id=123e4567-e89b-12d3-a456-426614174001&token=a1H...To5"
+      }
+    ],
+    "delivery_method": "express",
+    "is_insurance_needed": false,
+    "client_details": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "phone": "+491701234567"
+    },
+    "delivery_address": {
+      "person_type": "private",
+      "first_name": "John",
+      "last_name": "Doe",
+      "street": "Hauptstraße 12",
+      "additional": "Hinterhaus, 2. OG",
+      "city": "Berlin",
+      "zip": "10115",
+      "country": "DE"
+    },
+    "billing_address": {
+      "person_type": "private",
+      "first_name": "John",
+      "last_name": "Doe",
+      "street": "Hauptstraße 12",
+      "city": "Berlin",
+      "zip": "10115",
+      "country": "DE"
+    },
+    "price": 85.50,
+    "url": "[https://app.beglaubigt.de/cases/123e4567-e89b-12d3-a456-42661417400]",
+    "client_reference": "PO-99821",
+    "client_preferred_language": "de",
+    "created_at": "2026-02-07T14:21:30.000Z"
+  }
+}
+```
+
+</ResponseExample>

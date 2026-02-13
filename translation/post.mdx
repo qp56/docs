@@ -1,0 +1,274 @@
+---
+title: "Create Translation"
+api: "POST https://api.beglaubigt.de/v1/translation"
+description: "This endpoint creates a translation request for one or multiple documents."
+authMethod: "bearer"
+---
+
+### Authorization
+
+To authenticate requests, include an Authorization header with a Bearer token:
+
+`Authorization: Bearer <token>`
+
+**Example:** `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
+
+### Body
+
+<ParamField body="translation_type" type="string" required>
+  The type of translation service required. Use `certified` for officially recognized translations for authorities, or `standard` for professional business and private documents.\
+  **Possible values**: `standard` or `certified`
+</ParamField>
+
+<ParamField body="certification_jurisdiction" type="string">
+  The 2-letter ISO country code of the country where the certified translation will be used.\
+  **Example**: `DE`\
+  **Note**: Required if `translation_type` is `certified`.
+</ParamField>
+
+<ParamField body="source_language" type="string" required>
+  The ISO code of the language the original document is written in. Refer to the list of supported languages below.\
+  **Example**: `de`
+</ParamField>
+
+<ParamField body="target_language" type="string" required>
+  The ISO code of the language the document should be translated into. Refer to the list of supported languages below.\
+  **Example**: `en`
+</ParamField>
+
+<Expandable title="Supported Language Codes">
+  | Language       | ISO       | Language        | ISO     | Language       | ISO       |
+  | :------------- | :-------- | :-------------- | :------ | :------------- | :-------- |
+  | Afrikaans      | `af`      | Hebrew          | `he`    | Norwegian      | `no`      |
+  | Amharic        | `am`      | Hindi           | `hi`    | Punjabi        | `pa`      |
+  | Arabic         | `ar`      | Croatian        | `hr`    | Polish         | `pl`      |
+  | Azerbaijani    | `az`      | Haitian Creole  | `ht`    | Pashto/Pushto  | `ps`      |
+  | Belarusian     | `be`      | Hungarian       | `hu`    | Portuguese     | `pt-pt`   |
+  | Bulgarian      | `bg`      | Armenian        | `hy`    | Romanian       | `ro`      |
+  | Bengali/Bangla | `bn`      | Indonesian      | `id`    | Moldavian      | `mo`      |
+  | Catalan        | `ca`      | Icelandic       | `is`    | Singhalese     | `si`      |
+  | Czech          | `cs`      | Italian         | `it`    | Slovak         | `sk`      |
+  | Russian        | `ru`      | Japanese        | `ja`    | Slovenian      | `sl`      |
+  | Danish         | `da`      | Georgian        | `ka`    | Somali         | `so`      |
+  | German         | `de`      | Khmer           | `km`    | Albanian       | `sq`      |
+  | Greek          | `el`      | Kannada         | `kn`    | Serbian        | `sr`      |
+  | English        | `en-gb`   | Korean          | `ko`    | Swedish        | `sv`      |
+  | Spanish        | `es`      | Kurdish         | `ku`    | Swahili        | `sw`      |
+  | Estonian       | `et`      | Latin           | `la`    | Tamil          | `ta`      |
+  | Finnish        | `fi`      | Lingala         | `ln`    | Thai           | `th`      |
+  | French         | `fr`      | Lithuanian      | `lt`    | Tigrinya       | `ti`      |
+  | Farsi          | `fy`      | Latvian/Lettish | `lv`    | Tagalog        | `tl`      |
+  | Irish          | `ga`      | Maori           | `mi`    | Turkish        | `tr`      |
+  | Gujarati       | `gu`      | Macedonian      | `mk`    | Ukrainian      | `uk`      |
+  | Hausa          | `ha`      | Mongolian       | `mn`    | Urdu           | `ur`      |
+  | Marathi        | `mr`      | Malay           | `ms`    | Uzbek          | `uz`      |
+  | Vietnamese     | `vi`      | Yoruba          | `yo`    | Chinese (Simp) | `zh-hans` |
+  | Chinese (Trad) | `zh-hant` | Dari            | `fa-af` | Maltese        | `mt`      |
+  | Burmese        | `my`      | Nepali          | `ne`    | Dutch          | `nl`      |
+</Expandable>
+
+<ParamField body="urgency" type="string">
+  The priority level of the request.
+
+  `standard`: 3-5 business days.\
+  `priority`: ~48 hours.\
+  `urgent`: ~24 hours.
+
+  **Possible values**: `standard`, `priority` or `urgent`\
+  **Default value**: `standard`
+</ParamField>
+
+<ParamField body="is_apostille_needed" type="boolean">
+  Indicates if a legal apostille is required for the translated documents.\
+  **Default value**: `false`
+</ParamField>
+
+<ParamField body="documents" type="array" required>
+  An array of strings containing the URLs of the documents to be translated.\
+  **Example**: `["https://example.com/doc1.pdf"]`
+</ParamField>
+
+<ParamField body="delivery_method" type="string">
+  How the final translation should be delivered.\
+  **Possible values**: `email`, `postal` or `express`\
+  **Default value**: `email`
+</ParamField>
+
+<ParamField body="translator_notes" type="string">
+  Additional instructions or notes for the translator (Max 191 characters).\
+  **Example**: `Please ignore the handwritten scribbles at the bottom of the page.`
+</ParamField>
+
+<ParamField body="is_insurance_needed" type="boolean">
+  Whether to include insurance for the translation order.\
+  **Default value**: `false`
+</ParamField>
+
+<ParamField body="client_details" type="object" required>
+  Information about the person requesting the translation.
+
+  <Expandable title="Client Details Object">
+    <ParamField body="first_name" type="string" required>
+      First name of the client.\
+      **Example**: `John`
+    </ParamField>
+    <ParamField body="last_name" type="string" required>
+      Last name of the client.\
+      **Example**: `Doe`
+    </ParamField>
+    <ParamField body="email" type="string" required>
+      Email address for communication and digital delivery.\
+      **Example**: `john.doe@example.com`
+    </ParamField>
+    <ParamField body="phone" type="string" required>
+      Contact phone number in international format.\
+      **Example**: `+4915222320123`
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="delivery_address" type="object">
+  The physical address for shipping.\
+  **Note**: Required if `delivery_method` is `postal` or `express`.
+
+  <Expandable title="Address Object">
+    <ParamField body="person_type" type="string">
+      **Possible values**: `private` or `business`\
+      **Default value**: `private`
+    </ParamField>
+    <ParamField body="first_name" type="string" required>
+      Recipient's first name.\
+      **Example**: `Max`
+    </ParamField>
+    <ParamField body="last_name" type="string" required>
+      Recipient's last name.\
+      **Example**: `Mustermann`
+    </ParamField>
+    <ParamField body="business_name" type="string">
+      Name of the company (if applicable).\
+      **Example**: `Muster GmbH`
+    </ParamField>
+    <ParamField body="street" type="string" required>
+      Street name and house number.\
+      **Example**: `Schillerstraße 15`
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      City name.\
+      **Example**: `Berlin`
+    </ParamField>
+    <ParamField body="zip" type="string" required>
+      Postal/Zip code.\
+      **Example**: `10115`
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      2-letter ISO country code.\
+      **Example**: `DE`
+    </ParamField>
+    <ParamField body="phone" type="string">
+      Contact phone for delivery.\
+      **Example**: `+493012345678`
+    </ParamField>
+    <ParamField body="additional" type="string">
+      Extra details (e.g., Suite, Apartment, Floor).\
+      **Example**: `Hinterhaus, 2. OG`
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="billing_address" type="object">
+  The address to be used for the invoice. Uses the same structure as `delivery_address`.
+</ParamField>
+
+<ParamField body="client_reference" type="string">
+  A custom reference string for internal tracking.\
+  **Example**: `PO-99821`
+</ParamField>
+
+<ParamField body="client_preferred_language" type="string">
+  Preferred language for automated notifications.\
+  **Possible values**: `en`, `de`, `es`, `fr` or `it`
+</ParamField>
+
+### Response
+
+<ResponseField name="result" type="string">
+  Indicates the outcome of the request.\
+  **Possible values**: `success` or `error`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A human-readable summary of the result.\
+  **Example**: `Translation created successfully.`
+</ResponseField>
+
+<ResponseField name="translation_id" type="string">
+  The unique **UUID** identifying the created translation case.\
+  **Example**: `8963cd77-b5f9-4280-986d-6137e9fea106`
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The initial status of the translation.\
+  **Value**: `pending`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  The dashboard URL to monitor the translation progress.\
+  **Example**: `https://app.beglaubigt.de/cases/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The ISO 8601 timestamp of when the case was created.
+</ResponseField>
+
+<RequestExample>
+
+```json
+{
+  "translation_type": "certified",
+  "certification_jurisdiction": "DE",
+  "source_language": "de",
+  "target_language": "en",
+  "urgency": "priority",
+  "is_apostille_needed": true,
+  "translator_notes": "Please ensure the name 'Müller' is transliterated exactly as written.",
+  "documents": [
+    "https://example.com/my-document.pdf"
+  ],
+  "delivery_method": "express",
+  "is_insurance_needed": false,
+  "client_details": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "+491701234567"
+  },
+  "delivery_address": {
+    "person_type": "private",
+    "first_name": "John",
+    "last_name": "Doe",
+    "street": "Hauptstraße 12",
+    "additional": "Hinterhaus, 2. OG",
+    "city": "Berlin",
+    "zip": "10115",
+    "country": "DE"
+  }
+}
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json
+{
+  "response": {
+    "result": "success",
+    "message": "Translation created successfully.",
+    "translation_id": "8963cd77-b5f9-4280-986d-6137e9fea106",
+    "status": "pending",
+    "url": "https://app.beglaubigt.de/cases/8963cd77-b5f9-4280-986d-6137e9fea106",
+    "timestamp": "2026-02-07T14:21:30.000Z"
+  }
+}
+```
+
+</ResponseExample>

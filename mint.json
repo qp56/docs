@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "Introduction",
-      "url": "api-reference"
+      "url": "introduction"
     }
   ],
   "navigation": [
@@ -44,7 +44,9 @@
         "notarization/post",
         "notarization/get",
         "incorporation/post",
-        "incorporation/get"
+        "incorporation/get",
+        "translation/post",
+        "translation/get"
       ]
     },
     {

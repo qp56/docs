@@ -1,0 +1,92 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Beglaubigt.de API Docs",
+  "theme": "mint",
+  "logo": {
+    "dark": "/logo/beglaubigt-api.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#2485E5",
+    "light": "#2485E5",
+    "dark": "#2485E5"
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:info@beglaubigt.de"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://app.beglaubigt.de"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Introduction",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction"]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Services",
+            "pages": [
+              "notarization/post",
+              "notarization/get",
+              "incorporation/post",
+              "incorporation/get",
+              "translation/post",
+              "translation/get"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Webhooks",
+        "groups": [
+          {
+            "group": "Guides",
+            "pages": [
+              "webhooks",
+              "webhooks/delivery-and-retries",
+              "webhooks/signature-verification"
+            ]
+          },
+          {
+            "group": "Events",
+            "pages": [
+              "webhooks/signatures.requested",
+              "webhooks/signatures.completed",
+              "webhooks/verifications.completed",
+              "webhooks/notarization.completed",
+              "webhooks/incorporation.initiated",
+              "webhooks/incorporation.submitted",
+              "webhooks/appointment.confirmed",
+              "webhooks/appointment.completed",
+              "webhooks/incorporation.completed",
+              "webhooks/incorporation.blocked",
+              "webhooks/registration.initiated",
+              "webhooks/registration.submitted",
+              "webhooks/registration.form-rendered",
+              "webhooks/registration.completed",
+              "webhooks/registration.blocked"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footerSocials": {
+    "x": "https://x.com/beglaubigt",
+    "github": "https://github.com/beglaubigt",
+    "linkedin": "https://linkedin.com/company/beglaubigt"
+  }
+}
