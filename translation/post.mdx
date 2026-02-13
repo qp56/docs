@@ -251,9 +251,11 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "city": "Berlin",
     "zip": "10115",
     "country": "DE"
-  }
+  },
+  "client_reference": "MY_CLIENT_12345"
 }
 ```
+
 </RequestExample>
 
 <ResponseExample>
@@ -266,7 +268,8 @@ To authenticate requests, include an Authorization header with a Bearer token:
     "translation_id": "8963cd77-b5f9-4280-986d-6137e9fea106",
     "status": "pending",
     "url": "https://app.beglaubigt.de/cases/8963cd77-b5f9-4280-986d-6137e9fea106",
-    "timestamp": "2026-02-07T14:21:30.000Z"
+    "timestamp": "2026-02-07T14:21:30.000Z",
+	"client_reference": "MY_CLIENT_12345"
   }
 }
 ```
