@@ -48,13 +48,12 @@ To authenticate requests, include an Authorization header with a Bearer token:
 </ResponseField>
 
 <ResponseField name="timestamp" type="string">
-  The ISO 8601 timestamp of when the case was created.
-  **Example**: `2026-02-07T14:21:30.000Z`
+  The ISO 8601 timestamp of when the case was created. **Example**: `2026-02-07T14:21:30.000Z`
 </ResponseField>
 
 <RequestExample>
 
-```bash
+```javascript
 curl --request POST 'https://api.beglaubigt.de/v1/translation/123e4567-e89b-12d3-a456-426614174000/cancel' \
 --header 'Authorization: Bearer <token>'
 ```

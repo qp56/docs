@@ -67,6 +67,27 @@ To authenticate requests, include an Authorization header with a Bearer token:
   | Burmese        | `my`      | Nepali          | `ne`    | Dutch          | `nl`      |
 </Expandable>
 
+> **Warning**: While we support a wide range of languages, certain specific language combinations are currently unavailable. Please review the **Unsupported Language Pairs** section below before submitting your request to avoid validation errors.
+
+<Expandable title="Unsupported Language Pairs">
+  Requests for the following specific language combinations will return a `422` error:
+
+  | From (Source) | To (Target) | From (Source) | To (Target) |
+  | :--- | :--- | :--- | :--- |
+  | Afrikaans (`af`) | German (`de`) | Dutch (`nl`) | German (`de`) |
+  | Afrikaans (`af`) | English (`en-gb`) | French (`fr`) | Nepali (`ne`) |
+  | Albanian (`sq`) | Lithuanian (`lt`) | Georgian (`ka`) | Lithuanian (`lt`) |
+  | Albanian (`sq`) | Spanish (`es`) | Indonesian (`id`) | Spanish (`es`) |
+  | Azerbaijani (`az`) | Dutch (`nl`) | Latvian (`lv`) | Dutch (`nl`) |
+  | Azerbaijani (`az`) | English (`en-gb`) | Lithuanian (`lt`) | Croatian (`hr`) |
+  | Bengali (`bn`) | German (`de`) | Malay (`ms`) | German (`de`) |
+  | Bulgarian (`bg`) | Ukrainian (`uk`) | Marathi (`mr`) | French (`fr`) |
+  | Burmese (`my`) | French (`fr`) | Marathi (`mr`) | German (`de`) |
+  | Burmese (`my`) | German (`de`) | Polish (`pl`) | English (`en-gb`) |
+  | Burmese (`my`) | Spanish (`es`) | Romanian (`ro`) | Indonesian (`id`) |
+  | Dari (`fa-af`) | English (`en-gb`) | | |
+</Expandable>
+
 <ParamField body="urgency" type="string">
   The priority level of the request.
 
