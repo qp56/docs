@@ -1,0 +1,79 @@
+---
+title: "Cancel Translation"
+api: "POST https://api.beglaubigt.de/v1/translation/{translation_id}/cancel"
+description: "This endpoint cancels an existing translation request. Cancelation is only possible if the processing has not yet reached a non-reversible state."
+authMethod: "bearer"
+---
+
+### Authorization
+
+To authenticate requests, include an Authorization header with a Bearer token:
+
+`Authorization: Bearer <token>`
+
+**Example:** `Bearer sk-123e4567-e89b-12d3-a456-426614174000`
+
+### Path Parameters
+
+<ParamField path="translation_id" type="string" required>
+  The unique identifier of the translation case to retrieve.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ParamField>
+
+### Response
+
+<ResponseField name="result" type="string">
+  Indicates the outcome of the request.\
+  **Possible values**: `success` or `error`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A human-readable summary of the result.\
+  **Example**: `Translation cancelled successfully.`
+</ResponseField>
+
+<ResponseField name="translation_id" type="string">
+  The unique identifier for the translation case in a **UUID** format.\
+  **Example**: `123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The initial status of the translation.\
+  **Value**: `cancelled`
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  The dashboard URL to monitor the translation progress.\
+  **Example**: `https://app.beglaubigt.de/cases/123e4567-e89b-12d3-a456-426614174000`
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  The ISO 8601 timestamp of when the case was created.
+  **Example**: `2026-02-07T14:21:30.000Z`
+</ResponseField>
+
+<RequestExample>
+
+```
+curl --request POST 'https://api.beglaubigt.de/v1/translation/123e4567-e89b-12d3-a456-426614174000/cancel' \
+--header 'Authorization: Bearer <token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json
+{
+  "response": {
+      "result": "success",
+      "message": "Translation cancelled successfully.",
+      "translation_id": "6527e2e3-daa1-43a9-98dc-ff1a781a530c",
+      "status": "cancelled",
+      "url": "https://app.beglaubigt.de/cases/6527e2e3-daa1-43a9-98dc-ff1a781a530c",
+      "timestamp": "2026-02-13T14:21:52.014Z"
+  }
+}
+```
+
+</ResponseExample>
